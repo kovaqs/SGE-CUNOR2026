@@ -1,0 +1,29 @@
+# Visual Studio y configuración local
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.sln.iml
+
+# Compilación, pruebas y herramientas locales
+[Bb]in/
+[Oo]bj/
+TestResults/
+artifacts/
+.tools/
+*.nupkg
+*.snupkg
+*.log
+*.tmp
+
+# Secretos y credenciales locales
+.env
+.env.*
+secrets.json
+*.pfx
+*.p12
+*.pem
+*.key
+*.publishsettings
+*.pubxml
