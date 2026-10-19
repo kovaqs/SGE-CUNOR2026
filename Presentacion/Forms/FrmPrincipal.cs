@@ -7,14 +7,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KovaqsUI.Controls;
+using Presentacion.Forms.Secciones;
+using Presentacion.Navegacion;
 
 namespace Presentacion.Forms
 {
     public partial class FrmPrincipal : Form
     {
+        private GestorFormularios? gestorFormularios;
+        private readonly Dictionary<KSegmentItem, Action> secciones = new();
+
         public FrmPrincipal()
         {
             InitializeComponent();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            if (DesignMode || LicenseManager.UsageMode == LicenseUsageMode.Designtime)
+                return;
+
+            if (gestorFormularios is null)
+            {
+                gestorFormularios = new GestorFormularios(panelContenedor);
+                secciones.Add(SEmpleados, () => gestorFormularios.Mostrar<FrmEmpleados>());
+                secciones.Add(SPuestos, () => gestorFormularios.Mostrar<FrmPuestos>());
+                secciones.Add(SDepartamentos, () => gestorFormularios.Mostrar<FrmDepartamentos>());
+                secciones.Add(SAsistencias, () => gestorFormularios.Mostrar<FrmAsistencias>());
+                secciones.Add(SReportes, () => gestorFormularios.Mostrar<FrmReportes>());
+                secciones.Add(SNomina, () => gestorFormularios.Mostrar<FrmNomina>());
+                secciones.Add(SUsuarios, () => gestorFormularios.Mostrar<FrmUsuarios>());
+                secciones.Add(SConfiguracion, () => gestorFormularios.Mostrar<FrmConfiguracion>());
+            }
+
+            MostrarSeccionSeleccionada();
+        }
+
+        private void MostrarSeccionSeleccionada()
+        {
+            if (PanelSegmentado.SelectedItem is { } seleccion && secciones.TryGetValue(seleccion, out var mostrar))
+                mostrar();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -42,7 +76,7 @@ namespace Presentacion.Forms
 
         private void PanelSegmentado_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            MostrarSeccionSeleccionada();
         }
     }
 }

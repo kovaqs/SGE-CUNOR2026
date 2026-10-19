@@ -50,7 +50,7 @@
             kButton6 = new KovaqsUI.Controls.KButton();
             kButton5 = new KovaqsUI.Controls.KButton();
             kButton4 = new KovaqsUI.Controls.KButton();
-            panel5 = new Panel();
+            panelContenedor = new Panel();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -307,13 +307,13 @@
             kButton4.TabIndex = 0;
             kButton4.UseVisualStyleBackColor = false;
             // 
-            // panel5
+            // panelContenedor
             // 
-            panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(224, 0);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(1126, 780);
-            panel5.TabIndex = 1;
+            panelContenedor.Dock = DockStyle.Fill;
+            panelContenedor.Location = new Point(224, 0);
+            panelContenedor.Name = "panelContenedor";
+            panelContenedor.Size = new Size(1126, 780);
+            panelContenedor.TabIndex = 1;
             // 
             // FrmPrincipal
             // 
@@ -321,7 +321,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1350, 780);
-            Controls.Add(panel5);
+            Controls.Add(panelContenedor);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmPrincipal";
@@ -359,6 +359,6 @@
         private KovaqsUI.Controls.KLabel lblAvatar;
         private KovaqsUI.Controls.KLabel lblRol;
         private KovaqsUI.Controls.KLabel lblNombre;
-        private Panel panel5;
+        private Panel panelContenedor;
     }
 }
