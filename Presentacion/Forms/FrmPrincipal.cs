@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using KovaqsUI.Controls;
 using Presentacion.Forms.Secciones;
 using Presentacion.Navegacion;
+using Entidades;
 
 namespace Presentacion.Forms
 {
@@ -21,6 +22,14 @@ namespace Presentacion.Forms
         public FrmPrincipal()
         {
             InitializeComponent();
+            btnCerrarSesion.Click += (_, _) => Close();
+        }
+
+        public FrmPrincipal(SesionUsuario sesion) : this()
+        {
+            lblNombre.Text = sesion.Nombre;
+            lblRol.Text = sesion.Rol;
+            lblAvatar.Text = sesion.NombreUsuario[..Math.Min(2, sesion.NombreUsuario.Length)].ToUpperInvariant();
         }
 
         protected override void OnLoad(EventArgs e)

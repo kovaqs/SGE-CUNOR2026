@@ -85,7 +85,7 @@
             kCheckBox1.Padding = new Padding(2);
             kCheckBox1.Size = new Size(342, 32);
             kCheckBox1.TabIndex = 8;
-            kCheckBox1.Text = "Recordar credenciales";
+            kCheckBox1.Text = "Mostrar contraseña";
             kCheckBox1.UseVisualStyleBackColor = false;
             // 
             // kButton1
@@ -106,7 +106,7 @@
             kButton1.Padding = new Padding(12, 4, 12, 4);
             kButton1.Size = new Size(344, 40);
             kButton1.TabIndex = 9;
-            kButton1.Text = "Salir";
+            kButton1.Text = "Iniciar sesión";
             kButton1.UseVisualStyleBackColor = false;
             kButton1.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
             // 
@@ -121,7 +121,7 @@
             kLabel4.Name = "kLabel4";
             kLabel4.Size = new Size(239, 15);
             kLabel4.TabIndex = 10;
-            kLabel4.Text = "¿Olvidaste tu contraseña? Haz clic aquí.";
+            kLabel4.Text = "Configurar conexión a MySQL";
             kLabel4.TextAlign = ContentAlignment.TopRight;
             kLabel4.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             // 
@@ -150,6 +150,7 @@
             kTextBox1.FillColor = Color.FromArgb(247, 247, 247);
             kTextBox1.Location = new Point(28, 168);
             kTextBox1.Name = "kTextBox1";
+            kTextBox1.MaxLength = 50;
             kTextBox1.Padding = new Padding(12, 8, 12, 8);
             kTextBox1.PlaceholderText = "Nombre de Usuario";
             kTextBox1.Size = new Size(346, 40);
@@ -164,6 +165,7 @@
             kTextBox2.FillColor = Color.FromArgb(247, 247, 247);
             kTextBox2.Location = new Point(28, 223);
             kTextBox2.Name = "kTextBox2";
+            kTextBox2.MaxLength = 128;
             kTextBox2.Padding = new Padding(12, 8, 12, 8);
             kTextBox2.PasswordChar = '●';
             kTextBox2.PlaceholderText = "Contraseña";
