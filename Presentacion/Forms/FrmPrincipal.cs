@@ -23,6 +23,7 @@ namespace Presentacion.Forms
         {
             InitializeComponent();
             btnCerrarSesion.Click += (_, _) => Close();
+            //btnConfiguracion.Click += Configuracion_Click;
         }
 
         public FrmPrincipal(SesionUsuario sesion) : this()
@@ -48,7 +49,7 @@ namespace Presentacion.Forms
                 secciones.Add(SReportes, () => gestorFormularios.Mostrar<FrmReportes>());
                 secciones.Add(SNomina, () => gestorFormularios.Mostrar<FrmNomina>());
                 secciones.Add(SUsuarios, () => gestorFormularios.Mostrar<FrmUsuarios>());
-                secciones.Add(SConfiguracion, () => gestorFormularios.Mostrar<FrmConfiguracion>());
+                secciones.Add(SConfiguracion, () => gestorFormularios.Mostrar<FrmConfigurarConexion>());
             }
 
             MostrarSeccionSeleccionada();
@@ -58,6 +59,12 @@ namespace Presentacion.Forms
         {
             if (PanelSegmentado.SelectedItem is { } seleccion && secciones.TryGetValue(seleccion, out var mostrar))
                 mostrar();
+        }
+
+        private void Configuracion_Click(object? sender, EventArgs e)
+        {
+            //using var configuracion = new FrmConfigurarConexion();
+            //gestorFormularios.Mostrar<FrmConfigurarConexion>();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
