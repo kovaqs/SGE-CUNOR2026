@@ -48,28 +48,19 @@ namespace Presentacion.Forms
             {
                 if (!new ServicioConexion().EstaConfigurada)
                 {
-                    using var conexion = new FrmConexion();
+                    using var conexion = new FrmConfigurarConexion();
                     if (conexion.ShowDialog(this) != DialogResult.OK)
                     {
                         Close();
                         return;
                     }
                 }
-                if (!await autenticacion.HayUsuariosAsync(cancelacion.Token))
-                {
-                    using var inicial = new FrmUsuarioInicial();
-                    if (inicial.ShowDialog(this) != DialogResult.OK)
-                    {
-                        Close();
-                        return;
-                    }
-                    kTextBox1.Text = "admin";
-                    kLabel2.Text = "Cuenta creada. Introduce tu contraseña para ingresar.";
-                }
-                else
-                    kLabel2.Text = "Introduce tus credenciales para empezar";
-                preparado = true;
-                kTextBox2.Focus();
+                preparado = await autenticacion.HayUsuariosAsync(cancelacion.Token);
+                kLabel2.Text = preparado
+                    ? "Introduce tus credenciales para empezar"
+                    : "No hay usuarios registrados. Contacta al administrador.";
+                if (preparado)
+                    kTextBox2.Focus();
             }
             catch (OperationCanceledException) { }
             catch (Exception ex) when (ex is ArgumentException or InvalidOperationException)
@@ -155,7 +146,7 @@ namespace Presentacion.Forms
         {
             if (ocupado)
                 return;
-            using var conexion = new FrmConexion();
+            using var conexion = new FrmConfigurarConexion();
             if (conexion.ShowDialog(this) == DialogResult.OK)
                 await PrepararAsync();
         }

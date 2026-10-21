@@ -6,6 +6,32 @@ namespace Datos;
 
 public sealed class RepositorioUsuarios
 {
+    public async Task<List<UsuarioListado>> ListarAsync(CancellationToken cancellationToken = default)
+    {
+        await using var conexion = await ConexionMySql.AbrirAsync(cancellationToken);
+        await using var comando = new MySqlCommand("""
+            SELECT u.id_usuario, u.nombre_usuario, CONCAT(e.nombres, ' ', e.apellidos) AS nombre_empleado,
+                   r.nombre AS rol, u.activo, u.ultimo_acceso
+            FROM usuarios u
+            INNER JOIN roles r ON r.id_rol = u.id_rol
+            LEFT JOIN empleados e ON e.id_empleado = u.id_empleado
+            ORDER BY u.nombre_usuario, u.id_usuario;
+            """, conexion);
+        await using var lector = await comando.ExecuteReaderAsync(cancellationToken);
+        var usuarios = new List<UsuarioListado>();
+        var empleado = lector.GetOrdinal("nombre_empleado");
+        var ultimoAcceso = lector.GetOrdinal("ultimo_acceso");
+        while (await lector.ReadAsync(cancellationToken))
+        {
+            usuarios.Add(new UsuarioListado(
+                lector.GetUInt32("id_usuario"), lector.GetString("nombre_usuario"),
+                lector.IsDBNull(empleado) ? null : lector.GetString(empleado),
+                lector.GetString("rol"), lector.GetBoolean("activo"),
+                lector.IsDBNull(ultimoAcceso) ? null : lector.GetDateTime(ultimoAcceso)));
+        }
+        return usuarios;
+    }
+
     public async Task<bool> HayUsuariosAsync(CancellationToken cancellationToken = default)
     {
         await using var conexion = await ConexionMySql.AbrirAsync(cancellationToken);

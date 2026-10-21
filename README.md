@@ -21,7 +21,7 @@ Proyecto en desarrollo.
 
 Incluye navegación entre formularios e inicio de sesión con MySQL. La lógica de gestión de empleados todavía está en desarrollo.
 
-## Conexión y primer acceso
+## Conexión y acceso
 
 La capa `Datos` utiliza MySqlConnector. La base debe tener las tablas de `BaseDatos/schema.sql`; este script inicial se ejecuta una sola vez en una base vacía.
 
@@ -29,7 +29,7 @@ Al abrir la aplicación en otra computadora, configura la conexión con los dato
 
 La conexión exige TLS y, por defecto, valida la autoridad del certificado y el nombre del servidor. Si el proveedor utiliza un certificado autofirmado, se puede configurar su huella SHA-256 localmente, confirmándola por un canal de confianza o aceptando expresamente la identidad del servidor en el primer contacto. En este último caso, la identidad inicial no cuenta con una comprobación independiente. La huella se conserva en Windows y un certificado diferente o vencido se rechaza. Un cambio de certificado requiere revisar y actualizar la configuración local. No se instala ningún certificado en Windows ni se desactiva TLS.
 
-Mientras la tabla `usuarios` esté vacía, la aplicación solicita crear la contraseña de **admin**, con un mínimo de 12 caracteres. La creación se realiza dentro de una transacción y no está disponible cuando ya existe un usuario. Después inicia sesión en `FrmLogin` para abrir `FrmPrincipal`. El botón **Cerrar sesión** regresa al acceso.
+Las cuentas del sistema deben estar registradas antes de iniciar sesión. Si la tabla `usuarios` está vacía, el acceso muestra un aviso para contactar al administrador. Inicia sesión en `FrmLogin` para abrir `FrmPrincipal`. El botón **Cerrar sesión** regresa al acceso.
 
 Las contraseñas del sistema se almacenan como hash PBKDF2-SHA256 con sal aleatoria. Las consultas utilizan parámetros; los accesos y cierres de sesión se registran en `bitacora`. La aplicación no recuerda contraseñas de usuarios ni muestra detalles técnicos de errores de conexión.
 
