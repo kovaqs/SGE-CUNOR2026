@@ -32,7 +32,6 @@
             kLabel2 = new KovaqsUI.Controls.KLabel();
             kCheckBox1 = new KovaqsUI.Controls.KCheckBox();
             kButton1 = new KovaqsUI.Controls.KButton();
-            kLabel4 = new KovaqsUI.Controls.KLabel();
             panel1 = new Panel();
             kTextBox1 = new KovaqsUI.Controls.KTextBox();
             kTextBox2 = new KovaqsUI.Controls.KTextBox();
@@ -110,24 +109,8 @@
             kButton1.UseVisualStyleBackColor = false;
             kButton1.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
             // 
-            // kLabel4
-            // 
-            kLabel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            kLabel4.BackColor = Color.Transparent;
-            kLabel4.Cursor = Cursors.Hand;
-            kLabel4.Font = new Font("Inter", 9F, FontStyle.Bold | FontStyle.Underline);
-            kLabel4.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel4.Location = new Point(82, 389);
-            kLabel4.Name = "kLabel4";
-            kLabel4.Size = new Size(239, 15);
-            kLabel4.TabIndex = 10;
-            kLabel4.Text = "Configurar conexión a MySQL";
-            kLabel4.TextAlign = ContentAlignment.TopRight;
-            kLabel4.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-            // 
             // panel1
             // 
-            panel1.Controls.Add(kLabel4);
             panel1.Controls.Add(kButton1);
             panel1.Controls.Add(kCheckBox1);
             panel1.Controls.Add(kTextBox2);
@@ -239,7 +222,6 @@
         private KovaqsUI.Controls.KLabel kLabel2;
         private KovaqsUI.Controls.KCheckBox kCheckBox1;
         private KovaqsUI.Controls.KButton kButton1;
-        private KovaqsUI.Controls.KLabel kLabel4;
         private Panel panel1;
         private KovaqsUI.Controls.KTextBox kTextBox2;
         private KovaqsUI.Controls.KTextBox kTextBox1;

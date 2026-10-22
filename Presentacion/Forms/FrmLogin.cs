@@ -25,7 +25,6 @@ namespace Presentacion.Forms
             CancelButton = kButton2;
             kButton1.Click += Ingresar_Click;
             kButton2.Click += (_, _) => Close();
-            kLabel4.Click += ConfigurarConexion_Click;
             kCheckBox1.CheckedChanged += (_, _) =>
             {
                 kTextBox2.PasswordChar = kCheckBox1.Checked ? '\0' : '●';
@@ -142,20 +141,11 @@ namespace Presentacion.Forms
             }
         }
 
-        private async void ConfigurarConexion_Click(object? sender, EventArgs e)
-        {
-            if (ocupado)
-                return;
-            using var conexion = new FrmConfigurarConexion();
-            if (conexion.ShowDialog(this) == DialogResult.OK)
-                await PrepararAsync();
-        }
-
         private void CambiarEstado(bool trabajando)
         {
             ocupado = trabajando;
             UseWaitCursor = trabajando;
-            kButton1.Enabled = kButton2.Enabled = kLabel4.Enabled = !trabajando;
+            kButton1.Enabled = kButton2.Enabled = !trabajando;
             kTextBox1.Enabled = kTextBox2.Enabled = kCheckBox1.Enabled = !trabajando;
         }
 

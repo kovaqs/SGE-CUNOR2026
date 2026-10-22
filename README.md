@@ -35,7 +35,7 @@ Las contraseñas del sistema se almacenan como hash PBKDF2-SHA256 con sal aleato
 
 El plan DEV admite 5 conexiones simultáneas en total. Cada aplicación usa un pool de hasta una conexión y libera las conexiones inactivas. Los accesos desde phpMyAdmin u otras herramientas también consumen ese límite.
 
-No copies al repositorio credenciales, exportaciones de configuración ni respaldos con datos. La configuración de conexión se puede cambiar desde **Configurar conexión a MySQL** en el acceso.
+No copies al repositorio credenciales, exportaciones de configuración ni respaldos con datos. La configuración de conexión se puede cambiar desde **Configuración** en el panel principal.
 
 ## Requisitos y compilación
 
