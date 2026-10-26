@@ -6,4 +6,9 @@ public partial class FrmEmpleados : Form
     {
         InitializeComponent();
     }
+
+    private void FrmEmpleados_Load(object sender, EventArgs e)
+    {
+
+    }
 }

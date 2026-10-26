@@ -16,26 +16,18 @@ partial class FrmPuestos
 
     private void InitializeComponent()
     {
-        lblTitulo = new Label();
         SuspendLayout();
-        // lblTitulo
-        lblTitulo.AutoSize = true;
-        lblTitulo.Location = new Point(12, 9);
-        lblTitulo.Name = "lblTitulo";
-        lblTitulo.TabIndex = 0;
-        lblTitulo.Text = "Puestos";
+        // 
         // FrmPuestos
+        // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(800, 450);
-        Controls.Add(lblTitulo);
+        BackColor = Color.White;
+        ClientSize = new Size(902, 669);
         Name = "FrmPuestos";
         Text = "Puestos";
         ResumeLayout(false);
-        PerformLayout();
     }
 
     #endregion
-
-    private Label lblTitulo = null!;
 }
