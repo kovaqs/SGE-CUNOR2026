@@ -39,6 +39,78 @@ public sealed class RepositorioUsuarios
         return Convert.ToBoolean(await comando.ExecuteScalarAsync(cancellationToken));
     }
 
+    public async Task<List<Rol>> ListarRolesAsync(CancellationToken cancellationToken = default)
+    {
+        await using var conexion = await ConexionMySql.AbrirAsync(cancellationToken);
+        await using var comando = new MySqlCommand("SELECT id_rol, nombre FROM roles WHERE activo = TRUE ORDER BY nombre;", conexion);
+        await using var lector = await comando.ExecuteReaderAsync(cancellationToken);
+        var roles = new List<Rol>();
+        while (await lector.ReadAsync(cancellationToken))
+            roles.Add(new Rol(lector.GetUInt32("id_rol"), lector.GetString("nombre")));
+        return roles;
+    }
+
+    public async Task<List<EmpleadoSeleccion>> ListarEmpleadosDisponiblesAsync(CancellationToken cancellationToken = default)
+    {
+        await using var conexion = await ConexionMySql.AbrirAsync(cancellationToken);
+        await using var comando = new MySqlCommand("""
+            SELECT e.id_empleado, CONCAT(e.codigo, ' - ', e.nombres, ' ', e.apellidos) AS nombre
+            FROM empleados e
+            WHERE NOT EXISTS (SELECT 1 FROM usuarios u WHERE u.id_empleado = e.id_empleado)
+            ORDER BY e.apellidos, e.nombres, e.id_empleado;
+            """, conexion);
+        await using var lector = await comando.ExecuteReaderAsync(cancellationToken);
+        var empleados = new List<EmpleadoSeleccion>();
+        while (await lector.ReadAsync(cancellationToken))
+            empleados.Add(new EmpleadoSeleccion(lector.GetUInt32("id_empleado"), lector.GetString("nombre")));
+        return empleados;
+    }
+
+    public async Task CrearAsync(string nombreUsuario, string hash, uint idRol, uint? idEmpleado, bool activo,
+        SesionUsuario autor, CancellationToken cancellationToken = default)
+    {
+        await using var conexion = await ConexionMySql.AbrirAsync(cancellationToken);
+        await using var transaccion = await conexion.BeginTransactionAsync(cancellationToken);
+        try
+        {
+            await using var permiso = new MySqlCommand("""
+                SELECT u.nombre_usuario FROM usuarios u
+                INNER JOIN roles r ON r.id_rol = u.id_rol
+                WHERE u.id_usuario = @autor AND u.activo = TRUE AND r.activo = TRUE
+                  AND r.nombre = 'Administrador';
+                """, conexion, transaccion);
+            permiso.Parameters.Add("@autor", MySqlDbType.UInt32).Value = autor.IdUsuario;
+            if (await permiso.ExecuteScalarAsync(cancellationToken) is not string nombreAutor)
+                throw new InvalidOperationException("Solo un administrador activo puede crear usuarios.");
+
+            await using var comando = new MySqlCommand("""
+                INSERT INTO usuarios (id_rol, id_empleado, nombre_usuario, contrasena_hash, activo)
+                SELECT id_rol, @empleado, @usuario, @hash, @activo
+                FROM roles WHERE id_rol = @rol AND activo = TRUE;
+                """, conexion, transaccion);
+            comando.Parameters.Add("@rol", MySqlDbType.UInt32).Value = idRol;
+            comando.Parameters.Add("@empleado", MySqlDbType.UInt32).Value = (object?)idEmpleado ?? DBNull.Value;
+            comando.Parameters.Add("@usuario", MySqlDbType.VarChar, 50).Value = nombreUsuario;
+            comando.Parameters.Add("@hash", MySqlDbType.VarChar, 255).Value = hash;
+            comando.Parameters.Add("@activo", MySqlDbType.Bool).Value = activo;
+            if (await comando.ExecuteNonQueryAsync(cancellationToken) != 1)
+                throw new InvalidOperationException("Selecciona un rol activo.");
+
+            var idUsuario = checked((uint)comando.LastInsertedId);
+            await EscribirBitacoraAsync(conexion, transaccion, autor.IdUsuario, nombreAutor, "INSERT",
+                "Creación de usuario.", cancellationToken, idUsuario);
+            await transaccion.CommitAsync(cancellationToken);
+        }
+        catch (MySqlException ex) when (ex.Number == 1062)
+        {
+            throw new InvalidOperationException("El usuario o el empleado ya tiene una cuenta.");
+        }
+        catch (MySqlException ex) when (ex.Number == 1452)
+        {
+            throw new InvalidOperationException("El empleado o el rol ya no está disponible.");
+        }
+    }
+
     public async Task<CredencialUsuario?> BuscarAsync(string nombreUsuario, CancellationToken cancellationToken = default)
     {
         await using var conexion = await ConexionMySql.AbrirAsync(cancellationToken);
@@ -113,7 +185,8 @@ public sealed class RepositorioUsuarios
     }
 
     private static async Task EscribirBitacoraAsync(MySqlConnection conexion, MySqlTransaction? transaccion,
-        uint id, string nombre, string operacion, string descripcion, CancellationToken cancellationToken)
+        uint id, string nombre, string operacion, string descripcion, CancellationToken cancellationToken,
+        uint? idRegistro = null)
     {
         await using var comando = new MySqlCommand("""
             INSERT INTO bitacora (id_usuario, nombre_usuario, fecha_operacion, operacion, entidad, registro_afectado, descripcion)
@@ -122,7 +195,7 @@ public sealed class RepositorioUsuarios
         comando.Parameters.Add("@id", MySqlDbType.UInt32).Value = id;
         comando.Parameters.Add("@nombre", MySqlDbType.VarChar, 50).Value = nombre;
         comando.Parameters.Add("@operacion", MySqlDbType.VarChar, 20).Value = operacion;
-        comando.Parameters.Add("@registro", MySqlDbType.VarChar, 150).Value = id.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        comando.Parameters.Add("@registro", MySqlDbType.VarChar, 150).Value = (idRegistro ?? id).ToString(System.Globalization.CultureInfo.InvariantCulture);
         comando.Parameters.Add("@descripcion", MySqlDbType.VarChar, 1000).Value = descripcion;
         await comando.ExecuteNonQueryAsync(cancellationToken);
     }

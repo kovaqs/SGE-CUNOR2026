@@ -17,6 +17,7 @@ namespace Presentacion.Forms
     public partial class FrmPrincipal : Form
     {
         private GestorFormularios? gestorFormularios;
+        private readonly SesionUsuario? sesion;
         private readonly Dictionary<KSegmentItem, Action> secciones = new();
 
         public FrmPrincipal()
@@ -28,6 +29,7 @@ namespace Presentacion.Forms
 
         public FrmPrincipal(SesionUsuario sesion) : this()
         {
+            this.sesion = sesion;
             lblNombre.Text = sesion.Nombre;
             lblRol.Text = sesion.Rol;
             lblAvatar.Text = sesion.NombreUsuario[..Math.Min(2, sesion.NombreUsuario.Length)].ToUpperInvariant();
@@ -48,7 +50,12 @@ namespace Presentacion.Forms
                 secciones.Add(SAsistencias, () => gestorFormularios.Mostrar<FrmAsistencias>());
                 secciones.Add(SReportes, () => gestorFormularios.Mostrar<FrmReportes>());
                 secciones.Add(SNomina, () => gestorFormularios.Mostrar<FrmNomina>());
-                secciones.Add(SUsuarios, () => gestorFormularios.Mostrar<FrmUsuarios>());
+                secciones.Add(SUsuarios, () =>
+                {
+                    var usuarios = gestorFormularios.Mostrar<FrmUsuarios>();
+                    if (sesion is not null)
+                        usuarios.EstablecerSesion(sesion);
+                });
                 secciones.Add(SConfiguracion, () => gestorFormularios.Mostrar<FrmConfigurarConexion>());
             }
 
