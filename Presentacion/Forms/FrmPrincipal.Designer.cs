@@ -67,8 +67,9 @@
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(224, 780);
+            panel1.Size = new Size(256, 1040);
             panel1.TabIndex = 0;
             // 
             // PanelSegmentado
@@ -79,15 +80,17 @@
             PanelSegmentado.FillColor = Color.FromArgb(247, 247, 247);
             PanelSegmentado.ForeColor = Color.FromArgb(71, 71, 71);
             PanelSegmentado.Items.AddRange(new KovaqsUI.Controls.KSegmentItem[] { SEmpleados, SPuestos, SDepartamentos, SAsistencias, SReportes, SNomina, SUsuarios, SConfiguracion });
-            PanelSegmentado.Location = new Point(0, 97);
+            PanelSegmentado.Location = new Point(0, 129);
+            PanelSegmentado.Margin = new Padding(3, 4, 3, 4);
             PanelSegmentado.Name = "PanelSegmentado";
             PanelSegmentado.Orientation = Orientation.Vertical;
+            PanelSegmentado.Padding = new Padding(7, 8, 7, 8);
             PanelSegmentado.SelectedAppearance.Normal.FillColor = Color.FromArgb(44, 44, 44);
             PanelSegmentado.SelectedAppearance.Normal.ForeColor = Color.WhiteSmoke;
             PanelSegmentado.SelectedFillColor = Color.FromArgb(44, 44, 44);
             PanelSegmentado.SelectedForeColor = Color.WhiteSmoke;
             PanelSegmentado.SelectedIndex = 0;
-            PanelSegmentado.Size = new Size(224, 328);
+            PanelSegmentado.Size = new Size(256, 437);
             PanelSegmentado.Surface.FillColor = Color.FromArgb(247, 247, 247);
             PanelSegmentado.TabIndex = 4;
             PanelSegmentado.Text = "kSegmentedControl1";
@@ -131,9 +134,10 @@
             panel4.Controls.Add(btnCerrarSesion);
             panel4.Controls.Add(btnConfiguracion);
             panel4.Dock = DockStyle.Bottom;
-            panel4.Location = new Point(0, 705);
+            panel4.Location = new Point(0, 940);
+            panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(224, 75);
+            panel4.Size = new Size(256, 100);
             panel4.TabIndex = 3;
             // 
             // btnCerrarSesion
@@ -147,10 +151,11 @@
             btnCerrarSesion.FlatStyle = FlatStyle.Flat;
             btnCerrarSesion.Font = new Font("Inter", 10F);
             btnCerrarSesion.ForeColor = Color.Red;
-            btnCerrarSesion.Location = new Point(0, 28);
+            btnCerrarSesion.Location = new Point(0, 37);
+            btnCerrarSesion.Margin = new Padding(3, 4, 3, 4);
             btnCerrarSesion.Name = "btnCerrarSesion";
-            btnCerrarSesion.Padding = new Padding(12, 4, 12, 4);
-            btnCerrarSesion.Size = new Size(224, 28);
+            btnCerrarSesion.Padding = new Padding(14, 5, 14, 5);
+            btnCerrarSesion.Size = new Size(256, 37);
             btnCerrarSesion.TabIndex = 4;
             btnCerrarSesion.Text = "Cerrar Sesión";
             btnCerrarSesion.TextAlign = ContentAlignment.MiddleLeft;
@@ -169,9 +174,10 @@
             btnConfiguracion.Font = new Font("Inter", 10F);
             btnConfiguracion.ForeColor = Color.FromArgb(71, 71, 71);
             btnConfiguracion.Location = new Point(0, 0);
+            btnConfiguracion.Margin = new Padding(3, 4, 3, 4);
             btnConfiguracion.Name = "btnConfiguracion";
-            btnConfiguracion.Padding = new Padding(12, 4, 12, 4);
-            btnConfiguracion.Size = new Size(224, 28);
+            btnConfiguracion.Padding = new Padding(14, 5, 14, 5);
+            btnConfiguracion.Size = new Size(256, 37);
             btnConfiguracion.TabIndex = 0;
             btnConfiguracion.Text = "Configuración";
             btnConfiguracion.TextAlign = ContentAlignment.MiddleLeft;
@@ -184,9 +190,10 @@
             panel3.Controls.Add(lblNombre);
             panel3.Controls.Add(kPanel1);
             panel3.Dock = DockStyle.Top;
-            panel3.Location = new Point(0, 36);
+            panel3.Location = new Point(0, 48);
+            panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(224, 61);
+            panel3.Size = new Size(256, 81);
             panel3.TabIndex = 1;
             panel3.Paint += panel3_Paint;
             // 
@@ -197,9 +204,9 @@
             lblRol.BackColor = Color.Transparent;
             lblRol.Font = new Font("Inter", 9F, FontStyle.Bold);
             lblRol.ForeColor = Color.FromArgb(71, 71, 71);
-            lblRol.Location = new Point(64, 33);
+            lblRol.Location = new Point(73, 44);
             lblRol.Name = "lblRol";
-            lblRol.Size = new Size(149, 23);
+            lblRol.Size = new Size(170, 31);
             lblRol.TabIndex = 2;
             lblRol.TextAlign = ContentAlignment.MiddleLeft;
             lblRol.Click += lblRol_Click;
@@ -211,9 +218,9 @@
             lblNombre.BackColor = Color.Transparent;
             lblNombre.Font = new Font("Inter Medium", 9F);
             lblNombre.ForeColor = Color.FromArgb(71, 71, 71);
-            lblNombre.Location = new Point(64, 6);
+            lblNombre.Location = new Point(73, 8);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(149, 23);
+            lblNombre.Size = new Size(170, 31);
             lblNombre.TabIndex = 1;
             lblNombre.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -226,10 +233,11 @@
             kPanel1.FillColor = Color.Gray;
             kPanel1.ForeColor = Color.Gainsboro;
             kPanel1.GradientColor = Color.FromArgb(64, 64, 64);
-            kPanel1.Location = new Point(8, 6);
+            kPanel1.Location = new Point(9, 8);
+            kPanel1.Margin = new Padding(3, 4, 3, 4);
             kPanel1.Name = "kPanel1";
-            kPanel1.Padding = new Padding(12);
-            kPanel1.Size = new Size(50, 50);
+            kPanel1.Padding = new Padding(14, 16, 14, 16);
+            kPanel1.Size = new Size(57, 67);
             kPanel1.Surface.FillColor = Color.Gray;
             kPanel1.Surface.GradientColor = Color.FromArgb(64, 64, 64);
             kPanel1.TabIndex = 0;
@@ -242,9 +250,9 @@
             lblAvatar.Dock = DockStyle.Fill;
             lblAvatar.Font = new Font("Inter", 9F, FontStyle.Bold);
             lblAvatar.ForeColor = Color.FromArgb(224, 224, 224);
-            lblAvatar.Location = new Point(12, 12);
+            lblAvatar.Location = new Point(14, 16);
             lblAvatar.Name = "lblAvatar";
-            lblAvatar.Size = new Size(26, 26);
+            lblAvatar.Size = new Size(29, 35);
             lblAvatar.TabIndex = 0;
             lblAvatar.Text = "US";
             lblAvatar.TextAlign = ContentAlignment.MiddleCenter;
@@ -257,8 +265,9 @@
             panel2.Controls.Add(kButton4);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(224, 36);
+            panel2.Size = new Size(256, 48);
             panel2.TabIndex = 0;
             panel2.Paint += panel2_Paint;
             // 
@@ -270,10 +279,11 @@
             kButton6.ClickAnimation = false;
             kButton6.FillColor = Color.FromArgb(35, 202, 60);
             kButton6.FlatStyle = FlatStyle.Flat;
-            kButton6.Location = new Point(55, 9);
+            kButton6.Location = new Point(63, 12);
+            kButton6.Margin = new Padding(3, 4, 3, 4);
             kButton6.Name = "kButton6";
-            kButton6.Padding = new Padding(12, 4, 12, 4);
-            kButton6.Size = new Size(16, 16);
+            kButton6.Padding = new Padding(14, 5, 14, 5);
+            kButton6.Size = new Size(18, 21);
             kButton6.TabIndex = 2;
             kButton6.UseVisualStyleBackColor = false;
             // 
@@ -285,10 +295,11 @@
             kButton5.ClickAnimation = false;
             kButton5.FillColor = Color.FromArgb(255, 188, 48);
             kButton5.FlatStyle = FlatStyle.Flat;
-            kButton5.Location = new Point(33, 9);
+            kButton5.Location = new Point(38, 12);
+            kButton5.Margin = new Padding(3, 4, 3, 4);
             kButton5.Name = "kButton5";
-            kButton5.Padding = new Padding(12, 4, 12, 4);
-            kButton5.Size = new Size(16, 16);
+            kButton5.Padding = new Padding(14, 5, 14, 5);
+            kButton5.Size = new Size(18, 21);
             kButton5.TabIndex = 1;
             kButton5.UseVisualStyleBackColor = false;
             // 
@@ -300,30 +311,33 @@
             kButton4.ClickAnimation = false;
             kButton4.FillColor = Color.FromArgb(255, 96, 88);
             kButton4.FlatStyle = FlatStyle.Flat;
-            kButton4.Location = new Point(11, 9);
+            kButton4.Location = new Point(13, 12);
+            kButton4.Margin = new Padding(3, 4, 3, 4);
             kButton4.Name = "kButton4";
-            kButton4.Padding = new Padding(12, 4, 12, 4);
-            kButton4.Size = new Size(16, 16);
+            kButton4.Padding = new Padding(14, 5, 14, 5);
+            kButton4.Size = new Size(18, 21);
             kButton4.TabIndex = 0;
             kButton4.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
             panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(224, 0);
+            panel5.Location = new Point(256, 0);
+            panel5.Margin = new Padding(3, 4, 3, 4);
             panel5.Name = "panel5";
-            panel5.Size = new Size(1126, 780);
+            panel5.Size = new Size(1287, 1040);
             panel5.TabIndex = 1;
             // 
             // FrmPrincipal
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1350, 780);
+            ClientSize = new Size(1543, 1040);
             Controls.Add(panel5);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmPrincipal";
