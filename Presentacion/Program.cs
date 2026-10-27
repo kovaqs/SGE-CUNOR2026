@@ -1,4 +1,6 @@
 using Presentacion.Forms;
+using Presentacion.Forms.Secciones;
+using Presentacion.Forms.SubForms;
 
 namespace Presentacion
 {
@@ -13,7 +15,7 @@ namespace Presentacion
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmPrincipal());
+            Application.Run(new FrmLogin());
         }
     }
 }

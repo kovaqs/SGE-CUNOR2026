@@ -27,3 +27,10 @@ secrets.json
 *.key
 *.publishsettings
 *.pubxml
+appsettings*.json
+conexion*.json
+*.local.json
+*.local.config
+*.sql.gz
+*.sql.zip
+*.sql.bak

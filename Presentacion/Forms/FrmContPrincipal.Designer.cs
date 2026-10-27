@@ -28,33 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            kLabel1 = new KovaqsUI.Controls.KLabel();
-            kButton1 = new KovaqsUI.Controls.KButton();
             panel2 = new Panel();
+            kButton1 = new KovaqsUI.Controls.KButton();
+            kLabel1 = new KovaqsUI.Controls.KLabel();
+            panel1 = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // panel2
             // 
-            panel1.Controls.Add(kLabel1);
-            panel1.Controls.Add(kButton1);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(403, 38);
-            panel1.TabIndex = 0;
-            // 
-            // kLabel1
-            // 
-            kLabel1.BackColor = Color.Transparent;
-            kLabel1.ForeColor = Color.DimGray;
-            kLabel1.Location = new Point(12, 12);
-            kLabel1.Name = "kLabel1";
-            kLabel1.Size = new Size(187, 15);
-            kLabel1.TabIndex = 1;
-            kLabel1.Text = "Control de empleados - CUNOR";
-            kLabel1.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(0, 38);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(403, 606);
+            panel2.TabIndex = 1;
             // 
             // kButton1
             // 
@@ -76,13 +63,26 @@
             kButton1.UseVisualStyleBackColor = false;
             kButton1.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
             // 
-            // panel2
+            // kLabel1
             // 
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 38);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(403, 606);
-            panel2.TabIndex = 1;
+            kLabel1.BackColor = Color.Transparent;
+            kLabel1.ForeColor = Color.DimGray;
+            kLabel1.Location = new Point(12, 12);
+            kLabel1.Name = "kLabel1";
+            kLabel1.Size = new Size(187, 15);
+            kLabel1.TabIndex = 1;
+            kLabel1.Text = "Control de empleados - CUNOR";
+            kLabel1.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(kLabel1);
+            panel1.Controls.Add(kButton1);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(403, 38);
+            panel1.TabIndex = 0;
             // 
             // FrmContPrincipal
             // 
@@ -102,10 +102,9 @@
         }
 
         #endregion
-
-        private Panel panel1;
-        private KovaqsUI.Controls.KButton kButton1;
         private Panel panel2;
+        private KovaqsUI.Controls.KButton kButton1;
         private KovaqsUI.Controls.KLabel kLabel1;
+        private Panel panel1;
     }
 }
