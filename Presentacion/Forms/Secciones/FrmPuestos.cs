@@ -6,4 +6,9 @@ public partial class FrmPuestos : Form
     {
         InitializeComponent();
     }
+
+    private void dgvPuestos_SelectionChanged(object sender, EventArgs e)
+    {
+
+    }
 }
