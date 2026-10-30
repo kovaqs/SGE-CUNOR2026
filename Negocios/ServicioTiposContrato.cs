@@ -1,11 +1,6 @@
 ﻿using Datos;
 using Entidades;
-using System;
-using System.Collections.Generic;
 using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Negocios;
 
@@ -22,31 +17,34 @@ public class ServicioTiposContrato
         }
     }
 
-    public async Task<uint> CrearAsync(string nombre, string? descripcion)
+    public async Task<uint> CrearAsync(string nombre, string? descripcion, SesionUsuario autor)
     {
+        ArgumentNullException.ThrowIfNull(autor);
         Validar(nombre, descripcion);
-        try { return await repositorio.CrearAsync(nombre.Trim(), descripcion?.Trim()); }
+        try { return await repositorio.CrearAsync(nombre.Trim(), descripcion?.Trim(), autor); }
         catch (DbException)
         {
             throw new InvalidOperationException("No se pudo crear el tipo de contrato.");
         }
     }
 
-    public async Task ActualizarAsync(uint id, string nombre, string? descripcion)
+    public async Task ActualizarAsync(uint id, string nombre, string? descripcion, SesionUsuario autor)
     {
+        ArgumentNullException.ThrowIfNull(autor);
         if (id == 0) throw new ArgumentException("El ID debe ser mayor que cero.");
         Validar(nombre, descripcion);
-        try { await repositorio.ActualizarAsync(id, nombre.Trim(), descripcion?.Trim()); }
+        try { await repositorio.ActualizarAsync(id, nombre.Trim(), descripcion?.Trim(), autor); }
         catch (DbException)
         {
             throw new InvalidOperationException("No se pudo actualizar el tipo de contrato.");
         }
     }
 
-    public async Task CambiarEstadoAsync(uint id, bool activo)
+    public async Task CambiarEstadoAsync(uint id, bool activo, SesionUsuario autor)
     {
+        ArgumentNullException.ThrowIfNull(autor);
         if (id == 0) throw new ArgumentException("El ID debe ser mayor que cero.");
-        try { await repositorio.CambiarEstadoAsync(id, activo); }
+        try { await repositorio.CambiarEstadoAsync(id, activo, autor); }
         catch (DbException)
         {
             throw new InvalidOperationException("No se pudo cambiar el estado.");

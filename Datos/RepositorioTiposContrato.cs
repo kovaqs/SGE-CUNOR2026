@@ -1,10 +1,5 @@
 ﻿using Entidades;
 using MySqlConnector;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Datos;
 
@@ -36,21 +31,26 @@ public class RepositorioTiposContrato
         return lista;
     }
 
-    public async Task<uint> CrearAsync(string nombre, string? descripcion)
+    public async Task<uint> CrearAsync(string nombre, string? descripcion, SesionUsuario autor)
     {
         await using var conexion = await ConexionMySql.AbrirAsync();
+        await using var transaccion = await conexion.BeginTransactionAsync();
         const string sql = """
             INSERT INTO tipos_contrato (nombre, descripcion, activo)
             VALUES (@nombre, @descripcion, TRUE);
             """;
-        await using var comando = new MySqlCommand(sql, conexion);
+        await using var comando = new MySqlCommand(sql, conexion, transaccion);
         comando.Parameters.Add("@nombre", MySqlDbType.VarChar, 80).Value = nombre;
         comando.Parameters.Add("@descripcion", MySqlDbType.VarChar, 500).Value =
             (object?)descripcion ?? DBNull.Value;
         try
         {
             await comando.ExecuteNonQueryAsync();
-            return checked((uint)comando.LastInsertedId);
+            var id = checked((uint)comando.LastInsertedId);
+            await SeguridadDatos.RegistrarOperacionAsync(conexion, transaccion, autor, "INSERT",
+                "tipos_contrato", id, "Creación de tipo de contrato.");
+            await transaccion.CommitAsync();
+            return id;
         }
         catch (MySqlException ex) when (ex.Number == 1062)
         {
@@ -60,15 +60,16 @@ public class RepositorioTiposContrato
     }
 
     public async Task ActualizarAsync(
-        uint id, string nombre, string? descripcion)
+        uint id, string nombre, string? descripcion, SesionUsuario autor)
     {
         await using var conexion = await ConexionMySql.AbrirAsync();
+        await using var transaccion = await conexion.BeginTransactionAsync();
         const string sql = """
             UPDATE tipos_contrato
             SET nombre = @nombre, descripcion = @descripcion
             WHERE id_tipo_contrato = @id;
             """;
-        await using var comando = new MySqlCommand(sql, conexion);
+        await using var comando = new MySqlCommand(sql, conexion, transaccion);
         comando.Parameters.Add("@id", MySqlDbType.UInt32).Value = id;
         comando.Parameters.Add("@nombre", MySqlDbType.VarChar, 80).Value = nombre;
         comando.Parameters.Add("@descripcion", MySqlDbType.VarChar, 500).Value =
@@ -78,6 +79,9 @@ public class RepositorioTiposContrato
             if (await comando.ExecuteNonQueryAsync() == 0)
                 throw new InvalidOperationException(
                     "El tipo de contrato no existe.");
+            await SeguridadDatos.RegistrarOperacionAsync(conexion, transaccion, autor, "UPDATE",
+                "tipos_contrato", id, "Actualización de tipo de contrato.");
+            await transaccion.CommitAsync();
         }
         catch (MySqlException ex) when (ex.Number == 1062)
         {
@@ -86,17 +90,21 @@ public class RepositorioTiposContrato
         }
     }
 
-    public async Task CambiarEstadoAsync(uint id, bool activo)
+    public async Task CambiarEstadoAsync(uint id, bool activo, SesionUsuario autor)
     {
         await using var conexion = await ConexionMySql.AbrirAsync();
+        await using var transaccion = await conexion.BeginTransactionAsync();
         const string sql = """
             UPDATE tipos_contrato SET activo = @activo
             WHERE id_tipo_contrato = @id;
             """;
-        await using var comando = new MySqlCommand(sql, conexion);
+        await using var comando = new MySqlCommand(sql, conexion, transaccion);
         comando.Parameters.Add("@id", MySqlDbType.UInt32).Value = id;
         comando.Parameters.Add("@activo", MySqlDbType.Bool).Value = activo;
         if (await comando.ExecuteNonQueryAsync() == 0)
             throw new InvalidOperationException("El tipo de contrato no existe.");
+        await SeguridadDatos.RegistrarOperacionAsync(conexion, transaccion, autor, "UPDATE",
+            "tipos_contrato", id, activo ? "Activación de tipo de contrato." : "Desactivación de tipo de contrato.");
+        await transaccion.CommitAsync();
     }
 }
