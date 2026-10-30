@@ -19,8 +19,8 @@ partial class FrmNomina
         DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
         DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
         DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-        dateTimePicker1 = new DateTimePicker();
-        dateTimePicker2 = new DateTimePicker();
+        dtpDesde = new DateTimePicker();
+        dtpHasta = new DateTimePicker();
         cboEstado = new KovaqsUI.Controls.KComboBox();
         btnNuevoPeriodo = new KovaqsUI.Controls.KButton();
         btnVerPeriodo = new KovaqsUI.Controls.KButton();
@@ -33,37 +33,44 @@ partial class FrmNomina
         kLabel3 = new KovaqsUI.Controls.KLabel();
         lblEstado = new KovaqsUI.Controls.KLabel();
         kLabel4 = new KovaqsUI.Controls.KLabel();
-        kDataGridView1 = new KovaqsUI.Controls.KDataGridView();
+        dgvPeriodos = new KovaqsUI.Controls.KDataGridView();
         lblPagina = new KovaqsUI.Controls.KLabel();
         kLabel1 = new KovaqsUI.Controls.KLabel();
-        ((System.ComponentModel.ISupportInitialize)kDataGridView1).BeginInit();
+        colNombre = new DataGridViewTextBoxColumn();
+        colDesde = new DataGridViewTextBoxColumn();
+        colHasta = new DataGridViewTextBoxColumn();
+        colEstado = new DataGridViewTextBoxColumn();
+        colGeneradoPor = new DataGridViewTextBoxColumn();
+        colFechaCierre = new DataGridViewTextBoxColumn();
+        ((System.ComponentModel.ISupportInitialize)dgvPeriodos).BeginInit();
         SuspendLayout();
         // 
-        // dateTimePicker1
+        // dtpDesde
         // 
-        dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-        dateTimePicker1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        dateTimePicker1.Format = DateTimePickerFormat.Custom;
-        dateTimePicker1.Location = new Point(23, 104);
-        dateTimePicker1.Name = "dateTimePicker1";
-        dateTimePicker1.Size = new Size(313, 32);
-        dateTimePicker1.TabIndex = 1;
+        dtpDesde.CustomFormat = "dd/MM/yyyy";
+        dtpDesde.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        dtpDesde.Format = DateTimePickerFormat.Custom;
+        dtpDesde.Location = new Point(23, 104);
+        dtpDesde.Name = "dtpDesde";
+        dtpDesde.Size = new Size(313, 32);
+        dtpDesde.TabIndex = 1;
         // 
-        // dateTimePicker2
+        // dtpHasta
         // 
-        dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-        dateTimePicker2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        dateTimePicker2.Format = DateTimePickerFormat.Custom;
-        dateTimePicker2.Location = new Point(360, 104);
-        dateTimePicker2.Name = "dateTimePicker2";
-        dateTimePicker2.Size = new Size(313, 32);
-        dateTimePicker2.TabIndex = 2;
+        dtpHasta.CustomFormat = "dd/MM/yyyy";
+        dtpHasta.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        dtpHasta.Format = DateTimePickerFormat.Custom;
+        dtpHasta.Location = new Point(360, 104);
+        dtpHasta.Name = "dtpHasta";
+        dtpHasta.Size = new Size(313, 32);
+        dtpHasta.TabIndex = 2;
         // 
         // cboEstado
         // 
+        cboEstado.DropDownStyle = ComboBoxStyle.DropDownList;
         cboEstado.FormattingEnabled = true;
         cboEstado.ItemHeight = 28;
-        cboEstado.Items.AddRange(new object[] { "Todos" });
+        cboEstado.Items.AddRange(new object[] { "Todos", "Borrador", "Cerrado", "Anulado" });
         cboEstado.Location = new Point(694, 106);
         cboEstado.Name = "cboEstado";
         cboEstado.Size = new Size(300, 34);
@@ -118,7 +125,7 @@ partial class FrmNomina
         btnBoletas.Location = new Point(561, 176);
         btnBoletas.Name = "btnBoletas";
         btnBoletas.Padding = new Padding(12, 4, 12, 4);
-        btnBoletas.Size = new Size(242, 50);
+        btnBoletas.Size = new Size(330, 50);
         btnBoletas.TabIndex = 10;
         btnBoletas.Text = "Boletas por departamento";
         btnBoletas.UseVisualStyleBackColor = false;
@@ -160,6 +167,8 @@ partial class FrmNomina
         // cboTamanoPagina
         // 
         cboTamanoPagina.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        cboTamanoPagina.DropDownStyle = ComboBoxStyle.DropDownList;
+        cboTamanoPagina.Items.AddRange(new object[] { "10", "25", "50", "100" });
         cboTamanoPagina.FormattingEnabled = true;
         cboTamanoPagina.ItemHeight = 28;
         cboTamanoPagina.Location = new Point(748, 580);
@@ -216,19 +225,61 @@ partial class FrmNomina
         kLabel4.Size = new Size(139, 18);
         kLabel4.TabIndex = 20;
         kLabel4.Text = "Períodos de pago";
-        // 
-        // kDataGridView1
-        // 
-        kDataGridView1.BackgroundColor = Color.White;
-        kDataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+        //
+        // colNombre
+        //
+        colNombre.HeaderText = "Nombre";
+        colNombre.Name = "colNombre";
+        colNombre.ReadOnly = true;
+        //
+        // colDesde
+        //
+        colDesde.HeaderText = "Desde";
+        colDesde.Name = "colDesde";
+        colDesde.ReadOnly = true;
+        //
+        // colHasta
+        //
+        colHasta.HeaderText = "Hasta";
+        colHasta.Name = "colHasta";
+        colHasta.ReadOnly = true;
+        //
+        // colEstado
+        //
+        colEstado.HeaderText = "Estado";
+        colEstado.Name = "colEstado";
+        colEstado.ReadOnly = true;
+        //
+        // colGeneradoPor
+        //
+        colGeneradoPor.HeaderText = "Generado por";
+        colGeneradoPor.Name = "colGeneradoPor";
+        colGeneradoPor.ReadOnly = true;
+        //
+        // colFechaCierre
+        //
+        colFechaCierre.HeaderText = "Fecha de cierre";
+        colFechaCierre.Name = "colFechaCierre";
+        colFechaCierre.ReadOnly = true;
+        //
+        // dgvPeriodos
+        //
+        dgvPeriodos.AllowUserToAddRows = false;
+        dgvPeriodos.AllowUserToDeleteRows = false;
+        dgvPeriodos.AutoGenerateColumns = false;
+        dgvPeriodos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        dgvPeriodos.ReadOnly = true;
+        dgvPeriodos.Columns.AddRange(new DataGridViewColumn[] { colNombre, colDesde, colHasta, colEstado, colGeneradoPor, colFechaCierre });
+        dgvPeriodos.BackgroundColor = Color.White;
+        dgvPeriodos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
         dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
         dataGridViewCellStyle1.BackColor = Color.FromArgb(244, 244, 244);
         dataGridViewCellStyle1.ForeColor = Color.FromArgb(119, 119, 119);
         dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(244, 244, 244);
         dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(119, 119, 119);
         dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-        kDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-        kDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dgvPeriodos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+        dgvPeriodos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
         dataGridViewCellStyle2.BackColor = Color.White;
         dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10F);
@@ -237,24 +288,24 @@ partial class FrmNomina
         dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(223, 233, 249);
         dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(13, 21, 23);
         dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-        kDataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-        kDataGridView1.EnableHeadersVisualStyles = false;
-        kDataGridView1.GridColor = Color.FromArgb(218, 218, 218);
-        kDataGridView1.Location = new Point(23, 287);
-        kDataGridView1.Name = "kDataGridView1";
+        dgvPeriodos.DefaultCellStyle = dataGridViewCellStyle2;
+        dgvPeriodos.EnableHeadersVisualStyles = false;
+        dgvPeriodos.GridColor = Color.FromArgb(218, 218, 218);
+        dgvPeriodos.Location = new Point(23, 287);
+        dgvPeriodos.Name = "dgvPeriodos";
         dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
         dataGridViewCellStyle3.BackColor = Color.FromArgb(244, 244, 244);
         dataGridViewCellStyle3.ForeColor = Color.FromArgb(119, 119, 119);
         dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(244, 244, 244);
         dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(119, 119, 119);
         dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-        kDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-        kDataGridView1.RowHeadersVisible = false;
-        kDataGridView1.RowHeadersWidth = 51;
-        kDataGridView1.RowTemplate.Height = 52;
-        kDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        kDataGridView1.Size = new Size(971, 248);
-        kDataGridView1.TabIndex = 21;
+        dgvPeriodos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+        dgvPeriodos.RowHeadersVisible = false;
+        dgvPeriodos.RowHeadersWidth = 51;
+        dgvPeriodos.RowTemplate.Height = 52;
+        dgvPeriodos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        dgvPeriodos.Size = new Size(971, 248);
+        dgvPeriodos.TabIndex = 21;
         // 
         // lblPagina
         // 
@@ -284,7 +335,7 @@ partial class FrmNomina
         ClientSize = new Size(1031, 892);
         Controls.Add(kLabel1);
         Controls.Add(lblPagina);
-        Controls.Add(kDataGridView1);
+        Controls.Add(dgvPeriodos);
         Controls.Add(kLabel4);
         Controls.Add(lblEstado);
         Controls.Add(kLabel3);
@@ -297,19 +348,19 @@ partial class FrmNomina
         Controls.Add(btnVerPeriodo);
         Controls.Add(btnNuevoPeriodo);
         Controls.Add(cboEstado);
-        Controls.Add(dateTimePicker2);
-        Controls.Add(dateTimePicker1);
+        Controls.Add(dtpHasta);
+        Controls.Add(dtpDesde);
         Margin = new Padding(3, 4, 3, 4);
         Name = "FrmNomina";
         Text = "Nómina";
-        ((System.ComponentModel.ISupportInitialize)kDataGridView1).EndInit();
+        ((System.ComponentModel.ISupportInitialize)dgvPeriodos).EndInit();
         ResumeLayout(false);
         PerformLayout();
     }
 
     #endregion
-    private DateTimePicker dateTimePicker1;
-    private DateTimePicker dateTimePicker2;
+    private DateTimePicker dtpDesde;
+    private DateTimePicker dtpHasta;
     private KovaqsUI.Controls.KComboBox cboEstado;
     private KovaqsUI.Controls.KButton btnNuevoPeriodo;
     private KovaqsUI.Controls.KButton btnVerPeriodo;
@@ -322,7 +373,13 @@ partial class FrmNomina
     private KovaqsUI.Controls.KLabel kLabel3;
     private KovaqsUI.Controls.KLabel lblEstado;
     private KovaqsUI.Controls.KLabel kLabel4;
-    private KovaqsUI.Controls.KDataGridView kDataGridView1;
+    private KovaqsUI.Controls.KDataGridView dgvPeriodos;
     private KovaqsUI.Controls.KLabel lblPagina;
     private KovaqsUI.Controls.KLabel kLabel1;
+    private DataGridViewTextBoxColumn colNombre;
+    private DataGridViewTextBoxColumn colDesde;
+    private DataGridViewTextBoxColumn colHasta;
+    private DataGridViewTextBoxColumn colEstado;
+    private DataGridViewTextBoxColumn colGeneradoPor;
+    private DataGridViewTextBoxColumn colFechaCierre;
 }
