@@ -159,6 +159,77 @@ public sealed class RepositorioUsuarios
         await transaccion.CommitAsync(cancellationToken);
     }
 
+    public async Task<CredencialUsuario?> BuscarPorIdAsync(uint id, CancellationToken cancellationToken = default)
+    {
+        await using var conexion = await ConexionMySql.AbrirAsync(cancellationToken);
+        await using var comando = new MySqlCommand("""
+            SELECT u.id_usuario, u.nombre_usuario, u.contrasena_hash, u.activo, r.activo AS rol_activo,
+                   r.nombre AS rol, COALESCE(CONCAT(e.nombres, ' ', e.apellidos), u.nombre_usuario) AS nombre
+            FROM usuarios u JOIN roles r ON r.id_rol = u.id_rol
+            LEFT JOIN empleados e ON e.id_empleado = u.id_empleado
+            WHERE u.id_usuario = @id;
+            """, conexion);
+        comando.Parameters.Add("@id", MySqlDbType.UInt32).Value = id;
+        await using var lector = await comando.ExecuteReaderAsync(cancellationToken);
+        if (!await lector.ReadAsync(cancellationToken))
+            return null;
+        return new CredencialUsuario(
+            new SesionUsuario(lector.GetUInt32("id_usuario"), lector.GetString("nombre_usuario"),
+                lector.GetString("nombre"), lector.GetString("rol")),
+            lector.GetString("contrasena_hash"), lector.GetBoolean("activo") && lector.GetBoolean("rol_activo"));
+    }
+
+    public async Task<SesionUsuario> ActualizarCuentaAsync(SesionUsuario anterior, string nombreUsuario,
+        string hashAnterior, string? hashNuevo, CancellationToken cancellationToken = default)
+    {
+        await using var conexion = await ConexionMySql.AbrirAsync(cancellationToken);
+        await using var transaccion = await conexion.BeginTransactionAsync(cancellationToken);
+        try
+        {
+            await using var actualizar = new MySqlCommand("""
+                UPDATE usuarios u JOIN roles r ON r.id_rol = u.id_rol
+                SET u.nombre_usuario = @nombre, u.contrasena_hash = COALESCE(@nuevoHash, u.contrasena_hash)
+                WHERE u.id_usuario = @id AND u.activo = TRUE AND r.activo = TRUE
+                    AND u.contrasena_hash = @anteriorHash
+                    AND CAST(u.nombre_usuario AS BINARY) = CAST(@anteriorNombre AS BINARY);
+                """, conexion, transaccion);
+            actualizar.Parameters.Add("@id", MySqlDbType.UInt32).Value = anterior.IdUsuario;
+            actualizar.Parameters.Add("@nombre", MySqlDbType.VarChar, 50).Value = nombreUsuario;
+            actualizar.Parameters.Add("@anteriorNombre", MySqlDbType.VarChar, 50).Value = anterior.NombreUsuario;
+            actualizar.Parameters.Add("@anteriorHash", MySqlDbType.VarChar, 255).Value = hashAnterior;
+            actualizar.Parameters.Add("@nuevoHash", MySqlDbType.VarChar, 255).Value = (object?)hashNuevo ?? DBNull.Value;
+            if (await actualizar.ExecuteNonQueryAsync(cancellationToken) != 1)
+                throw new InvalidOperationException("La cuenta cambió o ya no está activa. Vuelve a iniciar sesión.");
+
+            SesionUsuario actual;
+            await using (var consultar = new MySqlCommand("""
+                SELECT u.nombre_usuario, r.nombre AS rol,
+                    COALESCE(CONCAT(e.nombres, ' ', e.apellidos), u.nombre_usuario) AS nombre
+                FROM usuarios u JOIN roles r ON r.id_rol = u.id_rol
+                LEFT JOIN empleados e ON e.id_empleado = u.id_empleado WHERE u.id_usuario = @id;
+                """, conexion, transaccion))
+            {
+                consultar.Parameters.Add("@id", MySqlDbType.UInt32).Value = anterior.IdUsuario;
+                await using var lector = await consultar.ExecuteReaderAsync(cancellationToken);
+                if (!await lector.ReadAsync(cancellationToken))
+                    throw new InvalidOperationException("La cuenta ya no está disponible.");
+                actual = new SesionUsuario(anterior.IdUsuario, lector.GetString("nombre_usuario"),
+                    lector.GetString("nombre"), lector.GetString("rol"));
+            }
+            var descripcion = hashNuevo is null ? "Cambio del nombre de usuario desde Mi cuenta."
+                : anterior.NombreUsuario == nombreUsuario ? "Cambio de contraseña desde Mi cuenta."
+                : "Cambio del nombre de usuario y contraseña desde Mi cuenta.";
+            await EscribirBitacoraAsync(conexion, transaccion, anterior.IdUsuario, actual.NombreUsuario,
+                "UPDATE", descripcion, cancellationToken);
+            await transaccion.CommitAsync(cancellationToken);
+            return actual;
+        }
+        catch (MySqlException ex) when (ex.Number == 1062)
+        {
+            throw new InvalidOperationException("Ese nombre de usuario ya está ocupado.");
+        }
+    }
+
     public async Task<bool> RegistrarAccesoAsync(SesionUsuario sesion, CancellationToken cancellationToken = default)
     {
         await using var conexion = await ConexionMySql.AbrirAsync(cancellationToken);
