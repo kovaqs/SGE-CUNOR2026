@@ -53,4 +53,34 @@ public sealed class ServicioUsuarios
             throw new InvalidOperationException("No se pudo guardar. Revisa la conexión.");
         }
     }
+
+    public async Task<SesionUsuario> ActualizarCuentaAsync(SesionUsuario sesion, string nombreUsuario,
+        string contrasenaActual, string contrasenaNueva, CancellationToken cancellationToken = default)
+    {
+        nombreUsuario = nombreUsuario.Trim();
+        if (nombreUsuario.Length is 0 or > 50)
+            throw new ArgumentException("Introduce un nombre de usuario de hasta 50 caracteres.");
+        if (contrasenaActual.Length is 0 or > 128)
+            throw new ArgumentException("Introduce tu contraseña actual para guardar los cambios.");
+        if (contrasenaNueva.Length > 0 && (string.IsNullOrWhiteSpace(contrasenaNueva) || contrasenaNueva.Length is < 12 or > 128))
+            throw new ArgumentException("La contraseña nueva debe tener de 12 a 128 caracteres.");
+        try
+        {
+            var credencial = await usuarios.BuscarPorIdAsync(sesion.IdUsuario, cancellationToken);
+            var coincide = await Task.Run(() => HashContrasenas.Verificar(contrasenaActual,
+                credencial?.Hash ?? HashContrasenas.HashSinUsuario), cancellationToken);
+            if (!coincide || credencial is null || !credencial.Activo)
+                throw new InvalidOperationException("La contraseña actual no coincide o la cuenta ya no está activa.");
+            if (nombreUsuario == credencial.Sesion.NombreUsuario && contrasenaNueva.Length == 0)
+                throw new ArgumentException("No hay cambios para guardar.");
+            var hashNuevo = contrasenaNueva.Length == 0 ? null
+                : await Task.Run(() => HashContrasenas.Crear(contrasenaNueva), cancellationToken);
+            return await usuarios.ActualizarCuentaAsync(credencial.Sesion, nombreUsuario,
+                credencial.Hash, hashNuevo, cancellationToken);
+        }
+        catch (DbException)
+        {
+            throw new InvalidOperationException("No se pudieron guardar los cambios. Revisa la conexión.");
+        }
+    }
 }

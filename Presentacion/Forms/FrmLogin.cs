@@ -109,14 +109,25 @@ namespace Presentacion.Forms
                 {
                     using var principal = new FrmPrincipal(sesion);
                     principal.ShowDialog();
-                    await autenticacion.CerrarSesionAsync(sesion, cancelacion.Token);
+                    var sesionActual = principal.SesionActual ?? sesion;
+                    kTextBox1.Text = sesionActual.NombreUsuario;
+                    try
+                    {
+                        await autenticacion.CerrarSesionAsync(sesionActual, cancelacion.Token);
+                    }
+                    finally
+                    {
+                        if (principal.SalirDeAplicacion)
+                            Close();
+                    }
                 }
                 finally
                 {
                     if (!IsDisposed)
                         Show();
                 }
-                kLabel2.Text = "Sesión cerrada. Puedes volver a ingresar.";
+                if (!IsDisposed)
+                    kLabel2.Text = "Sesión cerrada. Puedes volver a ingresar.";
             }
             catch (OperationCanceledException) { }
             catch (Exception ex) when (ex is ArgumentException or InvalidOperationException)

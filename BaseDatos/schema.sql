@@ -1,7 +1,7 @@
 -- MySQL 8.0.16 o posterior. Seleccionar la base de Clever Cloud antes de ejecutar.
 -- Esquema inicial para una base vacía; los cambios posteriores se aplican por separado.
 -- DATETIME representa instantes en UTC. DATE y TIME laborales usan la hora de Guatemala.
--- Los campos *_cifrado reciben datos cifrados por la aplicación; las claves se guardan fuera de la base.
+-- Los campos *_cifrado reciben datos cifrados por la aplicación.
 
 SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci;
 SET SESSION time_zone = '+00:00';

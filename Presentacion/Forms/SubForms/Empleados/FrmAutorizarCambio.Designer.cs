@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Forms.SubForms.Empleados;
+namespace Presentacion.Forms.SubForms.Empleados;
 
 partial class FrmAutorizarCambio
 {
@@ -55,11 +55,19 @@ partial class FrmAutorizarCambio
         btnCerrar.Font = new Font("Inter", 9F);
         btnCerrar.Padding = new Padding(10, 4, 10, 4);
         btnCerrar.UseVisualStyleBackColor = false;
-        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCerrar.Text = "Cerrar";
         btnCerrar.DialogResult = DialogResult.Cancel;
         btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnCerrar.Location = new Point(790, 12);
+        btnCerrar.BorderThickness = 1;
+        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnCerrar.FillColor = Color.White;
+        btnCerrar.ForeColor = Color.FromArgb(32, 38, 45);
+        btnCerrar.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.GradientColor = Color.Empty;
+        btnCerrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnCerrar.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnCerrar.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnCerrar.Name = "btnCerrar";
         btnCerrar.Size = new Size(96, 40);
         btnCerrar.TabIndex = 1;
@@ -73,6 +81,7 @@ partial class FrmAutorizarCambio
         lblEmpleado.TextAlign = ContentAlignment.MiddleLeft;
         lblEmpleado.Text = "Empleado afectado";
         lblEmpleado.Location = new Point(16, 70);
+        lblEmpleado.Font = new Font("Inter", 9F);
         lblEmpleado.Name = "lblEmpleado";
         lblEmpleado.Size = new Size(426, 24);
         lblEmpleado.TabIndex = 2;
@@ -87,9 +96,14 @@ partial class FrmAutorizarCambio
         txtEmpleado.ReadOnly = true;
         txtEmpleado.MaxLength = 100;
         txtEmpleado.Location = new Point(16, 96);
+        txtEmpleado.FillColor = Color.White;
+        txtEmpleado.ForeColor = Color.FromArgb(32, 38, 45);
+        txtEmpleado.BorderColor = Color.FromArgb(218, 218, 218);
+        txtEmpleado.GradientColor = Color.Empty;
+        txtEmpleado.BorderThickness = 1;
         txtEmpleado.Name = "txtEmpleado";
         txtEmpleado.Size = new Size(426, 34);
-        txtEmpleado.TabIndex = 3;
+        txtEmpleado.TabIndex = 4;
         //
         // lblOperacion
         //
@@ -100,9 +114,10 @@ partial class FrmAutorizarCambio
         lblOperacion.TextAlign = ContentAlignment.MiddleLeft;
         lblOperacion.Text = "Operación a confirmar";
         lblOperacion.Location = new Point(460, 70);
+        lblOperacion.Font = new Font("Inter", 9F);
         lblOperacion.Name = "lblOperacion";
         lblOperacion.Size = new Size(426, 24);
-        lblOperacion.TabIndex = 4;
+        lblOperacion.TabIndex = 3;
         lblOperacion.TabStop = false;
         //
         // txtOperacion
@@ -114,6 +129,11 @@ partial class FrmAutorizarCambio
         txtOperacion.ReadOnly = true;
         txtOperacion.MaxLength = 100;
         txtOperacion.Location = new Point(460, 96);
+        txtOperacion.FillColor = Color.White;
+        txtOperacion.ForeColor = Color.FromArgb(32, 38, 45);
+        txtOperacion.BorderColor = Color.FromArgb(218, 218, 218);
+        txtOperacion.GradientColor = Color.Empty;
+        txtOperacion.BorderThickness = 1;
         txtOperacion.Name = "txtOperacion";
         txtOperacion.Size = new Size(426, 34);
         txtOperacion.TabIndex = 5;
@@ -127,6 +147,7 @@ partial class FrmAutorizarCambio
         lblUsuarioAutoriza.TextAlign = ContentAlignment.MiddleLeft;
         lblUsuarioAutoriza.Text = "Usuario autorizado";
         lblUsuarioAutoriza.Location = new Point(16, 140);
+        lblUsuarioAutoriza.Font = new Font("Inter", 9F);
         lblUsuarioAutoriza.Name = "lblUsuarioAutoriza";
         lblUsuarioAutoriza.Size = new Size(426, 24);
         lblUsuarioAutoriza.TabIndex = 6;
@@ -141,9 +162,14 @@ partial class FrmAutorizarCambio
         txtUsuarioAutoriza.ReadOnly = true;
         txtUsuarioAutoriza.MaxLength = 100;
         txtUsuarioAutoriza.Location = new Point(16, 166);
+        txtUsuarioAutoriza.FillColor = Color.White;
+        txtUsuarioAutoriza.ForeColor = Color.FromArgb(32, 38, 45);
+        txtUsuarioAutoriza.BorderColor = Color.FromArgb(218, 218, 218);
+        txtUsuarioAutoriza.GradientColor = Color.Empty;
+        txtUsuarioAutoriza.BorderThickness = 1;
         txtUsuarioAutoriza.Name = "txtUsuarioAutoriza";
         txtUsuarioAutoriza.Size = new Size(426, 34);
-        txtUsuarioAutoriza.TabIndex = 7;
+        txtUsuarioAutoriza.TabIndex = 8;
         //
         // lblContrasena
         //
@@ -154,9 +180,10 @@ partial class FrmAutorizarCambio
         lblContrasena.TextAlign = ContentAlignment.MiddleLeft;
         lblContrasena.Text = "Confirma tu contraseña";
         lblContrasena.Location = new Point(460, 140);
+        lblContrasena.Font = new Font("Inter", 9F);
         lblContrasena.Name = "lblContrasena";
         lblContrasena.Size = new Size(426, 24);
-        lblContrasena.TabIndex = 8;
+        lblContrasena.TabIndex = 7;
         lblContrasena.TabStop = false;
         //
         // txtContrasena
@@ -167,7 +194,13 @@ partial class FrmAutorizarCambio
         txtContrasena.Padding = new Padding(10, 6, 10, 6);
         txtContrasena.UseSystemPasswordChar = true;
         txtContrasena.MaxLength = 128;
+        txtContrasena.MaxLength = 128;
         txtContrasena.Location = new Point(460, 166);
+        txtContrasena.FillColor = Color.White;
+        txtContrasena.ForeColor = Color.FromArgb(32, 38, 45);
+        txtContrasena.BorderColor = Color.FromArgb(218, 218, 218);
+        txtContrasena.GradientColor = Color.Empty;
+        txtContrasena.BorderThickness = 1;
         txtContrasena.Name = "txtContrasena";
         txtContrasena.Size = new Size(426, 34);
         txtContrasena.TabIndex = 9;
@@ -177,9 +210,15 @@ partial class FrmAutorizarCambio
         chkMostrarContrasena.Font = new Font("Inter", 9F);
         chkMostrarContrasena.Text = "Mostrar contraseña";
         chkMostrarContrasena.Location = new Point(16, 234);
+        chkMostrarContrasena.ForeColor = Color.FromArgb(64, 64, 64);
+        chkMostrarContrasena.CheckedState.FillColor = Color.FromArgb(49, 81, 107);
+        chkMostrarContrasena.CheckedState.BorderColor = Color.FromArgb(32, 38, 45);
+        chkMostrarContrasena.CheckedState.ForeColor = Color.White;
+        chkMostrarContrasena.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         chkMostrarContrasena.Name = "chkMostrarContrasena";
         chkMostrarContrasena.Size = new Size(426, 36);
         chkMostrarContrasena.TabIndex = 10;
+        chkMostrarContrasena.CheckedChanged += chkMostrarContrasena_CheckedChanged;
         //
         // btnGuardar
         //
@@ -189,17 +228,23 @@ partial class FrmAutorizarCambio
         btnGuardar.Font = new Font("Inter", 9F);
         btnGuardar.Padding = new Padding(10, 4, 10, 4);
         btnGuardar.UseVisualStyleBackColor = false;
-        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
         btnGuardar.Text = "Autorizar";
-        btnGuardar.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.ForeColor = Color.White;
-        btnGuardar.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.Appearance.Normal.ForeColor = Color.White;
         btnGuardar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnGuardar.Location = new Point(586, 613);
+        btnGuardar.BorderThickness = 1;
+        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
+        btnGuardar.FillColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.ForeColor = Color.White;
+        btnGuardar.BorderColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.GradientColor = Color.Empty;
+        btnGuardar.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnGuardar.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnGuardar.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
         btnGuardar.Name = "btnGuardar";
         btnGuardar.Size = new Size(144, 40);
         btnGuardar.TabIndex = 11;
+        btnGuardar.Enabled = false;
+        btnGuardar.Click += btnGuardar_Click;
         //
         // btnCancelar
         //
@@ -209,11 +254,19 @@ partial class FrmAutorizarCambio
         btnCancelar.Font = new Font("Inter", 9F);
         btnCancelar.Padding = new Padding(10, 4, 10, 4);
         btnCancelar.UseVisualStyleBackColor = false;
-        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCancelar.Text = "Cancelar";
         btnCancelar.DialogResult = DialogResult.Cancel;
         btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnCancelar.Location = new Point(742, 613);
+        btnCancelar.BorderThickness = 1;
+        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Danger;
+        btnCancelar.FillColor = Color.FromArgb(255, 248, 248);
+        btnCancelar.ForeColor = Color.FromArgb(166, 61, 64);
+        btnCancelar.BorderColor = Color.FromArgb(204, 148, 150);
+        btnCancelar.GradientColor = Color.Empty;
+        btnCancelar.Appearance.Hover.FillColor = Color.FromArgb(250, 235, 235);
+        btnCancelar.Appearance.Pressed.FillColor = Color.FromArgb(244, 219, 220);
+        btnCancelar.FocusAppearance.Color = Color.FromArgb(166, 61, 64);
         btnCancelar.Name = "btnCancelar";
         btnCancelar.Size = new Size(144, 40);
         btnCancelar.TabIndex = 12;
@@ -244,6 +297,9 @@ partial class FrmAutorizarCambio
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCancelar;
+        FormClosed += FrmAutorizarCambio_FormClosed;
+        Disposed += FrmAutorizarCambio_Disposed;
+        Font = new Font("Segoe UI", 9F);
         Name = "FrmAutorizarCambio";
         Text = "Confirmar cambio salarial";
         ResumeLayout(false);

@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Forms.SubForms.Empleados;
+namespace Presentacion.Forms.SubForms.Empleados;
 
 partial class FrmHistorialLaboral
 {
@@ -16,6 +16,9 @@ partial class FrmHistorialLaboral
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
+        btnAcciones = new KovaqsUI.Controls.KButton();
+        cmsHistorialLaboral = new ContextMenuStrip(components);
+        mnuVerCondicion = new ToolStripMenuItem();
         DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
         DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
         lblTitulo = new KovaqsUI.Controls.KLabel();
@@ -23,7 +26,6 @@ partial class FrmHistorialLaboral
         lblEmpleado = new KovaqsUI.Controls.KLabel();
         txtEmpleado = new KovaqsUI.Controls.KTextBox();
         btnNuevaCondicion = new KovaqsUI.Controls.KButton();
-        btnVerCondicion = new KovaqsUI.Controls.KButton();
         lblHistorialLaboralTitulo = new KovaqsUI.Controls.KLabel();
         dgvHistorialLaboral = new KovaqsUI.Controls.KDataGridView();
         colHistorialLaboralDesde = new DataGridViewTextBoxColumn();
@@ -37,14 +39,14 @@ partial class FrmHistorialLaboral
         ((System.ComponentModel.ISupportInitialize)dgvHistorialLaboral).BeginInit();
         SuspendLayout();
         dataGridViewCellStyle1.BackColor = Color.FromArgb(244, 244, 244);
-        dataGridViewCellStyle1.ForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle1.ForeColor = Color.FromArgb(71, 85, 99);
         dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(244, 244, 244);
-        dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(71, 85, 99);
         dataGridViewCellStyle1.Font = new Font("Inter", 9F, FontStyle.Bold);
         dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
         dataGridViewCellStyle2.BackColor = Color.White;
         dataGridViewCellStyle2.ForeColor = Color.FromArgb(13, 21, 23);
-        dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(223, 233, 249);
+        dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(231, 238, 245);
         dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(13, 21, 23);
         dataGridViewCellStyle2.Font = new Font("Inter", 9F);
         dataGridViewCellStyle2.Padding = new Padding(8, 4, 8, 4);
@@ -72,11 +74,19 @@ partial class FrmHistorialLaboral
         btnCerrar.Font = new Font("Inter", 9F);
         btnCerrar.Padding = new Padding(10, 4, 10, 4);
         btnCerrar.UseVisualStyleBackColor = false;
-        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCerrar.Text = "Cerrar";
         btnCerrar.DialogResult = DialogResult.Cancel;
         btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnCerrar.Location = new Point(790, 12);
+        btnCerrar.BorderThickness = 1;
+        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnCerrar.FillColor = Color.White;
+        btnCerrar.ForeColor = Color.FromArgb(32, 38, 45);
+        btnCerrar.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.GradientColor = Color.Empty;
+        btnCerrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnCerrar.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnCerrar.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnCerrar.Name = "btnCerrar";
         btnCerrar.Size = new Size(96, 40);
         btnCerrar.TabIndex = 1;
@@ -90,6 +100,7 @@ partial class FrmHistorialLaboral
         lblEmpleado.TextAlign = ContentAlignment.MiddleLeft;
         lblEmpleado.Text = "Empleado";
         lblEmpleado.Location = new Point(16, 70);
+        lblEmpleado.Font = new Font("Inter", 9F);
         lblEmpleado.Name = "lblEmpleado";
         lblEmpleado.Size = new Size(426, 24);
         lblEmpleado.TabIndex = 2;
@@ -104,6 +115,11 @@ partial class FrmHistorialLaboral
         txtEmpleado.ReadOnly = true;
         txtEmpleado.MaxLength = 100;
         txtEmpleado.Location = new Point(16, 96);
+        txtEmpleado.FillColor = Color.White;
+        txtEmpleado.ForeColor = Color.FromArgb(32, 38, 45);
+        txtEmpleado.BorderColor = Color.FromArgb(218, 218, 218);
+        txtEmpleado.GradientColor = Color.Empty;
+        txtEmpleado.BorderThickness = 1;
         txtEmpleado.Name = "txtEmpleado";
         txtEmpleado.Size = new Size(426, 34);
         txtEmpleado.TabIndex = 3;
@@ -116,31 +132,20 @@ partial class FrmHistorialLaboral
         btnNuevaCondicion.Font = new Font("Inter", 9F);
         btnNuevaCondicion.Padding = new Padding(10, 4, 10, 4);
         btnNuevaCondicion.UseVisualStyleBackColor = false;
-        btnNuevaCondicion.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
         btnNuevaCondicion.Text = "Cambiar condición";
-        btnNuevaCondicion.FillColor = Color.FromArgb(32, 38, 45);
-        btnNuevaCondicion.ForeColor = Color.White;
-        btnNuevaCondicion.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnNuevaCondicion.Appearance.Normal.ForeColor = Color.White;
         btnNuevaCondicion.Location = new Point(16, 144);
+        btnNuevaCondicion.BorderThickness = 1;
+        btnNuevaCondicion.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
+        btnNuevaCondicion.FillColor = Color.FromArgb(49, 81, 107);
+        btnNuevaCondicion.ForeColor = Color.White;
+        btnNuevaCondicion.BorderColor = Color.FromArgb(49, 81, 107);
+        btnNuevaCondicion.GradientColor = Color.Empty;
+        btnNuevaCondicion.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnNuevaCondicion.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnNuevaCondicion.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
         btnNuevaCondicion.Name = "btnNuevaCondicion";
         btnNuevaCondicion.Size = new Size(220, 40);
         btnNuevaCondicion.TabIndex = 4;
-        //
-        // btnVerCondicion
-        //
-        btnVerCondicion.BackColor = Color.Transparent;
-        btnVerCondicion.CornerRadius = 8;
-        btnVerCondicion.FlatStyle = FlatStyle.Flat;
-        btnVerCondicion.Font = new Font("Inter", 9F);
-        btnVerCondicion.Padding = new Padding(10, 4, 10, 4);
-        btnVerCondicion.UseVisualStyleBackColor = false;
-        btnVerCondicion.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
-        btnVerCondicion.Text = "Ver condición";
-        btnVerCondicion.Location = new Point(248, 144);
-        btnVerCondicion.Name = "btnVerCondicion";
-        btnVerCondicion.Size = new Size(220, 40);
-        btnVerCondicion.TabIndex = 5;
         //
         // lblHistorialLaboralTitulo
         //
@@ -151,6 +156,7 @@ partial class FrmHistorialLaboral
         lblHistorialLaboralTitulo.TextAlign = ContentAlignment.MiddleLeft;
         lblHistorialLaboralTitulo.Text = "Condiciones laborales";
         lblHistorialLaboralTitulo.Location = new Point(16, 198);
+        lblHistorialLaboralTitulo.Font = new Font("Inter", 9F);
         lblHistorialLaboralTitulo.Name = "lblHistorialLaboralTitulo";
         lblHistorialLaboralTitulo.Size = new Size(870, 24);
         lblHistorialLaboralTitulo.TabIndex = 6;
@@ -177,6 +183,8 @@ partial class FrmHistorialLaboral
         dgvHistorialLaboral.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
         dgvHistorialLaboral.DefaultCellStyle = dataGridViewCellStyle2;
         dgvHistorialLaboral.Location = new Point(16, 224);
+        dgvHistorialLaboral.Font = new Font("Inter", 9F);
+        dgvHistorialLaboral.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
         dgvHistorialLaboral.Name = "dgvHistorialLaboral";
         dgvHistorialLaboral.Size = new Size(870, 362);
         dgvHistorialLaboral.TabIndex = 7;
@@ -224,6 +232,49 @@ partial class FrmHistorialLaboral
         colHistorialLaboralMotivo.Name = "colHistorialLaboralMotivo";
         colHistorialLaboralMotivo.ReadOnly = true;
         notificador.OwnerForm = this;
+        btnAcciones.BackColor = Color.Transparent;
+        btnAcciones.CornerRadius = 8;
+        btnAcciones.FlatStyle = FlatStyle.Flat;
+        btnAcciones.Font = new Font("Inter", 9F);
+        btnAcciones.Padding = new Padding(10, 4, 10, 4);
+        btnAcciones.UseVisualStyleBackColor = false;
+        btnAcciones.Text = "Acciones ▾";
+        btnAcciones.Location = new Point(248, 144);
+        btnAcciones.BorderThickness = 1;
+        btnAcciones.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnAcciones.FillColor = Color.White;
+        btnAcciones.ForeColor = Color.FromArgb(49, 81, 107);
+        btnAcciones.BorderColor = Color.FromArgb(173, 190, 204);
+        btnAcciones.GradientColor = Color.Empty;
+        btnAcciones.Appearance.Hover.FillColor = Color.FromArgb(239, 244, 248);
+        btnAcciones.Appearance.Pressed.FillColor = Color.FromArgb(225, 235, 243);
+        btnAcciones.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
+        btnAcciones.Name = "btnAcciones";
+        btnAcciones.Size = new Size(220, 40);
+        btnAcciones.TabIndex = 5;
+        btnAcciones.Click += btnAcciones_Click;
+        btnAcciones.Enabled = false;
+        //
+        // cmsHistorialLaboral
+        //
+        cmsHistorialLaboral.SuspendLayout();
+        cmsHistorialLaboral.Items.AddRange(new ToolStripItem[] { mnuVerCondicion });
+        cmsHistorialLaboral.Name = "cmsHistorialLaboral";
+        cmsHistorialLaboral.Font = new Font("Inter", 9F);
+        cmsHistorialLaboral.ShowImageMargin = false;
+        cmsHistorialLaboral.Opening += cmsHistorialLaboral_Opening;
+        //
+        // mnuVerCondicion
+        //
+        mnuVerCondicion.Name = "mnuVerCondicion";
+        mnuVerCondicion.Text = "Ver condición";
+        mnuVerCondicion.ForeColor = Color.FromArgb(32, 38, 45);
+        dgvHistorialLaboral.ContextMenuStrip = cmsHistorialLaboral;
+        dgvHistorialLaboral.MouseDown += dgvHistorialLaboral_MouseDown;
+        dgvHistorialLaboral.SelectionChanged += dgvHistorialLaboral_SelectionChanged;
+        dgvHistorialLaboral.CellDoubleClick += dgvHistorialLaboral_CellDoubleClick;
+        Controls.Add(btnAcciones);
+        cmsHistorialLaboral.ResumeLayout(false);
         //
         // FrmHistorialLaboral
         //
@@ -236,7 +287,6 @@ partial class FrmHistorialLaboral
         Controls.Add(lblEmpleado);
         Controls.Add(txtEmpleado);
         Controls.Add(btnNuevaCondicion);
-        Controls.Add(btnVerCondicion);
         Controls.Add(lblHistorialLaboralTitulo);
         Controls.Add(dgvHistorialLaboral);
         FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -245,6 +295,7 @@ partial class FrmHistorialLaboral
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCerrar;
+        Font = new Font("Segoe UI", 9F);
         Name = "FrmHistorialLaboral";
         Text = "Historial laboral del empleado";
         ((System.ComponentModel.ISupportInitialize)dgvHistorialLaboral).EndInit();
@@ -253,12 +304,15 @@ partial class FrmHistorialLaboral
 
     #endregion
 
+    private KovaqsUI.Controls.KButton btnAcciones;
+    private ContextMenuStrip cmsHistorialLaboral;
+    private ToolStripMenuItem mnuVerCondicion;
+
     private KovaqsUI.Controls.KLabel lblTitulo;
     private KovaqsUI.Controls.KButton btnCerrar;
     private KovaqsUI.Controls.KLabel lblEmpleado;
     private KovaqsUI.Controls.KTextBox txtEmpleado;
     private KovaqsUI.Controls.KButton btnNuevaCondicion;
-    private KovaqsUI.Controls.KButton btnVerCondicion;
     private KovaqsUI.Controls.KLabel lblHistorialLaboralTitulo;
     private KovaqsUI.Controls.KDataGridView dgvHistorialLaboral;
     private DataGridViewTextBoxColumn colHistorialLaboralDesde;

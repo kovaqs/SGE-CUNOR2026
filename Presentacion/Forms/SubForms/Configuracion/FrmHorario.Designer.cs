@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Forms.SubForms.Configuracion;
+namespace Presentacion.Forms.SubForms.Configuracion;
 
 partial class FrmHorario
 {
@@ -47,14 +47,14 @@ partial class FrmHorario
         ((System.ComponentModel.ISupportInitialize)dgvDiasHorario).BeginInit();
         SuspendLayout();
         dataGridViewCellStyle1.BackColor = Color.FromArgb(244, 244, 244);
-        dataGridViewCellStyle1.ForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle1.ForeColor = Color.FromArgb(71, 85, 99);
         dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(244, 244, 244);
-        dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(71, 85, 99);
         dataGridViewCellStyle1.Font = new Font("Inter", 9F, FontStyle.Bold);
         dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
         dataGridViewCellStyle2.BackColor = Color.White;
         dataGridViewCellStyle2.ForeColor = Color.FromArgb(13, 21, 23);
-        dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(223, 233, 249);
+        dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(231, 238, 245);
         dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(13, 21, 23);
         dataGridViewCellStyle2.Font = new Font("Inter", 9F);
         dataGridViewCellStyle2.Padding = new Padding(8, 4, 8, 4);
@@ -82,11 +82,19 @@ partial class FrmHorario
         btnCerrar.Font = new Font("Inter", 9F);
         btnCerrar.Padding = new Padding(10, 4, 10, 4);
         btnCerrar.UseVisualStyleBackColor = false;
-        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCerrar.Text = "Cerrar";
         btnCerrar.DialogResult = DialogResult.Cancel;
         btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnCerrar.Location = new Point(790, 12);
+        btnCerrar.BorderThickness = 1;
+        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnCerrar.FillColor = Color.White;
+        btnCerrar.ForeColor = Color.FromArgb(32, 38, 45);
+        btnCerrar.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.GradientColor = Color.Empty;
+        btnCerrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnCerrar.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnCerrar.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnCerrar.Name = "btnCerrar";
         btnCerrar.Size = new Size(96, 40);
         btnCerrar.TabIndex = 1;
@@ -100,6 +108,7 @@ partial class FrmHorario
         lblNombre.TextAlign = ContentAlignment.MiddleLeft;
         lblNombre.Text = "Nombre del horario";
         lblNombre.Location = new Point(16, 70);
+        lblNombre.Font = new Font("Inter", 9F);
         lblNombre.Name = "lblNombre";
         lblNombre.Size = new Size(574, 24);
         lblNombre.TabIndex = 2;
@@ -113,9 +122,14 @@ partial class FrmHorario
         txtNombre.Padding = new Padding(10, 6, 10, 6);
         txtNombre.MaxLength = 100;
         txtNombre.Location = new Point(16, 96);
+        txtNombre.FillColor = Color.White;
+        txtNombre.ForeColor = Color.FromArgb(32, 38, 45);
+        txtNombre.BorderColor = Color.FromArgb(218, 218, 218);
+        txtNombre.GradientColor = Color.Empty;
+        txtNombre.BorderThickness = 1;
         txtNombre.Name = "txtNombre";
         txtNombre.Size = new Size(574, 34);
-        txtNombre.TabIndex = 3;
+        txtNombre.TabIndex = 4;
         //
         // chkActivo
         //
@@ -123,9 +137,14 @@ partial class FrmHorario
         chkActivo.Text = "Horario activo";
         chkActivo.Checked = true;
         chkActivo.Location = new Point(620, 94);
+        chkActivo.ForeColor = Color.FromArgb(64, 64, 64);
+        chkActivo.CheckedState.FillColor = Color.FromArgb(49, 81, 107);
+        chkActivo.CheckedState.BorderColor = Color.FromArgb(32, 38, 45);
+        chkActivo.CheckedState.ForeColor = Color.White;
+        chkActivo.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         chkActivo.Name = "chkActivo";
         chkActivo.Size = new Size(266, 36);
-        chkActivo.TabIndex = 4;
+        chkActivo.TabIndex = 3;
         //
         // lblDiasHorarioTitulo
         //
@@ -136,6 +155,7 @@ partial class FrmHorario
         lblDiasHorarioTitulo.TextAlign = ContentAlignment.MiddleLeft;
         lblDiasHorarioTitulo.Text = "Distribución semanal";
         lblDiasHorarioTitulo.Location = new Point(16, 154);
+        lblDiasHorarioTitulo.Font = new Font("Inter", 9F);
         lblDiasHorarioTitulo.Name = "lblDiasHorarioTitulo";
         lblDiasHorarioTitulo.Size = new Size(870, 24);
         lblDiasHorarioTitulo.TabIndex = 5;
@@ -162,6 +182,8 @@ partial class FrmHorario
         dgvDiasHorario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
         dgvDiasHorario.DefaultCellStyle = dataGridViewCellStyle2;
         dgvDiasHorario.Location = new Point(16, 180);
+        dgvDiasHorario.Font = new Font("Inter", 9F);
+        dgvDiasHorario.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
         dgvDiasHorario.Name = "dgvDiasHorario";
         dgvDiasHorario.Size = new Size(870, 190);
         dgvDiasHorario.TabIndex = 6;
@@ -176,6 +198,7 @@ partial class FrmHorario
         lblDiaSemana.TextAlign = ContentAlignment.MiddleLeft;
         lblDiaSemana.Text = "Día de la semana";
         lblDiaSemana.Location = new Point(16, 402);
+        lblDiaSemana.Font = new Font("Inter", 9F);
         lblDiaSemana.Name = "lblDiaSemana";
         lblDiaSemana.Size = new Size(278, 24);
         lblDiaSemana.TabIndex = 7;
@@ -188,9 +211,15 @@ partial class FrmHorario
         cboDiaSemana.FormattingEnabled = true;
         cboDiaSemana.Items.AddRange(new object[] { "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo" });
         cboDiaSemana.Location = new Point(16, 428);
+        cboDiaSemana.CornerRadius = 8;
+        cboDiaSemana.FillColor = Color.White;
+        cboDiaSemana.ForeColor = Color.FromArgb(32, 38, 45);
+        cboDiaSemana.BorderColor = Color.FromArgb(218, 218, 218);
+        cboDiaSemana.GradientColor = Color.Empty;
+
         cboDiaSemana.Name = "cboDiaSemana";
         cboDiaSemana.Size = new Size(278, 34);
-        cboDiaSemana.TabIndex = 8;
+        cboDiaSemana.TabIndex = 10;
         //
         // lblHoraEntrada
         //
@@ -201,9 +230,10 @@ partial class FrmHorario
         lblHoraEntrada.TextAlign = ContentAlignment.MiddleLeft;
         lblHoraEntrada.Text = "Hora de entrada";
         lblHoraEntrada.Location = new Point(312, 402);
+        lblHoraEntrada.Font = new Font("Inter", 9F);
         lblHoraEntrada.Name = "lblHoraEntrada";
         lblHoraEntrada.Size = new Size(278, 24);
-        lblHoraEntrada.TabIndex = 9;
+        lblHoraEntrada.TabIndex = 8;
         lblHoraEntrada.TabStop = false;
         //
         // dtpHoraEntrada
@@ -214,9 +244,10 @@ partial class FrmHorario
         dtpHoraEntrada.MinimumSize = new Size(0, 34);
         dtpHoraEntrada.ShowUpDown = true;
         dtpHoraEntrada.Location = new Point(312, 428);
+        dtpHoraEntrada.CalendarFont = new Font("Inter", 9F);
         dtpHoraEntrada.Name = "dtpHoraEntrada";
         dtpHoraEntrada.Size = new Size(278, 34);
-        dtpHoraEntrada.TabIndex = 10;
+        dtpHoraEntrada.TabIndex = 11;
         //
         // lblHoraSalida
         //
@@ -227,9 +258,10 @@ partial class FrmHorario
         lblHoraSalida.TextAlign = ContentAlignment.MiddleLeft;
         lblHoraSalida.Text = "Hora de salida";
         lblHoraSalida.Location = new Point(608, 402);
+        lblHoraSalida.Font = new Font("Inter", 9F);
         lblHoraSalida.Name = "lblHoraSalida";
         lblHoraSalida.Size = new Size(278, 24);
-        lblHoraSalida.TabIndex = 11;
+        lblHoraSalida.TabIndex = 9;
         lblHoraSalida.TabStop = false;
         //
         // dtpHoraSalida
@@ -240,6 +272,7 @@ partial class FrmHorario
         dtpHoraSalida.MinimumSize = new Size(0, 34);
         dtpHoraSalida.ShowUpDown = true;
         dtpHoraSalida.Location = new Point(608, 428);
+        dtpHoraSalida.CalendarFont = new Font("Inter", 9F);
         dtpHoraSalida.Name = "dtpHoraSalida";
         dtpHoraSalida.Size = new Size(278, 34);
         dtpHoraSalida.TabIndex = 12;
@@ -249,9 +282,14 @@ partial class FrmHorario
         chkSalidaDiaSiguiente.Font = new Font("Inter", 9F);
         chkSalidaDiaSiguiente.Text = "Salida al día siguiente";
         chkSalidaDiaSiguiente.Location = new Point(16, 496);
+        chkSalidaDiaSiguiente.ForeColor = Color.FromArgb(64, 64, 64);
+        chkSalidaDiaSiguiente.CheckedState.FillColor = Color.FromArgb(49, 81, 107);
+        chkSalidaDiaSiguiente.CheckedState.BorderColor = Color.FromArgb(32, 38, 45);
+        chkSalidaDiaSiguiente.CheckedState.ForeColor = Color.White;
+        chkSalidaDiaSiguiente.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         chkSalidaDiaSiguiente.Name = "chkSalidaDiaSiguiente";
         chkSalidaDiaSiguiente.Size = new Size(278, 36);
-        chkSalidaDiaSiguiente.TabIndex = 13;
+        chkSalidaDiaSiguiente.TabIndex = 14;
         //
         // lblTolerancia
         //
@@ -262,9 +300,10 @@ partial class FrmHorario
         lblTolerancia.TextAlign = ContentAlignment.MiddleLeft;
         lblTolerancia.Text = "Tolerancia (minutos)";
         lblTolerancia.Location = new Point(312, 472);
+        lblTolerancia.Font = new Font("Inter", 9F);
         lblTolerancia.Name = "lblTolerancia";
         lblTolerancia.Size = new Size(278, 24);
-        lblTolerancia.TabIndex = 14;
+        lblTolerancia.TabIndex = 13;
         lblTolerancia.TabStop = false;
         //
         // numTolerancia
@@ -273,9 +312,11 @@ partial class FrmHorario
         numTolerancia.Maximum = 1440m;
         numTolerancia.DecimalPlaces = 0;
         numTolerancia.Location = new Point(312, 498);
+        numTolerancia.ForeColor = Color.FromArgb(64, 64, 64);
+
         numTolerancia.Name = "numTolerancia";
         numTolerancia.Size = new Size(278, 34);
-        numTolerancia.TabIndex = 15;
+        numTolerancia.TabIndex = 16;
         //
         // chkLaborable
         //
@@ -283,9 +324,14 @@ partial class FrmHorario
         chkLaborable.Text = "Trabaja este día";
         chkLaborable.Checked = true;
         chkLaborable.Location = new Point(608, 496);
+        chkLaborable.ForeColor = Color.FromArgb(64, 64, 64);
+        chkLaborable.CheckedState.FillColor = Color.FromArgb(49, 81, 107);
+        chkLaborable.CheckedState.BorderColor = Color.FromArgb(32, 38, 45);
+        chkLaborable.CheckedState.ForeColor = Color.White;
+        chkLaborable.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         chkLaborable.Name = "chkLaborable";
         chkLaborable.Size = new Size(278, 36);
-        chkLaborable.TabIndex = 16;
+        chkLaborable.TabIndex = 15;
         //
         // btnAplicarDia
         //
@@ -295,13 +341,17 @@ partial class FrmHorario
         btnAplicarDia.Font = new Font("Inter", 9F);
         btnAplicarDia.Padding = new Padding(10, 4, 10, 4);
         btnAplicarDia.UseVisualStyleBackColor = false;
-        btnAplicarDia.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
         btnAplicarDia.Text = "Aplicar al día seleccionado";
-        btnAplicarDia.FillColor = Color.FromArgb(32, 38, 45);
-        btnAplicarDia.ForeColor = Color.White;
-        btnAplicarDia.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnAplicarDia.Appearance.Normal.ForeColor = Color.White;
         btnAplicarDia.Location = new Point(16, 550);
+        btnAplicarDia.BorderThickness = 1;
+        btnAplicarDia.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnAplicarDia.FillColor = Color.White;
+        btnAplicarDia.ForeColor = Color.FromArgb(32, 38, 45);
+        btnAplicarDia.BorderColor = Color.FromArgb(218, 218, 218);
+        btnAplicarDia.GradientColor = Color.Empty;
+        btnAplicarDia.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnAplicarDia.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnAplicarDia.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnAplicarDia.Name = "btnAplicarDia";
         btnAplicarDia.Size = new Size(220, 40);
         btnAplicarDia.TabIndex = 17;
@@ -314,14 +364,18 @@ partial class FrmHorario
         btnGuardar.Font = new Font("Inter", 9F);
         btnGuardar.Padding = new Padding(10, 4, 10, 4);
         btnGuardar.UseVisualStyleBackColor = false;
-        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
         btnGuardar.Text = "Guardar";
-        btnGuardar.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.ForeColor = Color.White;
-        btnGuardar.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.Appearance.Normal.ForeColor = Color.White;
         btnGuardar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnGuardar.Location = new Point(586, 613);
+        btnGuardar.BorderThickness = 1;
+        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
+        btnGuardar.FillColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.ForeColor = Color.White;
+        btnGuardar.BorderColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.GradientColor = Color.Empty;
+        btnGuardar.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnGuardar.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnGuardar.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
         btnGuardar.Name = "btnGuardar";
         btnGuardar.Size = new Size(144, 40);
         btnGuardar.TabIndex = 18;
@@ -334,11 +388,19 @@ partial class FrmHorario
         btnCancelar.Font = new Font("Inter", 9F);
         btnCancelar.Padding = new Padding(10, 4, 10, 4);
         btnCancelar.UseVisualStyleBackColor = false;
-        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCancelar.Text = "Cancelar";
         btnCancelar.DialogResult = DialogResult.Cancel;
         btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnCancelar.Location = new Point(742, 613);
+        btnCancelar.BorderThickness = 1;
+        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Danger;
+        btnCancelar.FillColor = Color.FromArgb(255, 248, 248);
+        btnCancelar.ForeColor = Color.FromArgb(166, 61, 64);
+        btnCancelar.BorderColor = Color.FromArgb(204, 148, 150);
+        btnCancelar.GradientColor = Color.Empty;
+        btnCancelar.Appearance.Hover.FillColor = Color.FromArgb(250, 235, 235);
+        btnCancelar.Appearance.Pressed.FillColor = Color.FromArgb(244, 219, 220);
+        btnCancelar.FocusAppearance.Color = Color.FromArgb(166, 61, 64);
         btnCancelar.Name = "btnCancelar";
         btnCancelar.Size = new Size(144, 40);
         btnCancelar.TabIndex = 19;
@@ -406,6 +468,7 @@ partial class FrmHorario
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCancelar;
+        Font = new Font("Segoe UI", 9F);
         Name = "FrmHorario";
         Text = "Horario y distribución semanal";
         ((System.ComponentModel.ISupportInitialize)dgvDiasHorario).EndInit();

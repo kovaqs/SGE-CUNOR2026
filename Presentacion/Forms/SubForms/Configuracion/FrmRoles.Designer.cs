@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Forms.SubForms.Configuracion;
+namespace Presentacion.Forms.SubForms.Configuracion;
 
 partial class FrmRoles
 {
@@ -42,26 +42,26 @@ partial class FrmRoles
         ((System.ComponentModel.ISupportInitialize)dgvPermisos).BeginInit();
         SuspendLayout();
         dataGridViewCellStyle1.BackColor = Color.FromArgb(244, 244, 244);
-        dataGridViewCellStyle1.ForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle1.ForeColor = Color.FromArgb(71, 85, 99);
         dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(244, 244, 244);
-        dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(71, 85, 99);
         dataGridViewCellStyle1.Font = new Font("Inter", 9F, FontStyle.Bold);
         dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
         dataGridViewCellStyle2.BackColor = Color.White;
         dataGridViewCellStyle2.ForeColor = Color.FromArgb(13, 21, 23);
-        dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(223, 233, 249);
+        dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(231, 238, 245);
         dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(13, 21, 23);
         dataGridViewCellStyle2.Font = new Font("Inter", 9F);
         dataGridViewCellStyle2.Padding = new Padding(8, 4, 8, 4);
         dataGridViewCellStyle3.BackColor = Color.FromArgb(244, 244, 244);
-        dataGridViewCellStyle3.ForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 85, 99);
         dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(244, 244, 244);
-        dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 85, 99);
         dataGridViewCellStyle3.Font = new Font("Inter", 9F, FontStyle.Bold);
         dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
         dataGridViewCellStyle4.BackColor = Color.White;
         dataGridViewCellStyle4.ForeColor = Color.FromArgb(13, 21, 23);
-        dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(223, 233, 249);
+        dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(231, 238, 245);
         dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(13, 21, 23);
         dataGridViewCellStyle4.Font = new Font("Inter", 9F);
         dataGridViewCellStyle4.Padding = new Padding(8, 4, 8, 4);
@@ -89,11 +89,19 @@ partial class FrmRoles
         btnCerrar.Font = new Font("Inter", 9F);
         btnCerrar.Padding = new Padding(10, 4, 10, 4);
         btnCerrar.UseVisualStyleBackColor = false;
-        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCerrar.Text = "Cerrar";
         btnCerrar.DialogResult = DialogResult.Cancel;
         btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnCerrar.Location = new Point(790, 12);
+        btnCerrar.BorderThickness = 1;
+        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnCerrar.FillColor = Color.White;
+        btnCerrar.ForeColor = Color.FromArgb(32, 38, 45);
+        btnCerrar.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.GradientColor = Color.Empty;
+        btnCerrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnCerrar.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnCerrar.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnCerrar.Name = "btnCerrar";
         btnCerrar.Size = new Size(96, 40);
         btnCerrar.TabIndex = 1;
@@ -107,6 +115,7 @@ partial class FrmRoles
         lblRolesTitulo.TextAlign = ContentAlignment.MiddleLeft;
         lblRolesTitulo.Text = "Roles";
         lblRolesTitulo.Location = new Point(16, 70);
+        lblRolesTitulo.Font = new Font("Inter", 9F);
         lblRolesTitulo.Name = "lblRolesTitulo";
         lblRolesTitulo.Size = new Size(270, 24);
         lblRolesTitulo.TabIndex = 2;
@@ -133,9 +142,11 @@ partial class FrmRoles
         dgvRoles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
         dgvRoles.DefaultCellStyle = dataGridViewCellStyle2;
         dgvRoles.Location = new Point(16, 96);
+        dgvRoles.Font = new Font("Inter", 9F);
+        dgvRoles.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
         dgvRoles.Name = "dgvRoles";
         dgvRoles.Size = new Size(270, 490);
-        dgvRoles.TabIndex = 3;
+        dgvRoles.TabIndex = 5;
         dgvRoles.Columns.AddRange(new DataGridViewColumn[] { colRolesRol, colRolesActivo });
         //
         // lblNombre
@@ -147,9 +158,10 @@ partial class FrmRoles
         lblNombre.TextAlign = ContentAlignment.MiddleLeft;
         lblNombre.Text = "Nombre del rol";
         lblNombre.Location = new Point(310, 70);
+        lblNombre.Font = new Font("Inter", 9F);
         lblNombre.Name = "lblNombre";
         lblNombre.Size = new Size(279, 24);
-        lblNombre.TabIndex = 4;
+        lblNombre.TabIndex = 3;
         lblNombre.TabStop = false;
         //
         // txtNombre
@@ -160,9 +172,14 @@ partial class FrmRoles
         txtNombre.Padding = new Padding(10, 6, 10, 6);
         txtNombre.MaxLength = 50;
         txtNombre.Location = new Point(310, 96);
+        txtNombre.FillColor = Color.White;
+        txtNombre.ForeColor = Color.FromArgb(32, 38, 45);
+        txtNombre.BorderColor = Color.FromArgb(218, 218, 218);
+        txtNombre.GradientColor = Color.Empty;
+        txtNombre.BorderThickness = 1;
         txtNombre.Name = "txtNombre";
         txtNombre.Size = new Size(279, 34);
-        txtNombre.TabIndex = 5;
+        txtNombre.TabIndex = 6;
         //
         // lblDescripcion
         //
@@ -173,9 +190,10 @@ partial class FrmRoles
         lblDescripcion.TextAlign = ContentAlignment.MiddleLeft;
         lblDescripcion.Text = "Descripción";
         lblDescripcion.Location = new Point(607, 70);
+        lblDescripcion.Font = new Font("Inter", 9F);
         lblDescripcion.Name = "lblDescripcion";
         lblDescripcion.Size = new Size(279, 24);
-        lblDescripcion.TabIndex = 6;
+        lblDescripcion.TabIndex = 4;
         lblDescripcion.TabStop = false;
         //
         // txtDescripcion
@@ -186,6 +204,11 @@ partial class FrmRoles
         txtDescripcion.Padding = new Padding(10, 6, 10, 6);
         txtDescripcion.MaxLength = 250;
         txtDescripcion.Location = new Point(607, 96);
+        txtDescripcion.FillColor = Color.White;
+        txtDescripcion.ForeColor = Color.FromArgb(32, 38, 45);
+        txtDescripcion.BorderColor = Color.FromArgb(218, 218, 218);
+        txtDescripcion.GradientColor = Color.Empty;
+        txtDescripcion.BorderThickness = 1;
         txtDescripcion.Name = "txtDescripcion";
         txtDescripcion.Size = new Size(279, 34);
         txtDescripcion.TabIndex = 7;
@@ -196,6 +219,11 @@ partial class FrmRoles
         chkActivo.Text = "Rol activo";
         chkActivo.Checked = true;
         chkActivo.Location = new Point(310, 164);
+        chkActivo.ForeColor = Color.FromArgb(64, 64, 64);
+        chkActivo.CheckedState.FillColor = Color.FromArgb(49, 81, 107);
+        chkActivo.CheckedState.BorderColor = Color.FromArgb(32, 38, 45);
+        chkActivo.CheckedState.ForeColor = Color.White;
+        chkActivo.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         chkActivo.Name = "chkActivo";
         chkActivo.Size = new Size(279, 36);
         chkActivo.TabIndex = 8;
@@ -209,6 +237,7 @@ partial class FrmRoles
         lblPermisosTitulo.TextAlign = ContentAlignment.MiddleLeft;
         lblPermisosTitulo.Text = "Permisos asignados";
         lblPermisosTitulo.Location = new Point(310, 250);
+        lblPermisosTitulo.Font = new Font("Inter", 9F);
         lblPermisosTitulo.Name = "lblPermisosTitulo";
         lblPermisosTitulo.Size = new Size(576, 24);
         lblPermisosTitulo.TabIndex = 9;
@@ -235,6 +264,8 @@ partial class FrmRoles
         dgvPermisos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
         dgvPermisos.DefaultCellStyle = dataGridViewCellStyle4;
         dgvPermisos.Location = new Point(310, 276);
+        dgvPermisos.Font = new Font("Inter", 9F);
+        dgvPermisos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
         dgvPermisos.Name = "dgvPermisos";
         dgvPermisos.Size = new Size(576, 310);
         dgvPermisos.TabIndex = 10;
@@ -248,14 +279,18 @@ partial class FrmRoles
         btnGuardar.Font = new Font("Inter", 9F);
         btnGuardar.Padding = new Padding(10, 4, 10, 4);
         btnGuardar.UseVisualStyleBackColor = false;
-        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
         btnGuardar.Text = "Guardar";
-        btnGuardar.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.ForeColor = Color.White;
-        btnGuardar.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.Appearance.Normal.ForeColor = Color.White;
         btnGuardar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnGuardar.Location = new Point(586, 613);
+        btnGuardar.BorderThickness = 1;
+        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
+        btnGuardar.FillColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.ForeColor = Color.White;
+        btnGuardar.BorderColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.GradientColor = Color.Empty;
+        btnGuardar.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnGuardar.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnGuardar.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
         btnGuardar.Name = "btnGuardar";
         btnGuardar.Size = new Size(144, 40);
         btnGuardar.TabIndex = 11;
@@ -268,11 +303,19 @@ partial class FrmRoles
         btnCancelar.Font = new Font("Inter", 9F);
         btnCancelar.Padding = new Padding(10, 4, 10, 4);
         btnCancelar.UseVisualStyleBackColor = false;
-        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCancelar.Text = "Cancelar";
         btnCancelar.DialogResult = DialogResult.Cancel;
         btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnCancelar.Location = new Point(742, 613);
+        btnCancelar.BorderThickness = 1;
+        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Danger;
+        btnCancelar.FillColor = Color.FromArgb(255, 248, 248);
+        btnCancelar.ForeColor = Color.FromArgb(166, 61, 64);
+        btnCancelar.BorderColor = Color.FromArgb(204, 148, 150);
+        btnCancelar.GradientColor = Color.Empty;
+        btnCancelar.Appearance.Hover.FillColor = Color.FromArgb(250, 235, 235);
+        btnCancelar.Appearance.Pressed.FillColor = Color.FromArgb(244, 219, 220);
+        btnCancelar.FocusAppearance.Color = Color.FromArgb(166, 61, 64);
         btnCancelar.Name = "btnCancelar";
         btnCancelar.Size = new Size(144, 40);
         btnCancelar.TabIndex = 12;
@@ -327,6 +370,7 @@ partial class FrmRoles
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCancelar;
+        Font = new Font("Segoe UI", 9F);
         Name = "FrmRoles";
         Text = "Roles y permisos del sistema";
         ((System.ComponentModel.ISupportInitialize)dgvRoles).EndInit();

@@ -48,6 +48,22 @@ public sealed class ServicioAutenticacion
         catch (DbException) { throw ErrorConexion(); }
     }
 
+    public async Task<bool> ConfirmarClaveAsync(SesionUsuario sesion, string contrasena,
+        CancellationToken cancellationToken = default)
+    {
+        if (contrasena.Length is 0 or > 128)
+            return false;
+        try
+        {
+            var credencial = await usuarios.BuscarAsync(sesion.NombreUsuario, cancellationToken);
+            var coincide = await Task.Run(() => HashContrasenas.Verificar(contrasena,
+                credencial?.Hash ?? HashContrasenas.HashSinUsuario), cancellationToken);
+            return coincide && credencial is not null && credencial.Activo
+                && credencial.Sesion.IdUsuario == sesion.IdUsuario;
+        }
+        catch (DbException) { throw ErrorConexion(); }
+    }
+
     private static InvalidOperationException ErrorConexion() => new(
         "No se pudo completar la operación con MySQL. Revisa la conexión y vuelve a intentarlo.");
 }

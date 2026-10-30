@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Forms.SubForms.Asistencias;
+namespace Presentacion.Forms.SubForms.Asistencias;
 
 partial class FrmAsistencia
 {
@@ -41,321 +41,382 @@ partial class FrmAsistencia
         btnCancelar = new KovaqsUI.Controls.KButton();
         notificador = new KovaqsUI.Components.KToastNotifier(components);
         SuspendLayout();
-        //
+        // 
         // lblTitulo
-        //
+        // 
         lblTitulo.AutoSize = false;
         lblTitulo.BackColor = Color.Transparent;
-        lblTitulo.ForeColor = Color.FromArgb(32, 38, 45);
-        lblTitulo.TextRole = KovaqsUI.Controls.KTextRole.Title;
-        lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
-        lblTitulo.Text = "Registrar o corregir asistencia";
         lblTitulo.Font = new Font("Inter", 16F, FontStyle.Bold);
+        lblTitulo.ForeColor = Color.FromArgb(32, 38, 45);
         lblTitulo.Location = new Point(16, 12);
         lblTitulo.Name = "lblTitulo";
         lblTitulo.Size = new Size(740, 40);
         lblTitulo.TabIndex = 0;
-        lblTitulo.TabStop = false;
-        //
+        lblTitulo.Text = "Registrar o corregir asistencia";
+        lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
+        lblTitulo.TextRole = KovaqsUI.Controls.KTextRole.Title;
+        // 
         // btnCerrar
-        //
-        btnCerrar.BackColor = Color.Transparent;
-        btnCerrar.CornerRadius = 8;
-        btnCerrar.FlatStyle = FlatStyle.Flat;
-        btnCerrar.Font = new Font("Inter", 9F);
-        btnCerrar.Padding = new Padding(10, 4, 10, 4);
-        btnCerrar.UseVisualStyleBackColor = false;
-        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
-        btnCerrar.Text = "Cerrar";
-        btnCerrar.DialogResult = DialogResult.Cancel;
+        // 
         btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnCerrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnCerrar.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.Appearance.Normal.FillColor = Color.White;
+        btnCerrar.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
+        btnCerrar.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnCerrar.BackColor = Color.Transparent;
+        btnCerrar.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.CornerRadius = 8;
+        btnCerrar.DialogResult = DialogResult.Cancel;
+        btnCerrar.FillColor = Color.White;
+        btnCerrar.FlatStyle = FlatStyle.Flat;
+        btnCerrar.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
+        btnCerrar.Font = new Font("Inter", 9F);
+        btnCerrar.ForeColor = Color.FromArgb(32, 38, 45);
         btnCerrar.Location = new Point(790, 12);
         btnCerrar.Name = "btnCerrar";
+        btnCerrar.Padding = new Padding(10, 4, 10, 4);
         btnCerrar.Size = new Size(96, 40);
         btnCerrar.TabIndex = 1;
-        //
+        btnCerrar.Text = "Cerrar";
+        btnCerrar.UseVisualStyleBackColor = false;
+        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        // 
         // lblEmpleado
-        //
+        // 
         lblEmpleado.AutoSize = false;
         lblEmpleado.BackColor = Color.Transparent;
+        lblEmpleado.Font = new Font("Inter", 9F);
         lblEmpleado.ForeColor = Color.FromArgb(64, 64, 64);
-        lblEmpleado.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        lblEmpleado.TextAlign = ContentAlignment.MiddleLeft;
-        lblEmpleado.Text = "Empleado";
         lblEmpleado.Location = new Point(16, 70);
         lblEmpleado.Name = "lblEmpleado";
         lblEmpleado.Size = new Size(426, 24);
         lblEmpleado.TabIndex = 2;
-        lblEmpleado.TabStop = false;
-        //
+        lblEmpleado.Text = "Empleado";
+        lblEmpleado.TextAlign = ContentAlignment.MiddleLeft;
+        lblEmpleado.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        // 
         // cboEmpleado
-        //
+        // 
+        cboEmpleado.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
+        cboEmpleado.Appearance.Normal.FillColor = Color.White;
+        cboEmpleado.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
+        cboEmpleado.BackColor = Color.White;
+        cboEmpleado.BorderColor = Color.FromArgb(218, 218, 218);
+        cboEmpleado.FillColor = Color.White;
         cboEmpleado.Font = new Font("Inter", 9F);
-        cboEmpleado.DropDownStyle = ComboBoxStyle.DropDownList;
+        cboEmpleado.ForeColor = Color.FromArgb(32, 38, 45);
         cboEmpleado.FormattingEnabled = true;
+        cboEmpleado.ItemHeight = 28;
         cboEmpleado.Location = new Point(16, 96);
         cboEmpleado.Name = "cboEmpleado";
         cboEmpleado.Size = new Size(426, 34);
-        cboEmpleado.TabIndex = 3;
-        //
+        cboEmpleado.TabIndex = 4;
+        // 
         // lblFecha
-        //
+        // 
         lblFecha.AutoSize = false;
         lblFecha.BackColor = Color.Transparent;
+        lblFecha.Font = new Font("Inter", 9F);
         lblFecha.ForeColor = Color.FromArgb(64, 64, 64);
-        lblFecha.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        lblFecha.TextAlign = ContentAlignment.MiddleLeft;
-        lblFecha.Text = "Día de asistencia";
         lblFecha.Location = new Point(460, 70);
         lblFecha.Name = "lblFecha";
         lblFecha.Size = new Size(426, 24);
-        lblFecha.TabIndex = 4;
-        lblFecha.TabStop = false;
-        //
+        lblFecha.TabIndex = 3;
+        lblFecha.Text = "Día de asistencia";
+        lblFecha.TextAlign = ContentAlignment.MiddleLeft;
+        lblFecha.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        // 
         // dtpFecha
-        //
-        dtpFecha.Font = new Font("Inter", 10F);
-        dtpFecha.Format = DateTimePickerFormat.Custom;
+        // 
+        dtpFecha.CalendarFont = new Font("Microsoft Sans Serif", 9F);
         dtpFecha.CustomFormat = "dd/MM/yyyy";
-        dtpFecha.MinimumSize = new Size(0, 34);
+        dtpFecha.Font = new Font("Microsoft Sans Serif", 10F);
+        dtpFecha.Format = DateTimePickerFormat.Custom;
         dtpFecha.Location = new Point(460, 96);
+        dtpFecha.MinimumSize = new Size(0, 34);
         dtpFecha.Name = "dtpFecha";
         dtpFecha.Size = new Size(426, 34);
         dtpFecha.TabIndex = 5;
-        //
+        // 
         // chkEsLaborable
-        //
-        chkEsLaborable.Font = new Font("Inter", 9F);
-        chkEsLaborable.Text = "Día laborable";
+        // 
+        chkEsLaborable.BackColor = Color.Transparent;
         chkEsLaborable.Checked = true;
+        chkEsLaborable.CheckedState.BorderColor = Color.FromArgb(32, 38, 45);
+        chkEsLaborable.CheckedState.FillColor = Color.FromArgb(49, 81, 107);
+        chkEsLaborable.CheckedState.ForeColor = Color.White;
+        chkEsLaborable.CheckState = CheckState.Checked;
+        chkEsLaborable.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
+        chkEsLaborable.Font = new Font("Inter", 9F);
+        chkEsLaborable.ForeColor = Color.FromArgb(64, 64, 64);
         chkEsLaborable.Location = new Point(16, 164);
         chkEsLaborable.Name = "chkEsLaborable";
+        chkEsLaborable.Padding = new Padding(2);
         chkEsLaborable.Size = new Size(426, 36);
-        chkEsLaborable.TabIndex = 6;
-        //
+        chkEsLaborable.TabIndex = 7;
+        chkEsLaborable.Text = "Día laborable";
+        chkEsLaborable.UseVisualStyleBackColor = false;
+        // 
         // lblTolerancia
-        //
+        // 
         lblTolerancia.AutoSize = false;
         lblTolerancia.BackColor = Color.Transparent;
+        lblTolerancia.Font = new Font("Inter", 9F);
         lblTolerancia.ForeColor = Color.FromArgb(64, 64, 64);
-        lblTolerancia.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        lblTolerancia.TextAlign = ContentAlignment.MiddleLeft;
-        lblTolerancia.Text = "Tolerancia (minutos)";
         lblTolerancia.Location = new Point(460, 140);
         lblTolerancia.Name = "lblTolerancia";
         lblTolerancia.Size = new Size(426, 24);
-        lblTolerancia.TabIndex = 7;
-        lblTolerancia.TabStop = false;
-        //
+        lblTolerancia.TabIndex = 6;
+        lblTolerancia.Text = "Tolerancia (minutos)";
+        lblTolerancia.TextAlign = ContentAlignment.MiddleLeft;
+        lblTolerancia.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        // 
         // numTolerancia
-        //
+        // 
+        numTolerancia.Appearance.Normal.ForeColor = Color.FromArgb(64, 64, 64);
+        numTolerancia.BackColor = Color.Transparent;
         numTolerancia.Font = new Font("Inter", 9F);
-        numTolerancia.Maximum = 1440m;
-        numTolerancia.DecimalPlaces = 0;
+        numTolerancia.ForeColor = Color.FromArgb(64, 64, 64);
         numTolerancia.Location = new Point(460, 166);
+        numTolerancia.Maximum = new decimal(new int[] { 1440, 0, 0, 0 });
         numTolerancia.Name = "numTolerancia";
         numTolerancia.Size = new Size(426, 34);
         numTolerancia.TabIndex = 8;
-        //
+        // 
         // lblEntradaPrevista
-        //
+        // 
         lblEntradaPrevista.AutoSize = false;
         lblEntradaPrevista.BackColor = Color.Transparent;
+        lblEntradaPrevista.Font = new Font("Inter", 9F);
         lblEntradaPrevista.ForeColor = Color.FromArgb(64, 64, 64);
-        lblEntradaPrevista.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        lblEntradaPrevista.TextAlign = ContentAlignment.MiddleLeft;
-        lblEntradaPrevista.Text = "Entrada prevista";
         lblEntradaPrevista.Location = new Point(16, 210);
         lblEntradaPrevista.Name = "lblEntradaPrevista";
         lblEntradaPrevista.Size = new Size(426, 24);
         lblEntradaPrevista.TabIndex = 9;
-        lblEntradaPrevista.TabStop = false;
-        //
+        lblEntradaPrevista.Text = "Entrada prevista";
+        lblEntradaPrevista.TextAlign = ContentAlignment.MiddleLeft;
+        lblEntradaPrevista.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        // 
         // dtpEntradaPrevista
-        //
-        dtpEntradaPrevista.Font = new Font("Inter", 10F);
-        dtpEntradaPrevista.Format = DateTimePickerFormat.Custom;
+        // 
+        dtpEntradaPrevista.CalendarFont = new Font("Microsoft Sans Serif", 9F);
         dtpEntradaPrevista.CustomFormat = "dd/MM/yyyy HH:mm";
-        dtpEntradaPrevista.MinimumSize = new Size(0, 34);
-        dtpEntradaPrevista.ShowCheckBox = true;
+        dtpEntradaPrevista.Font = new Font("Microsoft Sans Serif", 10F);
+        dtpEntradaPrevista.Format = DateTimePickerFormat.Custom;
         dtpEntradaPrevista.Location = new Point(16, 236);
+        dtpEntradaPrevista.MinimumSize = new Size(0, 34);
         dtpEntradaPrevista.Name = "dtpEntradaPrevista";
+        dtpEntradaPrevista.ShowCheckBox = true;
         dtpEntradaPrevista.Size = new Size(426, 34);
-        dtpEntradaPrevista.TabIndex = 10;
-        //
+        dtpEntradaPrevista.TabIndex = 11;
+        // 
         // lblSalidaPrevista
-        //
+        // 
         lblSalidaPrevista.AutoSize = false;
         lblSalidaPrevista.BackColor = Color.Transparent;
+        lblSalidaPrevista.Font = new Font("Inter", 9F);
         lblSalidaPrevista.ForeColor = Color.FromArgb(64, 64, 64);
-        lblSalidaPrevista.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        lblSalidaPrevista.TextAlign = ContentAlignment.MiddleLeft;
-        lblSalidaPrevista.Text = "Salida prevista";
         lblSalidaPrevista.Location = new Point(460, 210);
         lblSalidaPrevista.Name = "lblSalidaPrevista";
         lblSalidaPrevista.Size = new Size(426, 24);
-        lblSalidaPrevista.TabIndex = 11;
-        lblSalidaPrevista.TabStop = false;
-        //
+        lblSalidaPrevista.TabIndex = 10;
+        lblSalidaPrevista.Text = "Salida prevista";
+        lblSalidaPrevista.TextAlign = ContentAlignment.MiddleLeft;
+        lblSalidaPrevista.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        // 
         // dtpSalidaPrevista
-        //
-        dtpSalidaPrevista.Font = new Font("Inter", 10F);
-        dtpSalidaPrevista.Format = DateTimePickerFormat.Custom;
+        // 
+        dtpSalidaPrevista.CalendarFont = new Font("Microsoft Sans Serif", 9F);
         dtpSalidaPrevista.CustomFormat = "dd/MM/yyyy HH:mm";
-        dtpSalidaPrevista.MinimumSize = new Size(0, 34);
-        dtpSalidaPrevista.ShowCheckBox = true;
+        dtpSalidaPrevista.Font = new Font("Microsoft Sans Serif", 10F);
+        dtpSalidaPrevista.Format = DateTimePickerFormat.Custom;
         dtpSalidaPrevista.Location = new Point(460, 236);
+        dtpSalidaPrevista.MinimumSize = new Size(0, 34);
         dtpSalidaPrevista.Name = "dtpSalidaPrevista";
+        dtpSalidaPrevista.ShowCheckBox = true;
         dtpSalidaPrevista.Size = new Size(426, 34);
         dtpSalidaPrevista.TabIndex = 12;
-        //
+        // 
         // lblEntrada
-        //
+        // 
         lblEntrada.AutoSize = false;
         lblEntrada.BackColor = Color.Transparent;
+        lblEntrada.Font = new Font("Inter", 9F);
         lblEntrada.ForeColor = Color.FromArgb(64, 64, 64);
-        lblEntrada.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        lblEntrada.TextAlign = ContentAlignment.MiddleLeft;
-        lblEntrada.Text = "Entrada registrada";
         lblEntrada.Location = new Point(16, 280);
         lblEntrada.Name = "lblEntrada";
         lblEntrada.Size = new Size(426, 24);
         lblEntrada.TabIndex = 13;
-        lblEntrada.TabStop = false;
-        //
+        lblEntrada.Text = "Entrada registrada";
+        lblEntrada.TextAlign = ContentAlignment.MiddleLeft;
+        lblEntrada.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        // 
         // dtpEntrada
-        //
-        dtpEntrada.Font = new Font("Inter", 10F);
-        dtpEntrada.Format = DateTimePickerFormat.Custom;
+        // 
+        dtpEntrada.CalendarFont = new Font("Microsoft Sans Serif", 9F);
         dtpEntrada.CustomFormat = "dd/MM/yyyy HH:mm";
-        dtpEntrada.MinimumSize = new Size(0, 34);
-        dtpEntrada.ShowCheckBox = true;
+        dtpEntrada.Font = new Font("Microsoft Sans Serif", 10F);
+        dtpEntrada.Format = DateTimePickerFormat.Custom;
         dtpEntrada.Location = new Point(16, 306);
+        dtpEntrada.MinimumSize = new Size(0, 34);
         dtpEntrada.Name = "dtpEntrada";
+        dtpEntrada.ShowCheckBox = true;
         dtpEntrada.Size = new Size(426, 34);
-        dtpEntrada.TabIndex = 14;
-        //
+        dtpEntrada.TabIndex = 15;
+        // 
         // lblSalida
-        //
+        // 
         lblSalida.AutoSize = false;
         lblSalida.BackColor = Color.Transparent;
+        lblSalida.Font = new Font("Inter", 9F);
         lblSalida.ForeColor = Color.FromArgb(64, 64, 64);
-        lblSalida.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        lblSalida.TextAlign = ContentAlignment.MiddleLeft;
-        lblSalida.Text = "Salida registrada";
         lblSalida.Location = new Point(460, 280);
         lblSalida.Name = "lblSalida";
         lblSalida.Size = new Size(426, 24);
-        lblSalida.TabIndex = 15;
-        lblSalida.TabStop = false;
-        //
+        lblSalida.TabIndex = 14;
+        lblSalida.Text = "Salida registrada";
+        lblSalida.TextAlign = ContentAlignment.MiddleLeft;
+        lblSalida.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        // 
         // dtpSalida
-        //
-        dtpSalida.Font = new Font("Inter", 10F);
-        dtpSalida.Format = DateTimePickerFormat.Custom;
+        // 
+        dtpSalida.CalendarFont = new Font("Microsoft Sans Serif", 9F);
         dtpSalida.CustomFormat = "dd/MM/yyyy HH:mm";
-        dtpSalida.MinimumSize = new Size(0, 34);
-        dtpSalida.ShowCheckBox = true;
+        dtpSalida.Font = new Font("Microsoft Sans Serif", 10F);
+        dtpSalida.Format = DateTimePickerFormat.Custom;
         dtpSalida.Location = new Point(460, 306);
+        dtpSalida.MinimumSize = new Size(0, 34);
         dtpSalida.Name = "dtpSalida";
+        dtpSalida.ShowCheckBox = true;
         dtpSalida.Size = new Size(426, 34);
         dtpSalida.TabIndex = 16;
-        //
+        // 
         // lblEstadoFiltro
-        //
+        // 
         lblEstadoFiltro.AutoSize = false;
         lblEstadoFiltro.BackColor = Color.Transparent;
+        lblEstadoFiltro.Font = new Font("Inter", 9F);
         lblEstadoFiltro.ForeColor = Color.FromArgb(64, 64, 64);
-        lblEstadoFiltro.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        lblEstadoFiltro.TextAlign = ContentAlignment.MiddleLeft;
-        lblEstadoFiltro.Text = "Estado";
         lblEstadoFiltro.Location = new Point(16, 350);
         lblEstadoFiltro.Name = "lblEstadoFiltro";
         lblEstadoFiltro.Size = new Size(426, 24);
         lblEstadoFiltro.TabIndex = 17;
-        lblEstadoFiltro.TabStop = false;
-        //
+        lblEstadoFiltro.Text = "Estado";
+        lblEstadoFiltro.TextAlign = ContentAlignment.MiddleLeft;
+        lblEstadoFiltro.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        // 
         // cboEstado
-        //
+        // 
+        cboEstado.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
+        cboEstado.Appearance.Normal.FillColor = Color.White;
+        cboEstado.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
+        cboEstado.BackColor = Color.White;
+        cboEstado.BorderColor = Color.FromArgb(218, 218, 218);
+        cboEstado.FillColor = Color.White;
         cboEstado.Font = new Font("Inter", 9F);
-        cboEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+        cboEstado.ForeColor = Color.FromArgb(32, 38, 45);
         cboEstado.FormattingEnabled = true;
+        cboEstado.ItemHeight = 28;
         cboEstado.Items.AddRange(new object[] { "Pendiente", "Presente", "Falta", "Justificada", "NoLaborable" });
         cboEstado.Location = new Point(16, 376);
         cboEstado.Name = "cboEstado";
         cboEstado.Size = new Size(426, 34);
         cboEstado.TabIndex = 18;
-        //
+        // 
         // lblObservaciones
-        //
+        // 
         lblObservaciones.AutoSize = false;
         lblObservaciones.BackColor = Color.Transparent;
+        lblObservaciones.Font = new Font("Inter", 9F);
         lblObservaciones.ForeColor = Color.FromArgb(64, 64, 64);
-        lblObservaciones.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        lblObservaciones.TextAlign = ContentAlignment.MiddleLeft;
-        lblObservaciones.Text = "Observaciones";
         lblObservaciones.Location = new Point(16, 420);
         lblObservaciones.Name = "lblObservaciones";
         lblObservaciones.Size = new Size(870, 24);
         lblObservaciones.TabIndex = 19;
-        lblObservaciones.TabStop = false;
-        //
+        lblObservaciones.Text = "Observaciones";
+        lblObservaciones.TextAlign = ContentAlignment.MiddleLeft;
+        lblObservaciones.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        // 
         // txtObservaciones
-        //
+        // 
+        txtObservaciones.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
+        txtObservaciones.Appearance.Normal.FillColor = Color.White;
+        txtObservaciones.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
         txtObservaciones.BackColor = Color.Transparent;
+        txtObservaciones.BorderColor = Color.FromArgb(218, 218, 218);
         txtObservaciones.CornerRadius = 8;
+        txtObservaciones.FillColor = Color.White;
         txtObservaciones.Font = new Font("Inter", 9F);
-        txtObservaciones.Padding = new Padding(10, 6, 10, 6);
-        txtObservaciones.Multiline = true;
-        txtObservaciones.MaxLength = 500;
+        txtObservaciones.ForeColor = Color.FromArgb(32, 38, 45);
         txtObservaciones.Location = new Point(16, 446);
+        txtObservaciones.MaxLength = 500;
+        txtObservaciones.Multiline = true;
         txtObservaciones.Name = "txtObservaciones";
+        txtObservaciones.Padding = new Padding(10, 6, 10, 6);
         txtObservaciones.Size = new Size(870, 80);
         txtObservaciones.TabIndex = 20;
-        //
+        // 
         // btnGuardar
-        //
-        btnGuardar.BackColor = Color.Transparent;
-        btnGuardar.CornerRadius = 8;
-        btnGuardar.FlatStyle = FlatStyle.Flat;
-        btnGuardar.Font = new Font("Inter", 9F);
-        btnGuardar.Padding = new Padding(10, 4, 10, 4);
-        btnGuardar.UseVisualStyleBackColor = false;
-        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
-        btnGuardar.Text = "Guardar";
-        btnGuardar.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.ForeColor = Color.White;
-        btnGuardar.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.Appearance.Normal.ForeColor = Color.White;
+        // 
         btnGuardar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+        btnGuardar.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnGuardar.Appearance.Normal.BorderColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.Appearance.Normal.FillColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.Appearance.Normal.ForeColor = Color.White;
+        btnGuardar.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnGuardar.BackColor = Color.Transparent;
+        btnGuardar.BorderColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.CornerRadius = 8;
+        btnGuardar.FillColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.FlatStyle = FlatStyle.Flat;
+        btnGuardar.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
+        btnGuardar.Font = new Font("Inter", 9F);
+        btnGuardar.ForeColor = Color.White;
         btnGuardar.Location = new Point(586, 613);
         btnGuardar.Name = "btnGuardar";
+        btnGuardar.Padding = new Padding(10, 4, 10, 4);
         btnGuardar.Size = new Size(144, 40);
         btnGuardar.TabIndex = 21;
-        //
+        btnGuardar.Text = "Guardar";
+        btnGuardar.UseVisualStyleBackColor = false;
+        // 
         // btnCancelar
-        //
-        btnCancelar.BackColor = Color.Transparent;
-        btnCancelar.CornerRadius = 8;
-        btnCancelar.FlatStyle = FlatStyle.Flat;
-        btnCancelar.Font = new Font("Inter", 9F);
-        btnCancelar.Padding = new Padding(10, 4, 10, 4);
-        btnCancelar.UseVisualStyleBackColor = false;
-        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
-        btnCancelar.Text = "Cancelar";
-        btnCancelar.DialogResult = DialogResult.Cancel;
+        // 
         btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+        btnCancelar.Appearance.Hover.FillColor = Color.FromArgb(250, 235, 235);
+        btnCancelar.Appearance.Normal.BorderColor = Color.FromArgb(204, 148, 150);
+        btnCancelar.Appearance.Normal.FillColor = Color.FromArgb(255, 248, 248);
+        btnCancelar.Appearance.Normal.ForeColor = Color.FromArgb(166, 61, 64);
+        btnCancelar.Appearance.Pressed.FillColor = Color.FromArgb(244, 219, 220);
+        btnCancelar.BackColor = Color.Transparent;
+        btnCancelar.BorderColor = Color.FromArgb(204, 148, 150);
+        btnCancelar.CornerRadius = 8;
+        btnCancelar.DialogResult = DialogResult.Cancel;
+        btnCancelar.FillColor = Color.FromArgb(255, 248, 248);
+        btnCancelar.FlatStyle = FlatStyle.Flat;
+        btnCancelar.FocusAppearance.Color = Color.FromArgb(166, 61, 64);
+        btnCancelar.Font = new Font("Inter", 9F);
+        btnCancelar.ForeColor = Color.FromArgb(166, 61, 64);
         btnCancelar.Location = new Point(742, 613);
         btnCancelar.Name = "btnCancelar";
+        btnCancelar.Padding = new Padding(10, 4, 10, 4);
         btnCancelar.Size = new Size(144, 40);
         btnCancelar.TabIndex = 22;
+        btnCancelar.Text = "Cancelar";
+        btnCancelar.UseVisualStyleBackColor = false;
+        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Danger;
+        // 
+        // notificador
+        // 
         notificador.OwnerForm = this;
-        //
+        // 
         // FrmAsistencia
-        //
+        // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.White;
+        CancelButton = btnCancelar;
         ClientSize = new Size(902, 669);
         Controls.Add(lblTitulo);
         Controls.Add(btnCerrar);
@@ -380,13 +441,14 @@ partial class FrmAsistencia
         Controls.Add(txtObservaciones);
         Controls.Add(btnGuardar);
         Controls.Add(btnCancelar);
+        Font = new Font("Segoe UI", 9F);
         FormBorderStyle = FormBorderStyle.FixedDialog;
         MaximizeBox = false;
+        MdiChildrenMinimizedAnchorBottom = false;
         MinimizeBox = false;
+        Name = "FrmAsistencia";
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;
-        CancelButton = btnCancelar;
-        Name = "FrmAsistencia";
         Text = "Registrar o corregir asistencia";
         ResumeLayout(false);
     }

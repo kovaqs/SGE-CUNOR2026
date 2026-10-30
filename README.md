@@ -37,6 +37,14 @@ El plan DEV admite 5 conexiones simultáneas en total. Cada aplicación usa un p
 
 No copies al repositorio credenciales, exportaciones de configuración ni respaldos con datos. La configuración de conexión se puede cambiar desde **Configuración** en el panel principal.
 
+## Datos sensibles
+
+Los sueldos y números de cuenta bancaria se cifran con AES-GCM antes de guardarse en MySQL. Los formularios utilizan `ServicioDatosSensibles` para consultar cuentas, guardarlas o registrar una nueva condición laboral. La clave se deriva automáticamente de la contraseña de MySQL configurada localmente; las computadoras que comparten la base deben utilizar esa misma contraseña. Cambiarla requiere volver a cifrar los datos antes del cambio. No hay una contraseña adicional para el cifrado.
+
+Las contraseñas de usuarios mantienen su hash PBKDF2-SHA256. Los cambios de salario requieren confirmar la contraseña del usuario que realiza la operación. Se conserva la condición laboral anterior y el cambio queda registrado en `bitacora`, con su usuario, fecha y registro afectado, sin incluir el sueldo ni la cuenta en el texto de la bitácora.
+
+Empleados y Nómina continúan en desarrollo. Un `INSERT` desde Workbench no ejecuta el cifrado de C#: los datos de ejemplo con sueldos o cuentas deben prepararse mediante las funciones del sistema.
+
 ## Requisitos y compilación
 
 - Windows.

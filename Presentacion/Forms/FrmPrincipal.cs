@@ -17,14 +17,15 @@ namespace Presentacion.Forms
     public partial class FrmPrincipal : Form
     {
         private GestorFormularios? gestorFormularios;
-        private readonly SesionUsuario? sesion;
+        private SesionUsuario? sesion;
+        public SesionUsuario? SesionActual => sesion;
+        public bool SalirDeAplicacion { get; private set; }
         private readonly Dictionary<KSegmentItem, Action> secciones = new();
 
         public FrmPrincipal()
         {
             InitializeComponent();
             btnCerrarSesion.Click += (_, _) => Close();
-            //btnConfiguracion.Click += Configuracion_Click;
         }
 
         public FrmPrincipal(SesionUsuario sesion) : this()
@@ -35,28 +36,33 @@ namespace Presentacion.Forms
             lblAvatar.Text = sesion.NombreUsuario[..Math.Min(2, sesion.NombreUsuario.Length)].ToUpperInvariant();
         }
 
-        protected override void OnLoad(EventArgs e)
+        private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            base.OnLoad(e);
             if (DesignMode || LicenseManager.UsageMode == LicenseUsageMode.Designtime)
                 return;
 
             if (gestorFormularios is null)
             {
                 gestorFormularios = new GestorFormularios(panelContenedor);
+                secciones.Add(SInicio, () => gestorFormularios.Mostrar<FrmInicio>());   
                 secciones.Add(SEmpleados, () => gestorFormularios.Mostrar<FrmEmpleados>());
                 secciones.Add(SPuestos, () => gestorFormularios.Mostrar<FrmPuestos>());
                 secciones.Add(SDepartamentos, () => gestorFormularios.Mostrar<FrmDepartamentos>());
                 secciones.Add(SAsistencias, () => gestorFormularios.Mostrar<FrmAsistencias>());
                 secciones.Add(SReportes, () => gestorFormularios.Mostrar<FrmReportes>());
                 secciones.Add(SNomina, () => gestorFormularios.Mostrar<FrmNomina>());
-                secciones.Add(SUsuarios, () =>
+                secciones.Add(SUsuarios, () => 
                 {
                     var usuarios = gestorFormularios.Mostrar<FrmUsuarios>();
                     if (sesion is not null)
                         usuarios.EstablecerSesion(sesion);
                 });
-                secciones.Add(SConfiguracion, () => gestorFormularios.Mostrar<FrmConfigurarConexion>());
+                secciones.Add(SConfiguracion, () =>
+                {
+                    var configuracion = gestorFormularios.Mostrar<FrmConfiguracion>();
+                    if (sesion is not null)
+                        configuracion.EstablecerSesion(sesion);
+                });
             }
 
             MostrarSeccionSeleccionada();
@@ -70,8 +76,23 @@ namespace Presentacion.Forms
 
         private void Configuracion_Click(object? sender, EventArgs e)
         {
-            //using var configuracion = new FrmConfigurarConexion();
-            //gestorFormularios.Mostrar<FrmConfigurarConexion>();
+            if (gestorFormularios is null || sesion is null)
+                return;
+            PanelSegmentado.SelectedIndex = -1;
+            var cuenta = gestorFormularios.Mostrar<FrmMiCuenta>();
+            cuenta.EstablecerSesion(sesion);
+            cuenta.CuentaActualizada -= MiCuenta_CuentaActualizada;
+            cuenta.CuentaActualizada += MiCuenta_CuentaActualizada;
+        }
+
+        private void MiCuenta_CuentaActualizada(object? sender, EventArgs e)
+        {
+            if (sender is not FrmMiCuenta cuenta || cuenta.SesionActual is null)
+                return;
+            sesion = cuenta.SesionActual;
+            lblNombre.Text = sesion.Nombre;
+            lblRol.Text = sesion.Rol;
+            lblAvatar.Text = sesion.NombreUsuario[..Math.Min(2, sesion.NombreUsuario.Length)].ToUpperInvariant();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -100,6 +121,33 @@ namespace Presentacion.Forms
         private void PanelSegmentado_SelectedIndexChanged(object sender, EventArgs e)
         {
             MostrarSeccionSeleccionada();
+        }
+
+        private void panelContenedor_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Maximized)
+                WindowState = FormWindowState.Normal;
+            else
+            {
+                MaximizedBounds = Screen.FromControl(this).WorkingArea;
+                WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            SalirDeAplicacion = true;
+            Close();
         }
     }
 }

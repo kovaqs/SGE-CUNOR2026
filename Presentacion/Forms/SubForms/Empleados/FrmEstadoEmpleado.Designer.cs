@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Forms.SubForms.Empleados;
+namespace Presentacion.Forms.SubForms.Empleados;
 
 partial class FrmEstadoEmpleado
 {
@@ -52,11 +52,19 @@ partial class FrmEstadoEmpleado
         btnCerrar.Font = new Font("Inter", 9F);
         btnCerrar.Padding = new Padding(10, 4, 10, 4);
         btnCerrar.UseVisualStyleBackColor = false;
-        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCerrar.Text = "Cerrar";
         btnCerrar.DialogResult = DialogResult.Cancel;
         btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnCerrar.Location = new Point(790, 12);
+        btnCerrar.BorderThickness = 1;
+        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnCerrar.FillColor = Color.White;
+        btnCerrar.ForeColor = Color.FromArgb(32, 38, 45);
+        btnCerrar.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.GradientColor = Color.Empty;
+        btnCerrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnCerrar.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnCerrar.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnCerrar.Name = "btnCerrar";
         btnCerrar.Size = new Size(96, 40);
         btnCerrar.TabIndex = 1;
@@ -70,6 +78,7 @@ partial class FrmEstadoEmpleado
         lblEmpleado.TextAlign = ContentAlignment.MiddleLeft;
         lblEmpleado.Text = "Empleado";
         lblEmpleado.Location = new Point(16, 70);
+        lblEmpleado.Font = new Font("Inter", 9F);
         lblEmpleado.Name = "lblEmpleado";
         lblEmpleado.Size = new Size(426, 24);
         lblEmpleado.TabIndex = 2;
@@ -84,9 +93,14 @@ partial class FrmEstadoEmpleado
         txtEmpleado.ReadOnly = true;
         txtEmpleado.MaxLength = 100;
         txtEmpleado.Location = new Point(16, 96);
+        txtEmpleado.FillColor = Color.White;
+        txtEmpleado.ForeColor = Color.FromArgb(32, 38, 45);
+        txtEmpleado.BorderColor = Color.FromArgb(218, 218, 218);
+        txtEmpleado.GradientColor = Color.Empty;
+        txtEmpleado.BorderThickness = 1;
         txtEmpleado.Name = "txtEmpleado";
         txtEmpleado.Size = new Size(426, 34);
-        txtEmpleado.TabIndex = 3;
+        txtEmpleado.TabIndex = 4;
         //
         // lblEstadoFiltro
         //
@@ -97,9 +111,10 @@ partial class FrmEstadoEmpleado
         lblEstadoFiltro.TextAlign = ContentAlignment.MiddleLeft;
         lblEstadoFiltro.Text = "Estado del empleado";
         lblEstadoFiltro.Location = new Point(460, 70);
+        lblEstadoFiltro.Font = new Font("Inter", 9F);
         lblEstadoFiltro.Name = "lblEstadoFiltro";
         lblEstadoFiltro.Size = new Size(426, 24);
-        lblEstadoFiltro.TabIndex = 4;
+        lblEstadoFiltro.TabIndex = 3;
         lblEstadoFiltro.TabStop = false;
         //
         // cboEstado
@@ -109,6 +124,12 @@ partial class FrmEstadoEmpleado
         cboEstado.FormattingEnabled = true;
         cboEstado.Items.AddRange(new object[] { "Activo", "Suspendido", "Inactivo" });
         cboEstado.Location = new Point(460, 96);
+        cboEstado.CornerRadius = 8;
+        cboEstado.FillColor = Color.White;
+        cboEstado.ForeColor = Color.FromArgb(32, 38, 45);
+        cboEstado.BorderColor = Color.FromArgb(218, 218, 218);
+        cboEstado.GradientColor = Color.Empty;
+
         cboEstado.Name = "cboEstado";
         cboEstado.Size = new Size(426, 34);
         cboEstado.TabIndex = 5;
@@ -122,6 +143,7 @@ partial class FrmEstadoEmpleado
         lblFechaBaja.TextAlign = ContentAlignment.MiddleLeft;
         lblFechaBaja.Text = "Fecha de baja";
         lblFechaBaja.Location = new Point(16, 140);
+        lblFechaBaja.Font = new Font("Inter", 9F);
         lblFechaBaja.Name = "lblFechaBaja";
         lblFechaBaja.Size = new Size(426, 24);
         lblFechaBaja.TabIndex = 6;
@@ -136,6 +158,7 @@ partial class FrmEstadoEmpleado
         dtpFechaBaja.ShowCheckBox = true;
         dtpFechaBaja.Checked = false;
         dtpFechaBaja.Location = new Point(16, 166);
+        dtpFechaBaja.CalendarFont = new Font("Inter", 9F);
         dtpFechaBaja.Name = "dtpFechaBaja";
         dtpFechaBaja.Size = new Size(426, 34);
         dtpFechaBaja.TabIndex = 7;
@@ -148,14 +171,18 @@ partial class FrmEstadoEmpleado
         btnGuardar.Font = new Font("Inter", 9F);
         btnGuardar.Padding = new Padding(10, 4, 10, 4);
         btnGuardar.UseVisualStyleBackColor = false;
-        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
         btnGuardar.Text = "Guardar";
-        btnGuardar.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.ForeColor = Color.White;
-        btnGuardar.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.Appearance.Normal.ForeColor = Color.White;
         btnGuardar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnGuardar.Location = new Point(586, 613);
+        btnGuardar.BorderThickness = 1;
+        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
+        btnGuardar.FillColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.ForeColor = Color.White;
+        btnGuardar.BorderColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.GradientColor = Color.Empty;
+        btnGuardar.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnGuardar.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnGuardar.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
         btnGuardar.Name = "btnGuardar";
         btnGuardar.Size = new Size(144, 40);
         btnGuardar.TabIndex = 8;
@@ -168,11 +195,19 @@ partial class FrmEstadoEmpleado
         btnCancelar.Font = new Font("Inter", 9F);
         btnCancelar.Padding = new Padding(10, 4, 10, 4);
         btnCancelar.UseVisualStyleBackColor = false;
-        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCancelar.Text = "Cancelar";
         btnCancelar.DialogResult = DialogResult.Cancel;
         btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnCancelar.Location = new Point(742, 613);
+        btnCancelar.BorderThickness = 1;
+        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Danger;
+        btnCancelar.FillColor = Color.FromArgb(255, 248, 248);
+        btnCancelar.ForeColor = Color.FromArgb(166, 61, 64);
+        btnCancelar.BorderColor = Color.FromArgb(204, 148, 150);
+        btnCancelar.GradientColor = Color.Empty;
+        btnCancelar.Appearance.Hover.FillColor = Color.FromArgb(250, 235, 235);
+        btnCancelar.Appearance.Pressed.FillColor = Color.FromArgb(244, 219, 220);
+        btnCancelar.FocusAppearance.Color = Color.FromArgb(166, 61, 64);
         btnCancelar.Name = "btnCancelar";
         btnCancelar.Size = new Size(144, 40);
         btnCancelar.TabIndex = 9;
@@ -200,6 +235,7 @@ partial class FrmEstadoEmpleado
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCancelar;
+        Font = new Font("Segoe UI", 9F);
         Name = "FrmEstadoEmpleado";
         Text = "Cambiar estado del empleado";
         ResumeLayout(false);
