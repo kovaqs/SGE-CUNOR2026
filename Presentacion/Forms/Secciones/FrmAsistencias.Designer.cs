@@ -21,7 +21,6 @@ partial class FrmAsistencias
         DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
         label1 = new Label();
         dtpDesde = new DateTimePicker();
-        mySqlDataAdapter1 = new MySqlConnector.MySqlDataAdapter();
         dtpHasta = new DateTimePicker();
         cboDepartamento = new KovaqsUI.Controls.KComboBox();
         txtBuscarEmpleado = new KovaqsUI.Controls.KTextBox();
@@ -43,6 +42,13 @@ partial class FrmAsistencias
         btnSiguiente = new KovaqsUI.Controls.KButton();
         cboTamanoPagina = new KovaqsUI.Controls.KComboBox();
         kLabel7 = new KovaqsUI.Controls.KLabel();
+        colFecha = new DataGridViewTextBoxColumn();
+        colEmpleado = new DataGridViewTextBoxColumn();
+        colDepartamento = new DataGridViewTextBoxColumn();
+        colEntrada = new DataGridViewTextBoxColumn();
+        colSalida = new DataGridViewTextBoxColumn();
+        colEstado = new DataGridViewTextBoxColumn();
+        colTardanza = new DataGridViewTextBoxColumn();
         ((System.ComponentModel.ISupportInitialize)dgvAsistencias).BeginInit();
         SuspendLayout();
         // 
@@ -66,14 +72,6 @@ partial class FrmAsistencias
         dtpDesde.TabIndex = 1;
         dtpDesde.ValueChanged += dtpDesde_ValueChanged;
         // 
-        // mySqlDataAdapter1
-        // 
-        mySqlDataAdapter1.DeleteCommand = null;
-        mySqlDataAdapter1.InsertCommand = null;
-        mySqlDataAdapter1.SelectCommand = null;
-        mySqlDataAdapter1.UpdateBatchSize = 0;
-        mySqlDataAdapter1.UpdateCommand = null;
-        // 
         // dtpHasta
         // 
         dtpHasta.CustomFormat = "dd/MM/yyyy";
@@ -87,6 +85,8 @@ partial class FrmAsistencias
         // cboDepartamento
         // 
         cboDepartamento.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        cboDepartamento.DropDownStyle = ComboBoxStyle.DropDownList;
+        cboDepartamento.Items.AddRange(new object[] { "Todos" });
         cboDepartamento.FormattingEnabled = true;
         cboDepartamento.ItemHeight = 28;
         cboDepartamento.Location = new Point(758, 77);
@@ -105,6 +105,8 @@ partial class FrmAsistencias
         // 
         // cboEstado
         // 
+        cboEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+        cboEstado.Items.AddRange(new object[] { "Todos", "Pendiente", "Presente", "Falta", "Justificada", "NoLaborable" });
         cboEstado.FormattingEnabled = true;
         cboEstado.ItemHeight = 28;
         cboEstado.Location = new Point(364, 172);
@@ -242,9 +244,58 @@ partial class FrmAsistencias
         btnExportarExcel.TabIndex = 21;
         btnExportarExcel.Text = "Exportar Excel";
         btnExportarExcel.UseVisualStyleBackColor = false;
-        // 
+        //
+        // colFecha
+        //
+        colFecha.HeaderText = "Fecha";
+        colFecha.Name = "colFecha";
+        colFecha.ReadOnly = true;
+        //
+        // colEmpleado
+        //
+        colEmpleado.HeaderText = "Empleado";
+        colEmpleado.Name = "colEmpleado";
+        colEmpleado.ReadOnly = true;
+        //
+        // colDepartamento
+        //
+        colDepartamento.HeaderText = "Departamento";
+        colDepartamento.FillWeight = 150F;
+        colDepartamento.Name = "colDepartamento";
+        colDepartamento.ReadOnly = true;
+        //
+        // colEntrada
+        //
+        colEntrada.HeaderText = "Entrada";
+        colEntrada.Name = "colEntrada";
+        colEntrada.ReadOnly = true;
+        //
+        // colSalida
+        //
+        colSalida.HeaderText = "Salida";
+        colSalida.Name = "colSalida";
+        colSalida.ReadOnly = true;
+        //
+        // colEstado
+        //
+        colEstado.HeaderText = "Estado";
+        colEstado.Name = "colEstado";
+        colEstado.ReadOnly = true;
+        //
+        // colTardanza
+        //
+        colTardanza.HeaderText = "Tardanza (min)";
+        colTardanza.Name = "colTardanza";
+        colTardanza.ReadOnly = true;
+        //
         // dgvAsistencias
         // 
+        dgvAsistencias.AllowUserToAddRows = false;
+        dgvAsistencias.AllowUserToDeleteRows = false;
+        dgvAsistencias.AutoGenerateColumns = false;
+        dgvAsistencias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        dgvAsistencias.ReadOnly = true;
+        dgvAsistencias.Columns.AddRange(new DataGridViewColumn[] { colFecha, colEmpleado, colDepartamento, colEntrada, colSalida, colEstado, colTardanza });
         dgvAsistencias.BackgroundColor = Color.White;
         dgvAsistencias.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
         dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -339,6 +390,8 @@ partial class FrmAsistencias
         // cboTamanoPagina
         // 
         cboTamanoPagina.Font = new Font("Century Gothic", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        cboTamanoPagina.DropDownStyle = ComboBoxStyle.DropDownList;
+        cboTamanoPagina.Items.AddRange(new object[] { "10", "25", "50", "100" });
         cboTamanoPagina.FormattingEnabled = true;
         cboTamanoPagina.ItemHeight = 28;
         cboTamanoPagina.Location = new Point(815, 626);
@@ -399,7 +452,6 @@ partial class FrmAsistencias
 
     private Label label1;
     private DateTimePicker dtpDesde;
-    private MySqlConnector.MySqlDataAdapter mySqlDataAdapter1;
     private DateTimePicker dtpHasta;
     private KovaqsUI.Controls.KComboBox cboDepartamento;
     private KovaqsUI.Controls.KTextBox txtBuscarEmpleado;
@@ -421,4 +473,11 @@ partial class FrmAsistencias
     private KovaqsUI.Controls.KButton btnSiguiente;
     private KovaqsUI.Controls.KComboBox cboTamanoPagina;
     private KovaqsUI.Controls.KLabel kLabel7;
+    private DataGridViewTextBoxColumn colFecha;
+    private DataGridViewTextBoxColumn colEmpleado;
+    private DataGridViewTextBoxColumn colDepartamento;
+    private DataGridViewTextBoxColumn colEntrada;
+    private DataGridViewTextBoxColumn colSalida;
+    private DataGridViewTextBoxColumn colEstado;
+    private DataGridViewTextBoxColumn colTardanza;
 }
