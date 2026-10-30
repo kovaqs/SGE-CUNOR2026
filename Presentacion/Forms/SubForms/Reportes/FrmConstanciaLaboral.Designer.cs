@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Forms.SubForms.Reportes;
+namespace Presentacion.Forms.SubForms.Reportes;
 
 partial class FrmConstanciaLaboral
 {
@@ -63,11 +63,19 @@ partial class FrmConstanciaLaboral
         btnCerrar.Font = new Font("Inter", 9F);
         btnCerrar.Padding = new Padding(10, 4, 10, 4);
         btnCerrar.UseVisualStyleBackColor = false;
-        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCerrar.Text = "Cerrar";
         btnCerrar.DialogResult = DialogResult.Cancel;
         btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnCerrar.Location = new Point(790, 12);
+        btnCerrar.BorderThickness = 1;
+        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnCerrar.FillColor = Color.White;
+        btnCerrar.ForeColor = Color.FromArgb(32, 38, 45);
+        btnCerrar.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.GradientColor = Color.Empty;
+        btnCerrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnCerrar.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnCerrar.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnCerrar.Name = "btnCerrar";
         btnCerrar.Size = new Size(96, 40);
         btnCerrar.TabIndex = 1;
@@ -81,6 +89,7 @@ partial class FrmConstanciaLaboral
         lblEmpleado.TextAlign = ContentAlignment.MiddleLeft;
         lblEmpleado.Text = "Empleado";
         lblEmpleado.Location = new Point(16, 70);
+        lblEmpleado.Font = new Font("Inter", 9F);
         lblEmpleado.Name = "lblEmpleado";
         lblEmpleado.Size = new Size(426, 24);
         lblEmpleado.TabIndex = 2;
@@ -92,9 +101,15 @@ partial class FrmConstanciaLaboral
         cboEmpleado.DropDownStyle = ComboBoxStyle.DropDownList;
         cboEmpleado.FormattingEnabled = true;
         cboEmpleado.Location = new Point(16, 96);
+        cboEmpleado.CornerRadius = 8;
+        cboEmpleado.FillColor = Color.White;
+        cboEmpleado.ForeColor = Color.FromArgb(32, 38, 45);
+        cboEmpleado.BorderColor = Color.FromArgb(218, 218, 218);
+        cboEmpleado.GradientColor = Color.Empty;
+
         cboEmpleado.Name = "cboEmpleado";
         cboEmpleado.Size = new Size(426, 34);
-        cboEmpleado.TabIndex = 3;
+        cboEmpleado.TabIndex = 4;
         //
         // lblFechaEmision
         //
@@ -105,9 +120,10 @@ partial class FrmConstanciaLaboral
         lblFechaEmision.TextAlign = ContentAlignment.MiddleLeft;
         lblFechaEmision.Text = "Fecha de emisión";
         lblFechaEmision.Location = new Point(460, 70);
+        lblFechaEmision.Font = new Font("Inter", 9F);
         lblFechaEmision.Name = "lblFechaEmision";
         lblFechaEmision.Size = new Size(426, 24);
-        lblFechaEmision.TabIndex = 4;
+        lblFechaEmision.TabIndex = 3;
         lblFechaEmision.TabStop = false;
         //
         // dtpFechaEmision
@@ -117,6 +133,7 @@ partial class FrmConstanciaLaboral
         dtpFechaEmision.CustomFormat = "dd/MM/yyyy";
         dtpFechaEmision.MinimumSize = new Size(0, 34);
         dtpFechaEmision.Location = new Point(460, 96);
+        dtpFechaEmision.CalendarFont = new Font("Inter", 9F);
         dtpFechaEmision.Name = "dtpFechaEmision";
         dtpFechaEmision.Size = new Size(426, 34);
         dtpFechaEmision.TabIndex = 5;
@@ -130,6 +147,7 @@ partial class FrmConstanciaLaboral
         lblLugarEmision.TextAlign = ContentAlignment.MiddleLeft;
         lblLugarEmision.Text = "Lugar de emisión";
         lblLugarEmision.Location = new Point(16, 140);
+        lblLugarEmision.Font = new Font("Inter", 9F);
         lblLugarEmision.Name = "lblLugarEmision";
         lblLugarEmision.Size = new Size(426, 24);
         lblLugarEmision.TabIndex = 6;
@@ -143,9 +161,14 @@ partial class FrmConstanciaLaboral
         txtLugarEmision.Padding = new Padding(10, 6, 10, 6);
         txtLugarEmision.MaxLength = 100;
         txtLugarEmision.Location = new Point(16, 166);
+        txtLugarEmision.FillColor = Color.White;
+        txtLugarEmision.ForeColor = Color.FromArgb(32, 38, 45);
+        txtLugarEmision.BorderColor = Color.FromArgb(218, 218, 218);
+        txtLugarEmision.GradientColor = Color.Empty;
+        txtLugarEmision.BorderThickness = 1;
         txtLugarEmision.Name = "txtLugarEmision";
         txtLugarEmision.Size = new Size(426, 34);
-        txtLugarEmision.TabIndex = 7;
+        txtLugarEmision.TabIndex = 8;
         //
         // lblFirmante
         //
@@ -156,9 +179,10 @@ partial class FrmConstanciaLaboral
         lblFirmante.TextAlign = ContentAlignment.MiddleLeft;
         lblFirmante.Text = "Nombre del firmante";
         lblFirmante.Location = new Point(460, 140);
+        lblFirmante.Font = new Font("Inter", 9F);
         lblFirmante.Name = "lblFirmante";
         lblFirmante.Size = new Size(426, 24);
-        lblFirmante.TabIndex = 8;
+        lblFirmante.TabIndex = 7;
         lblFirmante.TabStop = false;
         //
         // txtFirmante
@@ -169,6 +193,11 @@ partial class FrmConstanciaLaboral
         txtFirmante.Padding = new Padding(10, 6, 10, 6);
         txtFirmante.MaxLength = 100;
         txtFirmante.Location = new Point(460, 166);
+        txtFirmante.FillColor = Color.White;
+        txtFirmante.ForeColor = Color.FromArgb(32, 38, 45);
+        txtFirmante.BorderColor = Color.FromArgb(218, 218, 218);
+        txtFirmante.GradientColor = Color.Empty;
+        txtFirmante.BorderThickness = 1;
         txtFirmante.Name = "txtFirmante";
         txtFirmante.Size = new Size(426, 34);
         txtFirmante.TabIndex = 9;
@@ -182,6 +211,7 @@ partial class FrmConstanciaLaboral
         lblCargoFirmante.TextAlign = ContentAlignment.MiddleLeft;
         lblCargoFirmante.Text = "Cargo del firmante";
         lblCargoFirmante.Location = new Point(16, 210);
+        lblCargoFirmante.Font = new Font("Inter", 9F);
         lblCargoFirmante.Name = "lblCargoFirmante";
         lblCargoFirmante.Size = new Size(426, 24);
         lblCargoFirmante.TabIndex = 10;
@@ -195,18 +225,28 @@ partial class FrmConstanciaLaboral
         txtCargoFirmante.Padding = new Padding(10, 6, 10, 6);
         txtCargoFirmante.MaxLength = 100;
         txtCargoFirmante.Location = new Point(16, 236);
+        txtCargoFirmante.FillColor = Color.White;
+        txtCargoFirmante.ForeColor = Color.FromArgb(32, 38, 45);
+        txtCargoFirmante.BorderColor = Color.FromArgb(218, 218, 218);
+        txtCargoFirmante.GradientColor = Color.Empty;
+        txtCargoFirmante.BorderThickness = 1;
         txtCargoFirmante.Name = "txtCargoFirmante";
         txtCargoFirmante.Size = new Size(426, 34);
-        txtCargoFirmante.TabIndex = 11;
+        txtCargoFirmante.TabIndex = 12;
         //
         // chkIncluirSalario
         //
         chkIncluirSalario.Font = new Font("Inter", 9F);
         chkIncluirSalario.Text = "Incluir salario autorizado";
         chkIncluirSalario.Location = new Point(460, 234);
+        chkIncluirSalario.ForeColor = Color.FromArgb(64, 64, 64);
+        chkIncluirSalario.CheckedState.FillColor = Color.FromArgb(49, 81, 107);
+        chkIncluirSalario.CheckedState.BorderColor = Color.FromArgb(32, 38, 45);
+        chkIncluirSalario.CheckedState.ForeColor = Color.White;
+        chkIncluirSalario.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         chkIncluirSalario.Name = "chkIncluirSalario";
         chkIncluirSalario.Size = new Size(426, 36);
-        chkIncluirSalario.TabIndex = 12;
+        chkIncluirSalario.TabIndex = 11;
         //
         // btnExportarPdf
         //
@@ -216,13 +256,17 @@ partial class FrmConstanciaLaboral
         btnExportarPdf.Font = new Font("Inter", 9F);
         btnExportarPdf.Padding = new Padding(10, 4, 10, 4);
         btnExportarPdf.UseVisualStyleBackColor = false;
-        btnExportarPdf.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
         btnExportarPdf.Text = "Generar PDF";
-        btnExportarPdf.FillColor = Color.FromArgb(32, 38, 45);
-        btnExportarPdf.ForeColor = Color.White;
-        btnExportarPdf.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnExportarPdf.Appearance.Normal.ForeColor = Color.White;
         btnExportarPdf.Location = new Point(16, 288);
+        btnExportarPdf.BorderThickness = 1;
+        btnExportarPdf.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
+        btnExportarPdf.FillColor = Color.FromArgb(49, 81, 107);
+        btnExportarPdf.ForeColor = Color.White;
+        btnExportarPdf.BorderColor = Color.FromArgb(49, 81, 107);
+        btnExportarPdf.GradientColor = Color.Empty;
+        btnExportarPdf.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnExportarPdf.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnExportarPdf.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
         btnExportarPdf.Name = "btnExportarPdf";
         btnExportarPdf.Size = new Size(220, 40);
         btnExportarPdf.TabIndex = 13;
@@ -235,9 +279,17 @@ partial class FrmConstanciaLaboral
         btnImprimir.Font = new Font("Inter", 9F);
         btnImprimir.Padding = new Padding(10, 4, 10, 4);
         btnImprimir.UseVisualStyleBackColor = false;
-        btnImprimir.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnImprimir.Text = "Imprimir";
         btnImprimir.Location = new Point(248, 288);
+        btnImprimir.BorderThickness = 1;
+        btnImprimir.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnImprimir.FillColor = Color.White;
+        btnImprimir.ForeColor = Color.FromArgb(49, 81, 107);
+        btnImprimir.BorderColor = Color.FromArgb(173, 190, 204);
+        btnImprimir.GradientColor = Color.Empty;
+        btnImprimir.Appearance.Hover.FillColor = Color.FromArgb(239, 244, 248);
+        btnImprimir.Appearance.Pressed.FillColor = Color.FromArgb(225, 235, 243);
+        btnImprimir.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnImprimir.Name = "btnImprimir";
         btnImprimir.Size = new Size(220, 40);
         btnImprimir.TabIndex = 14;
@@ -273,6 +325,7 @@ partial class FrmConstanciaLaboral
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCerrar;
+        Font = new Font("Segoe UI", 9F);
         Name = "FrmConstanciaLaboral";
         Text = "Emitir constancia laboral";
         ResumeLayout(false);

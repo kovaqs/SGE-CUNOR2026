@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Forms.Secciones;
+namespace Presentacion.Forms.Secciones;
 
 partial class FrmConfiguracion
 {
@@ -52,8 +52,10 @@ partial class FrmConfiguracion
         lblTitulo.Text = "Configuración general y catálogos";
         lblTitulo.Font = new Font("Inter", 16F, FontStyle.Bold);
         lblTitulo.Location = new Point(16, 12);
+        lblTitulo.Dock = DockStyle.None;
+        lblTitulo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
         lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(870, 40);
+        lblTitulo.Size = new Size(1094, 40);
         lblTitulo.TabIndex = 0;
         lblTitulo.TabStop = false;
         //
@@ -65,7 +67,7 @@ partial class FrmConfiguracion
         lblEmpresa.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         lblEmpresa.TextAlign = ContentAlignment.MiddleLeft;
         lblEmpresa.Text = "Datos de la empresa";
-        lblEmpresa.Font = new Font("Inter", 10F, FontStyle.Bold);
+        lblEmpresa.Font = new Font("Inter", 9F);
         lblEmpresa.Location = new Point(16, 64);
         lblEmpresa.Name = "lblEmpresa";
         lblEmpresa.Size = new Size(560, 26);
@@ -81,9 +83,10 @@ partial class FrmConfiguracion
         lblNombreEmpresa.TextAlign = ContentAlignment.MiddleLeft;
         lblNombreEmpresa.Text = "Nombre de la empresa";
         lblNombreEmpresa.Location = new Point(16, 98);
+        lblNombreEmpresa.Font = new Font("Inter", 9F);
         lblNombreEmpresa.Name = "lblNombreEmpresa";
-        lblNombreEmpresa.Size = new Size(271, 24);
-        lblNombreEmpresa.TabIndex = 2;
+        lblNombreEmpresa.Size = new Size(352, 24);
+        lblNombreEmpresa.TabIndex = 3;
         lblNombreEmpresa.TabStop = false;
         //
         // txtNombreEmpresa
@@ -94,9 +97,14 @@ partial class FrmConfiguracion
         txtNombreEmpresa.Padding = new Padding(10, 6, 10, 6);
         txtNombreEmpresa.MaxLength = 150;
         txtNombreEmpresa.Location = new Point(16, 124);
+        txtNombreEmpresa.FillColor = Color.White;
+        txtNombreEmpresa.ForeColor = Color.FromArgb(32, 38, 45);
+        txtNombreEmpresa.BorderColor = Color.FromArgb(218, 218, 218);
+        txtNombreEmpresa.GradientColor = Color.Empty;
+        txtNombreEmpresa.BorderThickness = 1;
         txtNombreEmpresa.Name = "txtNombreEmpresa";
-        txtNombreEmpresa.Size = new Size(271, 34);
-        txtNombreEmpresa.TabIndex = 3;
+        txtNombreEmpresa.Size = new Size(352, 34);
+        txtNombreEmpresa.TabIndex = 6;
         //
         // lblNit
         //
@@ -106,9 +114,10 @@ partial class FrmConfiguracion
         lblNit.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         lblNit.TextAlign = ContentAlignment.MiddleLeft;
         lblNit.Text = "NIT";
-        lblNit.Location = new Point(305, 98);
+        lblNit.Location = new Point(386, 98);
+        lblNit.Font = new Font("Inter", 9F);
         lblNit.Name = "lblNit";
-        lblNit.Size = new Size(271, 24);
+        lblNit.Size = new Size(352, 24);
         lblNit.TabIndex = 4;
         lblNit.TabStop = false;
         //
@@ -119,10 +128,15 @@ partial class FrmConfiguracion
         txtNit.Font = new Font("Inter", 9F);
         txtNit.Padding = new Padding(10, 6, 10, 6);
         txtNit.MaxLength = 25;
-        txtNit.Location = new Point(305, 124);
+        txtNit.Location = new Point(386, 124);
+        txtNit.FillColor = Color.White;
+        txtNit.ForeColor = Color.FromArgb(32, 38, 45);
+        txtNit.BorderColor = Color.FromArgb(218, 218, 218);
+        txtNit.GradientColor = Color.Empty;
+        txtNit.BorderThickness = 1;
         txtNit.Name = "txtNit";
-        txtNit.Size = new Size(271, 34);
-        txtNit.TabIndex = 5;
+        txtNit.Size = new Size(352, 34);
+        txtNit.TabIndex = 7;
         //
         // lblDireccion
         //
@@ -133,9 +147,10 @@ partial class FrmConfiguracion
         lblDireccion.TextAlign = ContentAlignment.MiddleLeft;
         lblDireccion.Text = "Dirección";
         lblDireccion.Location = new Point(16, 168);
+        lblDireccion.Font = new Font("Inter", 9F);
         lblDireccion.Name = "lblDireccion";
-        lblDireccion.Size = new Size(271, 24);
-        lblDireccion.TabIndex = 6;
+        lblDireccion.Size = new Size(352, 24);
+        lblDireccion.TabIndex = 9;
         lblDireccion.TabStop = false;
         //
         // txtDireccion
@@ -146,9 +161,14 @@ partial class FrmConfiguracion
         txtDireccion.Padding = new Padding(10, 6, 10, 6);
         txtDireccion.MaxLength = 250;
         txtDireccion.Location = new Point(16, 194);
+        txtDireccion.FillColor = Color.White;
+        txtDireccion.ForeColor = Color.FromArgb(32, 38, 45);
+        txtDireccion.BorderColor = Color.FromArgb(218, 218, 218);
+        txtDireccion.GradientColor = Color.Empty;
+        txtDireccion.BorderThickness = 1;
         txtDireccion.Name = "txtDireccion";
-        txtDireccion.Size = new Size(271, 34);
-        txtDireccion.TabIndex = 7;
+        txtDireccion.Size = new Size(352, 34);
+        txtDireccion.TabIndex = 11;
         //
         // lblTelefono
         //
@@ -158,10 +178,11 @@ partial class FrmConfiguracion
         lblTelefono.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         lblTelefono.TextAlign = ContentAlignment.MiddleLeft;
         lblTelefono.Text = "Teléfono";
-        lblTelefono.Location = new Point(305, 168);
+        lblTelefono.Location = new Point(386, 168);
+        lblTelefono.Font = new Font("Inter", 9F);
         lblTelefono.Name = "lblTelefono";
-        lblTelefono.Size = new Size(271, 24);
-        lblTelefono.TabIndex = 8;
+        lblTelefono.Size = new Size(352, 24);
+        lblTelefono.TabIndex = 10;
         lblTelefono.TabStop = false;
         //
         // txtTelefono
@@ -171,10 +192,15 @@ partial class FrmConfiguracion
         txtTelefono.Font = new Font("Inter", 9F);
         txtTelefono.Padding = new Padding(10, 6, 10, 6);
         txtTelefono.MaxLength = 25;
-        txtTelefono.Location = new Point(305, 194);
+        txtTelefono.Location = new Point(386, 194);
+        txtTelefono.FillColor = Color.White;
+        txtTelefono.ForeColor = Color.FromArgb(32, 38, 45);
+        txtTelefono.BorderColor = Color.FromArgb(218, 218, 218);
+        txtTelefono.GradientColor = Color.Empty;
+        txtTelefono.BorderThickness = 1;
         txtTelefono.Name = "txtTelefono";
-        txtTelefono.Size = new Size(271, 34);
-        txtTelefono.TabIndex = 9;
+        txtTelefono.Size = new Size(352, 34);
+        txtTelefono.TabIndex = 12;
         //
         // lblCorreo
         //
@@ -185,9 +211,10 @@ partial class FrmConfiguracion
         lblCorreo.TextAlign = ContentAlignment.MiddleLeft;
         lblCorreo.Text = "Correo electrónico";
         lblCorreo.Location = new Point(16, 238);
+        lblCorreo.Font = new Font("Inter", 9F);
         lblCorreo.Name = "lblCorreo";
-        lblCorreo.Size = new Size(271, 24);
-        lblCorreo.TabIndex = 10;
+        lblCorreo.Size = new Size(352, 24);
+        lblCorreo.TabIndex = 14;
         lblCorreo.TabStop = false;
         //
         // txtCorreo
@@ -198,9 +225,14 @@ partial class FrmConfiguracion
         txtCorreo.Padding = new Padding(10, 6, 10, 6);
         txtCorreo.MaxLength = 254;
         txtCorreo.Location = new Point(16, 264);
+        txtCorreo.FillColor = Color.White;
+        txtCorreo.ForeColor = Color.FromArgb(32, 38, 45);
+        txtCorreo.BorderColor = Color.FromArgb(218, 218, 218);
+        txtCorreo.GradientColor = Color.Empty;
+        txtCorreo.BorderThickness = 1;
         txtCorreo.Name = "txtCorreo";
-        txtCorreo.Size = new Size(271, 34);
-        txtCorreo.TabIndex = 11;
+        txtCorreo.Size = new Size(352, 34);
+        txtCorreo.TabIndex = 16;
         //
         // lblMoneda
         //
@@ -210,10 +242,11 @@ partial class FrmConfiguracion
         lblMoneda.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         lblMoneda.TextAlign = ContentAlignment.MiddleLeft;
         lblMoneda.Text = "Moneda";
-        lblMoneda.Location = new Point(305, 238);
+        lblMoneda.Location = new Point(386, 238);
+        lblMoneda.Font = new Font("Inter", 9F);
         lblMoneda.Name = "lblMoneda";
-        lblMoneda.Size = new Size(271, 24);
-        lblMoneda.TabIndex = 12;
+        lblMoneda.Size = new Size(352, 24);
+        lblMoneda.TabIndex = 15;
         lblMoneda.TabStop = false;
         //
         // cboMoneda
@@ -222,10 +255,16 @@ partial class FrmConfiguracion
         cboMoneda.DropDownStyle = ComboBoxStyle.DropDownList;
         cboMoneda.FormattingEnabled = true;
         cboMoneda.Items.AddRange(new object[] { "GTQ" });
-        cboMoneda.Location = new Point(305, 264);
+        cboMoneda.Location = new Point(386, 264);
+        cboMoneda.CornerRadius = 8;
+        cboMoneda.FillColor = Color.White;
+        cboMoneda.ForeColor = Color.FromArgb(32, 38, 45);
+        cboMoneda.BorderColor = Color.FromArgb(218, 218, 218);
+        cboMoneda.GradientColor = Color.Empty;
+
         cboMoneda.Name = "cboMoneda";
-        cboMoneda.Size = new Size(271, 34);
-        cboMoneda.TabIndex = 13;
+        cboMoneda.Size = new Size(352, 34);
+        cboMoneda.TabIndex = 17;
         //
         // lblZonaHoraria
         //
@@ -236,9 +275,10 @@ partial class FrmConfiguracion
         lblZonaHoraria.TextAlign = ContentAlignment.MiddleLeft;
         lblZonaHoraria.Text = "Zona horaria";
         lblZonaHoraria.Location = new Point(16, 308);
+        lblZonaHoraria.Font = new Font("Inter", 9F);
         lblZonaHoraria.Name = "lblZonaHoraria";
-        lblZonaHoraria.Size = new Size(271, 24);
-        lblZonaHoraria.TabIndex = 14;
+        lblZonaHoraria.Size = new Size(352, 24);
+        lblZonaHoraria.TabIndex = 19;
         lblZonaHoraria.TabStop = false;
         //
         // cboZonaHoraria
@@ -248,9 +288,15 @@ partial class FrmConfiguracion
         cboZonaHoraria.FormattingEnabled = true;
         cboZonaHoraria.Items.AddRange(new object[] { "America/Guatemala" });
         cboZonaHoraria.Location = new Point(16, 334);
+        cboZonaHoraria.CornerRadius = 8;
+        cboZonaHoraria.FillColor = Color.White;
+        cboZonaHoraria.ForeColor = Color.FromArgb(32, 38, 45);
+        cboZonaHoraria.BorderColor = Color.FromArgb(218, 218, 218);
+        cboZonaHoraria.GradientColor = Color.Empty;
+
         cboZonaHoraria.Name = "cboZonaHoraria";
-        cboZonaHoraria.Size = new Size(271, 34);
-        cboZonaHoraria.TabIndex = 15;
+        cboZonaHoraria.Size = new Size(352, 34);
+        cboZonaHoraria.TabIndex = 21;
         //
         // btnGuardarEmpresa
         //
@@ -260,16 +306,20 @@ partial class FrmConfiguracion
         btnGuardarEmpresa.Font = new Font("Inter", 9F);
         btnGuardarEmpresa.Padding = new Padding(10, 4, 10, 4);
         btnGuardarEmpresa.UseVisualStyleBackColor = false;
-        btnGuardarEmpresa.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
         btnGuardarEmpresa.Text = "Guardar empresa";
-        btnGuardarEmpresa.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardarEmpresa.ForeColor = Color.White;
-        btnGuardarEmpresa.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardarEmpresa.Appearance.Normal.ForeColor = Color.White;
         btnGuardarEmpresa.Location = new Point(16, 388);
+        btnGuardarEmpresa.BorderThickness = 1;
+        btnGuardarEmpresa.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
+        btnGuardarEmpresa.FillColor = Color.FromArgb(49, 81, 107);
+        btnGuardarEmpresa.ForeColor = Color.White;
+        btnGuardarEmpresa.BorderColor = Color.FromArgb(49, 81, 107);
+        btnGuardarEmpresa.GradientColor = Color.Empty;
+        btnGuardarEmpresa.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnGuardarEmpresa.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnGuardarEmpresa.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
         btnGuardarEmpresa.Name = "btnGuardarEmpresa";
         btnGuardarEmpresa.Size = new Size(200, 40);
-        btnGuardarEmpresa.TabIndex = 16;
+        btnGuardarEmpresa.TabIndex = 22;
         //
         // lblCatalogos
         //
@@ -279,11 +329,12 @@ partial class FrmConfiguracion
         lblCatalogos.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         lblCatalogos.TextAlign = ContentAlignment.MiddleLeft;
         lblCatalogos.Text = "Catálogos y administración";
-        lblCatalogos.Font = new Font("Inter", 10F, FontStyle.Bold);
-        lblCatalogos.Location = new Point(620, 64);
+        lblCatalogos.Font = new Font("Inter", 9F);
+        lblCatalogos.Location = new Point(792, 64);
+        lblCatalogos.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         lblCatalogos.Name = "lblCatalogos";
-        lblCatalogos.Size = new Size(266, 26);
-        lblCatalogos.TabIndex = 17;
+        lblCatalogos.Size = new Size(318, 26);
+        lblCatalogos.TabIndex = 2;
         lblCatalogos.TabStop = false;
         //
         // btnTiposContrato
@@ -294,12 +345,21 @@ partial class FrmConfiguracion
         btnTiposContrato.Font = new Font("Inter", 9F);
         btnTiposContrato.Padding = new Padding(10, 4, 10, 4);
         btnTiposContrato.UseVisualStyleBackColor = false;
-        btnTiposContrato.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnTiposContrato.Text = "Tipos de contrato";
-        btnTiposContrato.Location = new Point(620, 106);
+        btnTiposContrato.Location = new Point(792, 106);
+        btnTiposContrato.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnTiposContrato.BorderThickness = 1;
+        btnTiposContrato.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnTiposContrato.FillColor = Color.White;
+        btnTiposContrato.ForeColor = Color.FromArgb(32, 38, 45);
+        btnTiposContrato.BorderColor = Color.FromArgb(218, 218, 218);
+        btnTiposContrato.GradientColor = Color.Empty;
+        btnTiposContrato.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnTiposContrato.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnTiposContrato.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnTiposContrato.Name = "btnTiposContrato";
-        btnTiposContrato.Size = new Size(266, 40);
-        btnTiposContrato.TabIndex = 18;
+        btnTiposContrato.Size = new Size(318, 40);
+        btnTiposContrato.TabIndex = 5;
         //
         // btnHorarios
         //
@@ -309,12 +369,21 @@ partial class FrmConfiguracion
         btnHorarios.Font = new Font("Inter", 9F);
         btnHorarios.Padding = new Padding(10, 4, 10, 4);
         btnHorarios.UseVisualStyleBackColor = false;
-        btnHorarios.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnHorarios.Text = "Horarios";
-        btnHorarios.Location = new Point(620, 162);
+        btnHorarios.Location = new Point(792, 162);
+        btnHorarios.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnHorarios.BorderThickness = 1;
+        btnHorarios.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnHorarios.FillColor = Color.White;
+        btnHorarios.ForeColor = Color.FromArgb(32, 38, 45);
+        btnHorarios.BorderColor = Color.FromArgb(218, 218, 218);
+        btnHorarios.GradientColor = Color.Empty;
+        btnHorarios.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnHorarios.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnHorarios.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnHorarios.Name = "btnHorarios";
-        btnHorarios.Size = new Size(266, 40);
-        btnHorarios.TabIndex = 19;
+        btnHorarios.Size = new Size(318, 40);
+        btnHorarios.TabIndex = 8;
         //
         // btnRoles
         //
@@ -324,12 +393,21 @@ partial class FrmConfiguracion
         btnRoles.Font = new Font("Inter", 9F);
         btnRoles.Padding = new Padding(10, 4, 10, 4);
         btnRoles.UseVisualStyleBackColor = false;
-        btnRoles.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnRoles.Text = "Roles y permisos";
-        btnRoles.Location = new Point(620, 218);
+        btnRoles.Location = new Point(792, 218);
+        btnRoles.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnRoles.BorderThickness = 1;
+        btnRoles.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnRoles.FillColor = Color.White;
+        btnRoles.ForeColor = Color.FromArgb(32, 38, 45);
+        btnRoles.BorderColor = Color.FromArgb(218, 218, 218);
+        btnRoles.GradientColor = Color.Empty;
+        btnRoles.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnRoles.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnRoles.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnRoles.Name = "btnRoles";
-        btnRoles.Size = new Size(266, 40);
-        btnRoles.TabIndex = 20;
+        btnRoles.Size = new Size(318, 40);
+        btnRoles.TabIndex = 13;
         //
         // btnBitacora
         //
@@ -339,12 +417,21 @@ partial class FrmConfiguracion
         btnBitacora.Font = new Font("Inter", 9F);
         btnBitacora.Padding = new Padding(10, 4, 10, 4);
         btnBitacora.UseVisualStyleBackColor = false;
-        btnBitacora.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnBitacora.Text = "Bitácora";
-        btnBitacora.Location = new Point(620, 274);
+        btnBitacora.Location = new Point(792, 274);
+        btnBitacora.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnBitacora.BorderThickness = 1;
+        btnBitacora.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnBitacora.FillColor = Color.White;
+        btnBitacora.ForeColor = Color.FromArgb(32, 38, 45);
+        btnBitacora.BorderColor = Color.FromArgb(218, 218, 218);
+        btnBitacora.GradientColor = Color.Empty;
+        btnBitacora.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnBitacora.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnBitacora.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnBitacora.Name = "btnBitacora";
-        btnBitacora.Size = new Size(266, 40);
-        btnBitacora.TabIndex = 21;
+        btnBitacora.Size = new Size(318, 40);
+        btnBitacora.TabIndex = 18;
         //
         // btnConexion
         //
@@ -354,12 +441,22 @@ partial class FrmConfiguracion
         btnConexion.Font = new Font("Inter", 9F);
         btnConexion.Padding = new Padding(10, 4, 10, 4);
         btnConexion.UseVisualStyleBackColor = false;
-        btnConexion.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnConexion.Text = "Conexión a MySQL";
-        btnConexion.Location = new Point(620, 330);
+        btnConexion.Location = new Point(792, 330);
+        btnConexion.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnConexion.BorderThickness = 1;
+        btnConexion.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnConexion.FillColor = Color.White;
+        btnConexion.ForeColor = Color.FromArgb(32, 38, 45);
+        btnConexion.BorderColor = Color.FromArgb(218, 218, 218);
+        btnConexion.GradientColor = Color.Empty;
+        btnConexion.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnConexion.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnConexion.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnConexion.Name = "btnConexion";
-        btnConexion.Size = new Size(266, 40);
-        btnConexion.TabIndex = 22;
+        btnConexion.Size = new Size(318, 40);
+        btnConexion.TabIndex = 20;
+        btnConexion.Click += btnConexion_Click;
         notificador.OwnerForm = this;
         //
         // FrmConfiguracion
@@ -367,7 +464,7 @@ partial class FrmConfiguracion
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.White;
-        ClientSize = new Size(902, 669);
+        ClientSize = new Size(1126, 744);
         Controls.Add(lblTitulo);
         Controls.Add(lblEmpresa);
         Controls.Add(lblNombreEmpresa);
@@ -391,13 +488,17 @@ partial class FrmConfiguracion
         Controls.Add(btnRoles);
         Controls.Add(btnBitacora);
         Controls.Add(btnConexion);
-        MinimumSize = new Size(902, 669);
+        MinimumSize = new Size(1126, 744);
+        FormBorderStyle = FormBorderStyle.None;
+        Margin = new Padding(3);
+        Font = new Font("Segoe UI", 9F);
         Name = "FrmConfiguracion";
         Text = "Configuración general y catálogos";
         ResumeLayout(false);
     }
 
     #endregion
+
 
     private KovaqsUI.Controls.KLabel lblTitulo;
     private KovaqsUI.Controls.KLabel lblEmpresa;

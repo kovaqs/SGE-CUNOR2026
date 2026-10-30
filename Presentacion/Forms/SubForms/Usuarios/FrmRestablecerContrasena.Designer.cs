@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Forms.SubForms.Usuarios;
+namespace Presentacion.Forms.SubForms.Usuarios;
 
 partial class FrmRestablecerContrasena
 {
@@ -53,11 +53,19 @@ partial class FrmRestablecerContrasena
         btnCerrar.Font = new Font("Inter", 9F);
         btnCerrar.Padding = new Padding(10, 4, 10, 4);
         btnCerrar.UseVisualStyleBackColor = false;
-        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCerrar.Text = "Cerrar";
         btnCerrar.DialogResult = DialogResult.Cancel;
         btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnCerrar.Location = new Point(790, 12);
+        btnCerrar.BorderThickness = 1;
+        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnCerrar.FillColor = Color.White;
+        btnCerrar.ForeColor = Color.FromArgb(32, 38, 45);
+        btnCerrar.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.GradientColor = Color.Empty;
+        btnCerrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnCerrar.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnCerrar.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnCerrar.Name = "btnCerrar";
         btnCerrar.Size = new Size(96, 40);
         btnCerrar.TabIndex = 1;
@@ -71,6 +79,7 @@ partial class FrmRestablecerContrasena
         lblNombreUsuario.TextAlign = ContentAlignment.MiddleLeft;
         lblNombreUsuario.Text = "Cuenta seleccionada";
         lblNombreUsuario.Location = new Point(16, 70);
+        lblNombreUsuario.Font = new Font("Inter", 9F);
         lblNombreUsuario.Name = "lblNombreUsuario";
         lblNombreUsuario.Size = new Size(426, 24);
         lblNombreUsuario.TabIndex = 2;
@@ -85,9 +94,14 @@ partial class FrmRestablecerContrasena
         txtNombreUsuario.ReadOnly = true;
         txtNombreUsuario.MaxLength = 50;
         txtNombreUsuario.Location = new Point(16, 96);
+        txtNombreUsuario.FillColor = Color.White;
+        txtNombreUsuario.ForeColor = Color.FromArgb(32, 38, 45);
+        txtNombreUsuario.BorderColor = Color.FromArgb(218, 218, 218);
+        txtNombreUsuario.GradientColor = Color.Empty;
+        txtNombreUsuario.BorderThickness = 1;
         txtNombreUsuario.Name = "txtNombreUsuario";
         txtNombreUsuario.Size = new Size(426, 34);
-        txtNombreUsuario.TabIndex = 3;
+        txtNombreUsuario.TabIndex = 4;
         //
         // lblContrasena
         //
@@ -98,9 +112,10 @@ partial class FrmRestablecerContrasena
         lblContrasena.TextAlign = ContentAlignment.MiddleLeft;
         lblContrasena.Text = "Nueva contraseña";
         lblContrasena.Location = new Point(460, 70);
+        lblContrasena.Font = new Font("Inter", 9F);
         lblContrasena.Name = "lblContrasena";
         lblContrasena.Size = new Size(426, 24);
-        lblContrasena.TabIndex = 4;
+        lblContrasena.TabIndex = 3;
         lblContrasena.TabStop = false;
         //
         // txtContrasena
@@ -112,6 +127,11 @@ partial class FrmRestablecerContrasena
         txtContrasena.UseSystemPasswordChar = true;
         txtContrasena.MaxLength = 128;
         txtContrasena.Location = new Point(460, 96);
+        txtContrasena.FillColor = Color.White;
+        txtContrasena.ForeColor = Color.FromArgb(32, 38, 45);
+        txtContrasena.BorderColor = Color.FromArgb(218, 218, 218);
+        txtContrasena.GradientColor = Color.Empty;
+        txtContrasena.BorderThickness = 1;
         txtContrasena.Name = "txtContrasena";
         txtContrasena.Size = new Size(426, 34);
         txtContrasena.TabIndex = 5;
@@ -125,6 +145,7 @@ partial class FrmRestablecerContrasena
         lblConfirmarContrasena.TextAlign = ContentAlignment.MiddleLeft;
         lblConfirmarContrasena.Text = "Confirmar contraseña";
         lblConfirmarContrasena.Location = new Point(16, 140);
+        lblConfirmarContrasena.Font = new Font("Inter", 9F);
         lblConfirmarContrasena.Name = "lblConfirmarContrasena";
         lblConfirmarContrasena.Size = new Size(426, 24);
         lblConfirmarContrasena.TabIndex = 6;
@@ -139,18 +160,28 @@ partial class FrmRestablecerContrasena
         txtConfirmarContrasena.UseSystemPasswordChar = true;
         txtConfirmarContrasena.MaxLength = 128;
         txtConfirmarContrasena.Location = new Point(16, 166);
+        txtConfirmarContrasena.FillColor = Color.White;
+        txtConfirmarContrasena.ForeColor = Color.FromArgb(32, 38, 45);
+        txtConfirmarContrasena.BorderColor = Color.FromArgb(218, 218, 218);
+        txtConfirmarContrasena.GradientColor = Color.Empty;
+        txtConfirmarContrasena.BorderThickness = 1;
         txtConfirmarContrasena.Name = "txtConfirmarContrasena";
         txtConfirmarContrasena.Size = new Size(426, 34);
-        txtConfirmarContrasena.TabIndex = 7;
+        txtConfirmarContrasena.TabIndex = 8;
         //
         // chkMostrarContrasena
         //
         chkMostrarContrasena.Font = new Font("Inter", 9F);
         chkMostrarContrasena.Text = "Mostrar contraseñas";
         chkMostrarContrasena.Location = new Point(460, 164);
+        chkMostrarContrasena.ForeColor = Color.FromArgb(64, 64, 64);
+        chkMostrarContrasena.CheckedState.FillColor = Color.FromArgb(49, 81, 107);
+        chkMostrarContrasena.CheckedState.BorderColor = Color.FromArgb(32, 38, 45);
+        chkMostrarContrasena.CheckedState.ForeColor = Color.White;
+        chkMostrarContrasena.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         chkMostrarContrasena.Name = "chkMostrarContrasena";
         chkMostrarContrasena.Size = new Size(426, 36);
-        chkMostrarContrasena.TabIndex = 8;
+        chkMostrarContrasena.TabIndex = 7;
         //
         // btnGuardar
         //
@@ -160,14 +191,18 @@ partial class FrmRestablecerContrasena
         btnGuardar.Font = new Font("Inter", 9F);
         btnGuardar.Padding = new Padding(10, 4, 10, 4);
         btnGuardar.UseVisualStyleBackColor = false;
-        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
         btnGuardar.Text = "Guardar";
-        btnGuardar.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.ForeColor = Color.White;
-        btnGuardar.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.Appearance.Normal.ForeColor = Color.White;
         btnGuardar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnGuardar.Location = new Point(586, 613);
+        btnGuardar.BorderThickness = 1;
+        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
+        btnGuardar.FillColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.ForeColor = Color.White;
+        btnGuardar.BorderColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.GradientColor = Color.Empty;
+        btnGuardar.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnGuardar.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnGuardar.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
         btnGuardar.Name = "btnGuardar";
         btnGuardar.Size = new Size(144, 40);
         btnGuardar.TabIndex = 9;
@@ -180,11 +215,19 @@ partial class FrmRestablecerContrasena
         btnCancelar.Font = new Font("Inter", 9F);
         btnCancelar.Padding = new Padding(10, 4, 10, 4);
         btnCancelar.UseVisualStyleBackColor = false;
-        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCancelar.Text = "Cancelar";
         btnCancelar.DialogResult = DialogResult.Cancel;
         btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnCancelar.Location = new Point(742, 613);
+        btnCancelar.BorderThickness = 1;
+        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Danger;
+        btnCancelar.FillColor = Color.FromArgb(255, 248, 248);
+        btnCancelar.ForeColor = Color.FromArgb(166, 61, 64);
+        btnCancelar.BorderColor = Color.FromArgb(204, 148, 150);
+        btnCancelar.GradientColor = Color.Empty;
+        btnCancelar.Appearance.Hover.FillColor = Color.FromArgb(250, 235, 235);
+        btnCancelar.Appearance.Pressed.FillColor = Color.FromArgb(244, 219, 220);
+        btnCancelar.FocusAppearance.Color = Color.FromArgb(166, 61, 64);
         btnCancelar.Name = "btnCancelar";
         btnCancelar.Size = new Size(144, 40);
         btnCancelar.TabIndex = 10;
@@ -213,6 +256,7 @@ partial class FrmRestablecerContrasena
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCancelar;
+        Font = new Font("Segoe UI", 9F);
         Name = "FrmRestablecerContrasena";
         Text = "Restablecer contraseña de usuario";
         ResumeLayout(false);

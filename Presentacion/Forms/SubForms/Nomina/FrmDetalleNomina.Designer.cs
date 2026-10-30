@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Forms.SubForms.Nomina;
+namespace Presentacion.Forms.SubForms.Nomina;
 
 partial class FrmDetalleNomina
 {
@@ -16,6 +16,11 @@ partial class FrmDetalleNomina
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
+        btnAcciones = new KovaqsUI.Controls.KButton();
+        cmsMovimientos = new ContextMenuStrip(components);
+        mnuEditarMovimiento = new ToolStripMenuItem();
+        separadorAcciones = new ToolStripSeparator();
+        mnuEliminarMovimiento = new ToolStripMenuItem();
         DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
         DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
         lblTitulo = new KovaqsUI.Controls.KLabel();
@@ -38,8 +43,6 @@ partial class FrmDetalleNomina
         lblTotalDeducciones = new KovaqsUI.Controls.KLabel();
         lblNeto = new KovaqsUI.Controls.KLabel();
         btnAgregarMovimiento = new KovaqsUI.Controls.KButton();
-        btnEditarMovimiento = new KovaqsUI.Controls.KButton();
-        btnEliminarMovimiento = new KovaqsUI.Controls.KButton();
         btnExportarBoleta = new KovaqsUI.Controls.KButton();
         colMovimientosTipo = new DataGridViewTextBoxColumn();
         colMovimientosConcepto = new DataGridViewTextBoxColumn();
@@ -51,14 +54,14 @@ partial class FrmDetalleNomina
         ((System.ComponentModel.ISupportInitialize)dgvMovimientos).BeginInit();
         SuspendLayout();
         dataGridViewCellStyle1.BackColor = Color.FromArgb(244, 244, 244);
-        dataGridViewCellStyle1.ForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle1.ForeColor = Color.FromArgb(71, 85, 99);
         dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(244, 244, 244);
-        dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(71, 85, 99);
         dataGridViewCellStyle1.Font = new Font("Inter", 9F, FontStyle.Bold);
         dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
         dataGridViewCellStyle2.BackColor = Color.White;
         dataGridViewCellStyle2.ForeColor = Color.FromArgb(13, 21, 23);
-        dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(223, 233, 249);
+        dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(231, 238, 245);
         dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(13, 21, 23);
         dataGridViewCellStyle2.Font = new Font("Inter", 9F);
         dataGridViewCellStyle2.Padding = new Padding(8, 4, 8, 4);
@@ -86,11 +89,19 @@ partial class FrmDetalleNomina
         btnCerrar.Font = new Font("Inter", 9F);
         btnCerrar.Padding = new Padding(10, 4, 10, 4);
         btnCerrar.UseVisualStyleBackColor = false;
-        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCerrar.Text = "Cerrar";
         btnCerrar.DialogResult = DialogResult.Cancel;
         btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnCerrar.Location = new Point(790, 12);
+        btnCerrar.BorderThickness = 1;
+        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnCerrar.FillColor = Color.White;
+        btnCerrar.ForeColor = Color.FromArgb(32, 38, 45);
+        btnCerrar.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.GradientColor = Color.Empty;
+        btnCerrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnCerrar.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnCerrar.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnCerrar.Name = "btnCerrar";
         btnCerrar.Size = new Size(96, 40);
         btnCerrar.TabIndex = 1;
@@ -104,6 +115,7 @@ partial class FrmDetalleNomina
         lblEmpleado.TextAlign = ContentAlignment.MiddleLeft;
         lblEmpleado.Text = "Empleado";
         lblEmpleado.Location = new Point(16, 70);
+        lblEmpleado.Font = new Font("Inter", 9F);
         lblEmpleado.Name = "lblEmpleado";
         lblEmpleado.Size = new Size(278, 24);
         lblEmpleado.TabIndex = 2;
@@ -118,9 +130,14 @@ partial class FrmDetalleNomina
         txtEmpleado.ReadOnly = true;
         txtEmpleado.MaxLength = 100;
         txtEmpleado.Location = new Point(16, 96);
+        txtEmpleado.FillColor = Color.White;
+        txtEmpleado.ForeColor = Color.FromArgb(32, 38, 45);
+        txtEmpleado.BorderColor = Color.FromArgb(218, 218, 218);
+        txtEmpleado.GradientColor = Color.Empty;
+        txtEmpleado.BorderThickness = 1;
         txtEmpleado.Name = "txtEmpleado";
         txtEmpleado.Size = new Size(278, 34);
-        txtEmpleado.TabIndex = 3;
+        txtEmpleado.TabIndex = 5;
         //
         // lblPeriodo
         //
@@ -131,9 +148,10 @@ partial class FrmDetalleNomina
         lblPeriodo.TextAlign = ContentAlignment.MiddleLeft;
         lblPeriodo.Text = "Período";
         lblPeriodo.Location = new Point(312, 70);
+        lblPeriodo.Font = new Font("Inter", 9F);
         lblPeriodo.Name = "lblPeriodo";
         lblPeriodo.Size = new Size(278, 24);
-        lblPeriodo.TabIndex = 4;
+        lblPeriodo.TabIndex = 3;
         lblPeriodo.TabStop = false;
         //
         // txtPeriodo
@@ -145,9 +163,14 @@ partial class FrmDetalleNomina
         txtPeriodo.ReadOnly = true;
         txtPeriodo.MaxLength = 100;
         txtPeriodo.Location = new Point(312, 96);
+        txtPeriodo.FillColor = Color.White;
+        txtPeriodo.ForeColor = Color.FromArgb(32, 38, 45);
+        txtPeriodo.BorderColor = Color.FromArgb(218, 218, 218);
+        txtPeriodo.GradientColor = Color.Empty;
+        txtPeriodo.BorderThickness = 1;
         txtPeriodo.Name = "txtPeriodo";
         txtPeriodo.Size = new Size(278, 34);
-        txtPeriodo.TabIndex = 5;
+        txtPeriodo.TabIndex = 6;
         //
         // lblPuesto
         //
@@ -158,9 +181,10 @@ partial class FrmDetalleNomina
         lblPuesto.TextAlign = ContentAlignment.MiddleLeft;
         lblPuesto.Text = "Puesto del período";
         lblPuesto.Location = new Point(608, 70);
+        lblPuesto.Font = new Font("Inter", 9F);
         lblPuesto.Name = "lblPuesto";
         lblPuesto.Size = new Size(278, 24);
-        lblPuesto.TabIndex = 6;
+        lblPuesto.TabIndex = 4;
         lblPuesto.TabStop = false;
         //
         // txtPuesto
@@ -172,6 +196,11 @@ partial class FrmDetalleNomina
         txtPuesto.ReadOnly = true;
         txtPuesto.MaxLength = 100;
         txtPuesto.Location = new Point(608, 96);
+        txtPuesto.FillColor = Color.White;
+        txtPuesto.ForeColor = Color.FromArgb(32, 38, 45);
+        txtPuesto.BorderColor = Color.FromArgb(218, 218, 218);
+        txtPuesto.GradientColor = Color.Empty;
+        txtPuesto.BorderThickness = 1;
         txtPuesto.Name = "txtPuesto";
         txtPuesto.Size = new Size(278, 34);
         txtPuesto.TabIndex = 7;
@@ -185,6 +214,7 @@ partial class FrmDetalleNomina
         lblSalarioBase.TextAlign = ContentAlignment.MiddleLeft;
         lblSalarioBase.Text = "Salario base (Q)";
         lblSalarioBase.Location = new Point(16, 140);
+        lblSalarioBase.Font = new Font("Inter", 9F);
         lblSalarioBase.Name = "lblSalarioBase";
         lblSalarioBase.Size = new Size(278, 24);
         lblSalarioBase.TabIndex = 8;
@@ -199,9 +229,14 @@ partial class FrmDetalleNomina
         txtSalarioBase.ReadOnly = true;
         txtSalarioBase.MaxLength = 100;
         txtSalarioBase.Location = new Point(16, 166);
+        txtSalarioBase.FillColor = Color.White;
+        txtSalarioBase.ForeColor = Color.FromArgb(32, 38, 45);
+        txtSalarioBase.BorderColor = Color.FromArgb(218, 218, 218);
+        txtSalarioBase.GradientColor = Color.Empty;
+        txtSalarioBase.BorderThickness = 1;
         txtSalarioBase.Name = "txtSalarioBase";
         txtSalarioBase.Size = new Size(278, 34);
-        txtSalarioBase.TabIndex = 9;
+        txtSalarioBase.TabIndex = 11;
         //
         // lblDiasPagados
         //
@@ -212,9 +247,10 @@ partial class FrmDetalleNomina
         lblDiasPagados.TextAlign = ContentAlignment.MiddleLeft;
         lblDiasPagados.Text = "Días pagados";
         lblDiasPagados.Location = new Point(312, 140);
+        lblDiasPagados.Font = new Font("Inter", 9F);
         lblDiasPagados.Name = "lblDiasPagados";
         lblDiasPagados.Size = new Size(278, 24);
-        lblDiasPagados.TabIndex = 10;
+        lblDiasPagados.TabIndex = 9;
         lblDiasPagados.TabStop = false;
         //
         // txtDiasPagados
@@ -226,9 +262,14 @@ partial class FrmDetalleNomina
         txtDiasPagados.ReadOnly = true;
         txtDiasPagados.MaxLength = 100;
         txtDiasPagados.Location = new Point(312, 166);
+        txtDiasPagados.FillColor = Color.White;
+        txtDiasPagados.ForeColor = Color.FromArgb(32, 38, 45);
+        txtDiasPagados.BorderColor = Color.FromArgb(218, 218, 218);
+        txtDiasPagados.GradientColor = Color.Empty;
+        txtDiasPagados.BorderThickness = 1;
         txtDiasPagados.Name = "txtDiasPagados";
         txtDiasPagados.Size = new Size(278, 34);
-        txtDiasPagados.TabIndex = 11;
+        txtDiasPagados.TabIndex = 12;
         //
         // lblDepartamento
         //
@@ -239,9 +280,10 @@ partial class FrmDetalleNomina
         lblDepartamento.TextAlign = ContentAlignment.MiddleLeft;
         lblDepartamento.Text = "Departamento del período";
         lblDepartamento.Location = new Point(608, 140);
+        lblDepartamento.Font = new Font("Inter", 9F);
         lblDepartamento.Name = "lblDepartamento";
         lblDepartamento.Size = new Size(278, 24);
-        lblDepartamento.TabIndex = 12;
+        lblDepartamento.TabIndex = 10;
         lblDepartamento.TabStop = false;
         //
         // txtDepartamento
@@ -253,6 +295,11 @@ partial class FrmDetalleNomina
         txtDepartamento.ReadOnly = true;
         txtDepartamento.MaxLength = 100;
         txtDepartamento.Location = new Point(608, 166);
+        txtDepartamento.FillColor = Color.White;
+        txtDepartamento.ForeColor = Color.FromArgb(32, 38, 45);
+        txtDepartamento.BorderColor = Color.FromArgb(218, 218, 218);
+        txtDepartamento.GradientColor = Color.Empty;
+        txtDepartamento.BorderThickness = 1;
         txtDepartamento.Name = "txtDepartamento";
         txtDepartamento.Size = new Size(278, 34);
         txtDepartamento.TabIndex = 13;
@@ -266,6 +313,7 @@ partial class FrmDetalleNomina
         lblMovimientosTitulo.TextAlign = ContentAlignment.MiddleLeft;
         lblMovimientosTitulo.Text = "Ingresos y deducciones";
         lblMovimientosTitulo.Location = new Point(16, 212);
+        lblMovimientosTitulo.Font = new Font("Inter", 9F);
         lblMovimientosTitulo.Name = "lblMovimientosTitulo";
         lblMovimientosTitulo.Size = new Size(870, 24);
         lblMovimientosTitulo.TabIndex = 14;
@@ -292,6 +340,8 @@ partial class FrmDetalleNomina
         dgvMovimientos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
         dgvMovimientos.DefaultCellStyle = dataGridViewCellStyle2;
         dgvMovimientos.Location = new Point(16, 238);
+        dgvMovimientos.Font = new Font("Inter", 9F);
+        dgvMovimientos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
         dgvMovimientos.Name = "dgvMovimientos";
         dgvMovimientos.Size = new Size(870, 284);
         dgvMovimientos.TabIndex = 15;
@@ -305,7 +355,7 @@ partial class FrmDetalleNomina
         lblTotalIngresos.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         lblTotalIngresos.TextAlign = ContentAlignment.MiddleLeft;
         lblTotalIngresos.Text = "Total ingresos: Q 0.00";
-        lblTotalIngresos.Font = new Font("Inter", 9F, FontStyle.Bold);
+        lblTotalIngresos.Font = new Font("Inter", 9F);
         lblTotalIngresos.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
         lblTotalIngresos.Location = new Point(16, 536);
         lblTotalIngresos.Name = "lblTotalIngresos";
@@ -321,7 +371,7 @@ partial class FrmDetalleNomina
         lblTotalDeducciones.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         lblTotalDeducciones.TextAlign = ContentAlignment.MiddleLeft;
         lblTotalDeducciones.Text = "Total deducciones: Q 0.00";
-        lblTotalDeducciones.Font = new Font("Inter", 9F, FontStyle.Bold);
+        lblTotalDeducciones.Font = new Font("Inter", 9F);
         lblTotalDeducciones.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
         lblTotalDeducciones.Location = new Point(306, 536);
         lblTotalDeducciones.Name = "lblTotalDeducciones";
@@ -337,7 +387,7 @@ partial class FrmDetalleNomina
         lblNeto.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         lblNeto.TextAlign = ContentAlignment.MiddleLeft;
         lblNeto.Text = "Neto a pagar: Q 0.00";
-        lblNeto.Font = new Font("Inter", 9F, FontStyle.Bold);
+        lblNeto.Font = new Font("Inter", 9F);
         lblNeto.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
         lblNeto.Location = new Point(596, 536);
         lblNeto.Name = "lblNeto";
@@ -353,46 +403,20 @@ partial class FrmDetalleNomina
         btnAgregarMovimiento.Font = new Font("Inter", 9F);
         btnAgregarMovimiento.Padding = new Padding(10, 4, 10, 4);
         btnAgregarMovimiento.UseVisualStyleBackColor = false;
-        btnAgregarMovimiento.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
         btnAgregarMovimiento.Text = "Agregar movimiento";
-        btnAgregarMovimiento.FillColor = Color.FromArgb(32, 38, 45);
-        btnAgregarMovimiento.ForeColor = Color.White;
-        btnAgregarMovimiento.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnAgregarMovimiento.Appearance.Normal.ForeColor = Color.White;
         btnAgregarMovimiento.Location = new Point(16, 582);
+        btnAgregarMovimiento.BorderThickness = 1;
+        btnAgregarMovimiento.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
+        btnAgregarMovimiento.FillColor = Color.FromArgb(49, 81, 107);
+        btnAgregarMovimiento.ForeColor = Color.White;
+        btnAgregarMovimiento.BorderColor = Color.FromArgb(49, 81, 107);
+        btnAgregarMovimiento.GradientColor = Color.Empty;
+        btnAgregarMovimiento.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnAgregarMovimiento.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnAgregarMovimiento.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
         btnAgregarMovimiento.Name = "btnAgregarMovimiento";
         btnAgregarMovimiento.Size = new Size(208, 40);
         btnAgregarMovimiento.TabIndex = 19;
-        //
-        // btnEditarMovimiento
-        //
-        btnEditarMovimiento.BackColor = Color.Transparent;
-        btnEditarMovimiento.CornerRadius = 8;
-        btnEditarMovimiento.FlatStyle = FlatStyle.Flat;
-        btnEditarMovimiento.Font = new Font("Inter", 9F);
-        btnEditarMovimiento.Padding = new Padding(10, 4, 10, 4);
-        btnEditarMovimiento.UseVisualStyleBackColor = false;
-        btnEditarMovimiento.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
-        btnEditarMovimiento.Text = "Editar movimiento";
-        btnEditarMovimiento.Location = new Point(236, 582);
-        btnEditarMovimiento.Name = "btnEditarMovimiento";
-        btnEditarMovimiento.Size = new Size(208, 40);
-        btnEditarMovimiento.TabIndex = 20;
-        //
-        // btnEliminarMovimiento
-        //
-        btnEliminarMovimiento.BackColor = Color.Transparent;
-        btnEliminarMovimiento.CornerRadius = 8;
-        btnEliminarMovimiento.FlatStyle = FlatStyle.Flat;
-        btnEliminarMovimiento.Font = new Font("Inter", 9F);
-        btnEliminarMovimiento.Padding = new Padding(10, 4, 10, 4);
-        btnEliminarMovimiento.UseVisualStyleBackColor = false;
-        btnEliminarMovimiento.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
-        btnEliminarMovimiento.Text = "Eliminar movimiento";
-        btnEliminarMovimiento.Location = new Point(456, 582);
-        btnEliminarMovimiento.Name = "btnEliminarMovimiento";
-        btnEliminarMovimiento.Size = new Size(208, 40);
-        btnEliminarMovimiento.TabIndex = 21;
         //
         // btnExportarBoleta
         //
@@ -402,9 +426,17 @@ partial class FrmDetalleNomina
         btnExportarBoleta.Font = new Font("Inter", 9F);
         btnExportarBoleta.Padding = new Padding(10, 4, 10, 4);
         btnExportarBoleta.UseVisualStyleBackColor = false;
-        btnExportarBoleta.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnExportarBoleta.Text = "Exportar boleta";
         btnExportarBoleta.Location = new Point(676, 582);
+        btnExportarBoleta.BorderThickness = 1;
+        btnExportarBoleta.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnExportarBoleta.FillColor = Color.White;
+        btnExportarBoleta.ForeColor = Color.FromArgb(49, 81, 107);
+        btnExportarBoleta.BorderColor = Color.FromArgb(173, 190, 204);
+        btnExportarBoleta.GradientColor = Color.Empty;
+        btnExportarBoleta.Appearance.Hover.FillColor = Color.FromArgb(239, 244, 248);
+        btnExportarBoleta.Appearance.Pressed.FillColor = Color.FromArgb(225, 235, 243);
+        btnExportarBoleta.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnExportarBoleta.Name = "btnExportarBoleta";
         btnExportarBoleta.Size = new Size(208, 40);
         btnExportarBoleta.TabIndex = 22;
@@ -436,6 +468,56 @@ partial class FrmDetalleNomina
         dlgGuardarBoleta.DefaultExt = "pdf";
         dlgGuardarBoleta.AddExtension = true;
         notificador.OwnerForm = this;
+        btnAcciones.BackColor = Color.Transparent;
+        btnAcciones.CornerRadius = 8;
+        btnAcciones.FlatStyle = FlatStyle.Flat;
+        btnAcciones.Font = new Font("Inter", 9F);
+        btnAcciones.Padding = new Padding(10, 4, 10, 4);
+        btnAcciones.UseVisualStyleBackColor = false;
+        btnAcciones.Text = "Acciones ▾";
+        btnAcciones.Location = new Point(236, 582);
+        btnAcciones.BorderThickness = 1;
+        btnAcciones.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnAcciones.FillColor = Color.White;
+        btnAcciones.ForeColor = Color.FromArgb(49, 81, 107);
+        btnAcciones.BorderColor = Color.FromArgb(173, 190, 204);
+        btnAcciones.GradientColor = Color.Empty;
+        btnAcciones.Appearance.Hover.FillColor = Color.FromArgb(239, 244, 248);
+        btnAcciones.Appearance.Pressed.FillColor = Color.FromArgb(225, 235, 243);
+        btnAcciones.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
+        btnAcciones.Name = "btnAcciones";
+        btnAcciones.Size = new Size(208, 40);
+        btnAcciones.TabIndex = 20;
+        btnAcciones.Click += btnAcciones_Click;
+        btnAcciones.Enabled = false;
+        //
+        // cmsMovimientos
+        //
+        cmsMovimientos.SuspendLayout();
+        cmsMovimientos.Items.AddRange(new ToolStripItem[] { mnuEditarMovimiento, separadorAcciones, mnuEliminarMovimiento });
+        cmsMovimientos.Name = "cmsMovimientos";
+        cmsMovimientos.Font = new Font("Inter", 9F);
+        cmsMovimientos.ShowImageMargin = false;
+        cmsMovimientos.Opening += cmsMovimientos_Opening;
+        //
+        // mnuEditarMovimiento
+        //
+        mnuEditarMovimiento.Name = "mnuEditarMovimiento";
+        mnuEditarMovimiento.Text = "Editar movimiento";
+        mnuEditarMovimiento.ForeColor = Color.FromArgb(32, 38, 45);
+        //
+        // mnuEliminarMovimiento
+        //
+        mnuEliminarMovimiento.Name = "mnuEliminarMovimiento";
+        mnuEliminarMovimiento.Text = "Eliminar movimiento";
+        mnuEliminarMovimiento.ForeColor = Color.FromArgb(166, 61, 64);
+        separadorAcciones.Name = "separadorAcciones";
+        dgvMovimientos.ContextMenuStrip = cmsMovimientos;
+        dgvMovimientos.MouseDown += dgvMovimientos_MouseDown;
+        dgvMovimientos.SelectionChanged += dgvMovimientos_SelectionChanged;
+        dgvMovimientos.CellDoubleClick += dgvMovimientos_CellDoubleClick;
+        Controls.Add(btnAcciones);
+        cmsMovimientos.ResumeLayout(false);
         //
         // FrmDetalleNomina
         //
@@ -463,8 +545,6 @@ partial class FrmDetalleNomina
         Controls.Add(lblTotalDeducciones);
         Controls.Add(lblNeto);
         Controls.Add(btnAgregarMovimiento);
-        Controls.Add(btnEditarMovimiento);
-        Controls.Add(btnEliminarMovimiento);
         Controls.Add(btnExportarBoleta);
         FormBorderStyle = FormBorderStyle.FixedDialog;
         MaximizeBox = false;
@@ -472,6 +552,7 @@ partial class FrmDetalleNomina
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCerrar;
+        Font = new Font("Segoe UI", 9F);
         Name = "FrmDetalleNomina";
         Text = "Detalle individual y movimientos";
         ((System.ComponentModel.ISupportInitialize)dgvMovimientos).EndInit();
@@ -479,6 +560,12 @@ partial class FrmDetalleNomina
     }
 
     #endregion
+
+    private KovaqsUI.Controls.KButton btnAcciones;
+    private ContextMenuStrip cmsMovimientos;
+    private ToolStripMenuItem mnuEditarMovimiento;
+    private ToolStripSeparator separadorAcciones;
+    private ToolStripMenuItem mnuEliminarMovimiento;
 
     private KovaqsUI.Controls.KLabel lblTitulo;
     private KovaqsUI.Controls.KButton btnCerrar;
@@ -500,8 +587,6 @@ partial class FrmDetalleNomina
     private KovaqsUI.Controls.KLabel lblTotalDeducciones;
     private KovaqsUI.Controls.KLabel lblNeto;
     private KovaqsUI.Controls.KButton btnAgregarMovimiento;
-    private KovaqsUI.Controls.KButton btnEditarMovimiento;
-    private KovaqsUI.Controls.KButton btnEliminarMovimiento;
     private KovaqsUI.Controls.KButton btnExportarBoleta;
     private DataGridViewTextBoxColumn colMovimientosTipo;
     private DataGridViewTextBoxColumn colMovimientosConcepto;

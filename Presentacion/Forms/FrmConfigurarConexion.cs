@@ -3,6 +3,7 @@ using System.Globalization;
 using Entidades;
 using KovaqsUI.Controls;
 using Negocios;
+using KovaqsUI.Components;
 
 namespace Presentacion.Forms
 {
@@ -65,7 +66,7 @@ namespace Presentacion.Forms
             }
             catch (Exception)
             {
-                lblEstado.Text = "No se pudo leer la conexión local. Introduce los datos nuevamente.";
+                notificador.Show("Conexión", "No se pudo leer la conexión local. Introduce los datos nuevamente.", KToastKind.Warning);
             }
             finally
             {
@@ -93,7 +94,7 @@ namespace Presentacion.Forms
             if (!uint.TryParse(numPuerto.Text.Trim(), NumberStyles.None, CultureInfo.InvariantCulture, out var puerto)
                 || puerto is 0 or > 65535)
             {
-                lblEstado.Text = "El puerto debe ser un número entero entre 1 y 65535.";
+                notificador.Show("Conexión", "El puerto debe ser un número entero entre 1 y 65535.", KToastKind.Warning);
                 numPuerto.Focus();
                 return;
             }
@@ -110,7 +111,6 @@ namespace Presentacion.Forms
             var token = cancelacion.Token;
             MostrarCredenciales(false);
             CambiarEstado(true);
-            lblEstado.Text = "Comprobando la conexión...";
             try
             {
                 await servicioConexion.GuardarAsync(configuracion, token);
@@ -124,13 +124,13 @@ namespace Presentacion.Forms
             catch (OperationCanceledException) { }
             catch (Exception ex) when (ex is ArgumentException or InvalidOperationException)
             {
-                if (!IsDisposed && !Disposing)
-                    lblEstado.Text = ex.Message;
+                if (!IsDisposed && !Disposing && Visible)
+                    notificador.Show("Conexión", ex.Message, KToastKind.Warning);
             }
             catch (Exception)
             {
-                if (!IsDisposed && !Disposing)
-                    lblEstado.Text = "No se pudo guardar la conexión. Revisa la configuración y vuelve a intentarlo.";
+                if (!IsDisposed && !Disposing && Visible)
+                    notificador.Show("Conexión", "No se pudo guardar la conexión. Revisa la configuración y vuelve a intentarlo.", KToastKind.Error);
             }
             finally
             {

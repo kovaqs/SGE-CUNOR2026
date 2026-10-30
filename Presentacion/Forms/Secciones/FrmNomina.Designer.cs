@@ -23,7 +23,6 @@ partial class FrmNomina
         dtpHasta = new DateTimePicker();
         cboEstado = new KovaqsUI.Controls.KComboBox();
         btnNuevoPeriodo = new KovaqsUI.Controls.KButton();
-        btnVerPeriodo = new KovaqsUI.Controls.KButton();
         btnBoletas = new KovaqsUI.Controls.KButton();
         btnAnterior = new KovaqsUI.Controls.KButton();
         btnSiguiente = new KovaqsUI.Controls.KButton();
@@ -35,7 +34,6 @@ partial class FrmNomina
         kLabel4 = new KovaqsUI.Controls.KLabel();
         dgvPeriodos = new KovaqsUI.Controls.KDataGridView();
         lblPagina = new KovaqsUI.Controls.KLabel();
-        kLabel1 = new KovaqsUI.Controls.KLabel();
         colNombre = new DataGridViewTextBoxColumn();
         colDesde = new DataGridViewTextBoxColumn();
         colHasta = new DataGridViewTextBoxColumn();
@@ -43,187 +41,268 @@ partial class FrmNomina
         colGeneradoPor = new DataGridViewTextBoxColumn();
         colFechaCierre = new DataGridViewTextBoxColumn();
         ((System.ComponentModel.ISupportInitialize)dgvPeriodos).BeginInit();
+        lblTamanoPagina = new KovaqsUI.Controls.KLabel();
+        lblTamanoPagina.Text = "Filas por página";
+        lblTamanoPagina.Location = new Point(814, 688);
+        lblTamanoPagina.Size = new Size(130, 40);
+        lblTamanoPagina.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+        lblTamanoPagina.TextAlign = ContentAlignment.MiddleLeft;
+        lblTamanoPagina.Font = new Font("Inter", 9F);
+        lblTamanoPagina.ForeColor = Color.FromArgb(64, 64, 64);
+        lblTamanoPagina.AutoSize = false;
+        lblTamanoPagina.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        lblTamanoPagina.TabIndex = 15;
+        lblTamanoPagina.TabStop = false;
+        lblTamanoPagina.Name = "lblTamanoPagina";
+        components = new System.ComponentModel.Container();
+        btnAcciones = new KovaqsUI.Controls.KButton();
+        cmsPeriodos = new ContextMenuStrip(components);
+        mnuVerPeriodo = new ToolStripMenuItem();
+        notificador = new KovaqsUI.Components.KToastNotifier(components);
+        notificador.OwnerForm = this;
+        dataGridViewCellStyle1.Font = new Font("Inter", 9F, FontStyle.Bold);
+        dataGridViewCellStyle3.Font = new Font("Inter", 9F);
         SuspendLayout();
-        // 
+        //
         // dtpDesde
-        // 
+        //
         dtpDesde.CustomFormat = "dd/MM/yyyy";
-        dtpDesde.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        dtpDesde.Font = new Font("Inter", 10F);
         dtpDesde.Format = DateTimePickerFormat.Custom;
-        dtpDesde.Location = new Point(23, 104);
+        dtpDesde.Location = new Point(16, 96);
+        dtpDesde.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+        dtpDesde.CalendarFont = new Font("Inter", 9F);
+        dtpDesde.MinimumSize = new Size(0, 34);
         dtpDesde.Name = "dtpDesde";
-        dtpDesde.Size = new Size(313, 32);
-        dtpDesde.TabIndex = 1;
-        // 
+        dtpDesde.Size = new Size(354, 34);
+        dtpDesde.TabIndex = 4;
+        //
         // dtpHasta
-        // 
+        //
         dtpHasta.CustomFormat = "dd/MM/yyyy";
-        dtpHasta.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        dtpHasta.Font = new Font("Inter", 10F);
         dtpHasta.Format = DateTimePickerFormat.Custom;
-        dtpHasta.Location = new Point(360, 104);
+        dtpHasta.Location = new Point(386, 96);
+        dtpHasta.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+        dtpHasta.CalendarFont = new Font("Inter", 9F);
+        dtpHasta.MinimumSize = new Size(0, 34);
         dtpHasta.Name = "dtpHasta";
-        dtpHasta.Size = new Size(313, 32);
-        dtpHasta.TabIndex = 2;
-        // 
+        dtpHasta.Size = new Size(354, 34);
+        dtpHasta.TabIndex = 5;
+        //
         // cboEstado
-        // 
+        //
         cboEstado.DropDownStyle = ComboBoxStyle.DropDownList;
         cboEstado.FormattingEnabled = true;
         cboEstado.ItemHeight = 28;
         cboEstado.Items.AddRange(new object[] { "Todos", "Borrador", "Cerrado", "Anulado" });
-        cboEstado.Location = new Point(694, 106);
+        cboEstado.Location = new Point(756, 96);
+        cboEstado.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+        cboEstado.Font = new Font("Inter", 9F);
+        cboEstado.CornerRadius = 8;
+        cboEstado.FillColor = Color.White;
+        cboEstado.ForeColor = Color.FromArgb(32, 38, 45);
+        cboEstado.BorderColor = Color.FromArgb(218, 218, 218);
+        cboEstado.GradientColor = Color.Empty;
+
         cboEstado.Name = "cboEstado";
-        cboEstado.Size = new Size(300, 34);
-        cboEstado.TabIndex = 7;
-        // 
+        cboEstado.Size = new Size(354, 34);
+        cboEstado.TabIndex = 6;
+        //
         // btnNuevoPeriodo
-        // 
-        btnNuevoPeriodo.Appearance.Normal.BorderColor = Color.Transparent;
-        btnNuevoPeriodo.Appearance.Normal.FillColor = Color.Black;
-        btnNuevoPeriodo.Appearance.Normal.ForeColor = Color.White;
+        //
         btnNuevoPeriodo.BackColor = Color.Transparent;
-        btnNuevoPeriodo.BorderColor = Color.Transparent;
         btnNuevoPeriodo.ClickColor = Color.Black;
-        btnNuevoPeriodo.FillColor = Color.Black;
         btnNuevoPeriodo.FlatStyle = FlatStyle.Flat;
-        btnNuevoPeriodo.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        btnNuevoPeriodo.Font = new Font("Inter", 9F);
+        btnNuevoPeriodo.Location = new Point(16, 144);
+        btnNuevoPeriodo.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+        btnNuevoPeriodo.CornerRadius = 8;
+        btnNuevoPeriodo.BorderThickness = 1;
+        btnNuevoPeriodo.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
+        btnNuevoPeriodo.FillColor = Color.FromArgb(49, 81, 107);
         btnNuevoPeriodo.ForeColor = Color.White;
-        btnNuevoPeriodo.Location = new Point(23, 176);
+        btnNuevoPeriodo.BorderColor = Color.FromArgb(49, 81, 107);
+        btnNuevoPeriodo.GradientColor = Color.Empty;
+        btnNuevoPeriodo.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnNuevoPeriodo.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnNuevoPeriodo.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
         btnNuevoPeriodo.Name = "btnNuevoPeriodo";
-        btnNuevoPeriodo.Padding = new Padding(12, 4, 12, 4);
-        btnNuevoPeriodo.Size = new Size(247, 50);
-        btnNuevoPeriodo.TabIndex = 8;
+        btnNuevoPeriodo.Padding = new Padding(10, 4, 10, 4);
+        btnNuevoPeriodo.Size = new Size(264, 40);
+        btnNuevoPeriodo.TabIndex = 7;
         btnNuevoPeriodo.Text = "Nuevo período";
         btnNuevoPeriodo.UseVisualStyleBackColor = false;
-        // 
-        // btnVerPeriodo
-        // 
-        btnVerPeriodo.Appearance.Normal.BorderColor = Color.FromArgb(64, 64, 64);
-        btnVerPeriodo.Appearance.Normal.FillColor = Color.Transparent;
-        btnVerPeriodo.BackColor = Color.Transparent;
-        btnVerPeriodo.BorderColor = Color.FromArgb(64, 64, 64);
-        btnVerPeriodo.FillColor = Color.Transparent;
-        btnVerPeriodo.FlatStyle = FlatStyle.Flat;
-        btnVerPeriodo.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        btnVerPeriodo.Location = new Point(290, 176);
-        btnVerPeriodo.Name = "btnVerPeriodo";
-        btnVerPeriodo.Padding = new Padding(12, 4, 12, 4);
-        btnVerPeriodo.Size = new Size(249, 50);
-        btnVerPeriodo.TabIndex = 9;
-        btnVerPeriodo.Text = "Ver detalle";
-        btnVerPeriodo.UseVisualStyleBackColor = false;
-        // 
+        //
         // btnBoletas
-        // 
-        btnBoletas.Appearance.Normal.BorderColor = Color.FromArgb(64, 64, 64);
-        btnBoletas.Appearance.Normal.FillColor = Color.Transparent;
+        //
         btnBoletas.BackColor = Color.Transparent;
-        btnBoletas.BorderColor = Color.FromArgb(64, 64, 64);
-        btnBoletas.FillColor = Color.Transparent;
         btnBoletas.FlatStyle = FlatStyle.Flat;
-        btnBoletas.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        btnBoletas.Location = new Point(561, 176);
+        btnBoletas.Font = new Font("Inter", 9F);
+        btnBoletas.Location = new Point(568, 144);
+        btnBoletas.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+        btnBoletas.CornerRadius = 8;
+        btnBoletas.BorderThickness = 1;
+        btnBoletas.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnBoletas.FillColor = Color.White;
+        btnBoletas.ForeColor = Color.FromArgb(32, 38, 45);
+        btnBoletas.BorderColor = Color.FromArgb(218, 218, 218);
+        btnBoletas.GradientColor = Color.Empty;
+        btnBoletas.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnBoletas.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnBoletas.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnBoletas.Name = "btnBoletas";
-        btnBoletas.Padding = new Padding(12, 4, 12, 4);
-        btnBoletas.Size = new Size(330, 50);
-        btnBoletas.TabIndex = 10;
+        btnBoletas.Padding = new Padding(10, 4, 10, 4);
+        btnBoletas.Size = new Size(264, 40);
+        btnBoletas.TabIndex = 9;
         btnBoletas.Text = "Boletas por departamento";
         btnBoletas.UseVisualStyleBackColor = false;
-        // 
+        //
         // btnAnterior
-        // 
-        btnAnterior.Appearance.Normal.BorderColor = Color.FromArgb(64, 64, 64);
-        btnAnterior.Appearance.Normal.FillColor = Color.Transparent;
+        //
         btnAnterior.BackColor = Color.Transparent;
-        btnAnterior.BorderColor = Color.FromArgb(64, 64, 64);
-        btnAnterior.FillColor = Color.Transparent;
         btnAnterior.FlatStyle = FlatStyle.Flat;
-        btnAnterior.Font = new Font("Century Gothic", 12F);
-        btnAnterior.Location = new Point(26, 580);
+        btnAnterior.Font = new Font("Inter", 9F);
+        btnAnterior.Location = new Point(16, 688);
+        btnAnterior.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        btnAnterior.CornerRadius = 8;
+        btnAnterior.BorderThickness = 1;
+        btnAnterior.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnAnterior.FillColor = Color.White;
+        btnAnterior.ForeColor = Color.FromArgb(32, 38, 45);
+        btnAnterior.BorderColor = Color.FromArgb(218, 218, 218);
+        btnAnterior.GradientColor = Color.Empty;
+        btnAnterior.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnAnterior.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnAnterior.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnAnterior.Name = "btnAnterior";
-        btnAnterior.Padding = new Padding(12, 4, 12, 4);
-        btnAnterior.Size = new Size(161, 35);
+        btnAnterior.Padding = new Padding(10, 4, 10, 4);
+        btnAnterior.Size = new Size(124, 40);
         btnAnterior.TabIndex = 12;
         btnAnterior.Text = "Anterior";
         btnAnterior.UseVisualStyleBackColor = false;
-        // 
+        //
         // btnSiguiente
-        // 
-        btnSiguiente.Appearance.Normal.BorderColor = Color.FromArgb(64, 64, 64);
-        btnSiguiente.Appearance.Normal.FillColor = Color.Transparent;
+        //
         btnSiguiente.BackColor = Color.Transparent;
-        btnSiguiente.BorderColor = Color.FromArgb(64, 64, 64);
-        btnSiguiente.FillColor = Color.Transparent;
         btnSiguiente.FlatStyle = FlatStyle.Flat;
-        btnSiguiente.Font = new Font("Century Gothic", 12F);
-        btnSiguiente.Location = new Point(360, 580);
+        btnSiguiente.Font = new Font("Inter", 9F);
+        btnSiguiente.Location = new Point(290, 688);
+        btnSiguiente.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        btnSiguiente.CornerRadius = 8;
+        btnSiguiente.BorderThickness = 1;
+        btnSiguiente.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnSiguiente.FillColor = Color.White;
+        btnSiguiente.ForeColor = Color.FromArgb(32, 38, 45);
+        btnSiguiente.BorderColor = Color.FromArgb(218, 218, 218);
+        btnSiguiente.GradientColor = Color.Empty;
+        btnSiguiente.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnSiguiente.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnSiguiente.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnSiguiente.Name = "btnSiguiente";
-        btnSiguiente.Padding = new Padding(12, 4, 12, 4);
-        btnSiguiente.Size = new Size(161, 35);
-        btnSiguiente.TabIndex = 13;
+        btnSiguiente.Padding = new Padding(10, 4, 10, 4);
+        btnSiguiente.Size = new Size(124, 40);
+        btnSiguiente.TabIndex = 14;
         btnSiguiente.Text = "Siguiente";
         btnSiguiente.UseVisualStyleBackColor = false;
-        // 
+        //
         // cboTamanoPagina
-        // 
-        cboTamanoPagina.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        //
+        cboTamanoPagina.Font = new Font("Inter", 9F);
         cboTamanoPagina.DropDownStyle = ComboBoxStyle.DropDownList;
         cboTamanoPagina.Items.AddRange(new object[] { "10", "25", "50", "100" });
         cboTamanoPagina.FormattingEnabled = true;
         cboTamanoPagina.ItemHeight = 28;
-        cboTamanoPagina.Location = new Point(748, 580);
+        cboTamanoPagina.Location = new Point(954, 691);
+        cboTamanoPagina.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+        cboTamanoPagina.CornerRadius = 8;
+        cboTamanoPagina.FillColor = Color.White;
+        cboTamanoPagina.ForeColor = Color.FromArgb(32, 38, 45);
+        cboTamanoPagina.BorderColor = Color.FromArgb(218, 218, 218);
+        cboTamanoPagina.GradientColor = Color.Empty;
+
         cboTamanoPagina.Name = "cboTamanoPagina";
-        cboTamanoPagina.Size = new Size(249, 34);
-        cboTamanoPagina.TabIndex = 14;
-        // 
+        cboTamanoPagina.Size = new Size(156, 34);
+        cboTamanoPagina.TabIndex = 16;
+        //
         // lblTitulo
-        // 
+        //
         lblTitulo.BackColor = Color.Transparent;
-        lblTitulo.Font = new Font("Century Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        lblTitulo.Location = new Point(23, 40);
+        lblTitulo.Font = new Font("Inter", 16F, FontStyle.Bold);
+        lblTitulo.Location = new Point(16, 12);
+        lblTitulo.Dock = DockStyle.None;
+        lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
+        lblTitulo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        lblTitulo.ForeColor = Color.FromArgb(32, 38, 45);
+        lblTitulo.AutoSize = false;
+        lblTitulo.TextRole = KovaqsUI.Controls.KTextRole.Title;
+        lblTitulo.TabStop = false;
         lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(236, 27);
-        lblTitulo.TabIndex = 16;
+        lblTitulo.Size = new Size(1094, 40);
+        lblTitulo.TabIndex = 0;
         lblTitulo.Text = "Períodos de nómina";
-        // 
+        //
         // kLabel2
-        // 
+        //
         kLabel2.BackColor = Color.Transparent;
-        kLabel2.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
-        kLabel2.Location = new Point(23, 81);
+        kLabel2.Font = new Font("Inter", 9F);
+        kLabel2.Location = new Point(16, 70);
+        kLabel2.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+        kLabel2.TextAlign = ContentAlignment.MiddleLeft;
+        kLabel2.ForeColor = Color.FromArgb(64, 64, 64);
+        kLabel2.AutoSize = false;
+        kLabel2.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        kLabel2.TabStop = false;
         kLabel2.Name = "kLabel2";
-        kLabel2.Size = new Size(55, 18);
-        kLabel2.TabIndex = 17;
+        kLabel2.Size = new Size(354, 24);
+        kLabel2.TabIndex = 1;
         kLabel2.Text = "Desde";
-        // 
+        //
         // kLabel3
-        // 
+        //
         kLabel3.BackColor = Color.Transparent;
-        kLabel3.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
-        kLabel3.Location = new Point(360, 81);
+        kLabel3.Font = new Font("Inter", 9F);
+        kLabel3.Location = new Point(386, 70);
+        kLabel3.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+        kLabel3.TextAlign = ContentAlignment.MiddleLeft;
+        kLabel3.ForeColor = Color.FromArgb(64, 64, 64);
+        kLabel3.AutoSize = false;
+        kLabel3.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        kLabel3.TabStop = false;
         kLabel3.Name = "kLabel3";
-        kLabel3.Size = new Size(48, 18);
-        kLabel3.TabIndex = 18;
+        kLabel3.Size = new Size(354, 24);
+        kLabel3.TabIndex = 2;
         kLabel3.Text = "Hasta";
-        // 
+        //
         // lblEstado
-        // 
+        //
         lblEstado.BackColor = Color.Transparent;
-        lblEstado.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
-        lblEstado.Location = new Point(694, 83);
+        lblEstado.Font = new Font("Inter", 9F);
+        lblEstado.Location = new Point(756, 70);
+        lblEstado.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+        lblEstado.TextAlign = ContentAlignment.MiddleLeft;
+        lblEstado.ForeColor = Color.FromArgb(64, 64, 64);
+        lblEstado.AutoSize = false;
+        lblEstado.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        lblEstado.TabStop = false;
         lblEstado.Name = "lblEstado";
-        lblEstado.Size = new Size(56, 18);
-        lblEstado.TabIndex = 19;
+        lblEstado.Size = new Size(354, 24);
+        lblEstado.TabIndex = 3;
         lblEstado.Text = "Estado";
-        // 
+        //
         // kLabel4
-        // 
+        //
         kLabel4.BackColor = Color.Transparent;
-        kLabel4.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        kLabel4.Location = new Point(23, 260);
+        kLabel4.Font = new Font("Inter", 9F);
+        kLabel4.Location = new Point(16, 198);
+        kLabel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        kLabel4.ForeColor = Color.FromArgb(64, 64, 64);
+        kLabel4.AutoSize = false;
+        kLabel4.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        kLabel4.TabStop = false;
         kLabel4.Name = "kLabel4";
-        kLabel4.Size = new Size(139, 18);
-        kLabel4.TabIndex = 20;
+        kLabel4.Size = new Size(1094, 24);
+        kLabel4.TabIndex = 10;
         kLabel4.Text = "Períodos de pago";
         //
         // colNombre
@@ -274,66 +353,110 @@ partial class FrmNomina
         dgvPeriodos.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
         dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
         dataGridViewCellStyle1.BackColor = Color.FromArgb(244, 244, 244);
-        dataGridViewCellStyle1.ForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle1.ForeColor = Color.FromArgb(71, 85, 99);
         dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(244, 244, 244);
-        dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(71, 85, 99);
         dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
         dgvPeriodos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-        dgvPeriodos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dgvPeriodos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
         dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
         dataGridViewCellStyle2.BackColor = Color.White;
-        dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10F);
+        dataGridViewCellStyle2.Font = new Font("Inter", 9F);
         dataGridViewCellStyle2.ForeColor = Color.FromArgb(13, 21, 23);
-        dataGridViewCellStyle2.Padding = new Padding(10, 5, 10, 5);
-        dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(223, 233, 249);
+        dataGridViewCellStyle2.Padding = new Padding(8, 4, 8, 4);
+        dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(231, 238, 245);
         dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(13, 21, 23);
         dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
         dgvPeriodos.DefaultCellStyle = dataGridViewCellStyle2;
         dgvPeriodos.EnableHeadersVisualStyles = false;
         dgvPeriodos.GridColor = Color.FromArgb(218, 218, 218);
-        dgvPeriodos.Location = new Point(23, 287);
+        dgvPeriodos.Location = new Point(16, 224);
+        dgvPeriodos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        dgvPeriodos.Font = new Font("Inter", 9F);
+        dgvPeriodos.BorderStyle = BorderStyle.None;
+        dgvPeriodos.ColumnHeadersHeight = 42;
+        dgvPeriodos.MultiSelect = false;
         dgvPeriodos.Name = "dgvPeriodos";
         dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
         dataGridViewCellStyle3.BackColor = Color.FromArgb(244, 244, 244);
-        dataGridViewCellStyle3.ForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 85, 99);
         dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(244, 244, 244);
-        dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 85, 99);
         dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
         dgvPeriodos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
         dgvPeriodos.RowHeadersVisible = false;
         dgvPeriodos.RowHeadersWidth = 51;
-        dgvPeriodos.RowTemplate.Height = 52;
+        dgvPeriodos.RowTemplate.Height = 42;
         dgvPeriodos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvPeriodos.Size = new Size(971, 248);
-        dgvPeriodos.TabIndex = 21;
-        // 
+        dgvPeriodos.Size = new Size(1094, 448);
+        dgvPeriodos.TabIndex = 11;
+        //
         // lblPagina
-        // 
+        //
         lblPagina.BackColor = Color.Transparent;
-        lblPagina.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        lblPagina.Location = new Point(206, 586);
+        lblPagina.Font = new Font("Inter", 9F);
+        lblPagina.Location = new Point(150, 688);
+        lblPagina.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        lblPagina.TextAlign = ContentAlignment.MiddleCenter;
+        lblPagina.ForeColor = Color.FromArgb(64, 64, 64);
+        lblPagina.AutoSize = false;
+        lblPagina.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        lblPagina.TabStop = false;
         lblPagina.Name = "lblPagina";
-        lblPagina.Size = new Size(145, 23);
-        lblPagina.TabIndex = 22;
+        lblPagina.Size = new Size(130, 40);
+        lblPagina.TabIndex = 13;
         lblPagina.Text = "Página 1 de 1";
-        // 
-        // kLabel1
-        // 
-        kLabel1.BackColor = Color.Transparent;
-        kLabel1.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        kLabel1.Location = new Point(748, 557);
-        kLabel1.Name = "kLabel1";
-        kLabel1.Size = new Size(125, 18);
-        kLabel1.TabIndex = 23;
-        kLabel1.Text = "Filas por página";
-        // 
+        btnAcciones.BackColor = Color.Transparent;
+        btnAcciones.FlatStyle = FlatStyle.Flat;
+        btnAcciones.Font = new Font("Inter", 9F);
+        btnAcciones.Location = new Point(292, 144);
+        btnAcciones.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+        btnAcciones.CornerRadius = 8;
+        btnAcciones.BorderThickness = 1;
+        btnAcciones.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnAcciones.FillColor = Color.White;
+        btnAcciones.ForeColor = Color.FromArgb(49, 81, 107);
+        btnAcciones.BorderColor = Color.FromArgb(173, 190, 204);
+        btnAcciones.GradientColor = Color.Empty;
+        btnAcciones.Appearance.Hover.FillColor = Color.FromArgb(239, 244, 248);
+        btnAcciones.Appearance.Pressed.FillColor = Color.FromArgb(225, 235, 243);
+        btnAcciones.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
+        btnAcciones.Name = "btnAcciones";
+        btnAcciones.Padding = new Padding(10, 4, 10, 4);
+        btnAcciones.Size = new Size(264, 40);
+        btnAcciones.TabIndex = 8;
+        btnAcciones.Text = "Acciones ▾";
+        btnAcciones.UseVisualStyleBackColor = false;
+        btnAcciones.Click += btnAcciones_Click;
+        btnAcciones.Enabled = false;
+        //
+        // cmsPeriodos
+        //
+        cmsPeriodos.SuspendLayout();
+        cmsPeriodos.Items.AddRange(new ToolStripItem[] { mnuVerPeriodo });
+        cmsPeriodos.Name = "cmsPeriodos";
+        cmsPeriodos.Font = new Font("Inter", 9F);
+        cmsPeriodos.ShowImageMargin = false;
+        cmsPeriodos.Opening += cmsPeriodos_Opening;
+        //
+        // mnuVerPeriodo
+        //
+        mnuVerPeriodo.Name = "mnuVerPeriodo";
+        mnuVerPeriodo.Text = "Ver detalle";
+        mnuVerPeriodo.ForeColor = Color.FromArgb(32, 38, 45);
+        dgvPeriodos.ContextMenuStrip = cmsPeriodos;
+        dgvPeriodos.MouseDown += dgvPeriodos_MouseDown;
+        dgvPeriodos.SelectionChanged += dgvPeriodos_SelectionChanged;
+        dgvPeriodos.CellDoubleClick += dgvPeriodos_CellDoubleClick;
+        Controls.Add(btnAcciones);
+        cmsPeriodos.ResumeLayout(false);
+        //
         // FrmNomina
-        // 
-        AutoScaleDimensions = new SizeF(8F, 20F);
+        //
+        AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.White;
-        ClientSize = new Size(1031, 892);
-        Controls.Add(kLabel1);
+        ClientSize = new Size(1126, 744);
         Controls.Add(lblPagina);
         Controls.Add(dgvPeriodos);
         Controls.Add(kLabel4);
@@ -345,12 +468,15 @@ partial class FrmNomina
         Controls.Add(btnSiguiente);
         Controls.Add(btnAnterior);
         Controls.Add(btnBoletas);
-        Controls.Add(btnVerPeriodo);
         Controls.Add(btnNuevoPeriodo);
         Controls.Add(cboEstado);
         Controls.Add(dtpHasta);
         Controls.Add(dtpDesde);
-        Margin = new Padding(3, 4, 3, 4);
+        Margin = new Padding(3);
+        Controls.Add(lblTamanoPagina);
+        MinimumSize = new Size(1126, 744);
+        FormBorderStyle = FormBorderStyle.None;
+        Font = new Font("Segoe UI", 9F);
         Name = "FrmNomina";
         Text = "Nómina";
         ((System.ComponentModel.ISupportInitialize)dgvPeriodos).EndInit();
@@ -359,11 +485,14 @@ partial class FrmNomina
     }
 
     #endregion
+
+    private KovaqsUI.Controls.KButton btnAcciones;
+    private ContextMenuStrip cmsPeriodos;
+    private ToolStripMenuItem mnuVerPeriodo;
     private DateTimePicker dtpDesde;
     private DateTimePicker dtpHasta;
     private KovaqsUI.Controls.KComboBox cboEstado;
     private KovaqsUI.Controls.KButton btnNuevoPeriodo;
-    private KovaqsUI.Controls.KButton btnVerPeriodo;
     private KovaqsUI.Controls.KButton btnBoletas;
     private KovaqsUI.Controls.KButton btnAnterior;
     private KovaqsUI.Controls.KButton btnSiguiente;
@@ -375,11 +504,12 @@ partial class FrmNomina
     private KovaqsUI.Controls.KLabel kLabel4;
     private KovaqsUI.Controls.KDataGridView dgvPeriodos;
     private KovaqsUI.Controls.KLabel lblPagina;
-    private KovaqsUI.Controls.KLabel kLabel1;
     private DataGridViewTextBoxColumn colNombre;
     private DataGridViewTextBoxColumn colDesde;
     private DataGridViewTextBoxColumn colHasta;
     private DataGridViewTextBoxColumn colEstado;
     private DataGridViewTextBoxColumn colGeneradoPor;
     private DataGridViewTextBoxColumn colFechaCierre;
+    private KovaqsUI.Controls.KLabel lblTamanoPagina;
+    private KovaqsUI.Components.KToastNotifier notificador;
 }

@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Forms.SubForms.Nomina;
+namespace Presentacion.Forms.SubForms.Nomina;
 
 partial class FrmMovimientoNomina
 {
@@ -54,11 +54,19 @@ partial class FrmMovimientoNomina
         btnCerrar.Font = new Font("Inter", 9F);
         btnCerrar.Padding = new Padding(10, 4, 10, 4);
         btnCerrar.UseVisualStyleBackColor = false;
-        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCerrar.Text = "Cerrar";
         btnCerrar.DialogResult = DialogResult.Cancel;
         btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnCerrar.Location = new Point(790, 12);
+        btnCerrar.BorderThickness = 1;
+        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnCerrar.FillColor = Color.White;
+        btnCerrar.ForeColor = Color.FromArgb(32, 38, 45);
+        btnCerrar.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.GradientColor = Color.Empty;
+        btnCerrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnCerrar.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnCerrar.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnCerrar.Name = "btnCerrar";
         btnCerrar.Size = new Size(96, 40);
         btnCerrar.TabIndex = 1;
@@ -72,6 +80,7 @@ partial class FrmMovimientoNomina
         lblTipo.TextAlign = ContentAlignment.MiddleLeft;
         lblTipo.Text = "Tipo de movimiento";
         lblTipo.Location = new Point(16, 70);
+        lblTipo.Font = new Font("Inter", 9F);
         lblTipo.Name = "lblTipo";
         lblTipo.Size = new Size(426, 24);
         lblTipo.TabIndex = 2;
@@ -84,9 +93,15 @@ partial class FrmMovimientoNomina
         cboTipo.FormattingEnabled = true;
         cboTipo.Items.AddRange(new object[] { "Ingreso", "Deducción" });
         cboTipo.Location = new Point(16, 96);
+        cboTipo.CornerRadius = 8;
+        cboTipo.FillColor = Color.White;
+        cboTipo.ForeColor = Color.FromArgb(32, 38, 45);
+        cboTipo.BorderColor = Color.FromArgb(218, 218, 218);
+        cboTipo.GradientColor = Color.Empty;
+
         cboTipo.Name = "cboTipo";
         cboTipo.Size = new Size(426, 34);
-        cboTipo.TabIndex = 3;
+        cboTipo.TabIndex = 4;
         //
         // lblConcepto
         //
@@ -97,9 +112,10 @@ partial class FrmMovimientoNomina
         lblConcepto.TextAlign = ContentAlignment.MiddleLeft;
         lblConcepto.Text = "Concepto";
         lblConcepto.Location = new Point(460, 70);
+        lblConcepto.Font = new Font("Inter", 9F);
         lblConcepto.Name = "lblConcepto";
         lblConcepto.Size = new Size(426, 24);
-        lblConcepto.TabIndex = 4;
+        lblConcepto.TabIndex = 3;
         lblConcepto.TabStop = false;
         //
         // txtConcepto
@@ -110,6 +126,11 @@ partial class FrmMovimientoNomina
         txtConcepto.Padding = new Padding(10, 6, 10, 6);
         txtConcepto.MaxLength = 150;
         txtConcepto.Location = new Point(460, 96);
+        txtConcepto.FillColor = Color.White;
+        txtConcepto.ForeColor = Color.FromArgb(32, 38, 45);
+        txtConcepto.BorderColor = Color.FromArgb(218, 218, 218);
+        txtConcepto.GradientColor = Color.Empty;
+        txtConcepto.BorderThickness = 1;
         txtConcepto.Name = "txtConcepto";
         txtConcepto.Size = new Size(426, 34);
         txtConcepto.TabIndex = 5;
@@ -123,6 +144,7 @@ partial class FrmMovimientoNomina
         lblCantidad.TextAlign = ContentAlignment.MiddleLeft;
         lblCantidad.Text = "Cantidad";
         lblCantidad.Location = new Point(16, 140);
+        lblCantidad.Font = new Font("Inter", 9F);
         lblCantidad.Name = "lblCantidad";
         lblCantidad.Size = new Size(426, 24);
         lblCantidad.TabIndex = 6;
@@ -135,9 +157,11 @@ partial class FrmMovimientoNomina
         numCantidad.DecimalPlaces = 2;
         numCantidad.Value = 1m;
         numCantidad.Location = new Point(16, 166);
+        numCantidad.ForeColor = Color.FromArgb(64, 64, 64);
+
         numCantidad.Name = "numCantidad";
         numCantidad.Size = new Size(426, 34);
-        numCantidad.TabIndex = 7;
+        numCantidad.TabIndex = 8;
         //
         // lblImporte
         //
@@ -148,9 +172,10 @@ partial class FrmMovimientoNomina
         lblImporte.TextAlign = ContentAlignment.MiddleLeft;
         lblImporte.Text = "Importe total (Q)";
         lblImporte.Location = new Point(460, 140);
+        lblImporte.Font = new Font("Inter", 9F);
         lblImporte.Name = "lblImporte";
         lblImporte.Size = new Size(426, 24);
-        lblImporte.TabIndex = 8;
+        lblImporte.TabIndex = 7;
         lblImporte.TabStop = false;
         //
         // numImporte
@@ -159,6 +184,8 @@ partial class FrmMovimientoNomina
         numImporte.Maximum = 99999999.99m;
         numImporte.DecimalPlaces = 2;
         numImporte.Location = new Point(460, 166);
+        numImporte.ForeColor = Color.FromArgb(64, 64, 64);
+
         numImporte.Name = "numImporte";
         numImporte.Size = new Size(426, 34);
         numImporte.TabIndex = 9;
@@ -171,14 +198,18 @@ partial class FrmMovimientoNomina
         btnGuardar.Font = new Font("Inter", 9F);
         btnGuardar.Padding = new Padding(10, 4, 10, 4);
         btnGuardar.UseVisualStyleBackColor = false;
-        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
         btnGuardar.Text = "Guardar";
-        btnGuardar.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.ForeColor = Color.White;
-        btnGuardar.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.Appearance.Normal.ForeColor = Color.White;
         btnGuardar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnGuardar.Location = new Point(586, 613);
+        btnGuardar.BorderThickness = 1;
+        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
+        btnGuardar.FillColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.ForeColor = Color.White;
+        btnGuardar.BorderColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.GradientColor = Color.Empty;
+        btnGuardar.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnGuardar.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnGuardar.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
         btnGuardar.Name = "btnGuardar";
         btnGuardar.Size = new Size(144, 40);
         btnGuardar.TabIndex = 10;
@@ -191,11 +222,19 @@ partial class FrmMovimientoNomina
         btnCancelar.Font = new Font("Inter", 9F);
         btnCancelar.Padding = new Padding(10, 4, 10, 4);
         btnCancelar.UseVisualStyleBackColor = false;
-        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCancelar.Text = "Cancelar";
         btnCancelar.DialogResult = DialogResult.Cancel;
         btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnCancelar.Location = new Point(742, 613);
+        btnCancelar.BorderThickness = 1;
+        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Danger;
+        btnCancelar.FillColor = Color.FromArgb(255, 248, 248);
+        btnCancelar.ForeColor = Color.FromArgb(166, 61, 64);
+        btnCancelar.BorderColor = Color.FromArgb(204, 148, 150);
+        btnCancelar.GradientColor = Color.Empty;
+        btnCancelar.Appearance.Hover.FillColor = Color.FromArgb(250, 235, 235);
+        btnCancelar.Appearance.Pressed.FillColor = Color.FromArgb(244, 219, 220);
+        btnCancelar.FocusAppearance.Color = Color.FromArgb(166, 61, 64);
         btnCancelar.Name = "btnCancelar";
         btnCancelar.Size = new Size(144, 40);
         btnCancelar.TabIndex = 11;
@@ -225,6 +264,7 @@ partial class FrmMovimientoNomina
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCancelar;
+        Font = new Font("Segoe UI", 9F);
         Name = "FrmMovimientoNomina";
         Text = "Agregar o editar movimiento";
         ResumeLayout(false);

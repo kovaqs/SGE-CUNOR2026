@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using Entidades;
 using Negocios;
+using KovaqsUI.Components;
 
 namespace Presentacion.Forms.SubForms
 {
@@ -55,7 +56,6 @@ namespace Presentacion.Forms.SubForms
         private async Task CargarOpcionesAsync()
         {
             CambiarEstado(true);
-            lblEstado.Text = "Cargando roles y empleados...";
             var token = cancelacion.Token;
             try
             {
@@ -73,14 +73,15 @@ namespace Presentacion.Forms.SubForms
                 cboEmpleado.ValueMember = nameof(EmpleadoSeleccion.IdEmpleado);
                 cboEmpleado.DataSource = empleados;
                 opcionesCargadas = roles.Count > 0;
-                lblEstado.Text = opcionesCargadas ? "" : "No hay roles activos. Contacta al administrador.";
+                if (!opcionesCargadas)
+                    notificador.Show("Usuarios", "No hay roles activos. Contacta al administrador.", KToastKind.Warning);
                 txtNombreUsuario.Focus();
             }
             catch (OperationCanceledException) { }
             catch (Exception)
             {
-                if (!IsDisposed && !Disposing)
-                    lblEstado.Text = "No se pudieron cargar los roles y empleados.";
+                if (!IsDisposed && !Disposing && Visible)
+                    notificador.Show("Usuarios", "No se pudieron cargar los roles y empleados.", KToastKind.Error);
             }
             finally
             {
@@ -102,17 +103,17 @@ namespace Presentacion.Forms.SubForms
                 return;
             if (sesion is null)
             {
-                lblEstado.Text = "Inicia sesión antes de crear un usuario.";
+                notificador.Show("Usuarios", "Inicia sesión antes de crear un usuario.", KToastKind.Warning);
                 return;
             }
             if (cboRol.SelectedItem is not Rol rol || cboEmpleado.SelectedItem is not EmpleadoSeleccion empleado)
             {
-                lblEstado.Text = "Selecciona un rol y la opción de empleado.";
+                notificador.Show("Usuarios", "Selecciona un rol y la opción de empleado.", KToastKind.Warning);
                 return;
             }
             if (txtContrasena.Text != txtConfirmarContrasena.Text)
             {
-                lblEstado.Text = "Las contraseñas no coinciden.";
+                notificador.Show("Usuarios", "Las contraseñas no coinciden.", KToastKind.Warning);
                 txtConfirmarContrasena.Focus();
                 return;
             }
@@ -120,7 +121,6 @@ namespace Presentacion.Forms.SubForms
             guardando = true;
             chkMostrarContrasena.Checked = false;
             CambiarEstado(true);
-            lblEstado.Text = "Guardando usuario...";
             var token = cancelacion.Token;
             try
             {
@@ -136,13 +136,13 @@ namespace Presentacion.Forms.SubForms
             catch (OperationCanceledException) { }
             catch (Exception ex) when (ex is ArgumentException or InvalidOperationException)
             {
-                if (!IsDisposed && !Disposing)
-                    lblEstado.Text = ex.Message;
+                if (!IsDisposed && !Disposing && Visible)
+                    notificador.Show("Usuarios", ex.Message, KToastKind.Warning);
             }
             catch (Exception)
             {
-                if (!IsDisposed && !Disposing)
-                    lblEstado.Text = "No se pudo guardar el usuario. Inténtalo de nuevo.";
+                if (!IsDisposed && !Disposing && Visible)
+                    notificador.Show("Usuarios", "No se pudo guardar el usuario. Inténtalo de nuevo.", KToastKind.Error);
             }
             finally
             {

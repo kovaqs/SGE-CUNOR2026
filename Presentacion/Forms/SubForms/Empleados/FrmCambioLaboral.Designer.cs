@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Forms.SubForms.Empleados;
+namespace Presentacion.Forms.SubForms.Empleados;
 
 partial class FrmCambioLaboral
 {
@@ -62,11 +62,19 @@ partial class FrmCambioLaboral
         btnCerrar.Font = new Font("Inter", 9F);
         btnCerrar.Padding = new Padding(10, 4, 10, 4);
         btnCerrar.UseVisualStyleBackColor = false;
-        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCerrar.Text = "Cerrar";
         btnCerrar.DialogResult = DialogResult.Cancel;
         btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnCerrar.Location = new Point(790, 12);
+        btnCerrar.BorderThickness = 1;
+        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnCerrar.FillColor = Color.White;
+        btnCerrar.ForeColor = Color.FromArgb(32, 38, 45);
+        btnCerrar.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.GradientColor = Color.Empty;
+        btnCerrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnCerrar.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnCerrar.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnCerrar.Name = "btnCerrar";
         btnCerrar.Size = new Size(96, 40);
         btnCerrar.TabIndex = 1;
@@ -80,6 +88,7 @@ partial class FrmCambioLaboral
         lblEmpleado.TextAlign = ContentAlignment.MiddleLeft;
         lblEmpleado.Text = "Empleado";
         lblEmpleado.Location = new Point(16, 70);
+        lblEmpleado.Font = new Font("Inter", 9F);
         lblEmpleado.Name = "lblEmpleado";
         lblEmpleado.Size = new Size(426, 24);
         lblEmpleado.TabIndex = 2;
@@ -94,9 +103,14 @@ partial class FrmCambioLaboral
         txtEmpleado.ReadOnly = true;
         txtEmpleado.MaxLength = 100;
         txtEmpleado.Location = new Point(16, 96);
+        txtEmpleado.FillColor = Color.White;
+        txtEmpleado.ForeColor = Color.FromArgb(32, 38, 45);
+        txtEmpleado.BorderColor = Color.FromArgb(218, 218, 218);
+        txtEmpleado.GradientColor = Color.Empty;
+        txtEmpleado.BorderThickness = 1;
         txtEmpleado.Name = "txtEmpleado";
         txtEmpleado.Size = new Size(426, 34);
-        txtEmpleado.TabIndex = 3;
+        txtEmpleado.TabIndex = 4;
         //
         // lblFechaInicio
         //
@@ -107,9 +121,10 @@ partial class FrmCambioLaboral
         lblFechaInicio.TextAlign = ContentAlignment.MiddleLeft;
         lblFechaInicio.Text = "Inicio de vigencia";
         lblFechaInicio.Location = new Point(460, 70);
+        lblFechaInicio.Font = new Font("Inter", 9F);
         lblFechaInicio.Name = "lblFechaInicio";
         lblFechaInicio.Size = new Size(426, 24);
-        lblFechaInicio.TabIndex = 4;
+        lblFechaInicio.TabIndex = 3;
         lblFechaInicio.TabStop = false;
         //
         // dtpFechaInicio
@@ -119,6 +134,7 @@ partial class FrmCambioLaboral
         dtpFechaInicio.CustomFormat = "dd/MM/yyyy";
         dtpFechaInicio.MinimumSize = new Size(0, 34);
         dtpFechaInicio.Location = new Point(460, 96);
+        dtpFechaInicio.CalendarFont = new Font("Inter", 9F);
         dtpFechaInicio.Name = "dtpFechaInicio";
         dtpFechaInicio.Size = new Size(426, 34);
         dtpFechaInicio.TabIndex = 5;
@@ -132,6 +148,7 @@ partial class FrmCambioLaboral
         lblDepartamento.TextAlign = ContentAlignment.MiddleLeft;
         lblDepartamento.Text = "Departamento";
         lblDepartamento.Location = new Point(16, 140);
+        lblDepartamento.Font = new Font("Inter", 9F);
         lblDepartamento.Name = "lblDepartamento";
         lblDepartamento.Size = new Size(426, 24);
         lblDepartamento.TabIndex = 6;
@@ -143,9 +160,15 @@ partial class FrmCambioLaboral
         cboDepartamento.DropDownStyle = ComboBoxStyle.DropDownList;
         cboDepartamento.FormattingEnabled = true;
         cboDepartamento.Location = new Point(16, 166);
+        cboDepartamento.CornerRadius = 8;
+        cboDepartamento.FillColor = Color.White;
+        cboDepartamento.ForeColor = Color.FromArgb(32, 38, 45);
+        cboDepartamento.BorderColor = Color.FromArgb(218, 218, 218);
+        cboDepartamento.GradientColor = Color.Empty;
+
         cboDepartamento.Name = "cboDepartamento";
         cboDepartamento.Size = new Size(426, 34);
-        cboDepartamento.TabIndex = 7;
+        cboDepartamento.TabIndex = 8;
         //
         // lblPuesto
         //
@@ -156,9 +179,10 @@ partial class FrmCambioLaboral
         lblPuesto.TextAlign = ContentAlignment.MiddleLeft;
         lblPuesto.Text = "Puesto";
         lblPuesto.Location = new Point(460, 140);
+        lblPuesto.Font = new Font("Inter", 9F);
         lblPuesto.Name = "lblPuesto";
         lblPuesto.Size = new Size(426, 24);
-        lblPuesto.TabIndex = 8;
+        lblPuesto.TabIndex = 7;
         lblPuesto.TabStop = false;
         //
         // cboPuesto
@@ -167,6 +191,12 @@ partial class FrmCambioLaboral
         cboPuesto.DropDownStyle = ComboBoxStyle.DropDownList;
         cboPuesto.FormattingEnabled = true;
         cboPuesto.Location = new Point(460, 166);
+        cboPuesto.CornerRadius = 8;
+        cboPuesto.FillColor = Color.White;
+        cboPuesto.ForeColor = Color.FromArgb(32, 38, 45);
+        cboPuesto.BorderColor = Color.FromArgb(218, 218, 218);
+        cboPuesto.GradientColor = Color.Empty;
+
         cboPuesto.Name = "cboPuesto";
         cboPuesto.Size = new Size(426, 34);
         cboPuesto.TabIndex = 9;
@@ -180,6 +210,7 @@ partial class FrmCambioLaboral
         lblTipoContrato.TextAlign = ContentAlignment.MiddleLeft;
         lblTipoContrato.Text = "Tipo de contrato";
         lblTipoContrato.Location = new Point(16, 210);
+        lblTipoContrato.Font = new Font("Inter", 9F);
         lblTipoContrato.Name = "lblTipoContrato";
         lblTipoContrato.Size = new Size(426, 24);
         lblTipoContrato.TabIndex = 10;
@@ -191,9 +222,15 @@ partial class FrmCambioLaboral
         cboTipoContrato.DropDownStyle = ComboBoxStyle.DropDownList;
         cboTipoContrato.FormattingEnabled = true;
         cboTipoContrato.Location = new Point(16, 236);
+        cboTipoContrato.CornerRadius = 8;
+        cboTipoContrato.FillColor = Color.White;
+        cboTipoContrato.ForeColor = Color.FromArgb(32, 38, 45);
+        cboTipoContrato.BorderColor = Color.FromArgb(218, 218, 218);
+        cboTipoContrato.GradientColor = Color.Empty;
+
         cboTipoContrato.Name = "cboTipoContrato";
         cboTipoContrato.Size = new Size(426, 34);
-        cboTipoContrato.TabIndex = 11;
+        cboTipoContrato.TabIndex = 12;
         //
         // lblHorario
         //
@@ -204,9 +241,10 @@ partial class FrmCambioLaboral
         lblHorario.TextAlign = ContentAlignment.MiddleLeft;
         lblHorario.Text = "Horario";
         lblHorario.Location = new Point(460, 210);
+        lblHorario.Font = new Font("Inter", 9F);
         lblHorario.Name = "lblHorario";
         lblHorario.Size = new Size(426, 24);
-        lblHorario.TabIndex = 12;
+        lblHorario.TabIndex = 11;
         lblHorario.TabStop = false;
         //
         // cboHorario
@@ -215,6 +253,12 @@ partial class FrmCambioLaboral
         cboHorario.DropDownStyle = ComboBoxStyle.DropDownList;
         cboHorario.FormattingEnabled = true;
         cboHorario.Location = new Point(460, 236);
+        cboHorario.CornerRadius = 8;
+        cboHorario.FillColor = Color.White;
+        cboHorario.ForeColor = Color.FromArgb(32, 38, 45);
+        cboHorario.BorderColor = Color.FromArgb(218, 218, 218);
+        cboHorario.GradientColor = Color.Empty;
+
         cboHorario.Name = "cboHorario";
         cboHorario.Size = new Size(426, 34);
         cboHorario.TabIndex = 13;
@@ -228,6 +272,7 @@ partial class FrmCambioLaboral
         lblSalario.TextAlign = ContentAlignment.MiddleLeft;
         lblSalario.Text = "Nuevo salario (Q)";
         lblSalario.Location = new Point(16, 280);
+        lblSalario.Font = new Font("Inter", 9F);
         lblSalario.Name = "lblSalario";
         lblSalario.Size = new Size(426, 24);
         lblSalario.TabIndex = 14;
@@ -239,6 +284,8 @@ partial class FrmCambioLaboral
         numSalario.Maximum = 99999999.99m;
         numSalario.DecimalPlaces = 2;
         numSalario.Location = new Point(16, 306);
+        numSalario.ForeColor = Color.FromArgb(64, 64, 64);
+
         numSalario.Name = "numSalario";
         numSalario.Size = new Size(426, 34);
         numSalario.TabIndex = 15;
@@ -252,6 +299,7 @@ partial class FrmCambioLaboral
         lblMotivo.TextAlign = ContentAlignment.MiddleLeft;
         lblMotivo.Text = "Motivo del cambio";
         lblMotivo.Location = new Point(16, 350);
+        lblMotivo.Font = new Font("Inter", 9F);
         lblMotivo.Name = "lblMotivo";
         lblMotivo.Size = new Size(870, 24);
         lblMotivo.TabIndex = 16;
@@ -266,6 +314,11 @@ partial class FrmCambioLaboral
         txtMotivo.Multiline = true;
         txtMotivo.MaxLength = 500;
         txtMotivo.Location = new Point(16, 376);
+        txtMotivo.FillColor = Color.White;
+        txtMotivo.ForeColor = Color.FromArgb(32, 38, 45);
+        txtMotivo.BorderColor = Color.FromArgb(218, 218, 218);
+        txtMotivo.GradientColor = Color.Empty;
+        txtMotivo.BorderThickness = 1;
         txtMotivo.Name = "txtMotivo";
         txtMotivo.Size = new Size(870, 80);
         txtMotivo.TabIndex = 17;
@@ -278,14 +331,18 @@ partial class FrmCambioLaboral
         btnGuardar.Font = new Font("Inter", 9F);
         btnGuardar.Padding = new Padding(10, 4, 10, 4);
         btnGuardar.UseVisualStyleBackColor = false;
-        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
         btnGuardar.Text = "Guardar";
-        btnGuardar.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.ForeColor = Color.White;
-        btnGuardar.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.Appearance.Normal.ForeColor = Color.White;
         btnGuardar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnGuardar.Location = new Point(586, 613);
+        btnGuardar.BorderThickness = 1;
+        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
+        btnGuardar.FillColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.ForeColor = Color.White;
+        btnGuardar.BorderColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.GradientColor = Color.Empty;
+        btnGuardar.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnGuardar.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnGuardar.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
         btnGuardar.Name = "btnGuardar";
         btnGuardar.Size = new Size(144, 40);
         btnGuardar.TabIndex = 18;
@@ -298,11 +355,19 @@ partial class FrmCambioLaboral
         btnCancelar.Font = new Font("Inter", 9F);
         btnCancelar.Padding = new Padding(10, 4, 10, 4);
         btnCancelar.UseVisualStyleBackColor = false;
-        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCancelar.Text = "Cancelar";
         btnCancelar.DialogResult = DialogResult.Cancel;
         btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnCancelar.Location = new Point(742, 613);
+        btnCancelar.BorderThickness = 1;
+        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Danger;
+        btnCancelar.FillColor = Color.FromArgb(255, 248, 248);
+        btnCancelar.ForeColor = Color.FromArgb(166, 61, 64);
+        btnCancelar.BorderColor = Color.FromArgb(204, 148, 150);
+        btnCancelar.GradientColor = Color.Empty;
+        btnCancelar.Appearance.Hover.FillColor = Color.FromArgb(250, 235, 235);
+        btnCancelar.Appearance.Pressed.FillColor = Color.FromArgb(244, 219, 220);
+        btnCancelar.FocusAppearance.Color = Color.FromArgb(166, 61, 64);
         btnCancelar.Name = "btnCancelar";
         btnCancelar.Size = new Size(144, 40);
         btnCancelar.TabIndex = 19;
@@ -340,6 +405,7 @@ partial class FrmCambioLaboral
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCancelar;
+        Font = new Font("Segoe UI", 9F);
         Name = "FrmCambioLaboral";
         Text = "Cambio de condición laboral";
         ResumeLayout(false);

@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Forms
+namespace Presentacion.Forms
 {
     partial class FrmContPrincipal
     {
@@ -34,48 +34,55 @@
             panel1 = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
-            // 
+            //
             // panel2
-            // 
+            //
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 38);
             panel2.Name = "panel2";
             panel2.Size = new Size(403, 606);
             panel2.TabIndex = 1;
-            // 
+            //
             // kButton1
-            // 
+            //
             kButton1.Animation.Duration = 200;
-            kButton1.Appearance.Hover.FillColor = Color.Black;
-            kButton1.Appearance.Hover.ForeColor = Color.Red;
-            kButton1.Appearance.Normal.FillColor = Color.FromArgb(44, 44, 44);
             kButton1.BackColor = Color.Transparent;
-            kButton1.CornerRadius = 5;
-            kButton1.FillColor = Color.FromArgb(44, 44, 44);
+            kButton1.CornerRadius = 8;
             kButton1.FlatStyle = FlatStyle.Flat;
-            kButton1.Font = new Font("Inter Medium", 9F);
+            kButton1.Font = new Font("Inter", 9F);
             kButton1.Location = new Point(340, 7);
+            kButton1.BorderThickness = 1;
+            kButton1.Variant = KovaqsUI.Styling.KButtonVariant.Danger;
+            kButton1.FillColor = Color.FromArgb(255, 248, 248);
+            kButton1.ForeColor = Color.FromArgb(166, 61, 64);
+            kButton1.BorderColor = Color.FromArgb(204, 148, 150);
+            kButton1.GradientColor = Color.Empty;
+            kButton1.Appearance.Hover.FillColor = Color.FromArgb(250, 235, 235);
+            kButton1.Appearance.Pressed.FillColor = Color.FromArgb(244, 219, 220);
+            kButton1.FocusAppearance.Color = Color.FromArgb(166, 61, 64);
             kButton1.Name = "kButton1";
-            kButton1.Padding = new Padding(12, 4, 12, 4);
+            kButton1.Padding = new Padding(10, 4, 10, 4);
             kButton1.Size = new Size(56, 24);
             kButton1.TabIndex = 0;
             kButton1.Text = "Salir";
             kButton1.UseVisualStyleBackColor = false;
-            kButton1.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
-            // 
+            //
             // kLabel1
-            // 
+            //
             kLabel1.BackColor = Color.Transparent;
-            kLabel1.ForeColor = Color.DimGray;
-            kLabel1.Location = new Point(12, 12);
+            kLabel1.ForeColor = Color.FromArgb(64, 64, 64);
+            kLabel1.Location = new Point(12, 9);
+            kLabel1.Font = new Font("Inter", 9F);
+            kLabel1.AutoSize = false;
+            kLabel1.TabStop = false;
             kLabel1.Name = "kLabel1";
-            kLabel1.Size = new Size(187, 15);
+            kLabel1.Size = new Size(270, 20);
             kLabel1.TabIndex = 1;
             kLabel1.Text = "Control de empleados - CUNOR";
             kLabel1.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-            // 
+            //
             // panel1
-            // 
+            //
             panel1.Controls.Add(kLabel1);
             panel1.Controls.Add(kButton1);
             panel1.Dock = DockStyle.Top;
@@ -83,9 +90,9 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(403, 38);
             panel1.TabIndex = 0;
-            // 
+            //
             // FrmContPrincipal
-            // 
+            //
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
@@ -93,6 +100,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Font = new Font("Segoe UI", 9F);
             Name = "FrmContPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmContPrincipal";

@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Forms.SubForms.Configuracion;
+namespace Presentacion.Forms.SubForms.Configuracion;
 
 partial class FrmBitacora
 {
@@ -45,14 +45,14 @@ partial class FrmBitacora
         ((System.ComponentModel.ISupportInitialize)dgvBitacora).BeginInit();
         SuspendLayout();
         dataGridViewCellStyle1.BackColor = Color.FromArgb(244, 244, 244);
-        dataGridViewCellStyle1.ForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle1.ForeColor = Color.FromArgb(71, 85, 99);
         dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(244, 244, 244);
-        dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(71, 85, 99);
         dataGridViewCellStyle1.Font = new Font("Inter", 9F, FontStyle.Bold);
         dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
         dataGridViewCellStyle2.BackColor = Color.White;
         dataGridViewCellStyle2.ForeColor = Color.FromArgb(13, 21, 23);
-        dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(223, 233, 249);
+        dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(231, 238, 245);
         dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(13, 21, 23);
         dataGridViewCellStyle2.Font = new Font("Inter", 9F);
         dataGridViewCellStyle2.Padding = new Padding(8, 4, 8, 4);
@@ -80,11 +80,19 @@ partial class FrmBitacora
         btnCerrar.Font = new Font("Inter", 9F);
         btnCerrar.Padding = new Padding(10, 4, 10, 4);
         btnCerrar.UseVisualStyleBackColor = false;
-        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCerrar.Text = "Cerrar";
         btnCerrar.DialogResult = DialogResult.Cancel;
         btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnCerrar.Location = new Point(790, 12);
+        btnCerrar.BorderThickness = 1;
+        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnCerrar.FillColor = Color.White;
+        btnCerrar.ForeColor = Color.FromArgb(32, 38, 45);
+        btnCerrar.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.GradientColor = Color.Empty;
+        btnCerrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnCerrar.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnCerrar.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnCerrar.Name = "btnCerrar";
         btnCerrar.Size = new Size(96, 40);
         btnCerrar.TabIndex = 1;
@@ -98,6 +106,7 @@ partial class FrmBitacora
         lblDesde.TextAlign = ContentAlignment.MiddleLeft;
         lblDesde.Text = "Desde";
         lblDesde.Location = new Point(16, 70);
+        lblDesde.Font = new Font("Inter", 9F);
         lblDesde.Name = "lblDesde";
         lblDesde.Size = new Size(278, 24);
         lblDesde.TabIndex = 2;
@@ -110,9 +119,10 @@ partial class FrmBitacora
         dtpDesde.CustomFormat = "dd/MM/yyyy";
         dtpDesde.MinimumSize = new Size(0, 34);
         dtpDesde.Location = new Point(16, 96);
+        dtpDesde.CalendarFont = new Font("Inter", 9F);
         dtpDesde.Name = "dtpDesde";
         dtpDesde.Size = new Size(278, 34);
-        dtpDesde.TabIndex = 3;
+        dtpDesde.TabIndex = 5;
         //
         // lblHasta
         //
@@ -123,9 +133,10 @@ partial class FrmBitacora
         lblHasta.TextAlign = ContentAlignment.MiddleLeft;
         lblHasta.Text = "Hasta";
         lblHasta.Location = new Point(312, 70);
+        lblHasta.Font = new Font("Inter", 9F);
         lblHasta.Name = "lblHasta";
         lblHasta.Size = new Size(278, 24);
-        lblHasta.TabIndex = 4;
+        lblHasta.TabIndex = 3;
         lblHasta.TabStop = false;
         //
         // dtpHasta
@@ -135,9 +146,10 @@ partial class FrmBitacora
         dtpHasta.CustomFormat = "dd/MM/yyyy";
         dtpHasta.MinimumSize = new Size(0, 34);
         dtpHasta.Location = new Point(312, 96);
+        dtpHasta.CalendarFont = new Font("Inter", 9F);
         dtpHasta.Name = "dtpHasta";
         dtpHasta.Size = new Size(278, 34);
-        dtpHasta.TabIndex = 5;
+        dtpHasta.TabIndex = 6;
         //
         // lblUsuario
         //
@@ -148,9 +160,10 @@ partial class FrmBitacora
         lblUsuario.TextAlign = ContentAlignment.MiddleLeft;
         lblUsuario.Text = "Usuario";
         lblUsuario.Location = new Point(608, 70);
+        lblUsuario.Font = new Font("Inter", 9F);
         lblUsuario.Name = "lblUsuario";
         lblUsuario.Size = new Size(278, 24);
-        lblUsuario.TabIndex = 6;
+        lblUsuario.TabIndex = 4;
         lblUsuario.TabStop = false;
         //
         // cboUsuario
@@ -160,6 +173,12 @@ partial class FrmBitacora
         cboUsuario.FormattingEnabled = true;
         cboUsuario.Items.AddRange(new object[] { "Todos" });
         cboUsuario.Location = new Point(608, 96);
+        cboUsuario.CornerRadius = 8;
+        cboUsuario.FillColor = Color.White;
+        cboUsuario.ForeColor = Color.FromArgb(32, 38, 45);
+        cboUsuario.BorderColor = Color.FromArgb(218, 218, 218);
+        cboUsuario.GradientColor = Color.Empty;
+
         cboUsuario.Name = "cboUsuario";
         cboUsuario.Size = new Size(278, 34);
         cboUsuario.TabIndex = 7;
@@ -173,6 +192,7 @@ partial class FrmBitacora
         lblOperacion.TextAlign = ContentAlignment.MiddleLeft;
         lblOperacion.Text = "Operación";
         lblOperacion.Location = new Point(16, 140);
+        lblOperacion.Font = new Font("Inter", 9F);
         lblOperacion.Name = "lblOperacion";
         lblOperacion.Size = new Size(278, 24);
         lblOperacion.TabIndex = 8;
@@ -185,9 +205,15 @@ partial class FrmBitacora
         cboOperacion.FormattingEnabled = true;
         cboOperacion.Items.AddRange(new object[] { "Todas", "INSERT", "UPDATE", "DELETE", "LOGIN", "LOGOUT" });
         cboOperacion.Location = new Point(16, 166);
+        cboOperacion.CornerRadius = 8;
+        cboOperacion.FillColor = Color.White;
+        cboOperacion.ForeColor = Color.FromArgb(32, 38, 45);
+        cboOperacion.BorderColor = Color.FromArgb(218, 218, 218);
+        cboOperacion.GradientColor = Color.Empty;
+
         cboOperacion.Name = "cboOperacion";
         cboOperacion.Size = new Size(278, 34);
-        cboOperacion.TabIndex = 9;
+        cboOperacion.TabIndex = 10;
         //
         // lblEntidad
         //
@@ -198,9 +224,10 @@ partial class FrmBitacora
         lblEntidad.TextAlign = ContentAlignment.MiddleLeft;
         lblEntidad.Text = "Módulo / entidad";
         lblEntidad.Location = new Point(312, 140);
+        lblEntidad.Font = new Font("Inter", 9F);
         lblEntidad.Name = "lblEntidad";
         lblEntidad.Size = new Size(278, 24);
-        lblEntidad.TabIndex = 10;
+        lblEntidad.TabIndex = 9;
         lblEntidad.TabStop = false;
         //
         // cboEntidad
@@ -210,6 +237,12 @@ partial class FrmBitacora
         cboEntidad.FormattingEnabled = true;
         cboEntidad.Items.AddRange(new object[] { "Todas", "Empleados", "Usuarios", "Departamentos", "Puestos", "Asistencias", "Nómina" });
         cboEntidad.Location = new Point(312, 166);
+        cboEntidad.CornerRadius = 8;
+        cboEntidad.FillColor = Color.White;
+        cboEntidad.ForeColor = Color.FromArgb(32, 38, 45);
+        cboEntidad.BorderColor = Color.FromArgb(218, 218, 218);
+        cboEntidad.GradientColor = Color.Empty;
+
         cboEntidad.Name = "cboEntidad";
         cboEntidad.Size = new Size(278, 34);
         cboEntidad.TabIndex = 11;
@@ -222,13 +255,17 @@ partial class FrmBitacora
         btnConsultar.Font = new Font("Inter", 9F);
         btnConsultar.Padding = new Padding(10, 4, 10, 4);
         btnConsultar.UseVisualStyleBackColor = false;
-        btnConsultar.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
         btnConsultar.Text = "Consultar";
-        btnConsultar.FillColor = Color.FromArgb(32, 38, 45);
-        btnConsultar.ForeColor = Color.White;
-        btnConsultar.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnConsultar.Appearance.Normal.ForeColor = Color.White;
         btnConsultar.Location = new Point(16, 214);
+        btnConsultar.BorderThickness = 1;
+        btnConsultar.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
+        btnConsultar.FillColor = Color.FromArgb(49, 81, 107);
+        btnConsultar.ForeColor = Color.White;
+        btnConsultar.BorderColor = Color.FromArgb(49, 81, 107);
+        btnConsultar.GradientColor = Color.Empty;
+        btnConsultar.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnConsultar.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnConsultar.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
         btnConsultar.Name = "btnConsultar";
         btnConsultar.Size = new Size(220, 40);
         btnConsultar.TabIndex = 12;
@@ -241,9 +278,17 @@ partial class FrmBitacora
         btnLimpiarFiltros.Font = new Font("Inter", 9F);
         btnLimpiarFiltros.Padding = new Padding(10, 4, 10, 4);
         btnLimpiarFiltros.UseVisualStyleBackColor = false;
-        btnLimpiarFiltros.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnLimpiarFiltros.Text = "Limpiar filtros";
         btnLimpiarFiltros.Location = new Point(248, 214);
+        btnLimpiarFiltros.BorderThickness = 1;
+        btnLimpiarFiltros.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnLimpiarFiltros.FillColor = Color.White;
+        btnLimpiarFiltros.ForeColor = Color.FromArgb(32, 38, 45);
+        btnLimpiarFiltros.BorderColor = Color.FromArgb(218, 218, 218);
+        btnLimpiarFiltros.GradientColor = Color.Empty;
+        btnLimpiarFiltros.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnLimpiarFiltros.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnLimpiarFiltros.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnLimpiarFiltros.Name = "btnLimpiarFiltros";
         btnLimpiarFiltros.Size = new Size(220, 40);
         btnLimpiarFiltros.TabIndex = 13;
@@ -257,6 +302,7 @@ partial class FrmBitacora
         lblBitacoraTitulo.TextAlign = ContentAlignment.MiddleLeft;
         lblBitacoraTitulo.Text = "Operaciones registradas";
         lblBitacoraTitulo.Location = new Point(16, 268);
+        lblBitacoraTitulo.Font = new Font("Inter", 9F);
         lblBitacoraTitulo.Name = "lblBitacoraTitulo";
         lblBitacoraTitulo.Size = new Size(870, 24);
         lblBitacoraTitulo.TabIndex = 14;
@@ -283,6 +329,8 @@ partial class FrmBitacora
         dgvBitacora.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
         dgvBitacora.DefaultCellStyle = dataGridViewCellStyle2;
         dgvBitacora.Location = new Point(16, 294);
+        dgvBitacora.Font = new Font("Inter", 9F);
+        dgvBitacora.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
         dgvBitacora.Name = "dgvBitacora";
         dgvBitacora.Size = new Size(870, 158);
         dgvBitacora.TabIndex = 15;
@@ -297,6 +345,7 @@ partial class FrmBitacora
         lblDescripcion.TextAlign = ContentAlignment.MiddleLeft;
         lblDescripcion.Text = "Descripción del registro seleccionado";
         lblDescripcion.Location = new Point(16, 472);
+        lblDescripcion.Font = new Font("Inter", 9F);
         lblDescripcion.Name = "lblDescripcion";
         lblDescripcion.Size = new Size(870, 24);
         lblDescripcion.TabIndex = 16;
@@ -312,6 +361,11 @@ partial class FrmBitacora
         txtDescripcion.ReadOnly = true;
         txtDescripcion.MaxLength = 500;
         txtDescripcion.Location = new Point(16, 498);
+        txtDescripcion.FillColor = Color.White;
+        txtDescripcion.ForeColor = Color.FromArgb(32, 38, 45);
+        txtDescripcion.BorderColor = Color.FromArgb(218, 218, 218);
+        txtDescripcion.GradientColor = Color.Empty;
+        txtDescripcion.BorderThickness = 1;
         txtDescripcion.Name = "txtDescripcion";
         txtDescripcion.Size = new Size(870, 80);
         txtDescripcion.TabIndex = 17;
@@ -377,6 +431,7 @@ partial class FrmBitacora
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCerrar;
+        Font = new Font("Segoe UI", 9F);
         Name = "FrmBitacora";
         Text = "Bitácora de operaciones";
         ((System.ComponentModel.ISupportInitialize)dgvBitacora).EndInit();

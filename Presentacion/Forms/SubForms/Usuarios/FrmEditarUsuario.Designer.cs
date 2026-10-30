@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Forms.SubForms.Usuarios;
+namespace Presentacion.Forms.SubForms.Usuarios;
 
 partial class FrmEditarUsuario
 {
@@ -54,11 +54,19 @@ partial class FrmEditarUsuario
         btnCerrar.Font = new Font("Inter", 9F);
         btnCerrar.Padding = new Padding(10, 4, 10, 4);
         btnCerrar.UseVisualStyleBackColor = false;
-        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCerrar.Text = "Cerrar";
         btnCerrar.DialogResult = DialogResult.Cancel;
         btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnCerrar.Location = new Point(790, 12);
+        btnCerrar.BorderThickness = 1;
+        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnCerrar.FillColor = Color.White;
+        btnCerrar.ForeColor = Color.FromArgb(32, 38, 45);
+        btnCerrar.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.GradientColor = Color.Empty;
+        btnCerrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnCerrar.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnCerrar.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnCerrar.Name = "btnCerrar";
         btnCerrar.Size = new Size(96, 40);
         btnCerrar.TabIndex = 1;
@@ -72,6 +80,7 @@ partial class FrmEditarUsuario
         lblNombreUsuario.TextAlign = ContentAlignment.MiddleLeft;
         lblNombreUsuario.Text = "Nombre de usuario";
         lblNombreUsuario.Location = new Point(16, 70);
+        lblNombreUsuario.Font = new Font("Inter", 9F);
         lblNombreUsuario.Name = "lblNombreUsuario";
         lblNombreUsuario.Size = new Size(426, 24);
         lblNombreUsuario.TabIndex = 2;
@@ -85,9 +94,14 @@ partial class FrmEditarUsuario
         txtNombreUsuario.Padding = new Padding(10, 6, 10, 6);
         txtNombreUsuario.MaxLength = 50;
         txtNombreUsuario.Location = new Point(16, 96);
+        txtNombreUsuario.FillColor = Color.White;
+        txtNombreUsuario.ForeColor = Color.FromArgb(32, 38, 45);
+        txtNombreUsuario.BorderColor = Color.FromArgb(218, 218, 218);
+        txtNombreUsuario.GradientColor = Color.Empty;
+        txtNombreUsuario.BorderThickness = 1;
         txtNombreUsuario.Name = "txtNombreUsuario";
         txtNombreUsuario.Size = new Size(426, 34);
-        txtNombreUsuario.TabIndex = 3;
+        txtNombreUsuario.TabIndex = 4;
         //
         // lblRol
         //
@@ -98,9 +112,10 @@ partial class FrmEditarUsuario
         lblRol.TextAlign = ContentAlignment.MiddleLeft;
         lblRol.Text = "Rol";
         lblRol.Location = new Point(460, 70);
+        lblRol.Font = new Font("Inter", 9F);
         lblRol.Name = "lblRol";
         lblRol.Size = new Size(426, 24);
-        lblRol.TabIndex = 4;
+        lblRol.TabIndex = 3;
         lblRol.TabStop = false;
         //
         // cboRol
@@ -109,6 +124,12 @@ partial class FrmEditarUsuario
         cboRol.DropDownStyle = ComboBoxStyle.DropDownList;
         cboRol.FormattingEnabled = true;
         cboRol.Location = new Point(460, 96);
+        cboRol.CornerRadius = 8;
+        cboRol.FillColor = Color.White;
+        cboRol.ForeColor = Color.FromArgb(32, 38, 45);
+        cboRol.BorderColor = Color.FromArgb(218, 218, 218);
+        cboRol.GradientColor = Color.Empty;
+
         cboRol.Name = "cboRol";
         cboRol.Size = new Size(426, 34);
         cboRol.TabIndex = 5;
@@ -122,6 +143,7 @@ partial class FrmEditarUsuario
         lblEmpleado.TextAlign = ContentAlignment.MiddleLeft;
         lblEmpleado.Text = "Empleado asociado";
         lblEmpleado.Location = new Point(16, 140);
+        lblEmpleado.Font = new Font("Inter", 9F);
         lblEmpleado.Name = "lblEmpleado";
         lblEmpleado.Size = new Size(426, 24);
         lblEmpleado.TabIndex = 6;
@@ -133,9 +155,15 @@ partial class FrmEditarUsuario
         cboEmpleado.DropDownStyle = ComboBoxStyle.DropDownList;
         cboEmpleado.FormattingEnabled = true;
         cboEmpleado.Location = new Point(16, 166);
+        cboEmpleado.CornerRadius = 8;
+        cboEmpleado.FillColor = Color.White;
+        cboEmpleado.ForeColor = Color.FromArgb(32, 38, 45);
+        cboEmpleado.BorderColor = Color.FromArgb(218, 218, 218);
+        cboEmpleado.GradientColor = Color.Empty;
+
         cboEmpleado.Name = "cboEmpleado";
         cboEmpleado.Size = new Size(426, 34);
-        cboEmpleado.TabIndex = 7;
+        cboEmpleado.TabIndex = 8;
         //
         // chkActivo
         //
@@ -143,9 +171,14 @@ partial class FrmEditarUsuario
         chkActivo.Text = "Usuario activo";
         chkActivo.Checked = true;
         chkActivo.Location = new Point(460, 164);
+        chkActivo.ForeColor = Color.FromArgb(64, 64, 64);
+        chkActivo.CheckedState.FillColor = Color.FromArgb(49, 81, 107);
+        chkActivo.CheckedState.BorderColor = Color.FromArgb(32, 38, 45);
+        chkActivo.CheckedState.ForeColor = Color.White;
+        chkActivo.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         chkActivo.Name = "chkActivo";
         chkActivo.Size = new Size(426, 36);
-        chkActivo.TabIndex = 8;
+        chkActivo.TabIndex = 7;
         //
         // btnRestablecerContrasena
         //
@@ -155,13 +188,17 @@ partial class FrmEditarUsuario
         btnRestablecerContrasena.Font = new Font("Inter", 9F);
         btnRestablecerContrasena.Padding = new Padding(10, 4, 10, 4);
         btnRestablecerContrasena.UseVisualStyleBackColor = false;
-        btnRestablecerContrasena.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
         btnRestablecerContrasena.Text = "Restablecer contraseña";
-        btnRestablecerContrasena.FillColor = Color.FromArgb(32, 38, 45);
-        btnRestablecerContrasena.ForeColor = Color.White;
-        btnRestablecerContrasena.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnRestablecerContrasena.Appearance.Normal.ForeColor = Color.White;
         btnRestablecerContrasena.Location = new Point(16, 218);
+        btnRestablecerContrasena.BorderThickness = 1;
+        btnRestablecerContrasena.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnRestablecerContrasena.FillColor = Color.White;
+        btnRestablecerContrasena.ForeColor = Color.FromArgb(32, 38, 45);
+        btnRestablecerContrasena.BorderColor = Color.FromArgb(218, 218, 218);
+        btnRestablecerContrasena.GradientColor = Color.Empty;
+        btnRestablecerContrasena.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnRestablecerContrasena.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnRestablecerContrasena.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnRestablecerContrasena.Name = "btnRestablecerContrasena";
         btnRestablecerContrasena.Size = new Size(220, 40);
         btnRestablecerContrasena.TabIndex = 9;
@@ -174,14 +211,18 @@ partial class FrmEditarUsuario
         btnGuardar.Font = new Font("Inter", 9F);
         btnGuardar.Padding = new Padding(10, 4, 10, 4);
         btnGuardar.UseVisualStyleBackColor = false;
-        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
         btnGuardar.Text = "Guardar";
-        btnGuardar.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.ForeColor = Color.White;
-        btnGuardar.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.Appearance.Normal.ForeColor = Color.White;
         btnGuardar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnGuardar.Location = new Point(586, 613);
+        btnGuardar.BorderThickness = 1;
+        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
+        btnGuardar.FillColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.ForeColor = Color.White;
+        btnGuardar.BorderColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.GradientColor = Color.Empty;
+        btnGuardar.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnGuardar.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnGuardar.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
         btnGuardar.Name = "btnGuardar";
         btnGuardar.Size = new Size(144, 40);
         btnGuardar.TabIndex = 10;
@@ -194,11 +235,19 @@ partial class FrmEditarUsuario
         btnCancelar.Font = new Font("Inter", 9F);
         btnCancelar.Padding = new Padding(10, 4, 10, 4);
         btnCancelar.UseVisualStyleBackColor = false;
-        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCancelar.Text = "Cancelar";
         btnCancelar.DialogResult = DialogResult.Cancel;
         btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnCancelar.Location = new Point(742, 613);
+        btnCancelar.BorderThickness = 1;
+        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Danger;
+        btnCancelar.FillColor = Color.FromArgb(255, 248, 248);
+        btnCancelar.ForeColor = Color.FromArgb(166, 61, 64);
+        btnCancelar.BorderColor = Color.FromArgb(204, 148, 150);
+        btnCancelar.GradientColor = Color.Empty;
+        btnCancelar.Appearance.Hover.FillColor = Color.FromArgb(250, 235, 235);
+        btnCancelar.Appearance.Pressed.FillColor = Color.FromArgb(244, 219, 220);
+        btnCancelar.FocusAppearance.Color = Color.FromArgb(166, 61, 64);
         btnCancelar.Name = "btnCancelar";
         btnCancelar.Size = new Size(144, 40);
         btnCancelar.TabIndex = 11;
@@ -228,6 +277,7 @@ partial class FrmEditarUsuario
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCancelar;
+        Font = new Font("Segoe UI", 9F);
         Name = "FrmEditarUsuario";
         Text = "Editar cuenta de usuario";
         ResumeLayout(false);

@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Forms.SubForms.Asistencias;
+namespace Presentacion.Forms.SubForms.Asistencias;
 
 partial class FrmResolverPermiso
 {
@@ -56,11 +56,19 @@ partial class FrmResolverPermiso
         btnCerrar.Font = new Font("Inter", 9F);
         btnCerrar.Padding = new Padding(10, 4, 10, 4);
         btnCerrar.UseVisualStyleBackColor = false;
-        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCerrar.Text = "Cerrar";
         btnCerrar.DialogResult = DialogResult.Cancel;
         btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnCerrar.Location = new Point(790, 12);
+        btnCerrar.BorderThickness = 1;
+        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnCerrar.FillColor = Color.White;
+        btnCerrar.ForeColor = Color.FromArgb(32, 38, 45);
+        btnCerrar.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.GradientColor = Color.Empty;
+        btnCerrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnCerrar.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnCerrar.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnCerrar.Name = "btnCerrar";
         btnCerrar.Size = new Size(96, 40);
         btnCerrar.TabIndex = 1;
@@ -74,6 +82,7 @@ partial class FrmResolverPermiso
         lblEmpleado.TextAlign = ContentAlignment.MiddleLeft;
         lblEmpleado.Text = "Empleado";
         lblEmpleado.Location = new Point(16, 70);
+        lblEmpleado.Font = new Font("Inter", 9F);
         lblEmpleado.Name = "lblEmpleado";
         lblEmpleado.Size = new Size(426, 24);
         lblEmpleado.TabIndex = 2;
@@ -88,9 +97,14 @@ partial class FrmResolverPermiso
         txtEmpleado.ReadOnly = true;
         txtEmpleado.MaxLength = 100;
         txtEmpleado.Location = new Point(16, 96);
+        txtEmpleado.FillColor = Color.White;
+        txtEmpleado.ForeColor = Color.FromArgb(32, 38, 45);
+        txtEmpleado.BorderColor = Color.FromArgb(218, 218, 218);
+        txtEmpleado.GradientColor = Color.Empty;
+        txtEmpleado.BorderThickness = 1;
         txtEmpleado.Name = "txtEmpleado";
         txtEmpleado.Size = new Size(426, 34);
-        txtEmpleado.TabIndex = 3;
+        txtEmpleado.TabIndex = 4;
         //
         // lblPeriodo
         //
@@ -101,9 +115,10 @@ partial class FrmResolverPermiso
         lblPeriodo.TextAlign = ContentAlignment.MiddleLeft;
         lblPeriodo.Text = "Período solicitado";
         lblPeriodo.Location = new Point(460, 70);
+        lblPeriodo.Font = new Font("Inter", 9F);
         lblPeriodo.Name = "lblPeriodo";
         lblPeriodo.Size = new Size(426, 24);
-        lblPeriodo.TabIndex = 4;
+        lblPeriodo.TabIndex = 3;
         lblPeriodo.TabStop = false;
         //
         // txtPeriodo
@@ -115,6 +130,11 @@ partial class FrmResolverPermiso
         txtPeriodo.ReadOnly = true;
         txtPeriodo.MaxLength = 100;
         txtPeriodo.Location = new Point(460, 96);
+        txtPeriodo.FillColor = Color.White;
+        txtPeriodo.ForeColor = Color.FromArgb(32, 38, 45);
+        txtPeriodo.BorderColor = Color.FromArgb(218, 218, 218);
+        txtPeriodo.GradientColor = Color.Empty;
+        txtPeriodo.BorderThickness = 1;
         txtPeriodo.Name = "txtPeriodo";
         txtPeriodo.Size = new Size(426, 34);
         txtPeriodo.TabIndex = 5;
@@ -128,6 +148,7 @@ partial class FrmResolverPermiso
         lblMotivo.TextAlign = ContentAlignment.MiddleLeft;
         lblMotivo.Text = "Motivo de la solicitud";
         lblMotivo.Location = new Point(16, 140);
+        lblMotivo.Font = new Font("Inter", 9F);
         lblMotivo.Name = "lblMotivo";
         lblMotivo.Size = new Size(870, 24);
         lblMotivo.TabIndex = 6;
@@ -143,6 +164,11 @@ partial class FrmResolverPermiso
         txtMotivo.ReadOnly = true;
         txtMotivo.MaxLength = 500;
         txtMotivo.Location = new Point(16, 166);
+        txtMotivo.FillColor = Color.White;
+        txtMotivo.ForeColor = Color.FromArgb(32, 38, 45);
+        txtMotivo.BorderColor = Color.FromArgb(218, 218, 218);
+        txtMotivo.GradientColor = Color.Empty;
+        txtMotivo.BorderThickness = 1;
         txtMotivo.Name = "txtMotivo";
         txtMotivo.Size = new Size(870, 80);
         txtMotivo.TabIndex = 7;
@@ -156,6 +182,7 @@ partial class FrmResolverPermiso
         lblResolucion.TextAlign = ContentAlignment.MiddleLeft;
         lblResolucion.Text = "Resolución";
         lblResolucion.Location = new Point(16, 260);
+        lblResolucion.Font = new Font("Inter", 9F);
         lblResolucion.Name = "lblResolucion";
         lblResolucion.Size = new Size(426, 24);
         lblResolucion.TabIndex = 8;
@@ -168,6 +195,12 @@ partial class FrmResolverPermiso
         cboResolucion.FormattingEnabled = true;
         cboResolucion.Items.AddRange(new object[] { "Aprobado", "Rechazado" });
         cboResolucion.Location = new Point(16, 286);
+        cboResolucion.CornerRadius = 8;
+        cboResolucion.FillColor = Color.White;
+        cboResolucion.ForeColor = Color.FromArgb(32, 38, 45);
+        cboResolucion.BorderColor = Color.FromArgb(218, 218, 218);
+        cboResolucion.GradientColor = Color.Empty;
+
         cboResolucion.Name = "cboResolucion";
         cboResolucion.Size = new Size(426, 34);
         cboResolucion.TabIndex = 9;
@@ -181,6 +214,7 @@ partial class FrmResolverPermiso
         lblObservaciones.TextAlign = ContentAlignment.MiddleLeft;
         lblObservaciones.Text = "Observaciones de resolución";
         lblObservaciones.Location = new Point(16, 330);
+        lblObservaciones.Font = new Font("Inter", 9F);
         lblObservaciones.Name = "lblObservaciones";
         lblObservaciones.Size = new Size(870, 24);
         lblObservaciones.TabIndex = 10;
@@ -195,6 +229,11 @@ partial class FrmResolverPermiso
         txtObservaciones.Multiline = true;
         txtObservaciones.MaxLength = 500;
         txtObservaciones.Location = new Point(16, 356);
+        txtObservaciones.FillColor = Color.White;
+        txtObservaciones.ForeColor = Color.FromArgb(32, 38, 45);
+        txtObservaciones.BorderColor = Color.FromArgb(218, 218, 218);
+        txtObservaciones.GradientColor = Color.Empty;
+        txtObservaciones.BorderThickness = 1;
         txtObservaciones.Name = "txtObservaciones";
         txtObservaciones.Size = new Size(870, 80);
         txtObservaciones.TabIndex = 11;
@@ -207,14 +246,18 @@ partial class FrmResolverPermiso
         btnGuardar.Font = new Font("Inter", 9F);
         btnGuardar.Padding = new Padding(10, 4, 10, 4);
         btnGuardar.UseVisualStyleBackColor = false;
-        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
         btnGuardar.Text = "Resolver";
-        btnGuardar.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.ForeColor = Color.White;
-        btnGuardar.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnGuardar.Appearance.Normal.ForeColor = Color.White;
         btnGuardar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnGuardar.Location = new Point(586, 613);
+        btnGuardar.BorderThickness = 1;
+        btnGuardar.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
+        btnGuardar.FillColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.ForeColor = Color.White;
+        btnGuardar.BorderColor = Color.FromArgb(49, 81, 107);
+        btnGuardar.GradientColor = Color.Empty;
+        btnGuardar.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnGuardar.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnGuardar.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
         btnGuardar.Name = "btnGuardar";
         btnGuardar.Size = new Size(144, 40);
         btnGuardar.TabIndex = 12;
@@ -227,11 +270,19 @@ partial class FrmResolverPermiso
         btnCancelar.Font = new Font("Inter", 9F);
         btnCancelar.Padding = new Padding(10, 4, 10, 4);
         btnCancelar.UseVisualStyleBackColor = false;
-        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCancelar.Text = "Cancelar";
         btnCancelar.DialogResult = DialogResult.Cancel;
         btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         btnCancelar.Location = new Point(742, 613);
+        btnCancelar.BorderThickness = 1;
+        btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Danger;
+        btnCancelar.FillColor = Color.FromArgb(255, 248, 248);
+        btnCancelar.ForeColor = Color.FromArgb(166, 61, 64);
+        btnCancelar.BorderColor = Color.FromArgb(204, 148, 150);
+        btnCancelar.GradientColor = Color.Empty;
+        btnCancelar.Appearance.Hover.FillColor = Color.FromArgb(250, 235, 235);
+        btnCancelar.Appearance.Pressed.FillColor = Color.FromArgb(244, 219, 220);
+        btnCancelar.FocusAppearance.Color = Color.FromArgb(166, 61, 64);
         btnCancelar.Name = "btnCancelar";
         btnCancelar.Size = new Size(144, 40);
         btnCancelar.TabIndex = 13;
@@ -263,6 +314,7 @@ partial class FrmResolverPermiso
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCancelar;
+        Font = new Font("Segoe UI", 9F);
         Name = "FrmResolverPermiso";
         Text = "Resolver permiso laboral";
         ResumeLayout(false);

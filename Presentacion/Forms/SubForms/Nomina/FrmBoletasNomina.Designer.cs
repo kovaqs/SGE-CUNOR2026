@@ -1,4 +1,4 @@
-﻿namespace Presentacion.Forms.SubForms.Nomina;
+namespace Presentacion.Forms.SubForms.Nomina;
 
 partial class FrmBoletasNomina
 {
@@ -54,11 +54,19 @@ partial class FrmBoletasNomina
         btnCerrar.Font = new Font("Inter", 9F);
         btnCerrar.Padding = new Padding(10, 4, 10, 4);
         btnCerrar.UseVisualStyleBackColor = false;
-        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnCerrar.Text = "Cerrar";
         btnCerrar.DialogResult = DialogResult.Cancel;
         btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnCerrar.Location = new Point(790, 12);
+        btnCerrar.BorderThickness = 1;
+        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnCerrar.FillColor = Color.White;
+        btnCerrar.ForeColor = Color.FromArgb(32, 38, 45);
+        btnCerrar.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.GradientColor = Color.Empty;
+        btnCerrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnCerrar.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnCerrar.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnCerrar.Name = "btnCerrar";
         btnCerrar.Size = new Size(96, 40);
         btnCerrar.TabIndex = 1;
@@ -72,6 +80,7 @@ partial class FrmBoletasNomina
         lblPeriodo.TextAlign = ContentAlignment.MiddleLeft;
         lblPeriodo.Text = "Período de nómina";
         lblPeriodo.Location = new Point(16, 70);
+        lblPeriodo.Font = new Font("Inter", 9F);
         lblPeriodo.Name = "lblPeriodo";
         lblPeriodo.Size = new Size(426, 24);
         lblPeriodo.TabIndex = 2;
@@ -83,9 +92,15 @@ partial class FrmBoletasNomina
         cboPeriodo.DropDownStyle = ComboBoxStyle.DropDownList;
         cboPeriodo.FormattingEnabled = true;
         cboPeriodo.Location = new Point(16, 96);
+        cboPeriodo.CornerRadius = 8;
+        cboPeriodo.FillColor = Color.White;
+        cboPeriodo.ForeColor = Color.FromArgb(32, 38, 45);
+        cboPeriodo.BorderColor = Color.FromArgb(218, 218, 218);
+        cboPeriodo.GradientColor = Color.Empty;
+
         cboPeriodo.Name = "cboPeriodo";
         cboPeriodo.Size = new Size(426, 34);
-        cboPeriodo.TabIndex = 3;
+        cboPeriodo.TabIndex = 4;
         //
         // lblDepartamento
         //
@@ -96,9 +111,10 @@ partial class FrmBoletasNomina
         lblDepartamento.TextAlign = ContentAlignment.MiddleLeft;
         lblDepartamento.Text = "Departamento";
         lblDepartamento.Location = new Point(460, 70);
+        lblDepartamento.Font = new Font("Inter", 9F);
         lblDepartamento.Name = "lblDepartamento";
         lblDepartamento.Size = new Size(426, 24);
-        lblDepartamento.TabIndex = 4;
+        lblDepartamento.TabIndex = 3;
         lblDepartamento.TabStop = false;
         //
         // cboDepartamento
@@ -108,6 +124,12 @@ partial class FrmBoletasNomina
         cboDepartamento.FormattingEnabled = true;
         cboDepartamento.Items.AddRange(new object[] { "Todos" });
         cboDepartamento.Location = new Point(460, 96);
+        cboDepartamento.CornerRadius = 8;
+        cboDepartamento.FillColor = Color.White;
+        cboDepartamento.ForeColor = Color.FromArgb(32, 38, 45);
+        cboDepartamento.BorderColor = Color.FromArgb(218, 218, 218);
+        cboDepartamento.GradientColor = Color.Empty;
+
         cboDepartamento.Name = "cboDepartamento";
         cboDepartamento.Size = new Size(426, 34);
         cboDepartamento.TabIndex = 5;
@@ -121,6 +143,7 @@ partial class FrmBoletasNomina
         lblDestino.TextAlign = ContentAlignment.MiddleLeft;
         lblDestino.Text = "Guardar archivo PDF";
         lblDestino.Location = new Point(16, 140);
+        lblDestino.Font = new Font("Inter", 9F);
         lblDestino.Name = "lblDestino";
         lblDestino.Size = new Size(426, 24);
         lblDestino.TabIndex = 6;
@@ -135,6 +158,11 @@ partial class FrmBoletasNomina
         txtDestino.ReadOnly = true;
         txtDestino.MaxLength = 100;
         txtDestino.Location = new Point(16, 166);
+        txtDestino.FillColor = Color.White;
+        txtDestino.ForeColor = Color.FromArgb(32, 38, 45);
+        txtDestino.BorderColor = Color.FromArgb(218, 218, 218);
+        txtDestino.GradientColor = Color.Empty;
+        txtDestino.BorderThickness = 1;
         txtDestino.Name = "txtDestino";
         txtDestino.Size = new Size(426, 34);
         txtDestino.TabIndex = 7;
@@ -147,13 +175,17 @@ partial class FrmBoletasNomina
         btnSeleccionarDestino.Font = new Font("Inter", 9F);
         btnSeleccionarDestino.Padding = new Padding(10, 4, 10, 4);
         btnSeleccionarDestino.UseVisualStyleBackColor = false;
-        btnSeleccionarDestino.Variant = KovaqsUI.Styling.KButtonVariant.Secondary;
         btnSeleccionarDestino.Text = "Elegir destino";
-        btnSeleccionarDestino.FillColor = Color.FromArgb(32, 38, 45);
-        btnSeleccionarDestino.ForeColor = Color.White;
-        btnSeleccionarDestino.Appearance.Normal.FillColor = Color.FromArgb(32, 38, 45);
-        btnSeleccionarDestino.Appearance.Normal.ForeColor = Color.White;
         btnSeleccionarDestino.Location = new Point(16, 218);
+        btnSeleccionarDestino.BorderThickness = 1;
+        btnSeleccionarDestino.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnSeleccionarDestino.FillColor = Color.White;
+        btnSeleccionarDestino.ForeColor = Color.FromArgb(32, 38, 45);
+        btnSeleccionarDestino.BorderColor = Color.FromArgb(218, 218, 218);
+        btnSeleccionarDestino.GradientColor = Color.Empty;
+        btnSeleccionarDestino.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnSeleccionarDestino.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnSeleccionarDestino.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
         btnSeleccionarDestino.Name = "btnSeleccionarDestino";
         btnSeleccionarDestino.Size = new Size(220, 40);
         btnSeleccionarDestino.TabIndex = 8;
@@ -166,9 +198,17 @@ partial class FrmBoletasNomina
         btnGenerarPdf.Font = new Font("Inter", 9F);
         btnGenerarPdf.Padding = new Padding(10, 4, 10, 4);
         btnGenerarPdf.UseVisualStyleBackColor = false;
-        btnGenerarPdf.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
         btnGenerarPdf.Text = "Generar boletas PDF";
         btnGenerarPdf.Location = new Point(248, 218);
+        btnGenerarPdf.BorderThickness = 1;
+        btnGenerarPdf.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
+        btnGenerarPdf.FillColor = Color.FromArgb(49, 81, 107);
+        btnGenerarPdf.ForeColor = Color.White;
+        btnGenerarPdf.BorderColor = Color.FromArgb(49, 81, 107);
+        btnGenerarPdf.GradientColor = Color.Empty;
+        btnGenerarPdf.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnGenerarPdf.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnGenerarPdf.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
         btnGenerarPdf.Name = "btnGenerarPdf";
         btnGenerarPdf.Size = new Size(220, 40);
         btnGenerarPdf.TabIndex = 9;
@@ -199,6 +239,7 @@ partial class FrmBoletasNomina
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCerrar;
+        Font = new Font("Segoe UI", 9F);
         Name = "FrmBoletasNomina";
         Text = "Emitir boletas por departamento";
         ResumeLayout(false);
