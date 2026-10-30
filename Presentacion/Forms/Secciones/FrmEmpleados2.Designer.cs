@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             kLabel7 = new KovaqsUI.Controls.KLabel();
             cboDepartamento = new KovaqsUI.Controls.KComboBox();
             kLabel2 = new KovaqsUI.Controls.KLabel();
@@ -215,34 +215,34 @@
             dgvEmpleados.BackgroundColor = Color.White;
             dgvEmpleados.BorderStyle = BorderStyle.None;
             dgvEmpleados.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(244, 244, 244);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(119, 119, 119);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(244, 244, 244);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(119, 119, 119);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(244, 244, 244);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(119, 119, 119);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(244, 244, 244);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(119, 119, 119);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(13, 21, 23);
-            dataGridViewCellStyle5.Padding = new Padding(8, 4, 8, 4);
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(223, 233, 249);
-            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(13, 21, 23);
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvEmpleados.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(13, 21, 23);
+            dataGridViewCellStyle2.Padding = new Padding(8, 4, 8, 4);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(223, 233, 249);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(13, 21, 23);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvEmpleados.DefaultCellStyle = dataGridViewCellStyle2;
             dgvEmpleados.EnableHeadersVisualStyles = false;
             dgvEmpleados.GridColor = Color.FromArgb(218, 218, 218);
             dgvEmpleados.Location = new Point(12, 277);
             dgvEmpleados.Name = "dgvEmpleados";
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(244, 244, 244);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(119, 119, 119);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(244, 244, 244);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(119, 119, 119);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvEmpleados.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(244, 244, 244);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(119, 119, 119);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(244, 244, 244);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(119, 119, 119);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvEmpleados.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvEmpleados.RowHeadersVisible = false;
             dgvEmpleados.RowTemplate.Height = 42;
             dgvEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -310,7 +310,7 @@
             kComboBox3.ItemHeight = 28;
             kComboBox3.Location = new Point(390, 3);
             kComboBox3.Name = "kComboBox3";
-            kComboBox3.Size = new Size(244, 34);
+            kComboBox3.Size = new Size(189, 34);
             kComboBox3.TabIndex = 42;
             // 
             // kButton7
@@ -392,7 +392,8 @@
             Controls.Add(cboDepartamento);
             Controls.Add(kLabel7);
             Name = "FrmEmpleados2";
-            Text = "FrmEmpleados2";
+
+            Text = "Listado de empleados";
             Load += FrmEmpleados2_Load;
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
