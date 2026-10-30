@@ -11,4 +11,9 @@ public partial class FrmPuestos : Form
     {
 
     }
+
+    private void FrmPuestos_Load(object sender, EventArgs e)
+    {
+
+    }
 }
