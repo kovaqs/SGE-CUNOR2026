@@ -31,13 +31,15 @@ internal static class SeguridadDatos
         await using var comando = new MySqlCommand("""
             INSERT INTO bitacora (id_usuario, nombre_usuario, operacion, entidad, registro_afectado, descripcion)
             SELECT id_usuario, nombre_usuario, @operacion, @entidad, @registro, @descripcion
-            FROM usuarios WHERE id_usuario = @usuario;
+            FROM usuarios u JOIN roles r ON r.id_rol = u.id_rol
+            WHERE u.id_usuario = @usuario AND u.activo = TRUE AND r.activo = TRUE;
             """, conexion, transaccion);
         comando.Parameters.Add("@usuario", MySqlDbType.UInt32).Value = sesion.IdUsuario;
         comando.Parameters.Add("@operacion", MySqlDbType.VarChar, 20).Value = operacion;
         comando.Parameters.Add("@entidad", MySqlDbType.VarChar, 64).Value = entidad;
         comando.Parameters.Add("@registro", MySqlDbType.VarChar, 150).Value = registro.ToString(System.Globalization.CultureInfo.InvariantCulture);
         comando.Parameters.Add("@descripcion", MySqlDbType.VarChar, 1000).Value = descripcion;
-        await comando.ExecuteNonQueryAsync();
+        if (await comando.ExecuteNonQueryAsync() != 1)
+            throw new InvalidOperationException("No se pudo registrar la operación. Revisa que tu usuario siga activo.");
     }
 }
