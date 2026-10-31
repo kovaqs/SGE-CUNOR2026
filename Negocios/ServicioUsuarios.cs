@@ -11,7 +11,10 @@ public sealed class ServicioUsuarios
 
     public async Task<List<UsuarioListado>> ListarAsync(CancellationToken cancellationToken = default)
     {
-        try { return await usuarios.ListarAsync(cancellationToken); }
+        try
+        {
+            return await usuarios.ListarAsync(cancellationToken);
+        }
         catch (DbException)
         {
             throw new InvalidOperationException("No se pudieron cargar los usuarios. Revisa la conexión y vuelve a intentarlo.");
@@ -20,13 +23,19 @@ public sealed class ServicioUsuarios
 
     public async Task<List<Rol>> ListarRolesAsync(CancellationToken cancellationToken = default)
     {
-        try { return await usuarios.ListarRolesAsync(cancellationToken); }
+        try
+        {
+            return await usuarios.ListarRolesAsync(cancellationToken);
+        }
         catch (DbException) { throw new InvalidOperationException("No se pudieron cargar los roles."); }
     }
 
     public async Task<List<EmpleadoSeleccion>> ListarEmpleadosDisponiblesAsync(CancellationToken cancellationToken = default)
     {
-        try { return await usuarios.ListarEmpleadosDisponiblesAsync(cancellationToken); }
+        try
+        {
+            return await usuarios.ListarEmpleadosDisponiblesAsync(cancellationToken);
+        }
         catch (DbException) { throw new InvalidOperationException("No se pudieron cargar los empleados."); }
     }
 
@@ -40,7 +49,7 @@ public sealed class ServicioUsuarios
             throw new ArgumentException("Usa una contraseña de 12 a 128 caracteres.");
         if (idRol == 0 || idEmpleado == 0)
             throw new ArgumentException("Selecciona un rol y un empleado válidos.");
-        if (autor.Rol != "Administrador")
+        if (!autor.Puede("usuarios"))
             throw new InvalidOperationException("Solo un administrador puede crear usuarios.");
 
         var hash = await Task.Run(() => HashContrasenas.Crear(contrasena), cancellationToken);
@@ -75,12 +84,36 @@ public sealed class ServicioUsuarios
                 throw new ArgumentException("No hay cambios para guardar.");
             var hashNuevo = contrasenaNueva.Length == 0 ? null
                 : await Task.Run(() => HashContrasenas.Crear(contrasenaNueva), cancellationToken);
-            return await usuarios.ActualizarCuentaAsync(credencial.Sesion, nombreUsuario,
+            var actual = await usuarios.ActualizarCuentaAsync(credencial.Sesion, nombreUsuario,
                 credencial.Hash, hashNuevo, cancellationToken);
+            return actual with
+            {
+                Permisos = sesion.Permisos
+            };
         }
         catch (DbException)
         {
             throw new InvalidOperationException("No se pudieron guardar los cambios. Revisa la conexión.");
         }
+    }
+
+    public Task<UsuarioEdicion> LeerEdicionAsync(uint id) => usuarios.LeerEdicionAsync(id);
+    public Task GuardarEdicionAsync(UsuarioEdicion usuario, SesionUsuario autor)
+    {
+        usuario.NombreUsuario = usuario.NombreUsuario.Trim();
+        if (usuario.IdUsuario == autor.IdUsuario)
+            throw new InvalidOperationException("Para cambiar tu propia cuenta usa Mi cuenta. Otro administrador puede modificar tu rol.");
+        if (usuario.IdRol == 0 || usuario.NombreUsuario.Length is 0 or > 50)
+            throw new ArgumentException("Escribe el usuario (50 caracteres) y selecciona un rol activo.");
+        return usuarios.GuardarEdicionAsync(usuario, autor);
+    }
+    public async Task RestablecerAsync(uint usuario, string contrasena, SesionUsuario autor)
+    {
+        if (usuario == autor.IdUsuario)
+            throw new InvalidOperationException("Para cambiar tu contraseña usa Mi cuenta.");
+        if (string.IsNullOrWhiteSpace(contrasena) || contrasena.Length is < 12 or > 128)
+            throw new ArgumentException("Usa una contraseña de 12 a 128 caracteres.");
+        var hash = await Task.Run(() => HashContrasenas.Crear(contrasena));
+        await usuarios.RestablecerAsync(usuario, hash, autor);
     }
 }

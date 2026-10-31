@@ -11,7 +11,10 @@ public sealed class ServicioAutenticacion
 
     public async Task<bool> HayUsuariosAsync(CancellationToken cancellationToken = default)
     {
-        try { return await usuarios.HayUsuariosAsync(cancellationToken); }
+        try
+        {
+            return await usuarios.HayUsuariosAsync(cancellationToken);
+        }
         catch (DbException) { throw ErrorConexion(); }
     }
 
@@ -20,7 +23,10 @@ public sealed class ServicioAutenticacion
         if (string.IsNullOrWhiteSpace(contrasena) || contrasena.Length is < 12 or > 128)
             throw new ArgumentException("Utiliza una contraseña de 12 a 128 caracteres.");
         var hash = await Task.Run(() => HashContrasenas.Crear(contrasena), cancellationToken);
-        try { await usuarios.CrearAdministradorAsync(hash, cancellationToken); }
+        try
+        {
+            await usuarios.CrearAdministradorAsync(hash, cancellationToken);
+        }
         catch (DbException) { throw ErrorConexion(); }
     }
 
@@ -37,14 +43,22 @@ public sealed class ServicioAutenticacion
                 credencial?.Hash ?? HashContrasenas.HashSinUsuario), cancellationToken);
             if (!coincide || credencial is null || !credencial.Activo)
                 return null;
-            return await usuarios.RegistrarAccesoAsync(credencial.Sesion, cancellationToken) ? credencial.Sesion : null;
+            if (!await usuarios.RegistrarAccesoAsync(credencial.Sesion, cancellationToken))
+                return null;
+            return credencial.Sesion with
+            {
+                Permisos = await usuarios.PermisosAsync(credencial.Sesion.IdUsuario)
+            };
         }
         catch (DbException) { throw ErrorConexion(); }
     }
 
     public async Task CerrarSesionAsync(SesionUsuario sesion, CancellationToken cancellationToken = default)
     {
-        try { await usuarios.RegistrarSalidaAsync(sesion, cancellationToken); }
+        try
+        {
+            await usuarios.RegistrarSalidaAsync(sesion, cancellationToken);
+        }
         catch (DbException) { throw ErrorConexion(); }
     }
 

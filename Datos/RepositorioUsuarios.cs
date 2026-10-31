@@ -73,11 +73,12 @@ public sealed class RepositorioUsuarios
         await using var transaccion = await conexion.BeginTransactionAsync(cancellationToken);
         try
         {
+            await SeguridadDatos.ValidarPermisoAsync(conexion, transaccion, autor, "usuarios");
             await using var permiso = new MySqlCommand("""
                 SELECT u.nombre_usuario FROM usuarios u
                 INNER JOIN roles r ON r.id_rol = u.id_rol
                 WHERE u.id_usuario = @autor AND u.activo = TRUE AND r.activo = TRUE
-                  AND r.nombre = 'Administrador';
+                  ;
                 """, conexion, transaccion);
             permiso.Parameters.Add("@autor", MySqlDbType.UInt32).Value = autor.IdUsuario;
             if (await permiso.ExecuteScalarAsync(cancellationToken) is not string nombreAutor)
@@ -255,6 +256,95 @@ public sealed class RepositorioUsuarios
             "LOGOUT", "Cierre de sesión.", cancellationToken);
     }
 
+
+    public async Task<List<string>> PermisosAsync(uint usuario)
+    {
+        await using var conexion = await ConexionMySql.AbrirAsync();
+        await using var comando = new MySqlCommand("""
+            SELECT p.codigo FROM usuarios u JOIN rol_permisos rp ON rp.id_rol=u.id_rol
+            JOIN permisos_sistema p ON p.id_permiso_sistema=rp.id_permiso_sistema
+            WHERE u.id_usuario=@id AND u.activo=TRUE AND p.activo=TRUE;
+            """, conexion);
+        comando.Parameters.AddWithValue("@id", usuario);
+        await using var lector = await comando.ExecuteReaderAsync();
+        var permisos = new List<string>();
+        while (await lector.ReadAsync())
+            permisos.Add(lector.GetString(0));
+        return permisos;
+    }
+
+
+    public async Task<UsuarioEdicion> LeerEdicionAsync(uint id)
+    {
+        await using var conexion = await ConexionMySql.AbrirAsync();
+        await using var comando = new MySqlCommand("SELECT id_usuario,nombre_usuario,id_rol,id_empleado,activo FROM usuarios WHERE id_usuario=@id;", conexion);
+        comando.Parameters.AddWithValue("@id", id);
+        await using var lector = await comando.ExecuteReaderAsync();
+        if (!await lector.ReadAsync())
+            throw new InvalidOperationException("El usuario ya no existe.");
+        return new UsuarioEdicion
+        {
+            IdUsuario = lector.GetUInt32(0),
+            NombreUsuario = lector.GetString(1),
+            IdRol = lector.GetUInt32(2),
+            IdEmpleado = lector.IsDBNull(3) ? null : lector.GetUInt32(3),
+            Activo = lector.GetBoolean(4)
+        };
+    }
+    public async Task GuardarEdicionAsync(UsuarioEdicion usuario, SesionUsuario autor)
+    {
+        await using var conexion = await ConexionMySql.AbrirAsync();
+        await using var transaccion = await conexion.BeginTransactionAsync();
+        await SeguridadDatos.ValidarPermisoAsync(conexion, transaccion, autor, "usuarios");
+        await using (var administradores = new MySqlCommand("""
+            SELECT u.id_usuario FROM usuarios u JOIN roles r ON r.id_rol=u.id_rol
+            WHERE u.activo=TRUE AND r.activo=TRUE AND r.nombre='Administrador' ORDER BY u.id_usuario FOR UPDATE;
+            """, conexion, transaccion))
+        {
+            await using var lector = await administradores.ExecuteReaderAsync();
+            var ids = new List<uint>();
+            while (await lector.ReadAsync())
+                ids.Add(lector.GetUInt32(0));
+            if (ids.Count == 1 && ids[0] == usuario.IdUsuario)
+            {
+                await lector.DisposeAsync();
+                await using var rol = new MySqlCommand("SELECT nombre FROM roles WHERE id_rol=@id AND activo=TRUE;", conexion, transaccion);
+                rol.Parameters.AddWithValue("@id", usuario.IdRol);
+                if (!usuario.Activo || await rol.ExecuteScalarAsync() is not string nombre || nombre != "Administrador")
+                    throw new InvalidOperationException("Debe permanecer al menos un administrador activo.");
+            }
+        }
+        await using var comando = new MySqlCommand("""
+            UPDATE usuarios u JOIN roles r ON r.id_rol=@rol AND r.activo=TRUE
+            SET u.nombre_usuario=@nombre,u.id_rol=r.id_rol,u.id_empleado=@empleado,u.activo=@activo WHERE u.id_usuario=@id;
+            """, conexion, transaccion);
+        comando.Parameters.AddWithValue("@id", usuario.IdUsuario);
+        comando.Parameters.AddWithValue("@rol", usuario.IdRol);
+        comando.Parameters.AddWithValue("@nombre", usuario.NombreUsuario);
+        comando.Parameters.AddWithValue("@empleado", (object?)usuario.IdEmpleado ?? DBNull.Value);
+        comando.Parameters.AddWithValue("@activo", usuario.Activo);
+        try
+        {
+            if (await comando.ExecuteNonQueryAsync() != 1)
+                throw new InvalidOperationException("El usuario o rol ya no está disponible.");
+            await SeguridadDatos.RegistrarOperacionAsync(conexion, transaccion, autor, "UPDATE", "usuarios", usuario.IdUsuario, "Edición de cuenta, rol y estado.");
+            await transaccion.CommitAsync();
+        }
+        catch (MySqlException ex) when (ex.Number == 1062) { throw new InvalidOperationException("El nombre de usuario o empleado ya tiene otra cuenta."); }
+    }
+    public async Task RestablecerAsync(uint usuario, string hash, SesionUsuario autor)
+    {
+        await using var conexion = await ConexionMySql.AbrirAsync();
+        await using var transaccion = await conexion.BeginTransactionAsync();
+        await SeguridadDatos.ValidarPermisoAsync(conexion, transaccion, autor, "usuarios");
+        await using var comando = new MySqlCommand("UPDATE usuarios SET contrasena_hash=@hash WHERE id_usuario=@id;", conexion, transaccion);
+        comando.Parameters.AddWithValue("@hash", hash);
+        comando.Parameters.AddWithValue("@id", usuario);
+        if (await comando.ExecuteNonQueryAsync() != 1)
+            throw new InvalidOperationException("El usuario ya no existe.");
+        await SeguridadDatos.RegistrarOperacionAsync(conexion, transaccion, autor, "UPDATE", "usuarios", usuario, "Restablecimiento de contraseña por administración.");
+        await transaccion.CommitAsync();
+    }
     private static async Task EscribirBitacoraAsync(MySqlConnection conexion, MySqlTransaction? transaccion,
         uint id, string nombre, string operacion, string descripcion, CancellationToken cancellationToken,
         uint? idRegistro = null)

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +19,10 @@ namespace Presentacion.Forms
         private GestorFormularios? gestorFormularios;
         private SesionUsuario? sesion;
         public SesionUsuario? SesionActual => sesion;
-        public bool SalirDeAplicacion { get; private set; }
+        public bool SalirDeAplicacion
+        {
+            get; private set;
+        }
         private readonly Dictionary<KSegmentItem, Action> secciones = new();
 
         public FrmPrincipal()
@@ -44,14 +47,49 @@ namespace Presentacion.Forms
             if (gestorFormularios is null)
             {
                 gestorFormularios = new GestorFormularios(panelContenedor);
-                secciones.Add(SInicio, () => gestorFormularios.Mostrar<FrmInicio>());   
-                secciones.Add(SEmpleados, () => gestorFormularios.Mostrar<FrmEmpleados>());
-                secciones.Add(SPuestos, () => gestorFormularios.Mostrar<FrmPuestos>());
-                secciones.Add(SDepartamentos, () => gestorFormularios.Mostrar<FrmDepartamentos>());
-                secciones.Add(SAsistencias, () => gestorFormularios.Mostrar<FrmAsistencias>());
-                secciones.Add(SReportes, () => gestorFormularios.Mostrar<FrmReportes>());
-                secciones.Add(SNomina, () => gestorFormularios.Mostrar<FrmNomina>());
-                secciones.Add(SUsuarios, () => 
+                secciones.Add(SInicio, () =>
+                {
+                    var formulario = gestorFormularios.Mostrar<FrmInicio>();
+                    if (sesion is not null)
+                        formulario.EstablecerSesion(sesion);
+                });
+                secciones.Add(SEmpleados, () =>
+                {
+                    var formulario = gestorFormularios.Mostrar<FrmEmpleados>();
+                    if (sesion is not null)
+                        formulario.EstablecerSesion(sesion);
+                });
+                secciones.Add(SPuestos, () =>
+                {
+                    var formulario = gestorFormularios.Mostrar<FrmPuestos>();
+                    if (sesion is not null)
+                        formulario.EstablecerSesion(sesion);
+                });
+                secciones.Add(SDepartamentos, () =>
+                {
+                    var formulario = gestorFormularios.Mostrar<FrmDepartamentos>();
+                    if (sesion is not null)
+                        formulario.EstablecerSesion(sesion);
+                });
+                secciones.Add(SAsistencias, () =>
+                {
+                    var formulario = gestorFormularios.Mostrar<FrmAsistencias>();
+                    if (sesion is not null)
+                        formulario.EstablecerSesion(sesion);
+                });
+                secciones.Add(SReportes, () =>
+                {
+                    var formulario = gestorFormularios.Mostrar<FrmReportes>();
+                    if (sesion is not null)
+                        formulario.EstablecerSesion(sesion);
+                });
+                secciones.Add(SNomina, () =>
+                {
+                    var formulario = gestorFormularios.Mostrar<FrmNomina>();
+                    if (sesion is not null)
+                        formulario.EstablecerSesion(sesion);
+                });
+                secciones.Add(SUsuarios, () =>
                 {
                     var usuarios = gestorFormularios.Mostrar<FrmUsuarios>();
                     if (sesion is not null)
@@ -65,6 +103,16 @@ namespace Presentacion.Forms
                 });
             }
 
+            if (sesion is not null)
+            {
+                SEmpleados.Enabled = sesion.Puede("empleados");
+                SPuestos.Enabled = SDepartamentos.Enabled = sesion.Puede("catalogos");
+                SAsistencias.Enabled = sesion.Puede("asistencias");
+                SReportes.Enabled = sesion.Puede("reportes");
+                SNomina.Enabled = sesion.Puede("nomina");
+                SUsuarios.Enabled = sesion.Puede("usuarios");
+                SConfiguracion.Enabled = sesion.Puede("configuracion");
+            }
             MostrarSeccionSeleccionada();
         }
 
@@ -96,7 +144,8 @@ namespace Presentacion.Forms
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
-        { }
+        {
+        }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
@@ -148,6 +197,22 @@ namespace Presentacion.Forms
         {
             SalirDeAplicacion = true;
             Close();
+        }
+
+        public void MostrarEmpleados()
+        {
+            if (SEmpleados.Enabled)
+                PanelSegmentado.SelectedItem = SEmpleados;
+        }
+        public void MostrarAsistencias()
+        {
+            if (SAsistencias.Enabled)
+                PanelSegmentado.SelectedItem = SAsistencias;
+        }
+        public void MostrarNomina()
+        {
+            if (SNomina.Enabled)
+                PanelSegmentado.SelectedItem = SNomina;
         }
     }
 }

@@ -19,7 +19,9 @@ La interfaz utiliza la biblioteca de controles KovaqsUI. Su código y recursos e
 
 Proyecto en desarrollo.
 
-Incluye navegación entre formularios e inicio de sesión con MySQL. La lógica de gestión de empleados todavía está en desarrollo.
+Incluye acceso con MySQL, expedientes de empleados, departamentos, puestos, asistencias, configuración, usuarios, operaciones de nómina y reportes. Las ventanas principales conservan su instancia y actualizan los datos al volver a ellas.
+
+Quedan pendientes los cuatro aportes de consulta: bitácora, catálogo de horarios, listado de permisos laborales y listado de períodos de nómina. Sus archivos se mantienen separados de las operaciones de edición mediante los archivos `.Operaciones.cs` cuando corresponde.
 
 ## Conexión y acceso
 
@@ -39,11 +41,28 @@ No copies al repositorio credenciales, exportaciones de configuración ni respal
 
 ## Datos sensibles
 
-Los sueldos y números de cuenta bancaria se cifran con AES-GCM antes de guardarse en MySQL. Los formularios utilizan `ServicioDatosSensibles` para consultar cuentas, guardarlas o registrar una nueva condición laboral. La clave se deriva automáticamente de la contraseña de MySQL configurada localmente; las computadoras que comparten la base deben utilizar esa misma contraseña. Cambiarla requiere volver a cifrar los datos antes del cambio. No hay una contraseña adicional para el cifrado.
+Los sueldos, números de cuenta bancaria e importes de nómina se cifran con AES-GCM antes de guardarse en MySQL. `RepositorioEmpleados` guarda el expediente y su condición inicial, `ServicioDatosSensibles` registra cambios de condición laboral y `RepositorioNomina` conserva los importes de pago. La clave se deriva automáticamente de la contraseña de MySQL configurada localmente; las computadoras que comparten la base deben utilizar esa misma contraseña. Cambiarla requiere volver a cifrar los datos antes del cambio. No hay una contraseña adicional para el cifrado.
 
 Las contraseñas de usuarios mantienen su hash PBKDF2-SHA256. Los cambios de salario requieren confirmar la contraseña del usuario que realiza la operación. Se conserva la condición laboral anterior y el cambio queda registrado en `bitacora`, con su usuario, fecha y registro afectado, sin incluir el sueldo ni la cuenta en el texto de la bitácora.
 
-Empleados y Nómina continúan en desarrollo. Un `INSERT` desde Workbench no ejecuta el cifrado de C#: los datos de ejemplo con sueldos o cuentas deben prepararse mediante las funciones del sistema.
+Un `INSERT` desde Workbench no ejecuta el cifrado de C#: los datos de ejemplo con sueldos o cuentas deben prepararse mediante las funciones del sistema.
+
+## Uso de los módulos
+
+1. En Configuración, completa los datos de la empresa. Registra departamentos, puestos, tipos de contrato y horarios antes de crear expedientes.
+2. En Empleados, Agregar abre el expediente. Sus tres secciones se guardan juntas; la foto se puede seleccionar o arrastrar y se reduce antes de almacenarse. El menú de la tabla permite editar, consultar historial, cambiar estado, emitir constancia o eliminar. Los cambios de puesto y sueldo se registran desde Historial laboral.
+3. En Asistencias, registra la jornada y sus marcas. Una fila existente se corrige con doble clic. No se considera falta una fila inexistente: la falta se registra con su estado correspondiente. La exportación a Excel incluye todos los resultados del filtro.
+4. En Usuarios, el doble clic abre la edición de cuenta y el restablecimiento de contraseña. Para modificar la propia cuenta se utiliza Mi cuenta. Los permisos se asignan por módulo desde Roles y se aplican al volver a iniciar sesión; el administrador conserva acceso completo.
+5. En Nómina, crea un período mensual y abre su detalle para calcularlo. Se utiliza el sueldo vigente al cierre del mes completo, sin prorrateo ni deducciones automáticas. Los ingresos y deducciones se agregan manualmente y sus totales se recalculan juntos. Un período calculado no se sobrescribe; al cerrarlo se bloquean sus movimientos. La anulación conserva sus registros.
+6. Reportes permite consultar empleados, resumen por departamento, asistencias y nómina, y guardar el resultado completo en PDF o Excel. Las constancias se emiten desde el menú de Empleados; las boletas individuales o por departamento se generan desde Nómina.
+
+Los catálogos y expedientes comprueban sus relaciones antes de eliminar. La eliminación de un empleado incluye su historial, pero se rechaza si tiene usuarios, asistencias, permisos o pagos relacionados. Puede mantenerse inactivo para conservar esos datos.
+
+Las consultas del inicio generan los indicadores y gráficos desde MySQL. `BaseDatos/consultas_analisis.sql` contiene la consulta agrupada y la comparación de un filtro mensual con su versión por rango de fechas para revisarlas desde Workbench.
+
+La exportación utiliza [PDFsharp/MigraDoc](https://docs.pdfsharp.net/) para PDF y [ClosedXML](https://docs.closedxml.io/) para Excel. Los archivos se guardan en el destino elegido por el usuario.
+
+Al incorporar las guías pendientes, conecta `DatosActualizados` a `Consulta_Inicio` en Horarios y a `Consulta_Filtro` en Permisos laborales y Nómina para refrescar la consulta después de una operación. Los bloques de las guías se pegan en sus cuatro archivos respectivos.
 
 ## Requisitos y compilación
 
