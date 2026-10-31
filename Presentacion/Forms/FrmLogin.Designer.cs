@@ -28,6 +28,7 @@ namespace Presentacion.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             kLabel1 = new KovaqsUI.Controls.KLabel();
             kLabel2 = new KovaqsUI.Controls.KLabel();
             kCheckBox1 = new KovaqsUI.Controls.KCheckBox();
@@ -43,6 +44,9 @@ namespace Presentacion.Forms
             kButton2 = new KovaqsUI.Controls.KButton();
             panel3 = new Panel();
             pictureBox1 = new PictureBox();
+            btnConfigurarConexion = new KovaqsUI.Controls.KButton();
+            notificador = new KovaqsUI.Components.KToastNotifier(components);
+            temporizadorConexion = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
@@ -103,6 +107,9 @@ namespace Presentacion.Forms
             // 
             kButton1.Animation.Duration = 200;
             kButton1.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+            kButton1.Appearance.Normal.BorderColor = Color.FromArgb(49, 81, 107);
+            kButton1.Appearance.Normal.FillColor = Color.FromArgb(49, 81, 107);
+            kButton1.Appearance.Normal.ForeColor = Color.White;
             kButton1.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
             kButton1.BackColor = Color.Transparent;
             kButton1.BorderColor = Color.FromArgb(49, 81, 107);
@@ -119,8 +126,6 @@ namespace Presentacion.Forms
             kButton1.TabIndex = 8;
             kButton1.Text = "Iniciar sesión";
             kButton1.UseVisualStyleBackColor = false;
-            kButton1.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
-            kButton1.GradientColor = Color.Empty;
             // 
             // panel1
             // 
@@ -222,6 +227,7 @@ namespace Presentacion.Forms
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(btnConfigurarConexion);
             panel2.Controls.Add(kLabel3);
             panel2.Controls.Add(kButton2);
             panel2.Dock = DockStyle.Top;
@@ -247,6 +253,9 @@ namespace Presentacion.Forms
             // 
             kButton2.Animation.Duration = 200;
             kButton2.Appearance.Hover.FillColor = Color.FromArgb(250, 235, 235);
+            kButton2.Appearance.Normal.BorderColor = Color.FromArgb(204, 148, 150);
+            kButton2.Appearance.Normal.FillColor = Color.FromArgb(255, 248, 248);
+            kButton2.Appearance.Normal.ForeColor = Color.FromArgb(166, 61, 64);
             kButton2.Appearance.Pressed.FillColor = Color.FromArgb(244, 219, 220);
             kButton2.BackColor = Color.Transparent;
             kButton2.BorderColor = Color.FromArgb(204, 148, 150);
@@ -264,7 +273,6 @@ namespace Presentacion.Forms
             kButton2.Text = "Salir";
             kButton2.UseVisualStyleBackColor = false;
             kButton2.Variant = KovaqsUI.Styling.KButtonVariant.Danger;
-            kButton2.GradientColor = Color.Empty;
             // 
             // panel3
             // 
@@ -287,8 +295,43 @@ namespace Presentacion.Forms
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // FrmLogin
+            // btnConfigurarConexion
+            //
+            btnConfigurarConexion.Animation.Duration = 200;
+            btnConfigurarConexion.Appearance.Hover.FillColor = Color.FromArgb(250, 235, 235);
+            btnConfigurarConexion.Appearance.Normal.BorderColor = Color.FromArgb(64, 64, 64);
+            btnConfigurarConexion.Appearance.Normal.FillColor = Color.White;
+            btnConfigurarConexion.Appearance.Normal.ForeColor = Color.Black;
+            btnConfigurarConexion.Appearance.Pressed.FillColor = Color.FromArgb(244, 219, 220);
+            btnConfigurarConexion.BackColor = Color.Transparent;
+            btnConfigurarConexion.BorderColor = Color.FromArgb(64, 64, 64);
+            btnConfigurarConexion.CornerRadius = 8;
+            btnConfigurarConexion.FillColor = Color.White;
+            btnConfigurarConexion.FlatStyle = FlatStyle.Flat;
+            btnConfigurarConexion.FocusAppearance.Color = Color.FromArgb(166, 61, 64);
+            btnConfigurarConexion.Font = new Font("Inter", 9F);
+            btnConfigurarConexion.ForeColor = Color.Black;
+            btnConfigurarConexion.Location = new Point(625, 7);
+            btnConfigurarConexion.Name = "btnConfigurarConexion";
+            btnConfigurarConexion.Padding = new Padding(10, 4, 10, 4);
+            btnConfigurarConexion.Size = new Size(176, 24);
+            btnConfigurarConexion.TabIndex = 2;
+            btnConfigurarConexion.Text = "Configurar la conexión";
+            btnConfigurarConexion.UseVisualStyleBackColor = false;
+            btnConfigurarConexion.Visible = false;
+            btnConfigurarConexion.Click += btnConfigurarConexion_Click;
+            //
+            // notificador
+            //
+            notificador.OwnerForm = this;
+            //
+            // temporizadorConexion
+            //
+            temporizadorConexion.Interval = 3000;
+            temporizadorConexion.Tick += temporizadorConexion_Tick;
             // 
+            // FrmLogin
+            //
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkGray;
@@ -302,6 +345,7 @@ namespace Presentacion.Forms
             Padding = new Padding(1);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmLogin";
+            Load += FrmLogin_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel2.ResumeLayout(false);
@@ -327,5 +371,8 @@ namespace Presentacion.Forms
         private PictureBox pictureBox2;
             private KovaqsUI.Controls.KLabel lblUsuario;
         private KovaqsUI.Controls.KLabel lblContrasena;
-}
+        private KovaqsUI.Controls.KButton btnConfigurarConexion;
+        private KovaqsUI.Components.KToastNotifier notificador;
+        private System.Windows.Forms.Timer temporizadorConexion;
+    }
 }

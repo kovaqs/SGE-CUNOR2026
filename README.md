@@ -25,7 +25,7 @@ Incluye navegación entre formularios e inicio de sesión con MySQL. La lógica 
 
 La capa `Datos` utiliza MySqlConnector. La base debe tener las tablas de `BaseDatos/schema.sql`; este script inicial se ejecuta una sola vez en una base vacía.
 
-Al abrir la aplicación en otra computadora, configura la conexión con los datos de la pestaña **Admin** del servicio MySQL de Clever Cloud. Se comprueba la conexión antes de guardarla en el Administrador de credenciales de Windows, bajo `SGE_CUNOR2026/MySQL`. Cada usuario de Windows configura su propia conexión. No se utilizan variables de entorno, archivos `.env` ni cadenas de conexión en el código o en archivos del proyecto.
+Al abrir la aplicación en otra computadora, pulsa **Configurar la conexión** en el login e introduce los datos de la pestaña **Admin** del servicio MySQL de Clever Cloud. El botón aparece cuando falta la configuración o falla la comprobación de conexión y se oculta cuando esta funciona. Se comprueba la conexión antes de guardarla en el Administrador de credenciales de Windows, bajo `SGE_CUNOR2026/MySQL`. Cada usuario de Windows configura su propia conexión. No se utilizan variables de entorno, archivos `.env` ni cadenas de conexión en el código o en archivos del proyecto.
 
 La conexión exige TLS y, por defecto, valida la autoridad del certificado y el nombre del servidor. Si el proveedor utiliza un certificado autofirmado, se puede configurar su huella SHA-256 localmente, confirmándola por un canal de confianza o aceptando expresamente la identidad del servidor en el primer contacto. En este último caso, la identidad inicial no cuenta con una comprobación independiente. La huella se conserva en Windows y un certificado diferente o vencido se rechaza. Un cambio de certificado requiere revisar y actualizar la configuración local. No se instala ningún certificado en Windows ni se desactiva TLS.
 
@@ -35,7 +35,7 @@ Las contraseñas del sistema se almacenan como hash PBKDF2-SHA256 con sal aleato
 
 El plan DEV admite 5 conexiones simultáneas en total. Cada aplicación usa un pool de hasta una conexión y libera las conexiones inactivas. Los accesos desde phpMyAdmin u otras herramientas también consumen ese límite.
 
-No copies al repositorio credenciales, exportaciones de configuración ni respaldos con datos. La configuración de conexión se puede cambiar desde **Configuración** en el panel principal.
+No copies al repositorio credenciales, exportaciones de configuración ni respaldos con datos. La configuración de conexión se puede cambiar desde **Configuración** en el panel principal. Al guardarla se cierra la sesión y se regresa al login. Los cambios o la eliminación de la configuración desde Windows también cierran la sesión al detectarse; la aplicación revisa su fecha de modificación local cada tres segundos, sin consultar MySQL.
 
 ## Datos sensibles
 

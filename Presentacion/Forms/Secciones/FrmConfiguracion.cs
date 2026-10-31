@@ -22,6 +22,8 @@ public partial class FrmConfiguracion : Form
         if (sesion?.Rol != "Administrador")
             return;
         using var configuracion = new FrmConfigurarConexion();
-        configuracion.ShowDialog(this);
+        if (configuracion.ShowDialog(TopLevelControl as Form ?? this) == DialogResult.OK
+            && TopLevelControl is FrmPrincipal principal)
+            principal.Close();
     }
 }

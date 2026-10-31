@@ -7,7 +7,9 @@ namespace Negocios;
 
 public sealed class ServicioConexion
 {
-    public bool EstaConfigurada => AlmacenConexionWindows.Leer() is not null;
+    public long? VersionActual => AlmacenConexionWindows.LeerVersion();
+
+    public bool EstaConfigurada => VersionActual is not null;
 
     public ConfiguracionBaseDatos? LeerConfiguracionLocal() => AlmacenConexionWindows.Leer();
 
