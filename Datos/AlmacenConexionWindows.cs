@@ -10,6 +10,28 @@ public static class AlmacenConexionWindows
     private const string Destino = "SGE_CUNOR2026/MySQL";
     private const uint CredencialGenerica = 1;
 
+    public static long? LeerVersion()
+    {
+        ComprobarWindows();
+        if (!CredRead(Destino, CredencialGenerica, 0, out var puntero))
+        {
+            if (Marshal.GetLastWin32Error() == 1168)
+                return null;
+            throw new InvalidOperationException("Windows no pudo leer la configuración de conexión.");
+        }
+
+        try
+        {
+            var credencial = Marshal.PtrToStructure<Credencial>(puntero);
+            return ((long)credencial.UltimaEscritura.dwHighDateTime << 32)
+                | (uint)credencial.UltimaEscritura.dwLowDateTime;
+        }
+        finally
+        {
+            CredFree(puntero);
+        }
+    }
+
     public static ConfiguracionBaseDatos? Leer()
     {
         ComprobarWindows();

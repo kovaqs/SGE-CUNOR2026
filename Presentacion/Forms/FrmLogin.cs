@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using KovaqsUI.Components;
 using Negocios;
 
 namespace Presentacion.Forms
@@ -14,7 +8,10 @@ namespace Presentacion.Forms
     public partial class FrmLogin : Form
     {
         private readonly ServicioAutenticacion autenticacion = new();
+        private readonly ServicioConexion servicioConexion = new();
         private readonly CancellationTokenSource cancelacion = new();
+        private FrmPrincipal? principal;
+        private long? versionConexion;
         private bool ocupado;
         private bool preparado;
 
@@ -30,13 +27,22 @@ namespace Presentacion.Forms
                 kTextBox2.PasswordChar = kCheckBox1.Checked ? '\0' : '●';
                 kTextBox2.UseSystemPasswordChar = !kCheckBox1.Checked;
             };
-            FormClosed += (_, _) => { cancelacion.Cancel(); cancelacion.Dispose(); };
+            FormClosed += (_, _) =>
+            {
+                temporizadorConexion.Stop();
+                cancelacion.Cancel();
+                cancelacion.Dispose();
+            };
         }
 
-        protected override async void OnShown(EventArgs e)
+        private async void FrmLogin_Load(object sender, EventArgs e)
         {
-            base.OnShown(e);
+            if (DesignMode || LicenseManager.UsageMode == LicenseUsageMode.Designtime)
+                return;
+
             await PrepararAsync();
+            if (!IsDisposed)
+                temporizadorConexion.Start();
         }
 
         private async Task PrepararAsync()
@@ -45,16 +51,20 @@ namespace Presentacion.Forms
             preparado = false;
             try
             {
-                if (!new ServicioConexion().EstaConfigurada)
+                versionConexion = servicioConexion.VersionActual;
+                if (versionConexion is null)
                 {
-                    using var conexion = new FrmConfigurarConexion();
-                    if (conexion.ShowDialog(this) != DialogResult.OK)
-                    {
-                        Close();
-                        return;
-                    }
+                    btnConfigurarConexion.Visible = true;
+                    kLabel2.Text = "Configura la conexión a MySQL para empezar.";
+                    return;
                 }
                 preparado = await autenticacion.HayUsuariosAsync(cancelacion.Token);
+                if (ConexionHaCambiado())
+                {
+                    MostrarErrorConexion("La configuración cambió. Comprueba de nuevo la conexión.");
+                    return;
+                }
+                btnConfigurarConexion.Visible = false;
                 kLabel2.Text = preparado
                     ? "Introduce tus credenciales para empezar"
                     : "No hay usuarios registrados. Contacta al administrador.";
@@ -65,13 +75,12 @@ namespace Presentacion.Forms
             catch (Exception ex) when (ex is ArgumentException or InvalidOperationException)
             {
                 if (!IsDisposed)
-                    MessageBox.Show(this, ex.Message, "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MostrarErrorConexion(ex.Message);
             }
             catch (Exception)
             {
                 if (!IsDisposed)
-                    MessageBox.Show(this, "No se pudo preparar el acceso. Revisa la configuración de conexión.",
-                        "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MostrarErrorConexion("No se pudo preparar el acceso. Revisa la configuración de conexión.");
             }
             finally
             {
@@ -81,6 +90,52 @@ namespace Presentacion.Forms
                     CambiarEstado(false);
                 }
             }
+        }
+
+        private async void btnConfigurarConexion_Click(object sender, EventArgs e)
+        {
+            if (ocupado)
+                return;
+
+            CambiarEstado(true);
+            try
+            {
+                using var conexion = new FrmConfigurarConexion();
+                conexion.ShowDialog(this);
+                kTextBox2.Text = "";
+                kCheckBox1.Checked = false;
+            }
+            finally
+            {
+                if (!IsDisposed)
+                    await PrepararAsync();
+            }
+        }
+
+        private bool ConexionHaCambiado()
+        {
+            try { return servicioConexion.VersionActual != versionConexion; }
+            catch (InvalidOperationException) { return true; }
+        }
+
+        private async void temporizadorConexion_Tick(object sender, EventArgs e)
+        {
+            if (IsDisposed || (ocupado && principal is null) || !ConexionHaCambiado())
+                return;
+
+            if (principal is not null)
+                principal.Close();
+            else
+                await PrepararAsync();
+        }
+
+        private void MostrarErrorConexion(string mensaje)
+        {
+            preparado = false;
+            btnConfigurarConexion.Visible = true;
+            kButton1.Text = "Reintentar";
+            kLabel2.Text = "No se pudo comprobar la conexión. Puedes revisarla o reintentar.";
+            notificador.Show("Conexión", mensaje, KToastKind.Warning);
         }
 
         private async void Ingresar_Click(object? sender, EventArgs e)
@@ -93,8 +148,15 @@ namespace Presentacion.Forms
                 return;
             }
             CambiarEstado(true);
+            bool revisarConexion = false;
+            bool conexionModificada = false;
             try
             {
+                if (ConexionHaCambiado())
+                {
+                    revisarConexion = true;
+                    return;
+                }
                 var sesion = await autenticacion.IniciarSesionAsync(kTextBox1.Text, kTextBox2.Text, cancelacion.Token);
                 kTextBox2.Text = "";
                 kCheckBox1.Checked = false;
@@ -104,50 +166,67 @@ namespace Presentacion.Forms
                     await Task.Delay(1500, cancelacion.Token);
                     return;
                 }
+                revisarConexion = true;
+                if (ConexionHaCambiado())
+                    return;
+
+                using var ventana = new FrmPrincipal(sesion);
+                principal = ventana;
                 Hide();
                 try
                 {
-                    using var principal = new FrmPrincipal(sesion);
-                    principal.ShowDialog();
-                    var sesionActual = principal.SesionActual ?? sesion;
+                    ventana.ShowDialog();
+                    principal = null;
+                    var sesionActual = ventana.SesionActual ?? sesion;
                     kTextBox1.Text = sesionActual.NombreUsuario;
-                    try
-                    {
+                    conexionModificada = ConexionHaCambiado();
+                    if (!conexionModificada)
                         await autenticacion.CerrarSesionAsync(sesionActual, cancelacion.Token);
-                    }
-                    finally
-                    {
-                        if (principal.SalirDeAplicacion)
-                            Close();
-                    }
                 }
                 finally
                 {
+                    principal = null;
                     if (!IsDisposed)
-                        Show();
+                    {
+                        if (ventana.SalirDeAplicacion)
+                            Close();
+                        else
+                            Show();
+                    }
                 }
-                if (!IsDisposed)
-                    kLabel2.Text = "Sesión cerrada. Puedes volver a ingresar.";
             }
             catch (OperationCanceledException) { }
-            catch (Exception ex) when (ex is ArgumentException or InvalidOperationException)
+            catch (ArgumentException ex)
             {
                 if (!IsDisposed)
-                    MessageBox.Show(this, ex.Message, "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    notificador.Show("Inicio de sesión", ex.Message, KToastKind.Warning);
+            }
+            catch (InvalidOperationException ex)
+            {
+                if (!IsDisposed)
+                    MostrarErrorConexion(ex.Message);
             }
             catch (Exception)
             {
                 if (!IsDisposed)
-                    MessageBox.Show(this, "No se pudo completar el inicio de sesión. Vuelve a intentarlo.",
-                        "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MostrarErrorConexion("No se pudo completar el inicio de sesión. Revisa la conexión y vuelve a intentarlo.");
             }
             finally
             {
                 if (!IsDisposed)
                 {
                     kTextBox2.Text = "";
-                    CambiarEstado(false);
-                    kTextBox2.Focus();
+                    if (revisarConexion)
+                        await PrepararAsync();
+                    else
+                        CambiarEstado(false);
+
+                    if (!IsDisposed)
+                    {
+                        if (conexionModificada)
+                            notificador.Show("Sesión cerrada", "Cambió la conexión a MySQL. Inicia sesión nuevamente.", KToastKind.Warning);
+                        kTextBox2.Focus();
+                    }
                 }
             }
         }
@@ -157,6 +236,7 @@ namespace Presentacion.Forms
             ocupado = trabajando;
             UseWaitCursor = trabajando;
             kButton1.Enabled = kButton2.Enabled = !trabajando;
+            btnConfigurarConexion.Enabled = !trabajando;
             kTextBox1.Enabled = kTextBox2.Enabled = kCheckBox1.Enabled = !trabajando;
         }
 
