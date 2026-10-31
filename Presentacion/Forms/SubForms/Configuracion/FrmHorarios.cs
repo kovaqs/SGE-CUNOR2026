@@ -5,6 +5,7 @@ public partial class FrmHorarios : Form
     public FrmHorarios()
     {
         InitializeComponent();
+        PrepararConsulta();
     }
 
     private void btnAcciones_Click(object sender, EventArgs e)
@@ -47,4 +48,57 @@ public partial class FrmHorarios : Form
             mnuEditarHorario.PerformClick();
     }
 
+    private void FrmHorarios_Load(object sender, EventArgs e)
+    {
+
+    }
+    private readonly Negocios.ServicioHorarios consulta = new();
+    private List<Entidades.Horariolistado> horarios = new();
+
+    private void PrepararConsulta()
+    {
+        if (System.ComponentModel.LicenseManager.UsageMode == System.ComponentModel.LicenseUsageMode.Designtime) return;
+        cboEstado.SelectedIndex = 0;
+        Load += Consulta_Inicio;
+        txtBuscar.TextChanged += Consulta_Filtro;
+        cboEstado.SelectedIndexChanged += Consulta_Filtro;
+        btnCerrar.Click += Consulta_Cerrar;
+    }
+
+    private async void Consulta_Inicio(object? sender, EventArgs e)
+    {
+        try
+        {
+            horarios = await consulta.ListarAsync();
+            if (!IsDisposed)
+                Consulta_Filtro(this, EventArgs.Empty);
+        }
+        catch (Exception ex)
+        {
+            if (!IsDisposed)
+                notificador.Show("Horarios", ex.Message, KovaqsUI.Components.KToastKind.Warning);
+        }
+    }
+
+    private void Consulta_Filtro(object? sender, EventArgs e)
+    {
+        string texto = txtBuscar.Text.Trim();
+        dgvHorarios.Rows.Clear();
+        foreach (var horario in horarios)
+        {
+            if (!horario.Nombre.Contains(texto, StringComparison.OrdinalIgnoreCase))
+                continue;
+            if (cboEstado.Text == "Activos" && !horario.Activo) continue;
+            if (cboEstado.Text == "Inactivos" && horario.Activo) continue;
+
+            int fila = dgvHorarios.Rows.Add(
+                horario.Nombre, horario.Descripcion, horario.Activo);
+            dgvHorarios.Rows[fila].Tag = horario;
+        }
+    }
+
+    private void Consulta_Cerrar(object? sender, EventArgs e)
+    {
+        Close();
+    }
 }
