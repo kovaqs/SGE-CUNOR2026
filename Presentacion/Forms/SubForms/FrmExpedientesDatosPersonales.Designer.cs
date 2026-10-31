@@ -28,6 +28,9 @@ namespace Presentacion.Forms.SubForms
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            notificador = new KovaqsUI.Components.KToastNotifier(components);
+            notificador.OwnerForm = this;
             txtCodigo = new KovaqsUI.Controls.KTextBox();
             txtDpi = new KovaqsUI.Controls.KTextBox();
             txtNombres = new KovaqsUI.Controls.KTextBox();
@@ -406,5 +409,6 @@ namespace Presentacion.Forms.SubForms
         private KovaqsUI.Controls.KLabel lblCorreo;
         private KovaqsUI.Controls.KLabel lblDireccion;
         private KovaqsUI.Controls.KLabel lblFotografia;
+        private KovaqsUI.Components.KToastNotifier notificador;
 }
 }

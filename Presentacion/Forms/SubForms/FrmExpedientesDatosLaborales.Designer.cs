@@ -28,6 +28,9 @@ namespace Presentacion.Forms.SubForms
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            notificador = new KovaqsUI.Components.KToastNotifier(components);
+            notificador.OwnerForm = this;
             kLabel5 = new KovaqsUI.Controls.KLabel();
             dtpFechaContratacion = new DateTimePicker();
             cboDepartamento = new KovaqsUI.Controls.KComboBox();
@@ -337,5 +340,6 @@ namespace Presentacion.Forms.SubForms
         private DateTimePicker dtpInicioVigencia;
         private KovaqsUI.Controls.KTextBox txtMotivo;
         private KovaqsUI.Controls.KLabel kLabel8;
+        private KovaqsUI.Components.KToastNotifier notificador;
     }
 }

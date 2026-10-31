@@ -16,6 +16,9 @@ partial class FrmInicio
 
     private void InitializeComponent()
     {
+        components = new System.ComponentModel.Container();
+        notificador = new KovaqsUI.Components.KToastNotifier(components);
+        notificador.OwnerForm = this;
         LiveChartsCore.SkiaSharpView.SKCharts.SKDefaultLegend skDefaultLegend1 = new LiveChartsCore.SkiaSharpView.SKCharts.SKDefaultLegend();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInicio));
         LiveChartsCore.Drawing.Padding padding1 = new LiveChartsCore.Drawing.Padding();
@@ -624,4 +627,5 @@ partial class FrmInicio
     private KovaqsUI.Controls.KButton btnVerEmpleados;
     private KovaqsUI.Controls.KButton btnVerAsistencias;
     private KovaqsUI.Controls.KButton btnVerNomina;
+    private KovaqsUI.Components.KToastNotifier notificador;
 }

@@ -28,6 +28,9 @@ namespace Presentacion.Forms.SubForms
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            notificador = new KovaqsUI.Components.KToastNotifier(components);
+            notificador.OwnerForm = this;
             panel2 = new Panel();
             kLabel3 = new KovaqsUI.Controls.KLabel();
             btnCerrar = new KovaqsUI.Controls.KButton();
@@ -247,5 +250,6 @@ namespace Presentacion.Forms.SubForms
         private Panel panelDatos;
         private KovaqsUI.Controls.KButton btnCancelar;
         private KovaqsUI.Controls.KButton btnGuardar;
+        private KovaqsUI.Components.KToastNotifier notificador;
     }
 }
