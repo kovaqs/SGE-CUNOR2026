@@ -5,6 +5,7 @@ public partial class FrmPermisosLaborales : Form
     public FrmPermisosLaborales()
     {
         InitializeComponent();
+        PrepararConsulta();
     }
 
     private void FrmPermisosLaborales_Load(object sender, EventArgs e)
@@ -51,5 +52,115 @@ public partial class FrmPermisosLaborales : Form
         if (e.RowIndex >= 0 && !dgvPermisos.Rows[e.RowIndex].IsNewRow)
             mnuEditarPermiso.PerformClick();
     }
+    private readonly Negocios.ServicioPermisosLaborales consulta = new();
+    private int paginaConsulta;
+    private bool consultando;
 
+    private void PrepararConsulta()
+    {
+        if (System.ComponentModel.LicenseManager.UsageMode == System.ComponentModel.LicenseUsageMode.Designtime) return;
+        dtpDesde.Value = new DateTime(DateTime.Today.Year, 1, 1);
+        dtpHasta.Value = DateTime.Today;
+        cboEstado.SelectedIndex = 0;
+        cboTamanoPagina.SelectedIndex = 0;
+        dgvPermisos.AutoGenerateColumns = false;
+        colPermisosInicio.DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+        colPermisosFin.DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+
+        txtBuscarEmpleado.KeyDown += Consulta_Buscar;
+        btnCerrar.Click += Consulta_Cerrar;
+        Load += Consulta_Filtro;
+        dtpDesde.ValueChanged += Consulta_Filtro;
+        dtpHasta.ValueChanged += Consulta_Filtro;
+        cboEstado.SelectedIndexChanged += Consulta_Filtro;
+        cboTamanoPagina.SelectedIndexChanged += Consulta_Filtro;
+        btnAnterior.Click += Consulta_Anterior;
+        btnSiguiente.Click += Consulta_Siguiente;
+    }
+
+    private async void Consulta_Filtro(object? sender, EventArgs e)
+    {
+        if (consultando) return;
+        paginaConsulta = 0;
+        await CargarConsultaAsync();
+    }
+
+    private async Task CargarConsultaAsync()
+    {
+        if (consultando) return;
+        consultando = true;
+        HabilitarFiltrosConsulta(false);
+        btnAnterior.Enabled = false;
+        btnSiguiente.Enabled = false;
+
+        try
+        {
+            int tamano = int.Parse(cboTamanoPagina.Text);
+            var registros = await consulta.ListarAsync(
+                dtpDesde.Value, dtpHasta.Value, cboEstado.Text,
+                txtBuscarEmpleado.Text, paginaConsulta, tamano);
+
+            if (IsDisposed) return;
+
+            bool haySiguiente = registros.Count > tamano;
+            if (haySiguiente) registros.RemoveAt(tamano);
+
+            dgvPermisos.Rows.Clear();
+            foreach (var registro in registros)
+            {
+                int fila = dgvPermisos.Rows.Add(
+                    registro.Empleado, registro.Inicio, registro.Fin,
+                    registro.Motivo, registro.ConGoce, registro.Estado);
+                dgvPermisos.Rows[fila].Tag = registro;
+            }
+
+            lblPagina.Text = "Página " + (paginaConsulta + 1);
+            btnAnterior.Enabled = paginaConsulta > 0;
+            btnSiguiente.Enabled = haySiguiente;
+        }
+        catch (Exception ex)
+        {
+            if (!IsDisposed)
+                notificador.Show("Consulta", ex.Message, KovaqsUI.Components.KToastKind.Warning);
+        }
+        finally
+        {
+            consultando = false;
+            if (!IsDisposed) HabilitarFiltrosConsulta(true);
+        }
+    }
+
+    private void HabilitarFiltrosConsulta(bool habilitar)
+    {
+        dtpDesde.Enabled = dtpHasta.Enabled = habilitar;
+        cboEstado.Enabled = cboTamanoPagina.Enabled = habilitar;
+        txtBuscarEmpleado.Enabled = habilitar;
+    }
+
+    private async void Consulta_Anterior(object? sender, EventArgs e)
+    {
+        if (consultando || paginaConsulta == 0) return;
+        paginaConsulta--;
+        await CargarConsultaAsync();
+    }
+
+    private async void Consulta_Siguiente(object? sender, EventArgs e)
+    {
+        if (consultando) return;
+        paginaConsulta++;
+        await CargarConsultaAsync();
+    }
+
+    private async void Consulta_Buscar(object? sender, KeyEventArgs e)
+    {
+        if (e.KeyCode != Keys.Enter || consultando) return;
+        e.SuppressKeyPress = true;
+        paginaConsulta = 0;
+        await CargarConsultaAsync();
+    }
+
+    private void Consulta_Cerrar(object? sender, EventArgs e)
+    {
+        Close();
+    }
 }
