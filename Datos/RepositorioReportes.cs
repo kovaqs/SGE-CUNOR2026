@@ -35,7 +35,7 @@ public class RepositorioReportes
                 SELECT a.fecha AS Fecha,CONCAT(e.codigo,' - ',e.nombres,' ',e.apellidos) AS Empleado,
                     COALESCE(d.nombre,'') AS Departamento,DATE_SUB(a.entrada,INTERVAL 6 HOUR) AS Entrada,
                     DATE_SUB(a.salida,INTERVAL 6 HOUR) AS Salida,a.estado AS Estado,
-                    GREATEST(0,COALESCE(TIMESTAMPDIFF(MINUTE,a.entrada_prevista,a.entrada),0)-a.tolerancia_minutos) AS Tardanza
+                    GREATEST(0,COALESCE(TIMESTAMPDIFF(MINUTE,a.entrada_prevista,a.entrada),0)-CAST(a.tolerancia_minutos AS SIGNED)) AS Tardanza
                 FROM asistencias a JOIN empleados e ON e.id_empleado=a.id_empleado
                 LEFT JOIN historial_laboral h ON h.id_empleado=e.id_empleado
                     AND h.fecha_inicio<=a.fecha AND (h.fecha_fin IS NULL OR h.fecha_fin>a.fecha)
