@@ -70,6 +70,7 @@ public partial class FrmPermisosLaborales : Form
         txtBuscarEmpleado.KeyDown += Consulta_Buscar;
         btnCerrar.Click += Consulta_Cerrar;
         Load += Consulta_Filtro;
+        DatosActualizados += Consulta_Filtro;
         dtpDesde.ValueChanged += Consulta_Filtro;
         dtpHasta.ValueChanged += Consulta_Filtro;
         cboEstado.SelectedIndexChanged += Consulta_Filtro;

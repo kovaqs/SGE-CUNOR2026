@@ -60,6 +60,7 @@ public partial class FrmHorarios : Form
         if (System.ComponentModel.LicenseManager.UsageMode == System.ComponentModel.LicenseUsageMode.Designtime) return;
         cboEstado.SelectedIndex = 0;
         Load += Consulta_Inicio;
+        DatosActualizados += Consulta_Inicio;
         txtBuscar.TextChanged += Consulta_Filtro;
         cboEstado.SelectedIndexChanged += Consulta_Filtro;
         btnCerrar.Click += Consulta_Cerrar;

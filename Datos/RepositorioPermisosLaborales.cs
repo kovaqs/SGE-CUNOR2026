@@ -17,7 +17,7 @@ namespace Datos
             await using var conexion = await ConexionMySql.AbrirAsync();
             const string sql = """
             SELECT p.id_permiso_laboral,
-            CONCAT(e.codigo, ' ', e.nombres, ' ', e.apellidos) AS empleado,
+            CONCAT(e.codigo, ' - ', e.nombres, ' ', e.apellidos) AS empleado,
             p.fecha_inicio, p.fecha_fin, p.motivo, p.con_goce, p.estado
             FROM permisos_laborales p
             JOIN empleados e ON e.id_empleado = p.id_empleado
