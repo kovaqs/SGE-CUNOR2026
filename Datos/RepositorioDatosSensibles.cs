@@ -87,7 +87,7 @@ public sealed class RepositorioDatosSensibles
                 """, conexion, transaccion))
             {
                 fechas.Parameters.Add("@empleado", MySqlDbType.UInt32).Value = condicion.IdEmpleado;
-                fechas.Parameters.Add("@inicio", MySqlDbType.Date).Value = condicion.FechaInicio.Date;
+                fechas.Parameters.Add("@inicio", MySqlDbType.Date).Value = DateOnly.FromDateTime(condicion.FechaInicio);
                 if (Convert.ToInt32(await fechas.ExecuteScalarAsync()) > 0)
                     throw new InvalidOperationException("La nueva condición debe comenzar después de las condiciones ya registradas.");
             }
@@ -96,7 +96,7 @@ public sealed class RepositorioDatosSensibles
                 """, conexion, transaccion))
             {
                 cerrar.Parameters.Add("@empleado", MySqlDbType.UInt32).Value = condicion.IdEmpleado;
-                cerrar.Parameters.Add("@inicio", MySqlDbType.Date).Value = condicion.FechaInicio.Date;
+                cerrar.Parameters.Add("@inicio", MySqlDbType.Date).Value = DateOnly.FromDateTime(condicion.FechaInicio);
                 await cerrar.ExecuteNonQueryAsync();
             }
             await using var guardar = new MySqlCommand("""
@@ -111,7 +111,7 @@ public sealed class RepositorioDatosSensibles
             guardar.Parameters.Add("@puesto", MySqlDbType.UInt32).Value = condicion.IdPuesto;
             guardar.Parameters.Add("@contrato", MySqlDbType.UInt32).Value = condicion.IdTipoContrato;
             guardar.Parameters.Add("@horario", MySqlDbType.UInt32).Value = condicion.IdHorario;
-            guardar.Parameters.Add("@inicio", MySqlDbType.Date).Value = condicion.FechaInicio.Date;
+            guardar.Parameters.Add("@inicio", MySqlDbType.Date).Value = DateOnly.FromDateTime(condicion.FechaInicio);
             guardar.Parameters.Add("@salario", MySqlDbType.VarBinary, 256).Value = CifradoDatos.CifrarImporte(condicion.Salario, clave,
                 ContextoSalario(condicion.IdEmpleado, condicion.FechaInicio));
             guardar.Parameters.Add("@motivo", MySqlDbType.VarChar, 500).Value = condicion.Motivo;

@@ -21,9 +21,9 @@ public class ServicioPeriodosNomina
         {
             return await repositorio.ListarAsync(desde.Date, hasta.Date, estado, pagina, tamano);
         }
-        catch (DbException)
+        catch (DbException ex)
         {
-            throw new InvalidOperationException("No se pudieron consultar los períodos de nómina.");
+            throw new InvalidOperationException("No se pudieron consultar los períodos de nómina.", ex);
         }
     }
 }
