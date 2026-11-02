@@ -4,6 +4,13 @@ Proyecto de Introducción a la Programación 2.
 
 Aplicación de escritorio para la gestión de empleados desarrollada con C#, Windows Forms y .NET 8.
 
+## Documentación
+
+La carpeta `Docs` contiene la documentación del sistema, con capturas, diagramas y una guía breve de uso:
+
+- [Word editable](Docs/Documentacion_SGE_CUNOR2026.docx)
+- [PDF](Docs/Documentacion_SGE_CUNOR2026.pdf)
+
 ## Arquitectura
 
 El proyecto está organizado en capas:
