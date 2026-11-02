@@ -31,13 +31,13 @@ public partial class FrmNomina
             AbrirPeriodo(formulario.IdCreado);
         }
     }
-    private async void VerPeriodo_Click(object? sender, EventArgs e)
+    private void VerPeriodo_Click(object? sender, EventArgs e)
     {
-        if (dgvPeriodos.CurrentRow is not { } fila || fila.Cells[colDesde.Index].Value is not DateTime desde || fila.Cells[colHasta.Index].Value is not DateTime hasta)
+        if (consultando || dgvPeriodos.CurrentRow?.Tag is not PeriodoNominaListado periodo)
             return;
         try
         {
-            AbrirPeriodo(await new ServicioNomina().BuscarPeriodoIdAsync(desde, hasta));
+            AbrirPeriodo(periodo.IdPeriodo);
         }
         catch (Exception ex) { AyudaFormulario.Error(notificador, ex); }
     }

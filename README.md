@@ -21,7 +21,7 @@ Proyecto en desarrollo.
 
 Incluye acceso con MySQL, expedientes de empleados, departamentos, puestos, asistencias, configuración, usuarios, operaciones de nómina y reportes. Las ventanas principales conservan su instancia y actualizan los datos al volver a ellas.
 
-La bitácora, el catálogo de horarios y el listado de permisos laborales ya incluyen sus consultas. Queda pendiente el aporte del listado de períodos de nómina. Las consultas se mantienen separadas de las operaciones de edición mediante los archivos `.Operaciones.cs` cuando corresponde.
+La bitácora, el catálogo de horarios, los permisos laborales y los períodos de nómina incluyen sus consultas. Las consultas se mantienen separadas de las operaciones de edición mediante los archivos `.Operaciones.cs` cuando corresponde.
 
 ## Conexión y acceso
 
@@ -62,7 +62,7 @@ Las consultas del inicio generan los indicadores y gráficos desde MySQL. `BaseD
 
 La exportación utiliza [PDFsharp/MigraDoc](https://docs.pdfsharp.net/) para PDF y [ClosedXML](https://docs.closedxml.io/) para Excel. Los archivos se guardan en el destino elegido por el usuario.
 
-Horarios y Permisos laborales actualizan sus consultas después de guardar o eliminar registros. Al incorporar la guía pendiente de Nómina, conecta `DatosActualizados` a `Consulta_Filtro` para refrescar el listado después de una operación. Los bloques de esa guía se pegan en sus cuatro archivos respectivos.
+Horarios, Permisos laborales y Nómina actualizan sus consultas después de una operación. Los períodos de nómina se pueden filtrar por fechas y estado, y abrir desde el menú de la tabla o con doble clic.
 
 ## Requisitos y compilación
 
