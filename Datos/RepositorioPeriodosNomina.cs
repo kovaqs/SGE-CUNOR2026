@@ -20,8 +20,8 @@ public class RepositorioPeriodosNomina
             LIMIT @limite OFFSET @inicio;
             """;
         await using var comando = new MySqlCommand(sql, conexion);
-        comando.Parameters.AddWithValue("@desde", desde);
-        comando.Parameters.AddWithValue("@hasta", hasta);
+        comando.Parameters.AddWithValue("@desde", DateOnly.FromDateTime(desde));
+        comando.Parameters.AddWithValue("@hasta", DateOnly.FromDateTime(hasta));
         comando.Parameters.AddWithValue("@estado", estado);
         comando.Parameters.AddWithValue("@limite", tamano + 1);
         comando.Parameters.AddWithValue("@inicio", pagina * tamano);

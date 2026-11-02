@@ -26,7 +26,7 @@ public class RepositorioEmpleados
                 AND (@estado='Todos' OR e.estado=@estado)
             ORDER BY e.apellidos,e.nombres,e.id_empleado LIMIT @limite OFFSET @inicio;
             """, conexion);
-        comando.Parameters.AddWithValue("@fecha", DateTime.UtcNow.AddHours(-6).Date);
+        comando.Parameters.AddWithValue("@fecha", DateOnly.FromDateTime(DateTime.UtcNow.AddHours(-6)));
         comando.Parameters.AddWithValue("@texto", "%" + buscar + "%");
         comando.Parameters.AddWithValue("@departamento", departamento);
         comando.Parameters.AddWithValue("@contrato", contrato);
@@ -153,13 +153,13 @@ public class RepositorioEmpleados
             guardar.Parameters.AddWithValue("@dpi", empleado.Dpi);
             guardar.Parameters.AddWithValue("@nombres", empleado.Nombres);
             guardar.Parameters.AddWithValue("@apellidos", empleado.Apellidos);
-            guardar.Parameters.AddWithValue("@nacimiento", (object?)empleado.FechaNacimiento?.Date ?? DBNull.Value);
+            guardar.Parameters.AddWithValue("@nacimiento", empleado.FechaNacimiento.HasValue ? (object)DateOnly.FromDateTime(empleado.FechaNacimiento.Value) : DBNull.Value);
             guardar.Parameters.AddWithValue("@telefono", (object?)empleado.Telefono ?? DBNull.Value);
             guardar.Parameters.AddWithValue("@correo", (object?)empleado.Correo ?? DBNull.Value);
             guardar.Parameters.AddWithValue("@direccion", (object?)empleado.Direccion ?? DBNull.Value);
             guardar.Parameters.AddWithValue("@foto", (object?)empleado.Fotografia ?? DBNull.Value);
             guardar.Parameters.AddWithValue("@tipo", (object?)empleado.FotografiaTipo ?? DBNull.Value);
-            guardar.Parameters.AddWithValue("@contratacion", empleado.FechaContratacion.Date);
+            guardar.Parameters.AddWithValue("@contratacion", DateOnly.FromDateTime(empleado.FechaContratacion));
             if (await guardar.ExecuteNonQueryAsync() != 1)
                 throw new InvalidOperationException("El empleado ya no existe.");
             uint id = nuevo ? checked((uint)guardar.LastInsertedId) : empleado.IdEmpleado;
@@ -183,7 +183,7 @@ public class RepositorioEmpleados
                 insertar.Parameters.AddWithValue("@puesto", condicion.IdPuesto);
                 insertar.Parameters.AddWithValue("@contrato", condicion.IdTipoContrato);
                 insertar.Parameters.AddWithValue("@horario", condicion.IdHorario);
-                insertar.Parameters.AddWithValue("@inicio", condicion.FechaInicio.Date);
+                insertar.Parameters.AddWithValue("@inicio", DateOnly.FromDateTime(condicion.FechaInicio));
                 insertar.Parameters.AddWithValue("@salario", CifradoDatos.CifrarImporte(condicion.Salario, clave, Contexto(id, condicion.FechaInicio)));
                 insertar.Parameters.AddWithValue("@motivo", condicion.Motivo);
                 insertar.Parameters.AddWithValue("@autor", autor.IdUsuario);
@@ -247,7 +247,7 @@ public class RepositorioEmpleados
             """, conexion, transaccion);
         comando.Parameters.AddWithValue("@id", empleado);
         comando.Parameters.AddWithValue("@estado", estado);
-        comando.Parameters.AddWithValue("@baja", (object?)baja?.Date ?? DBNull.Value);
+        comando.Parameters.AddWithValue("@baja", baja.HasValue ? (object)DateOnly.FromDateTime(baja.Value) : DBNull.Value);
         if (await comando.ExecuteNonQueryAsync() != 1)
             throw new InvalidOperationException("Revisa el empleado y su fecha de baja.");
         await SeguridadDatos.RegistrarOperacionAsync(conexion, transaccion, autor, "UPDATE", "empleados", empleado, "Cambio de estado a " + estado + ".");

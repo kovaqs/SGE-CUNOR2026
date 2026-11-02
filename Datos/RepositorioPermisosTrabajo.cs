@@ -15,7 +15,7 @@ public class RepositorioPermisosTrabajo
             WHERE CONCAT(e.codigo,' - ',e.nombres,' ',e.apellidos)=@empleado AND p.fecha_inicio=@inicio;
             """, conexion);
         comando.Parameters.AddWithValue("@empleado", empleado);
-        comando.Parameters.AddWithValue("@inicio", inicio.AddHours(6));
+        comando.Parameters.AddWithValue("@inicio", DateTime.SpecifyKind(inicio.AddHours(6), DateTimeKind.Utc));
         await using var lector = await comando.ExecuteReaderAsync();
         if (!await lector.ReadAsync())
             throw new InvalidOperationException("El permiso ya no existe.");
@@ -50,8 +50,8 @@ public class RepositorioPermisosTrabajo
         {
             solapados.Parameters.AddWithValue("@empleado", permiso.IdEmpleado);
             solapados.Parameters.AddWithValue("@id", permiso.IdPermiso);
-            solapados.Parameters.AddWithValue("@inicio", permiso.Inicio.AddHours(6));
-            solapados.Parameters.AddWithValue("@fin", permiso.Fin.AddHours(6));
+            solapados.Parameters.AddWithValue("@inicio", DateTime.SpecifyKind(permiso.Inicio.AddHours(6), DateTimeKind.Utc));
+            solapados.Parameters.AddWithValue("@fin", DateTime.SpecifyKind(permiso.Fin.AddHours(6), DateTimeKind.Utc));
             if (Convert.ToInt32(await solapados.ExecuteScalarAsync()) > 0)
                 throw new InvalidOperationException("El empleado ya tiene un permiso pendiente o aprobado en ese intervalo.");
         }
@@ -65,8 +65,8 @@ public class RepositorioPermisosTrabajo
             """, conexion, transaccion);
         guardar.Parameters.AddWithValue("@id", permiso.IdPermiso);
         guardar.Parameters.AddWithValue("@empleado", permiso.IdEmpleado);
-        guardar.Parameters.AddWithValue("@inicio", permiso.Inicio.AddHours(6));
-        guardar.Parameters.AddWithValue("@fin", permiso.Fin.AddHours(6));
+        guardar.Parameters.AddWithValue("@inicio", DateTime.SpecifyKind(permiso.Inicio.AddHours(6), DateTimeKind.Utc));
+        guardar.Parameters.AddWithValue("@fin", DateTime.SpecifyKind(permiso.Fin.AddHours(6), DateTimeKind.Utc));
         guardar.Parameters.AddWithValue("@motivo", permiso.Motivo);
         guardar.Parameters.AddWithValue("@goce", permiso.ConGoce);
         guardar.Parameters.AddWithValue("@autor", autor.IdUsuario);

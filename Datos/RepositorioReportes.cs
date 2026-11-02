@@ -49,8 +49,8 @@ public class RepositorioReportes
         await using var conexion = await ConexionMySql.AbrirAsync();
         await SeguridadDatos.ValidarPermisoAsync(conexion, null, autor, "reportes");
         await using var comando = new MySqlCommand(sql, conexion);
-        comando.Parameters.AddWithValue("@desde", desde.Date);
-        comando.Parameters.AddWithValue("@hasta", hasta.Date);
+        comando.Parameters.AddWithValue("@desde", DateOnly.FromDateTime(desde));
+        comando.Parameters.AddWithValue("@hasta", DateOnly.FromDateTime(hasta));
         comando.Parameters.AddWithValue("@departamento", departamento);
         comando.Parameters.AddWithValue("@estado", estado);
         comando.Parameters.AddWithValue("@filtrar", tipo == 1);

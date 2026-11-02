@@ -22,8 +22,8 @@ public class RepositorioAsistencias
                 AND (@estado='Todos' OR a.estado=@estado)
             ORDER BY a.fecha DESC,e.apellidos,e.nombres,a.id_asistencia LIMIT @limite OFFSET @inicio;
             """, conexion);
-        comando.Parameters.AddWithValue("@desde", desde.Date);
-        comando.Parameters.AddWithValue("@hasta", hasta.Date);
+        comando.Parameters.AddWithValue("@desde", DateOnly.FromDateTime(desde));
+        comando.Parameters.AddWithValue("@hasta", DateOnly.FromDateTime(hasta));
         comando.Parameters.AddWithValue("@departamento", departamento);
         comando.Parameters.AddWithValue("@buscar", "%" + buscar + "%");
         comando.Parameters.AddWithValue("@estado", estado);
@@ -64,7 +64,7 @@ public class RepositorioAsistencias
                 AND hd.dia_semana=@dia;
             """, conexion);
         comando.Parameters.AddWithValue("@empleado", empleado);
-        comando.Parameters.AddWithValue("@fecha", fecha.Date);
+        comando.Parameters.AddWithValue("@fecha", DateOnly.FromDateTime(fecha));
         comando.Parameters.AddWithValue("@dia", dia);
         await using var lector = await comando.ExecuteReaderAsync();
         if (await lector.ReadAsync())
@@ -93,7 +93,7 @@ public class RepositorioAsistencias
             """, conexion, transaccion);
         comando.Parameters.AddWithValue("@id", asistencia.IdAsistencia);
         comando.Parameters.AddWithValue("@empleado", asistencia.IdEmpleado);
-        comando.Parameters.AddWithValue("@fecha", asistencia.Fecha.Date);
+        comando.Parameters.AddWithValue("@fecha", DateOnly.FromDateTime(asistencia.Fecha));
         comando.Parameters.AddWithValue("@laborable", asistencia.EsLaborable);
         comando.Parameters.AddWithValue("@prevista", Utc(asistencia.EntradaPrevista));
         comando.Parameters.AddWithValue("@finprevisto", Utc(asistencia.SalidaPrevista));

@@ -22,8 +22,8 @@ public class RepositorioBitacora
             ORDER BY fecha_operacion DESC, id_bitacora DESC;
             """;
         await using var comando = new MySqlCommand(sql, conexion);
-        comando.Parameters.AddWithValue("@desde", desde);
-        comando.Parameters.AddWithValue("@hasta", hasta);
+        comando.Parameters.AddWithValue("@desde", DateTime.SpecifyKind(desde, DateTimeKind.Utc));
+        comando.Parameters.AddWithValue("@hasta", DateTime.SpecifyKind(hasta, DateTimeKind.Utc));
         comando.Parameters.AddWithValue("@usuario", usuario);
         comando.Parameters.AddWithValue("@usuarioFiltro", "%" + usuario + "%");
         comando.Parameters.AddWithValue("@operacion", operacion);

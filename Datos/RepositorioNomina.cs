@@ -18,8 +18,8 @@ public class RepositorioNomina
             VALUES (@nombre,@inicio,@fin,@autor,@observaciones);
             """, conexion, transaccion);
         comando.Parameters.AddWithValue("@nombre", periodo.Nombre);
-        comando.Parameters.AddWithValue("@inicio", periodo.Inicio.Date);
-        comando.Parameters.AddWithValue("@fin", periodo.Fin.Date);
+        comando.Parameters.AddWithValue("@inicio", DateOnly.FromDateTime(periodo.Inicio));
+        comando.Parameters.AddWithValue("@fin", DateOnly.FromDateTime(periodo.Fin));
         comando.Parameters.AddWithValue("@autor", autor.IdUsuario);
         comando.Parameters.AddWithValue("@observaciones", (object?)periodo.Observaciones ?? DBNull.Value);
         try
@@ -36,8 +36,8 @@ public class RepositorioNomina
     {
         await using var conexion = await ConexionMySql.AbrirAsync();
         await using var comando = new MySqlCommand("SELECT id_periodo_nomina FROM periodos_nomina WHERE fecha_inicio=@inicio AND fecha_fin=@fin;", conexion);
-        comando.Parameters.AddWithValue("@inicio", desde.Date);
-        comando.Parameters.AddWithValue("@fin", hasta.Date);
+        comando.Parameters.AddWithValue("@inicio", DateOnly.FromDateTime(desde));
+        comando.Parameters.AddWithValue("@fin", DateOnly.FromDateTime(hasta));
         var id = await comando.ExecuteScalarAsync();
         if (id is null)
             throw new InvalidOperationException("El período ya no existe.");
@@ -94,8 +94,8 @@ public class RepositorioNomina
                 ORDER BY e.id_empleado;
                 """, conexion, transaccion))
             {
-                consultar.Parameters.AddWithValue("@inicio", periodo.Inicio);
-                consultar.Parameters.AddWithValue("@fin", periodo.Fin);
+                consultar.Parameters.AddWithValue("@inicio", DateOnly.FromDateTime(periodo.Inicio));
+                consultar.Parameters.AddWithValue("@fin", DateOnly.FromDateTime(periodo.Fin));
                 await using var lector = await consultar.ExecuteReaderAsync();
                 while (await lector.ReadAsync())
                 {

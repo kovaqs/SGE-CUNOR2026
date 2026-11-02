@@ -27,7 +27,7 @@ public class RepositorioIndicadores
                 WHERE e.estado='Activo' AND e.fecha_contratacion<=@fin AND (@departamento=0 OR p.id_departamento=@departamento);
                 """, conexion))
             {
-                contar.Parameters.AddWithValue("@fin", fin);
+                contar.Parameters.AddWithValue("@fin", DateOnly.FromDateTime(fin));
                 contar.Parameters.AddWithValue("@departamento", departamento);
                 resumen.EmpleadosActivos = Convert.ToInt32(await contar.ExecuteScalarAsync());
             }
@@ -39,7 +39,7 @@ public class RepositorioIndicadores
                 ORDER BY d.nombre,e.id_empleado;
                 """, conexion))
             {
-                salarios.Parameters.AddWithValue("@fin", fin);
+                salarios.Parameters.AddWithValue("@fin", DateOnly.FromDateTime(fin));
                 salarios.Parameters.AddWithValue("@departamento", departamento);
                 await using var lector = await salarios.ExecuteReaderAsync();
                 while (await lector.ReadAsync())
@@ -72,8 +72,8 @@ public class RepositorioIndicadores
                 WHERE a.fecha BETWEEN @desde AND @hasta AND (@departamento=0 OR p.id_departamento=@departamento)
                 GROUP BY YEAR(a.fecha),MONTH(a.fecha) ORDER BY YEAR(a.fecha),MONTH(a.fecha);
                 """, conexion);
-            incidencias.Parameters.AddWithValue("@desde", primerMes);
-            incidencias.Parameters.AddWithValue("@hasta", fin);
+            incidencias.Parameters.AddWithValue("@desde", DateOnly.FromDateTime(primerMes));
+            incidencias.Parameters.AddWithValue("@hasta", DateOnly.FromDateTime(fin));
             incidencias.Parameters.AddWithValue("@departamento", departamento);
             await using var filas = await incidencias.ExecuteReaderAsync();
             while (await filas.ReadAsync())

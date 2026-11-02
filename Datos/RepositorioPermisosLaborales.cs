@@ -31,8 +31,8 @@ namespace Datos
             """;
 
             await using var comando = new MySqlCommand(sql, conexion);
-            comando.Parameters.AddWithValue("@desde", desde);
-            comando.Parameters.AddWithValue("@hasta", hasta);
+            comando.Parameters.AddWithValue("@desde", DateTime.SpecifyKind(desde, DateTimeKind.Utc));
+            comando.Parameters.AddWithValue("@hasta", DateTime.SpecifyKind(hasta, DateTimeKind.Utc));
             comando.Parameters.AddWithValue("@estado", estado);
             comando.Parameters.AddWithValue("@buscar", buscar);
             comando.Parameters.AddWithValue("@texto", "%" + buscar + "%");
