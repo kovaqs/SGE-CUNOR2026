@@ -10,7 +10,10 @@ public partial class FrmReportes : Form
     private SesionUsuario? sesion;
     private DataTable? resultados;
     private string tituloResultados = "Reporte";
+    private string filtrosResultados = "";
     private int pagina;
+    private int columnaOrden = -1;
+    private bool ordenAscendente = true;
     public FrmReportes()
     {
         InitializeComponent();
@@ -24,6 +27,7 @@ public partial class FrmReportes : Form
         cboTipoReporte.SelectedIndexChanged += Tipo_Changed;
         mnuExportarPdf.Click += Pdf_Click;
         mnuExportarExcel.Click += Excel_Click;
+        dgvResultados.ColumnHeaderMouseClick += OrdenarResultados;
     }
     public void EstablecerSesion(SesionUsuario sesion)
     {
@@ -51,6 +55,7 @@ public partial class FrmReportes : Form
             return;
         btnConsultar.Enabled = false;
         string tituloConsulta = cboTipoReporte.Text;
+        string filtrosConsulta = DescribirFiltros();
         try
         {
             resultados = await new ServicioReportes().ConsultarAsync(cboTipoReporte.SelectedIndex, dtpDesde.Value, dtpHasta.Value,
@@ -58,6 +63,8 @@ public partial class FrmReportes : Form
             if (!IsDisposed)
             {
                 tituloResultados = tituloConsulta;
+                filtrosResultados = filtrosConsulta;
+                columnaOrden = -1;
                 pagina = 0;
                 PintarPagina();
             }
@@ -79,12 +86,15 @@ public partial class FrmReportes : Form
                 continue;
             columna.HeaderText = resultados.Columns[i].ColumnName;
             columna.DataPropertyName = resultados.Columns[i].ColumnName;
+            columna.SortMode = DataGridViewColumnSortMode.Programmatic;
+            columna.HeaderCell.SortGlyphDirection = i == columnaOrden
+                ? (ordenAscendente ? SortOrder.Ascending : SortOrder.Descending) : SortOrder.None;
             columna.DefaultCellStyle.Format = resultados.Columns[i].DataType == typeof(decimal) ? "N2" : resultados.Columns[i].DataType == typeof(DateTime) ? "dd/MM/yyyy HH:mm" : "";
         }
         var vista = resultados.Clone();
         int inicio = pagina * tamano;
         for (int i = inicio; i < Math.Min(inicio + tamano, resultados.Rows.Count); i++)
-            vista.ImportRow(resultados.Rows[i]);
+            vista.ImportRow(resultados.DefaultView[i].Row);
         dgvResultados.DataSource = vista;
         int paginas = Math.Max(1, (resultados.Rows.Count + tamano - 1) / tamano);
         lblPagina.Text = "Página " + (pagina + 1) + " de " + paginas;
@@ -99,10 +109,33 @@ public partial class FrmReportes : Form
         dtpDesde.Value = new DateTime(DateTime.Today.Year, 1, 1);
         dtpHasta.Value = DateTime.Today;
     }
+    private string DescribirFiltros()
+    {
+        string departamento = "Departamento: " + cboDepartamento.Text;
+        if (cboTipoReporte.SelectedIndex == 4)
+            return "Período: " + cboPeriodoNomina.Text + " | " + departamento;
+        string fechas = cboTipoReporte.SelectedIndex is 1 or 3
+            ? "Desde " + dtpDesde.Value.ToString("dd/MM/yyyy") + " hasta " + dtpHasta.Value.ToString("dd/MM/yyyy")
+            : "Al " + dtpHasta.Value.ToString("dd/MM/yyyy");
+        return fechas + " | " + departamento + " | Estado: " + cboEstadoEmpleado.Text;
+    }
+    private void OrdenarResultados(object? sender, DataGridViewCellMouseEventArgs e)
+    {
+        if (resultados is null || e.ColumnIndex < 0 || e.ColumnIndex >= resultados.Columns.Count)
+            return;
+        ordenAscendente = columnaOrden != e.ColumnIndex || !ordenAscendente;
+        columnaOrden = e.ColumnIndex;
+        string columna = resultados.Columns[columnaOrden].ColumnName.Replace("]", "]]");
+        resultados.DefaultView.Sort = "[" + columna + "] " + (ordenAscendente ? "ASC" : "DESC");
+        pagina = 0;
+        PintarPagina();
+    }
     private void Tipo_Changed(object? sender, EventArgs e)
     {
         cboPeriodoNomina.Enabled = cboTipoReporte.SelectedIndex == 4;
         cboEstadoEmpleado.Enabled = cboTipoReporte.SelectedIndex != 4;
+        dtpDesde.Enabled = cboTipoReporte.SelectedIndex is 1 or 3;
+        dtpHasta.Enabled = cboTipoReporte.SelectedIndex != 4;
     }
     private void Tamano_Changed(object? sender, EventArgs e)
     {
@@ -136,10 +169,11 @@ public partial class FrmReportes : Form
         btnExportar.Enabled = false;
         try
         {
-            var datos = resultados.Copy();
+            var datos = resultados.DefaultView.ToTable();
             string archivo = dlgGuardarReporte.FileName;
             string titulo = tituloResultados;
-            await Task.Run(() => { if (excel) ExportadorReportes.Excel(datos, archivo); else ExportadorReportes.Pdf(datos, titulo, archivo); });
+            string filtros = filtrosResultados;
+            await Task.Run(() => { if (excel) ExportadorReportes.Excel(datos, archivo, titulo, filtros); else ExportadorReportes.Pdf(datos, titulo, archivo, filtros); });
             if (!IsDisposed)
                 notificador.Show("Reportes", "Archivo guardado con todos los resultados de la consulta.", KovaqsUI.Components.KToastKind.Success);
         }

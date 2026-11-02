@@ -31,38 +31,38 @@ namespace Presentacion.Forms.SubForms
             components = new System.ComponentModel.Container();
             notificador = new KovaqsUI.Components.KToastNotifier(components);
             notificador.OwnerForm = this;
-            kLabel5 = new KovaqsUI.Controls.KLabel();
+            lblFechaContratacion = new KovaqsUI.Controls.KLabel();
             dtpFechaContratacion = new DateTimePicker();
             cboDepartamento = new KovaqsUI.Controls.KComboBox();
-            kLabel1 = new KovaqsUI.Controls.KLabel();
-            kLabel2 = new KovaqsUI.Controls.KLabel();
+            lblDepartamento = new KovaqsUI.Controls.KLabel();
+            lblPuesto = new KovaqsUI.Controls.KLabel();
             cboPuesto = new KovaqsUI.Controls.KComboBox();
-            kLabel3 = new KovaqsUI.Controls.KLabel();
+            lblTipoContrato = new KovaqsUI.Controls.KLabel();
             cboTipoContrato = new KovaqsUI.Controls.KComboBox();
-            kLabel4 = new KovaqsUI.Controls.KLabel();
+            lblHorario = new KovaqsUI.Controls.KLabel();
             cboHorario = new KovaqsUI.Controls.KComboBox();
-            kLabel6 = new KovaqsUI.Controls.KLabel();
+            lblSalario = new KovaqsUI.Controls.KLabel();
             numSalario = new KovaqsUI.Controls.KNumericUpDown();
-            kLabel7 = new KovaqsUI.Controls.KLabel();
+            lblInicioVigencia = new KovaqsUI.Controls.KLabel();
             dtpInicioVigencia = new DateTimePicker();
             txtMotivo = new KovaqsUI.Controls.KTextBox();
-            kLabel8 = new KovaqsUI.Controls.KLabel();
+            lblMotivo = new KovaqsUI.Controls.KLabel();
             SuspendLayout();
             //
-            // kLabel5
+            // lblFechaContratacion
             //
-            kLabel5.AutoSize = false;
-            kLabel5.BackColor = Color.Transparent;
-            kLabel5.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel5.Location = new Point(16, 16);
-            kLabel5.Font = new Font("Inter", 9F);
-            kLabel5.TabStop = false;
-            kLabel5.Name = "kLabel5";
-            kLabel5.Size = new Size(423, 24);
-            kLabel5.TabIndex = 0;
-            kLabel5.Text = "Fecha de contratación";
-            kLabel5.TextAlign = ContentAlignment.MiddleLeft;
-            kLabel5.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblFechaContratacion.AutoSize = false;
+            lblFechaContratacion.BackColor = Color.Transparent;
+            lblFechaContratacion.ForeColor = Color.FromArgb(64, 64, 64);
+            lblFechaContratacion.Location = new Point(16, 16);
+            lblFechaContratacion.Font = new Font("Inter", 9F);
+            lblFechaContratacion.TabStop = false;
+            lblFechaContratacion.Name = "lblFechaContratacion";
+            lblFechaContratacion.Size = new Size(423, 24);
+            lblFechaContratacion.TabIndex = 0;
+            lblFechaContratacion.Text = "Fecha de contratación";
+            lblFechaContratacion.TextAlign = ContentAlignment.MiddleLeft;
+            lblFechaContratacion.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
             // dtpFechaContratacion
             //
@@ -93,35 +93,35 @@ namespace Presentacion.Forms.SubForms
             cboDepartamento.Size = new Size(423, 34);
             cboDepartamento.TabIndex = 3;
             //
-            // kLabel1
+            // lblDepartamento
             //
-            kLabel1.AutoSize = false;
-            kLabel1.BackColor = Color.Transparent;
-            kLabel1.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel1.Location = new Point(456, 16);
-            kLabel1.Font = new Font("Inter", 9F);
-            kLabel1.TabStop = false;
-            kLabel1.Name = "kLabel1";
-            kLabel1.Size = new Size(423, 24);
-            kLabel1.TabIndex = 1;
-            kLabel1.Text = "Departamento";
-            kLabel1.TextAlign = ContentAlignment.MiddleLeft;
-            kLabel1.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblDepartamento.AutoSize = false;
+            lblDepartamento.BackColor = Color.Transparent;
+            lblDepartamento.ForeColor = Color.FromArgb(64, 64, 64);
+            lblDepartamento.Location = new Point(456, 16);
+            lblDepartamento.Font = new Font("Inter", 9F);
+            lblDepartamento.TabStop = false;
+            lblDepartamento.Name = "lblDepartamento";
+            lblDepartamento.Size = new Size(423, 24);
+            lblDepartamento.TabIndex = 1;
+            lblDepartamento.Text = "Departamento";
+            lblDepartamento.TextAlign = ContentAlignment.MiddleLeft;
+            lblDepartamento.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
-            // kLabel2
+            // lblPuesto
             //
-            kLabel2.AutoSize = false;
-            kLabel2.BackColor = Color.Transparent;
-            kLabel2.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel2.Location = new Point(16, 86);
-            kLabel2.Font = new Font("Inter", 9F);
-            kLabel2.TabStop = false;
-            kLabel2.Name = "kLabel2";
-            kLabel2.Size = new Size(423, 24);
-            kLabel2.TabIndex = 4;
-            kLabel2.Text = "Puesto de trabajo";
-            kLabel2.TextAlign = ContentAlignment.MiddleLeft;
-            kLabel2.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblPuesto.AutoSize = false;
+            lblPuesto.BackColor = Color.Transparent;
+            lblPuesto.ForeColor = Color.FromArgb(64, 64, 64);
+            lblPuesto.Location = new Point(16, 86);
+            lblPuesto.Font = new Font("Inter", 9F);
+            lblPuesto.TabStop = false;
+            lblPuesto.Name = "lblPuesto";
+            lblPuesto.Size = new Size(423, 24);
+            lblPuesto.TabIndex = 4;
+            lblPuesto.Text = "Puesto de trabajo";
+            lblPuesto.TextAlign = ContentAlignment.MiddleLeft;
+            lblPuesto.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
             // cboPuesto
             //
@@ -140,20 +140,20 @@ namespace Presentacion.Forms.SubForms
             cboPuesto.Size = new Size(423, 34);
             cboPuesto.TabIndex = 6;
             //
-            // kLabel3
+            // lblTipoContrato
             //
-            kLabel3.AutoSize = false;
-            kLabel3.BackColor = Color.Transparent;
-            kLabel3.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel3.Location = new Point(456, 86);
-            kLabel3.Font = new Font("Inter", 9F);
-            kLabel3.TabStop = false;
-            kLabel3.Name = "kLabel3";
-            kLabel3.Size = new Size(423, 24);
-            kLabel3.TabIndex = 5;
-            kLabel3.Text = "Tipo de contrato";
-            kLabel3.TextAlign = ContentAlignment.MiddleLeft;
-            kLabel3.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblTipoContrato.AutoSize = false;
+            lblTipoContrato.BackColor = Color.Transparent;
+            lblTipoContrato.ForeColor = Color.FromArgb(64, 64, 64);
+            lblTipoContrato.Location = new Point(456, 86);
+            lblTipoContrato.Font = new Font("Inter", 9F);
+            lblTipoContrato.TabStop = false;
+            lblTipoContrato.Name = "lblTipoContrato";
+            lblTipoContrato.Size = new Size(423, 24);
+            lblTipoContrato.TabIndex = 5;
+            lblTipoContrato.Text = "Tipo de contrato";
+            lblTipoContrato.TextAlign = ContentAlignment.MiddleLeft;
+            lblTipoContrato.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
             // cboTipoContrato
             //
@@ -172,20 +172,20 @@ namespace Presentacion.Forms.SubForms
             cboTipoContrato.Size = new Size(423, 34);
             cboTipoContrato.TabIndex = 7;
             //
-            // kLabel4
+            // lblHorario
             //
-            kLabel4.AutoSize = false;
-            kLabel4.BackColor = Color.Transparent;
-            kLabel4.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel4.Location = new Point(16, 156);
-            kLabel4.Font = new Font("Inter", 9F);
-            kLabel4.TabStop = false;
-            kLabel4.Name = "kLabel4";
-            kLabel4.Size = new Size(423, 24);
-            kLabel4.TabIndex = 8;
-            kLabel4.Text = "Horario";
-            kLabel4.TextAlign = ContentAlignment.MiddleLeft;
-            kLabel4.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblHorario.AutoSize = false;
+            lblHorario.BackColor = Color.Transparent;
+            lblHorario.ForeColor = Color.FromArgb(64, 64, 64);
+            lblHorario.Location = new Point(16, 156);
+            lblHorario.Font = new Font("Inter", 9F);
+            lblHorario.TabStop = false;
+            lblHorario.Name = "lblHorario";
+            lblHorario.Size = new Size(423, 24);
+            lblHorario.TabIndex = 8;
+            lblHorario.Text = "Horario";
+            lblHorario.TextAlign = ContentAlignment.MiddleLeft;
+            lblHorario.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
             // cboHorario
             //
@@ -204,20 +204,20 @@ namespace Presentacion.Forms.SubForms
             cboHorario.Size = new Size(423, 34);
             cboHorario.TabIndex = 10;
             //
-            // kLabel6
+            // lblSalario
             //
-            kLabel6.AutoSize = false;
-            kLabel6.BackColor = Color.Transparent;
-            kLabel6.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel6.Location = new Point(456, 156);
-            kLabel6.Font = new Font("Inter", 9F);
-            kLabel6.TabStop = false;
-            kLabel6.Name = "kLabel6";
-            kLabel6.Size = new Size(423, 24);
-            kLabel6.TabIndex = 9;
-            kLabel6.Text = "Salario base (Q)";
-            kLabel6.TextAlign = ContentAlignment.MiddleLeft;
-            kLabel6.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblSalario.AutoSize = false;
+            lblSalario.BackColor = Color.Transparent;
+            lblSalario.ForeColor = Color.FromArgb(64, 64, 64);
+            lblSalario.Location = new Point(456, 156);
+            lblSalario.Font = new Font("Inter", 9F);
+            lblSalario.TabStop = false;
+            lblSalario.Name = "lblSalario";
+            lblSalario.Size = new Size(423, 24);
+            lblSalario.TabIndex = 9;
+            lblSalario.Text = "Salario base (Q)";
+            lblSalario.TextAlign = ContentAlignment.MiddleLeft;
+            lblSalario.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
             // numSalario
             //
@@ -235,20 +235,20 @@ namespace Presentacion.Forms.SubForms
             numSalario.TabIndex = 11;
             numSalario.Text = "kNumericUpDown1";
             //
-            // kLabel7
+            // lblInicioVigencia
             //
-            kLabel7.AutoSize = false;
-            kLabel7.BackColor = Color.Transparent;
-            kLabel7.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel7.Location = new Point(16, 226);
-            kLabel7.Font = new Font("Inter", 9F);
-            kLabel7.TabStop = false;
-            kLabel7.Name = "kLabel7";
-            kLabel7.Size = new Size(423, 24);
-            kLabel7.TabIndex = 12;
-            kLabel7.Text = "Inicio de vigencia";
-            kLabel7.TextAlign = ContentAlignment.MiddleLeft;
-            kLabel7.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblInicioVigencia.AutoSize = false;
+            lblInicioVigencia.BackColor = Color.Transparent;
+            lblInicioVigencia.ForeColor = Color.FromArgb(64, 64, 64);
+            lblInicioVigencia.Location = new Point(16, 226);
+            lblInicioVigencia.Font = new Font("Inter", 9F);
+            lblInicioVigencia.TabStop = false;
+            lblInicioVigencia.Name = "lblInicioVigencia";
+            lblInicioVigencia.Size = new Size(423, 24);
+            lblInicioVigencia.TabIndex = 12;
+            lblInicioVigencia.Text = "Inicio de vigencia";
+            lblInicioVigencia.TextAlign = ContentAlignment.MiddleLeft;
+            lblInicioVigencia.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
             // dtpInicioVigencia
             //
@@ -279,20 +279,20 @@ namespace Presentacion.Forms.SubForms
             txtMotivo.Size = new Size(423, 80);
             txtMotivo.TabIndex = 15;
             //
-            // kLabel8
+            // lblMotivo
             //
-            kLabel8.AutoSize = false;
-            kLabel8.BackColor = Color.Transparent;
-            kLabel8.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel8.Location = new Point(456, 226);
-            kLabel8.Font = new Font("Inter", 9F);
-            kLabel8.TabStop = false;
-            kLabel8.Name = "kLabel8";
-            kLabel8.Size = new Size(423, 24);
-            kLabel8.TabIndex = 13;
-            kLabel8.Text = "Motivo de la condición laboral";
-            kLabel8.TextAlign = ContentAlignment.MiddleLeft;
-            kLabel8.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblMotivo.AutoSize = false;
+            lblMotivo.BackColor = Color.Transparent;
+            lblMotivo.ForeColor = Color.FromArgb(64, 64, 64);
+            lblMotivo.Location = new Point(456, 226);
+            lblMotivo.Font = new Font("Inter", 9F);
+            lblMotivo.TabStop = false;
+            lblMotivo.Name = "lblMotivo";
+            lblMotivo.Size = new Size(423, 24);
+            lblMotivo.TabIndex = 13;
+            lblMotivo.Text = "Motivo de la condición laboral";
+            lblMotivo.TextAlign = ContentAlignment.MiddleLeft;
+            lblMotivo.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
             // FrmExpedientesDatosLaborales
             //
@@ -300,46 +300,47 @@ namespace Presentacion.Forms.SubForms
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(895, 450);
-            Controls.Add(kLabel8);
+            Controls.Add(lblMotivo);
             Controls.Add(txtMotivo);
-            Controls.Add(kLabel7);
+            Controls.Add(lblInicioVigencia);
             Controls.Add(dtpInicioVigencia);
             Controls.Add(numSalario);
-            Controls.Add(kLabel6);
-            Controls.Add(kLabel4);
+            Controls.Add(lblSalario);
+            Controls.Add(lblHorario);
             Controls.Add(cboHorario);
-            Controls.Add(kLabel3);
+            Controls.Add(lblTipoContrato);
             Controls.Add(cboTipoContrato);
-            Controls.Add(kLabel2);
+            Controls.Add(lblPuesto);
             Controls.Add(cboPuesto);
-            Controls.Add(kLabel1);
+            Controls.Add(lblDepartamento);
             Controls.Add(cboDepartamento);
-            Controls.Add(kLabel5);
+            Controls.Add(lblFechaContratacion);
             Controls.Add(dtpFechaContratacion);
             FormBorderStyle = FormBorderStyle.None;
             Font = new Font("Segoe UI", 9F);
+            Icon = Properties.Resources.sgeicon;
             Name = "FrmExpedientesDatosLaborales";
             Text = "FrmExpedientesDatosLaborales";
             ResumeLayout(false);
         }
 
         #endregion
-        private KovaqsUI.Controls.KLabel kLabel5;
+        private KovaqsUI.Controls.KLabel lblFechaContratacion;
         private DateTimePicker dtpFechaContratacion;
         private KovaqsUI.Controls.KComboBox cboDepartamento;
-        private KovaqsUI.Controls.KLabel kLabel1;
-        private KovaqsUI.Controls.KLabel kLabel2;
+        private KovaqsUI.Controls.KLabel lblDepartamento;
+        private KovaqsUI.Controls.KLabel lblPuesto;
         private KovaqsUI.Controls.KComboBox cboPuesto;
-        private KovaqsUI.Controls.KLabel kLabel3;
+        private KovaqsUI.Controls.KLabel lblTipoContrato;
         private KovaqsUI.Controls.KComboBox cboTipoContrato;
-        private KovaqsUI.Controls.KLabel kLabel4;
+        private KovaqsUI.Controls.KLabel lblHorario;
         private KovaqsUI.Controls.KComboBox cboHorario;
-        private KovaqsUI.Controls.KLabel kLabel6;
+        private KovaqsUI.Controls.KLabel lblSalario;
         private KovaqsUI.Controls.KNumericUpDown numSalario;
-        private KovaqsUI.Controls.KLabel kLabel7;
+        private KovaqsUI.Controls.KLabel lblInicioVigencia;
         private DateTimePicker dtpInicioVigencia;
         private KovaqsUI.Controls.KTextBox txtMotivo;
-        private KovaqsUI.Controls.KLabel kLabel8;
+        private KovaqsUI.Controls.KLabel lblMotivo;
         private KovaqsUI.Components.KToastNotifier notificador;
     }
 }

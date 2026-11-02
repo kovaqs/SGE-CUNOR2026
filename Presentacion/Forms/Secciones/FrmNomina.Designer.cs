@@ -28,10 +28,10 @@ partial class FrmNomina
         btnSiguiente = new KovaqsUI.Controls.KButton();
         cboTamanoPagina = new KovaqsUI.Controls.KComboBox();
         lblTitulo = new KovaqsUI.Controls.KLabel();
-        kLabel2 = new KovaqsUI.Controls.KLabel();
-        kLabel3 = new KovaqsUI.Controls.KLabel();
+        lblDesde = new KovaqsUI.Controls.KLabel();
+        lblHasta = new KovaqsUI.Controls.KLabel();
         lblEstado = new KovaqsUI.Controls.KLabel();
-        kLabel4 = new KovaqsUI.Controls.KLabel();
+        lblTituloTabla = new KovaqsUI.Controls.KLabel();
         dgvPeriodos = new KovaqsUI.Controls.KDataGridView();
         lblPagina = new KovaqsUI.Controls.KLabel();
         colNombre = new DataGridViewTextBoxColumn();
@@ -242,37 +242,37 @@ partial class FrmNomina
         lblTitulo.TabIndex = 0;
         lblTitulo.Text = "Períodos de nómina";
         //
-        // kLabel2
+        // lblDesde
         //
-        kLabel2.BackColor = Color.Transparent;
-        kLabel2.Font = new Font("Inter", 9F);
-        kLabel2.Location = new Point(16, 70);
-        kLabel2.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-        kLabel2.TextAlign = ContentAlignment.MiddleLeft;
-        kLabel2.ForeColor = Color.FromArgb(64, 64, 64);
-        kLabel2.AutoSize = false;
-        kLabel2.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        kLabel2.TabStop = false;
-        kLabel2.Name = "kLabel2";
-        kLabel2.Size = new Size(354, 24);
-        kLabel2.TabIndex = 1;
-        kLabel2.Text = "Desde";
+        lblDesde.BackColor = Color.Transparent;
+        lblDesde.Font = new Font("Inter", 9F);
+        lblDesde.Location = new Point(16, 70);
+        lblDesde.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+        lblDesde.TextAlign = ContentAlignment.MiddleLeft;
+        lblDesde.ForeColor = Color.FromArgb(64, 64, 64);
+        lblDesde.AutoSize = false;
+        lblDesde.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        lblDesde.TabStop = false;
+        lblDesde.Name = "lblDesde";
+        lblDesde.Size = new Size(354, 24);
+        lblDesde.TabIndex = 1;
+        lblDesde.Text = "Desde";
         //
-        // kLabel3
+        // lblHasta
         //
-        kLabel3.BackColor = Color.Transparent;
-        kLabel3.Font = new Font("Inter", 9F);
-        kLabel3.Location = new Point(386, 70);
-        kLabel3.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-        kLabel3.TextAlign = ContentAlignment.MiddleLeft;
-        kLabel3.ForeColor = Color.FromArgb(64, 64, 64);
-        kLabel3.AutoSize = false;
-        kLabel3.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        kLabel3.TabStop = false;
-        kLabel3.Name = "kLabel3";
-        kLabel3.Size = new Size(354, 24);
-        kLabel3.TabIndex = 2;
-        kLabel3.Text = "Hasta";
+        lblHasta.BackColor = Color.Transparent;
+        lblHasta.Font = new Font("Inter", 9F);
+        lblHasta.Location = new Point(386, 70);
+        lblHasta.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+        lblHasta.TextAlign = ContentAlignment.MiddleLeft;
+        lblHasta.ForeColor = Color.FromArgb(64, 64, 64);
+        lblHasta.AutoSize = false;
+        lblHasta.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        lblHasta.TabStop = false;
+        lblHasta.Name = "lblHasta";
+        lblHasta.Size = new Size(354, 24);
+        lblHasta.TabIndex = 2;
+        lblHasta.Text = "Hasta";
         //
         // lblEstado
         //
@@ -290,20 +290,20 @@ partial class FrmNomina
         lblEstado.TabIndex = 3;
         lblEstado.Text = "Estado";
         //
-        // kLabel4
+        // lblTituloTabla
         //
-        kLabel4.BackColor = Color.Transparent;
-        kLabel4.Font = new Font("Inter", 9F);
-        kLabel4.Location = new Point(16, 198);
-        kLabel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        kLabel4.ForeColor = Color.FromArgb(64, 64, 64);
-        kLabel4.AutoSize = false;
-        kLabel4.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        kLabel4.TabStop = false;
-        kLabel4.Name = "kLabel4";
-        kLabel4.Size = new Size(1094, 24);
-        kLabel4.TabIndex = 10;
-        kLabel4.Text = "Períodos de pago";
+        lblTituloTabla.BackColor = Color.Transparent;
+        lblTituloTabla.Font = new Font("Inter", 9F);
+        lblTituloTabla.Location = new Point(16, 198);
+        lblTituloTabla.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        lblTituloTabla.ForeColor = Color.FromArgb(64, 64, 64);
+        lblTituloTabla.AutoSize = false;
+        lblTituloTabla.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        lblTituloTabla.TabStop = false;
+        lblTituloTabla.Name = "lblTituloTabla";
+        lblTituloTabla.Size = new Size(1094, 24);
+        lblTituloTabla.TabIndex = 10;
+        lblTituloTabla.Text = "Períodos de pago";
         //
         // colNombre
         //
@@ -459,10 +459,10 @@ partial class FrmNomina
         ClientSize = new Size(1126, 744);
         Controls.Add(lblPagina);
         Controls.Add(dgvPeriodos);
-        Controls.Add(kLabel4);
+        Controls.Add(lblTituloTabla);
         Controls.Add(lblEstado);
-        Controls.Add(kLabel3);
-        Controls.Add(kLabel2);
+        Controls.Add(lblHasta);
+        Controls.Add(lblDesde);
         Controls.Add(lblTitulo);
         Controls.Add(cboTamanoPagina);
         Controls.Add(btnSiguiente);
@@ -477,6 +477,7 @@ partial class FrmNomina
         MinimumSize = new Size(1126, 744);
         FormBorderStyle = FormBorderStyle.None;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmNomina";
         Text = "Nómina";
         ((System.ComponentModel.ISupportInitialize)dgvPeriodos).EndInit();
@@ -498,10 +499,10 @@ partial class FrmNomina
     private KovaqsUI.Controls.KButton btnSiguiente;
     private KovaqsUI.Controls.KComboBox cboTamanoPagina;
     private KovaqsUI.Controls.KLabel lblTitulo;
-    private KovaqsUI.Controls.KLabel kLabel2;
-    private KovaqsUI.Controls.KLabel kLabel3;
+    private KovaqsUI.Controls.KLabel lblDesde;
+    private KovaqsUI.Controls.KLabel lblHasta;
     private KovaqsUI.Controls.KLabel lblEstado;
-    private KovaqsUI.Controls.KLabel kLabel4;
+    private KovaqsUI.Controls.KLabel lblTituloTabla;
     private KovaqsUI.Controls.KDataGridView dgvPeriodos;
     private KovaqsUI.Controls.KLabel lblPagina;
     private DataGridViewTextBoxColumn colNombre;

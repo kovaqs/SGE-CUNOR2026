@@ -29,175 +29,175 @@ namespace Presentacion.Forms
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            kLabel1 = new KovaqsUI.Controls.KLabel();
-            kLabel2 = new KovaqsUI.Controls.KLabel();
-            kCheckBox1 = new KovaqsUI.Controls.KCheckBox();
-            kButton1 = new KovaqsUI.Controls.KButton();
-            panel1 = new Panel();
-            pictureBox2 = new PictureBox();
-            kTextBox2 = new KovaqsUI.Controls.KTextBox();
-            kTextBox1 = new KovaqsUI.Controls.KTextBox();
+            lblBienvenida = new KovaqsUI.Controls.KLabel();
+            lblIndicaciones = new KovaqsUI.Controls.KLabel();
+            chkMostrarContrasena = new KovaqsUI.Controls.KCheckBox();
+            btnIngresar = new KovaqsUI.Controls.KButton();
+            panelAcceso = new Panel();
+            picLogo = new PictureBox();
+            txtContrasena = new KovaqsUI.Controls.KTextBox();
+            txtUsuario = new KovaqsUI.Controls.KTextBox();
             lblUsuario = new KovaqsUI.Controls.KLabel();
             lblContrasena = new KovaqsUI.Controls.KLabel();
-            panel2 = new Panel();
-            kLabel3 = new KovaqsUI.Controls.KLabel();
-            kButton2 = new KovaqsUI.Controls.KButton();
-            panel3 = new Panel();
-            pictureBox1 = new PictureBox();
+            panelCabecera = new Panel();
+            lblTitulo = new KovaqsUI.Controls.KLabel();
+            btnSalir = new KovaqsUI.Controls.KButton();
+            panelImagen = new Panel();
+            picFondo = new PictureBox();
             btnConfigurarConexion = new KovaqsUI.Controls.KButton();
             notificador = new KovaqsUI.Components.KToastNotifier(components);
             temporizadorConexion = new System.Windows.Forms.Timer(components);
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panelAcceso.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
+            panelCabecera.SuspendLayout();
+            panelImagen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picFondo).BeginInit();
             SuspendLayout();
-            // 
-            // kLabel1
-            // 
-            kLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            kLabel1.AutoSize = false;
-            kLabel1.BackColor = Color.Transparent;
-            kLabel1.Font = new Font("Inter", 22F, FontStyle.Bold);
-            kLabel1.ForeColor = Color.FromArgb(32, 38, 45);
-            kLabel1.Location = new Point(13, 25);
-            kLabel1.Name = "kLabel1";
-            kLabel1.Size = new Size(360, 49);
-            kLabel1.TabIndex = 0;
-            kLabel1.Text = "¡Bienvenid@!";
-            kLabel1.TextAlign = ContentAlignment.MiddleCenter;
-            kLabel1.TextRole = KovaqsUI.Controls.KTextRole.Title;
-            // 
-            // kLabel2
-            // 
-            kLabel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            kLabel2.AutoSize = false;
-            kLabel2.BackColor = Color.Transparent;
-            kLabel2.Font = new Font("Inter", 9F);
-            kLabel2.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel2.Location = new Point(21, 225);
-            kLabel2.Name = "kLabel2";
-            kLabel2.Size = new Size(344, 46);
-            kLabel2.TabIndex = 2;
-            kLabel2.Text = "Introduce tus credenciales para ingresar\r\nSi aún no tienes una cuenta, solicítala a Administración";
-            kLabel2.TextAlign = ContentAlignment.MiddleCenter;
-            kLabel2.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-            // 
-            // kCheckBox1
-            // 
-            kCheckBox1.BackColor = Color.Transparent;
-            kCheckBox1.CheckedState.BorderColor = Color.FromArgb(32, 38, 45);
-            kCheckBox1.CheckedState.FillColor = Color.FromArgb(49, 81, 107);
-            kCheckBox1.CheckedState.ForeColor = Color.White;
-            kCheckBox1.CornerRadius = 4;
-            kCheckBox1.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
-            kCheckBox1.Font = new Font("Inter", 9F);
-            kCheckBox1.ForeColor = Color.FromArgb(64, 64, 64);
-            kCheckBox1.GlyphSize = 18;
-            kCheckBox1.Location = new Point(21, 435);
-            kCheckBox1.Name = "kCheckBox1";
-            kCheckBox1.Padding = new Padding(2);
-            kCheckBox1.Size = new Size(344, 32);
-            kCheckBox1.TabIndex = 7;
-            kCheckBox1.Text = "Mostrar contraseña";
-            kCheckBox1.UseVisualStyleBackColor = false;
-            // 
-            // kButton1
-            // 
-            kButton1.Animation.Duration = 200;
-            kButton1.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
-            kButton1.Appearance.Normal.BorderColor = Color.FromArgb(49, 81, 107);
-            kButton1.Appearance.Normal.FillColor = Color.FromArgb(49, 81, 107);
-            kButton1.Appearance.Normal.ForeColor = Color.White;
-            kButton1.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
-            kButton1.BackColor = Color.Transparent;
-            kButton1.BorderColor = Color.FromArgb(49, 81, 107);
-            kButton1.CornerRadius = 8;
-            kButton1.FillColor = Color.FromArgb(49, 81, 107);
-            kButton1.FlatStyle = FlatStyle.Flat;
-            kButton1.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
-            kButton1.Font = new Font("Inter", 9F);
-            kButton1.ForeColor = Color.White;
-            kButton1.Location = new Point(21, 482);
-            kButton1.Name = "kButton1";
-            kButton1.Padding = new Padding(10, 4, 10, 4);
-            kButton1.Size = new Size(344, 40);
-            kButton1.TabIndex = 8;
-            kButton1.Text = "Iniciar sesión";
-            kButton1.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(pictureBox2);
-            panel1.Controls.Add(kButton1);
-            panel1.Controls.Add(kCheckBox1);
-            panel1.Controls.Add(kTextBox2);
-            panel1.Controls.Add(kTextBox1);
-            panel1.Controls.Add(kLabel2);
-            panel1.Controls.Add(kLabel1);
-            panel1.Controls.Add(lblUsuario);
-            panel1.Controls.Add(lblContrasena);
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(1, 38);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(384, 564);
-            panel1.TabIndex = 1;
-            panel1.Paint += panel1_Paint;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = Properties.Resources.logo_inst;
-            pictureBox2.Location = new Point(133, 85);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(120, 120);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
-            // 
-            // kTextBox2
-            // 
-            kTextBox2.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
-            kTextBox2.Appearance.Normal.FillColor = Color.White;
-            kTextBox2.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
-            kTextBox2.BackColor = Color.Transparent;
-            kTextBox2.BorderColor = Color.FromArgb(218, 218, 218);
-            kTextBox2.CornerRadius = 8;
-            kTextBox2.FillColor = Color.White;
-            kTextBox2.Font = new Font("Inter", 9F);
-            kTextBox2.ForeColor = Color.FromArgb(32, 38, 45);
-            kTextBox2.Location = new Point(21, 389);
-            kTextBox2.MaxLength = 128;
-            kTextBox2.Name = "kTextBox2";
-            kTextBox2.Padding = new Padding(12, 8, 12, 8);
-            kTextBox2.PasswordChar = '●';
-            kTextBox2.PlaceholderText = "Contraseña";
-            kTextBox2.Size = new Size(344, 34);
-            kTextBox2.TabIndex = 6;
-            kTextBox2.UseSystemPasswordChar = true;
-            // 
-            // kTextBox1
-            // 
-            kTextBox1.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
-            kTextBox1.Appearance.Normal.FillColor = Color.White;
-            kTextBox1.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
-            kTextBox1.BackColor = Color.Transparent;
-            kTextBox1.BorderColor = Color.FromArgb(218, 218, 218);
-            kTextBox1.CornerRadius = 8;
-            kTextBox1.FillColor = Color.White;
-            kTextBox1.Font = new Font("Inter", 9F);
-            kTextBox1.ForeColor = Color.FromArgb(32, 38, 45);
-            kTextBox1.Location = new Point(21, 319);
-            kTextBox1.MaxLength = 50;
-            kTextBox1.Name = "kTextBox1";
-            kTextBox1.Padding = new Padding(12, 8, 12, 8);
-            kTextBox1.PlaceholderText = "Nombre de Usuario";
-            kTextBox1.Size = new Size(344, 34);
-            kTextBox1.TabIndex = 4;
-            // 
+            //
+            // lblBienvenida
+            //
+            lblBienvenida.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblBienvenida.AutoSize = false;
+            lblBienvenida.BackColor = Color.Transparent;
+            lblBienvenida.Font = new Font("Inter", 22F, FontStyle.Bold);
+            lblBienvenida.ForeColor = Color.FromArgb(32, 38, 45);
+            lblBienvenida.Location = new Point(13, 25);
+            lblBienvenida.Name = "lblBienvenida";
+            lblBienvenida.Size = new Size(360, 49);
+            lblBienvenida.TabIndex = 0;
+            lblBienvenida.Text = "¡Bienvenid@!";
+            lblBienvenida.TextAlign = ContentAlignment.MiddleCenter;
+            lblBienvenida.TextRole = KovaqsUI.Controls.KTextRole.Title;
+            //
+            // lblIndicaciones
+            //
+            lblIndicaciones.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblIndicaciones.AutoSize = false;
+            lblIndicaciones.BackColor = Color.Transparent;
+            lblIndicaciones.Font = new Font("Inter", 9F);
+            lblIndicaciones.ForeColor = Color.FromArgb(64, 64, 64);
+            lblIndicaciones.Location = new Point(21, 225);
+            lblIndicaciones.Name = "lblIndicaciones";
+            lblIndicaciones.Size = new Size(344, 46);
+            lblIndicaciones.TabIndex = 2;
+            lblIndicaciones.Text = "Introduce tus credenciales para ingresar\r\nSi aún no tienes una cuenta, solicítala a Administración";
+            lblIndicaciones.TextAlign = ContentAlignment.MiddleCenter;
+            lblIndicaciones.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            //
+            // chkMostrarContrasena
+            //
+            chkMostrarContrasena.BackColor = Color.Transparent;
+            chkMostrarContrasena.CheckedState.BorderColor = Color.FromArgb(32, 38, 45);
+            chkMostrarContrasena.CheckedState.FillColor = Color.FromArgb(49, 81, 107);
+            chkMostrarContrasena.CheckedState.ForeColor = Color.White;
+            chkMostrarContrasena.CornerRadius = 4;
+            chkMostrarContrasena.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
+            chkMostrarContrasena.Font = new Font("Inter", 9F);
+            chkMostrarContrasena.ForeColor = Color.FromArgb(64, 64, 64);
+            chkMostrarContrasena.GlyphSize = 18;
+            chkMostrarContrasena.Location = new Point(21, 435);
+            chkMostrarContrasena.Name = "chkMostrarContrasena";
+            chkMostrarContrasena.Padding = new Padding(2);
+            chkMostrarContrasena.Size = new Size(344, 32);
+            chkMostrarContrasena.TabIndex = 7;
+            chkMostrarContrasena.Text = "Mostrar contraseña";
+            chkMostrarContrasena.UseVisualStyleBackColor = false;
+            //
+            // btnIngresar
+            //
+            btnIngresar.Animation.Duration = 200;
+            btnIngresar.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+            btnIngresar.Appearance.Normal.BorderColor = Color.FromArgb(49, 81, 107);
+            btnIngresar.Appearance.Normal.FillColor = Color.FromArgb(49, 81, 107);
+            btnIngresar.Appearance.Normal.ForeColor = Color.White;
+            btnIngresar.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+            btnIngresar.BackColor = Color.Transparent;
+            btnIngresar.BorderColor = Color.FromArgb(49, 81, 107);
+            btnIngresar.CornerRadius = 8;
+            btnIngresar.FillColor = Color.FromArgb(49, 81, 107);
+            btnIngresar.FlatStyle = FlatStyle.Flat;
+            btnIngresar.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
+            btnIngresar.Font = new Font("Inter", 9F);
+            btnIngresar.ForeColor = Color.White;
+            btnIngresar.Location = new Point(21, 482);
+            btnIngresar.Name = "btnIngresar";
+            btnIngresar.Padding = new Padding(10, 4, 10, 4);
+            btnIngresar.Size = new Size(344, 40);
+            btnIngresar.TabIndex = 8;
+            btnIngresar.Text = "Iniciar sesión";
+            btnIngresar.UseVisualStyleBackColor = false;
+            //
+            // panelAcceso
+            //
+            panelAcceso.BackColor = Color.White;
+            panelAcceso.Controls.Add(picLogo);
+            panelAcceso.Controls.Add(btnIngresar);
+            panelAcceso.Controls.Add(chkMostrarContrasena);
+            panelAcceso.Controls.Add(txtContrasena);
+            panelAcceso.Controls.Add(txtUsuario);
+            panelAcceso.Controls.Add(lblIndicaciones);
+            panelAcceso.Controls.Add(lblBienvenida);
+            panelAcceso.Controls.Add(lblUsuario);
+            panelAcceso.Controls.Add(lblContrasena);
+            panelAcceso.Dock = DockStyle.Left;
+            panelAcceso.Location = new Point(1, 38);
+            panelAcceso.Name = "panelAcceso";
+            panelAcceso.Size = new Size(384, 564);
+            panelAcceso.TabIndex = 1;
+            panelAcceso.Paint += panelAcceso_Paint;
+            //
+            // picLogo
+            //
+            picLogo.Image = Properties.Resources.logo_inst;
+            picLogo.Location = new Point(133, 85);
+            picLogo.Name = "picLogo";
+            picLogo.Size = new Size(120, 120);
+            picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            picLogo.TabIndex = 1;
+            picLogo.TabStop = false;
+            //
+            // txtContrasena
+            //
+            txtContrasena.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
+            txtContrasena.Appearance.Normal.FillColor = Color.White;
+            txtContrasena.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
+            txtContrasena.BackColor = Color.Transparent;
+            txtContrasena.BorderColor = Color.FromArgb(218, 218, 218);
+            txtContrasena.CornerRadius = 8;
+            txtContrasena.FillColor = Color.White;
+            txtContrasena.Font = new Font("Inter", 9F);
+            txtContrasena.ForeColor = Color.FromArgb(32, 38, 45);
+            txtContrasena.Location = new Point(21, 389);
+            txtContrasena.MaxLength = 128;
+            txtContrasena.Name = "txtContrasena";
+            txtContrasena.Padding = new Padding(12, 8, 12, 8);
+            txtContrasena.PasswordChar = '●';
+            txtContrasena.PlaceholderText = "Contraseña";
+            txtContrasena.Size = new Size(344, 34);
+            txtContrasena.TabIndex = 6;
+            txtContrasena.UseSystemPasswordChar = true;
+            //
+            // txtUsuario
+            //
+            txtUsuario.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
+            txtUsuario.Appearance.Normal.FillColor = Color.White;
+            txtUsuario.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
+            txtUsuario.BackColor = Color.Transparent;
+            txtUsuario.BorderColor = Color.FromArgb(218, 218, 218);
+            txtUsuario.CornerRadius = 8;
+            txtUsuario.FillColor = Color.White;
+            txtUsuario.Font = new Font("Inter", 9F);
+            txtUsuario.ForeColor = Color.FromArgb(32, 38, 45);
+            txtUsuario.Location = new Point(21, 319);
+            txtUsuario.MaxLength = 50;
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Padding = new Padding(12, 8, 12, 8);
+            txtUsuario.PlaceholderText = "Nombre de Usuario";
+            txtUsuario.Size = new Size(344, 34);
+            txtUsuario.TabIndex = 4;
+            //
             // lblUsuario
-            // 
+            //
             lblUsuario.AutoSize = false;
             lblUsuario.BackColor = Color.Transparent;
             lblUsuario.Font = new Font("Inter", 9F);
@@ -209,9 +209,9 @@ namespace Presentacion.Forms
             lblUsuario.Text = "Nombre de usuario";
             lblUsuario.TextAlign = ContentAlignment.MiddleLeft;
             lblUsuario.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-            // 
+            //
             // lblContrasena
-            // 
+            //
             lblContrasena.AutoSize = false;
             lblContrasena.BackColor = Color.Transparent;
             lblContrasena.Font = new Font("Inter", 9F);
@@ -223,78 +223,78 @@ namespace Presentacion.Forms
             lblContrasena.Text = "Contraseña";
             lblContrasena.TextAlign = ContentAlignment.MiddleLeft;
             lblContrasena.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.White;
-            panel2.Controls.Add(btnConfigurarConexion);
-            panel2.Controls.Add(kLabel3);
-            panel2.Controls.Add(kButton2);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(1, 1);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(868, 37);
-            panel2.TabIndex = 0;
-            // 
-            // kLabel3
-            // 
-            kLabel3.AutoSize = false;
-            kLabel3.BackColor = Color.Transparent;
-            kLabel3.Font = new Font("Inter", 9F);
-            kLabel3.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel3.Location = new Point(12, 9);
-            kLabel3.Name = "kLabel3";
-            kLabel3.Size = new Size(270, 20);
-            kLabel3.TabIndex = 1;
-            kLabel3.Text = "Control de empleados - CUNOR";
-            kLabel3.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-            // 
-            // kButton2
-            // 
-            kButton2.Animation.Duration = 200;
-            kButton2.Appearance.Hover.FillColor = Color.FromArgb(250, 235, 235);
-            kButton2.Appearance.Normal.BorderColor = Color.FromArgb(204, 148, 150);
-            kButton2.Appearance.Normal.FillColor = Color.FromArgb(255, 248, 248);
-            kButton2.Appearance.Normal.ForeColor = Color.FromArgb(166, 61, 64);
-            kButton2.Appearance.Pressed.FillColor = Color.FromArgb(244, 219, 220);
-            kButton2.BackColor = Color.Transparent;
-            kButton2.BorderColor = Color.FromArgb(204, 148, 150);
-            kButton2.CornerRadius = 8;
-            kButton2.FillColor = Color.FromArgb(255, 248, 248);
-            kButton2.FlatStyle = FlatStyle.Flat;
-            kButton2.FocusAppearance.Color = Color.FromArgb(166, 61, 64);
-            kButton2.Font = new Font("Inter", 9F);
-            kButton2.ForeColor = Color.FromArgb(166, 61, 64);
-            kButton2.Location = new Point(807, 7);
-            kButton2.Name = "kButton2";
-            kButton2.Padding = new Padding(10, 4, 10, 4);
-            kButton2.Size = new Size(56, 24);
-            kButton2.TabIndex = 0;
-            kButton2.Text = "Salir";
-            kButton2.UseVisualStyleBackColor = false;
-            kButton2.Variant = KovaqsUI.Styling.KButtonVariant.Danger;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.White;
-            panel3.Controls.Add(pictureBox1);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(385, 38);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(484, 564);
-            panel3.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Image = Properties.Resources.imageSistema3;
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(484, 564);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
+            //
+            // panelCabecera
+            //
+            panelCabecera.BackColor = Color.White;
+            panelCabecera.Controls.Add(btnConfigurarConexion);
+            panelCabecera.Controls.Add(lblTitulo);
+            panelCabecera.Controls.Add(btnSalir);
+            panelCabecera.Dock = DockStyle.Top;
+            panelCabecera.Location = new Point(1, 1);
+            panelCabecera.Name = "panelCabecera";
+            panelCabecera.Size = new Size(868, 37);
+            panelCabecera.TabIndex = 0;
+            //
+            // lblTitulo
+            //
+            lblTitulo.AutoSize = false;
+            lblTitulo.BackColor = Color.Transparent;
+            lblTitulo.Font = new Font("Inter", 9F);
+            lblTitulo.ForeColor = Color.FromArgb(64, 64, 64);
+            lblTitulo.Location = new Point(12, 9);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(270, 20);
+            lblTitulo.TabIndex = 1;
+            lblTitulo.Text = "Control de empleados - CUNOR";
+            lblTitulo.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            //
+            // btnSalir
+            //
+            btnSalir.Animation.Duration = 200;
+            btnSalir.Appearance.Hover.FillColor = Color.FromArgb(250, 235, 235);
+            btnSalir.Appearance.Normal.BorderColor = Color.FromArgb(204, 148, 150);
+            btnSalir.Appearance.Normal.FillColor = Color.FromArgb(255, 248, 248);
+            btnSalir.Appearance.Normal.ForeColor = Color.FromArgb(166, 61, 64);
+            btnSalir.Appearance.Pressed.FillColor = Color.FromArgb(244, 219, 220);
+            btnSalir.BackColor = Color.Transparent;
+            btnSalir.BorderColor = Color.FromArgb(204, 148, 150);
+            btnSalir.CornerRadius = 8;
+            btnSalir.FillColor = Color.FromArgb(255, 248, 248);
+            btnSalir.FlatStyle = FlatStyle.Flat;
+            btnSalir.FocusAppearance.Color = Color.FromArgb(166, 61, 64);
+            btnSalir.Font = new Font("Inter", 9F);
+            btnSalir.ForeColor = Color.FromArgb(166, 61, 64);
+            btnSalir.Location = new Point(807, 7);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Padding = new Padding(10, 4, 10, 4);
+            btnSalir.Size = new Size(56, 24);
+            btnSalir.TabIndex = 0;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = false;
+            btnSalir.Variant = KovaqsUI.Styling.KButtonVariant.Danger;
+            //
+            // panelImagen
+            //
+            panelImagen.BackColor = Color.White;
+            panelImagen.Controls.Add(picFondo);
+            panelImagen.Dock = DockStyle.Fill;
+            panelImagen.Location = new Point(385, 38);
+            panelImagen.Name = "panelImagen";
+            panelImagen.Size = new Size(484, 564);
+            panelImagen.TabIndex = 2;
+            //
+            // picFondo
+            //
+            picFondo.Dock = DockStyle.Fill;
+            picFondo.Image = Properties.Resources.imageSistema3;
+            picFondo.Location = new Point(0, 0);
+            picFondo.Name = "picFondo";
+            picFondo.Size = new Size(484, 564);
+            picFondo.SizeMode = PictureBoxSizeMode.StretchImage;
+            picFondo.TabIndex = 0;
+            picFondo.TabStop = false;
+            //
             // btnConfigurarConexion
             //
             btnConfigurarConexion.Animation.Duration = 200;
@@ -329,46 +329,47 @@ namespace Presentacion.Forms
             //
             temporizadorConexion.Interval = 3000;
             temporizadorConexion.Tick += temporizadorConexion_Tick;
-            // 
+            //
             // FrmLogin
             //
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkGray;
             ClientSize = new Size(870, 603);
-            Controls.Add(panel3);
-            Controls.Add(panel1);
-            Controls.Add(panel2);
+            Controls.Add(panelImagen);
+            Controls.Add(panelAcceso);
+            Controls.Add(panelCabecera);
             Font = new Font("Segoe UI", 9F);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = Properties.Resources.sgeicon;
             Name = "FrmLogin";
             Padding = new Padding(1);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmLogin";
             Load += FrmLogin_Load;
-            panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            panel2.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panelAcceso.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
+            panelCabecera.ResumeLayout(false);
+            panelImagen.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picFondo).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private KovaqsUI.Controls.KLabel kLabel1;
-        private KovaqsUI.Controls.KLabel kLabel2;
-        private KovaqsUI.Controls.KCheckBox kCheckBox1;
-        private KovaqsUI.Controls.KButton kButton1;
-        private Panel panel1;
-        private KovaqsUI.Controls.KTextBox kTextBox2;
-        private KovaqsUI.Controls.KTextBox kTextBox1;
-        private Panel panel2;
-        private KovaqsUI.Controls.KLabel kLabel3;
-        private KovaqsUI.Controls.KButton kButton2;
-        private Panel panel3;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
+        private KovaqsUI.Controls.KLabel lblBienvenida;
+        private KovaqsUI.Controls.KLabel lblIndicaciones;
+        private KovaqsUI.Controls.KCheckBox chkMostrarContrasena;
+        private KovaqsUI.Controls.KButton btnIngresar;
+        private Panel panelAcceso;
+        private KovaqsUI.Controls.KTextBox txtContrasena;
+        private KovaqsUI.Controls.KTextBox txtUsuario;
+        private Panel panelCabecera;
+        private KovaqsUI.Controls.KLabel lblTitulo;
+        private KovaqsUI.Controls.KButton btnSalir;
+        private Panel panelImagen;
+        private PictureBox picFondo;
+        private PictureBox picLogo;
             private KovaqsUI.Controls.KLabel lblUsuario;
         private KovaqsUI.Controls.KLabel lblContrasena;
         private KovaqsUI.Controls.KButton btnConfigurarConexion;

@@ -8,7 +8,7 @@ public class ServicioReportes
 {
     public async Task<DataTable> ConsultarAsync(int tipo, DateTime desde, DateTime hasta, uint departamento, string estado, uint periodo, SesionUsuario autor)
     {
-        if (desde.Date > hasta.Date)
+        if (tipo is 1 or 3 && desde.Date > hasta.Date)
             throw new ArgumentException("Revisa el intervalo de fechas.");
         if (tipo != 4)
             return await new RepositorioReportes().ConsultarAsync(tipo, desde, hasta, departamento, estado, autor);

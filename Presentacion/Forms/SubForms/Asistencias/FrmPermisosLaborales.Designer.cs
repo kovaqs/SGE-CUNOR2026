@@ -522,6 +522,7 @@ partial class FrmPermisosLaborales
         MaximizeBox = false;
         MinimizeBox = false;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmPermisosLaborales";
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;

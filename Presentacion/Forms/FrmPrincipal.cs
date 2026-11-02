@@ -143,16 +143,16 @@ namespace Presentacion.Forms
             lblAvatar.Text = sesion.NombreUsuario[..Math.Min(2, sesion.NombreUsuario.Length)].ToUpperInvariant();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void panelVentana_Paint(object sender, PaintEventArgs e)
         {
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        private void panelUsuario_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void kPanel1_Paint(object sender, PaintEventArgs e)
+        private void panelAvatar_Paint(object sender, PaintEventArgs e)
         {
 
         }

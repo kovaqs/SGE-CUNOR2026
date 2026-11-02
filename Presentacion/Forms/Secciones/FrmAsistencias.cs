@@ -143,6 +143,8 @@ public partial class FrmAsistencias : Form
         btnExportarExcel.Enabled = false;
         try
         {
+            string filtros = "Desde " + dtpDesde.Value.ToString("dd/MM/yyyy") + " hasta " + dtpHasta.Value.ToString("dd/MM/yyyy")
+                + " | Departamento: " + cboDepartamento.Text + " | Estado: " + cboEstado.Text + " | Búsqueda: " + txtBuscarEmpleado.Text;
             var registros = await servicio.ListarAsync(dtpDesde.Value, dtpHasta.Value, AyudaFormulario.IdSeleccionado(cboDepartamento), txtBuscarEmpleado.Text, cboEstado.Text, 0, int.MaxValue - 1);
             var tabla = new DataTable();
             tabla.Columns.Add("Fecha", typeof(DateTime));
@@ -155,7 +157,7 @@ public partial class FrmAsistencias : Form
             foreach (var registro in registros)
                 tabla.Rows.Add(registro.Fecha, registro.Empleado, registro.Departamento,
                 (object?)registro.Entrada ?? DBNull.Value, (object?)registro.Salida ?? DBNull.Value, registro.Estado, registro.Tardanza);
-            await Task.Run(() => ExportadorReportes.Excel(tabla, dialogo.FileName));
+            await Task.Run(() => ExportadorReportes.Excel(tabla, dialogo.FileName, "Marcas de asistencia e incidencias", filtros));
             if (!IsDisposed)
                 notificador.Show("Asistencias", "Reporte de Excel guardado.", KovaqsUI.Components.KToastKind.Success);
         }

@@ -17,6 +17,19 @@ WHERE e.fecha_contratacion < @fin
 GROUP BY d.id_departamento, d.nombre, e.estado
 ORDER BY empleados DESC, departamento, e.estado;
 
+-- Departamentos que reúnen al menos cinco empleados al cierre del mes.
+SELECT d.nombre AS departamento, COUNT(*) AS empleados
+FROM empleados e
+JOIN historial_laboral h ON h.id_empleado = e.id_empleado
+    AND h.fecha_inicio < @fin AND (h.fecha_fin IS NULL OR h.fecha_fin >= @fin)
+JOIN puestos p ON p.id_puesto = h.id_puesto
+JOIN departamentos d ON d.id_departamento = p.id_departamento
+WHERE e.fecha_contratacion < @fin
+  AND (@departamento = 0 OR p.id_departamento = @departamento)
+GROUP BY d.id_departamento, d.nombre
+HAVING COUNT(*) >= 5
+ORDER BY empleados DESC, departamento;
+
 -- Filtro original: se aplica una función sobre cada fecha.
 EXPLAIN SELECT COUNT(*) FROM asistencias
 WHERE DATE_FORMAT(fecha, '%Y-%m') = DATE_FORMAT(@inicio, '%Y-%m');

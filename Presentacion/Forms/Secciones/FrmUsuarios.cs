@@ -18,7 +18,7 @@ public partial class FrmUsuarios : Form
         InitializeComponent();
         btnAgregarUsuario.Click += AgregarUsuario_Click;
         dgvUsuarios.CellDoubleClick += EditarUsuario_CellDoubleClick;
-        kComboBox1.SelectedIndexChanged += FiltroRol_Changed;
+        cboRol.SelectedIndexChanged += FiltroRol_Changed;
         VisibleChanged += Usuarios_VisibleChanged;
         Disposed += (_, _) => { cancelacion.Cancel(); cancelacion.Dispose(); };
         if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
@@ -130,13 +130,13 @@ public partial class FrmUsuarios : Form
             if (!IsDisposed && !Disposing && !token.IsCancellationRequested)
             {
                 listaUsuarios = usuarios;
-                string filtro = kComboBox1.Text;
-                kComboBox1.Items.Clear();
-                kComboBox1.Items.Add("Todos");
+                string filtro = cboRol.Text;
+                cboRol.Items.Clear();
+                cboRol.Items.Add("Todos");
                 foreach (var usuario in usuarios)
-                    if (!kComboBox1.Items.Contains(usuario.Rol))
-                        kComboBox1.Items.Add(usuario.Rol);
-                kComboBox1.SelectedItem = kComboBox1.Items.Contains(filtro) ? filtro : "Todos";
+                    if (!cboRol.Items.Contains(usuario.Rol))
+                        cboRol.Items.Add(usuario.Rol);
+                cboRol.SelectedItem = cboRol.Items.Contains(filtro) ? filtro : "Todos";
                 FiltroRol_Changed(this, EventArgs.Empty);
             }
         }
@@ -169,7 +169,7 @@ public partial class FrmUsuarios : Form
     {
         var filtrados = new List<UsuarioListado>();
         foreach (var usuario in listaUsuarios)
-            if (kComboBox1.Text == "Todos" || kComboBox1.Text == usuario.Rol)
+            if (cboRol.Text == "Todos" || cboRol.Text == usuario.Rol)
                 filtrados.Add(usuario);
         dgvUsuarios.DataSource = filtrados;
     }

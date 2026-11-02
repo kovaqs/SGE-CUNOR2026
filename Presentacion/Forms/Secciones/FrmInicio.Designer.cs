@@ -18,6 +18,7 @@ partial class FrmInicio
     {
         components = new System.ComponentModel.Container();
         notificador = new KovaqsUI.Components.KToastNotifier(components);
+        ayudaIndicadores = new ToolTip(components);
         notificador.OwnerForm = this;
         LiveChartsCore.SkiaSharpView.SKCharts.SKDefaultLegend skDefaultLegend1 = new LiveChartsCore.SkiaSharpView.SKCharts.SKDefaultLegend();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInicio));
@@ -28,71 +29,71 @@ partial class FrmInicio
         LiveChartsCore.Drawing.Padding padding3 = new LiveChartsCore.Drawing.Padding();
         LiveChartsCore.SkiaSharpView.SKCharts.SKDefaultTooltip skDefaultTooltip2 = new LiveChartsCore.SkiaSharpView.SKCharts.SKDefaultTooltip();
         LiveChartsCore.Drawing.Padding padding4 = new LiveChartsCore.Drawing.Padding();
-        kLabel7 = new KovaqsUI.Controls.KLabel();
-        kLabel1 = new KovaqsUI.Controls.KLabel();
+        lblTitulo = new KovaqsUI.Controls.KLabel();
+        lblPeriodo = new KovaqsUI.Controls.KLabel();
         cboDepartamento = new KovaqsUI.Controls.KComboBox();
-        kLabel2 = new KovaqsUI.Controls.KLabel();
-        kPanel4 = new KovaqsUI.Controls.KPanel();
-        kLabel3 = new KovaqsUI.Controls.KLabel();
-        pieChart1 = new LiveChartsCore.SkiaSharpView.WinForms.PieChart();
-        kPanel5 = new KovaqsUI.Controls.KPanel();
-        cartesianChart1 = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
-        kLabel4 = new KovaqsUI.Controls.KLabel();
-        flowLayoutPanel1 = new FlowLayoutPanel();
-        kPanel3 = new KovaqsUI.Controls.KPanel();
+        lblDepartamento = new KovaqsUI.Controls.KLabel();
+        panelSalarios = new KovaqsUI.Controls.KPanel();
+        lblTituloSalarios = new KovaqsUI.Controls.KLabel();
+        graficoMasaSalarial = new LiveChartsCore.SkiaSharpView.WinForms.PieChart();
+        panelIncidencias = new KovaqsUI.Controls.KPanel();
+        graficoIncidencias = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
+        lblTituloIncidencias = new KovaqsUI.Controls.KLabel();
+        panelIndicadores = new FlowLayoutPanel();
+        panelEmpleados = new KovaqsUI.Controls.KPanel();
         lblEmpleadosActivos = new KovaqsUI.Controls.KLabel();
-        kLabel5 = new KovaqsUI.Controls.KLabel();
-        kPanel2 = new KovaqsUI.Controls.KPanel();
+        lblTituloEmpleados = new KovaqsUI.Controls.KLabel();
+        panelFaltas = new KovaqsUI.Controls.KPanel();
         lblFaltasMes = new KovaqsUI.Controls.KLabel();
-        kLabel6 = new KovaqsUI.Controls.KLabel();
-        kPanel1 = new KovaqsUI.Controls.KPanel();
+        lblTituloFaltas = new KovaqsUI.Controls.KLabel();
+        panelTardanzas = new KovaqsUI.Controls.KPanel();
         lblTardanzasMes = new KovaqsUI.Controls.KLabel();
-        kLabel8 = new KovaqsUI.Controls.KLabel();
+        lblTituloTardanzas = new KovaqsUI.Controls.KLabel();
         dtpPeriodo = new DateTimePicker();
         btnConsultar = new KovaqsUI.Controls.KButton();
         btnVerEmpleados = new KovaqsUI.Controls.KButton();
         btnVerAsistencias = new KovaqsUI.Controls.KButton();
         btnVerNomina = new KovaqsUI.Controls.KButton();
-        kPanel4.SuspendLayout();
-        kPanel5.SuspendLayout();
-        flowLayoutPanel1.SuspendLayout();
-        kPanel3.SuspendLayout();
-        kPanel2.SuspendLayout();
-        kPanel1.SuspendLayout();
+        panelSalarios.SuspendLayout();
+        panelIncidencias.SuspendLayout();
+        panelIndicadores.SuspendLayout();
+        panelEmpleados.SuspendLayout();
+        panelFaltas.SuspendLayout();
+        panelTardanzas.SuspendLayout();
         SuspendLayout();
         //
-        // kLabel7
+        // lblTitulo
         //
-        kLabel7.AutoSize = false;
-        kLabel7.BackColor = Color.Transparent;
-        kLabel7.Dock = DockStyle.None;
-        kLabel7.Location = new Point(16, 12);
-        kLabel7.TextAlign = ContentAlignment.MiddleLeft;
-        kLabel7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        kLabel7.Font = new Font("Inter", 16F, FontStyle.Bold);
-        kLabel7.ForeColor = Color.FromArgb(32, 38, 45);
-        kLabel7.TabStop = false;
-        kLabel7.Name = "kLabel7";
-        kLabel7.Size = new Size(1094, 40);
-        kLabel7.TabIndex = 0;
-        kLabel7.Text = "Inicio";
-        kLabel7.TextRole = KovaqsUI.Controls.KTextRole.Title;
+        lblTitulo.AutoSize = false;
+        lblTitulo.BackColor = Color.Transparent;
+        lblTitulo.Dock = DockStyle.None;
+        lblTitulo.Location = new Point(16, 12);
+        lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
+        lblTitulo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        lblTitulo.Font = new Font("Inter", 16F, FontStyle.Bold);
+        lblTitulo.ForeColor = Color.FromArgb(32, 38, 45);
+        lblTitulo.TabStop = false;
+        lblTitulo.Name = "lblTitulo";
+        lblTitulo.Size = new Size(1094, 40);
+        lblTitulo.TabIndex = 0;
+        lblTitulo.Text = "Inicio";
+        lblTitulo.TextRole = KovaqsUI.Controls.KTextRole.Title;
         //
-        // kLabel1
+        // lblPeriodo
         //
-        kLabel1.AutoSize = false;
-        kLabel1.BackColor = Color.Transparent;
-        kLabel1.Location = new Point(16, 70);
-        kLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-        kLabel1.Font = new Font("Inter", 9F);
-        kLabel1.ForeColor = Color.FromArgb(64, 64, 64);
-        kLabel1.TabStop = false;
-        kLabel1.Name = "kLabel1";
-        kLabel1.Size = new Size(354, 24);
-        kLabel1.TabIndex = 1;
-        kLabel1.Text = "Mes de consulta";
-        kLabel1.TextAlign = ContentAlignment.MiddleLeft;
-        kLabel1.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        lblPeriodo.AutoSize = false;
+        lblPeriodo.BackColor = Color.Transparent;
+        lblPeriodo.Location = new Point(16, 70);
+        lblPeriodo.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+        lblPeriodo.Font = new Font("Inter", 9F);
+        lblPeriodo.ForeColor = Color.FromArgb(64, 64, 64);
+        lblPeriodo.TabStop = false;
+        lblPeriodo.Name = "lblPeriodo";
+        lblPeriodo.Size = new Size(354, 24);
+        lblPeriodo.TabIndex = 1;
+        lblPeriodo.Text = "Mes de consulta";
+        lblPeriodo.TextAlign = ContentAlignment.MiddleLeft;
+        lblPeriodo.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         //
         // cboDepartamento
         //
@@ -112,63 +113,63 @@ partial class FrmInicio
         cboDepartamento.Size = new Size(354, 34);
         cboDepartamento.TabIndex = 4;
         //
-        // kLabel2
+        // lblDepartamento
         //
-        kLabel2.AutoSize = false;
-        kLabel2.BackColor = Color.Transparent;
-        kLabel2.Location = new Point(386, 70);
-        kLabel2.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-        kLabel2.Font = new Font("Inter", 9F);
-        kLabel2.ForeColor = Color.FromArgb(64, 64, 64);
-        kLabel2.TabStop = false;
-        kLabel2.Name = "kLabel2";
-        kLabel2.Size = new Size(354, 24);
-        kLabel2.TabIndex = 2;
-        kLabel2.Text = "Departamento";
-        kLabel2.TextAlign = ContentAlignment.MiddleLeft;
-        kLabel2.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        lblDepartamento.AutoSize = false;
+        lblDepartamento.BackColor = Color.Transparent;
+        lblDepartamento.Location = new Point(386, 70);
+        lblDepartamento.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+        lblDepartamento.Font = new Font("Inter", 9F);
+        lblDepartamento.ForeColor = Color.FromArgb(64, 64, 64);
+        lblDepartamento.TabStop = false;
+        lblDepartamento.Name = "lblDepartamento";
+        lblDepartamento.Size = new Size(354, 24);
+        lblDepartamento.TabIndex = 2;
+        lblDepartamento.Text = "Departamento";
+        lblDepartamento.TextAlign = ContentAlignment.MiddleLeft;
+        lblDepartamento.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         //
-        // kPanel4
+        // panelSalarios
         //
-        kPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        kPanel4.BackColor = Color.Transparent;
-        kPanel4.Controls.Add(kLabel3);
-        kPanel4.Controls.Add(pieChart1);
-        kPanel4.Location = new Point(0, 148);
-        kPanel4.Margin = new Padding(0, 0, 16, 0);
-        kPanel4.FillColor = Color.White;
-        kPanel4.BorderColor = Color.FromArgb(218, 218, 218);
-        kPanel4.GradientColor = Color.Empty;
-        kPanel4.CornerRadius = 8;
-        kPanel4.Name = "kPanel4";
-        kPanel4.Padding = new Padding(12);
-        kPanel4.Shadow.Blur = 5;
-        kPanel4.Shadow.Enabled = false;
-        kPanel4.Shadow.Offset = new Point(0, 1);
-        kPanel4.Shadow.Opacity = 10;
-        kPanel4.Size = new Size(539, 326);
-        kPanel4.TabIndex = 3;
+        panelSalarios.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        panelSalarios.BackColor = Color.Transparent;
+        panelSalarios.Controls.Add(lblTituloSalarios);
+        panelSalarios.Controls.Add(graficoMasaSalarial);
+        panelSalarios.Location = new Point(0, 148);
+        panelSalarios.Margin = new Padding(0, 0, 16, 0);
+        panelSalarios.FillColor = Color.White;
+        panelSalarios.BorderColor = Color.FromArgb(218, 218, 218);
+        panelSalarios.GradientColor = Color.Empty;
+        panelSalarios.CornerRadius = 8;
+        panelSalarios.Name = "panelSalarios";
+        panelSalarios.Padding = new Padding(12);
+        panelSalarios.Shadow.Blur = 5;
+        panelSalarios.Shadow.Enabled = false;
+        panelSalarios.Shadow.Offset = new Point(0, 1);
+        panelSalarios.Shadow.Opacity = 10;
+        panelSalarios.Size = new Size(539, 326);
+        panelSalarios.TabIndex = 3;
         //
-        // kLabel3
+        // lblTituloSalarios
         //
-        kLabel3.AutoSize = false;
-        kLabel3.BackColor = Color.Transparent;
-        kLabel3.ForeColor = Color.FromArgb(64, 64, 64);
-        kLabel3.Location = new Point(16, 14);
-        kLabel3.Font = new Font("Inter", 9F);
-        kLabel3.TabStop = false;
-        kLabel3.Name = "kLabel3";
-        kLabel3.Size = new Size(507, 26);
-        kLabel3.TabIndex = 0;
-        kLabel3.Text = "Masa salarial por departamento";
-        kLabel3.TextAlign = ContentAlignment.MiddleLeft;
-        kLabel3.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        lblTituloSalarios.AutoSize = false;
+        lblTituloSalarios.BackColor = Color.Transparent;
+        lblTituloSalarios.ForeColor = Color.FromArgb(64, 64, 64);
+        lblTituloSalarios.Location = new Point(16, 14);
+        lblTituloSalarios.Font = new Font("Inter", 9F);
+        lblTituloSalarios.TabStop = false;
+        lblTituloSalarios.Name = "lblTituloSalarios";
+        lblTituloSalarios.Size = new Size(507, 26);
+        lblTituloSalarios.TabIndex = 0;
+        lblTituloSalarios.Text = "Masa salarial por departamento";
+        lblTituloSalarios.TextAlign = ContentAlignment.MiddleLeft;
+        lblTituloSalarios.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         //
-        // pieChart1
+        // graficoMasaSalarial
         //
-        pieChart1.AutoUpdateEnabled = true;
-        pieChart1.BackColor = Color.White;
-        pieChart1.ChartTheme = null;
+        graficoMasaSalarial.AutoUpdateEnabled = true;
+        graficoMasaSalarial.BackColor = Color.White;
+        graficoMasaSalarial.ChartTheme = null;
         skDefaultLegend1.AnimationsSpeed = TimeSpan.Parse("00:00:00.1500000");
         skDefaultLegend1.Content = null;
         skDefaultLegend1.IsValid = false;
@@ -182,11 +183,11 @@ partial class FrmInicio
         skDefaultLegend1.RotateTransform = 0F;
         skDefaultLegend1.X = 0F;
         skDefaultLegend1.Y = 0F;
-        pieChart1.Legend = skDefaultLegend1;
-        pieChart1.Location = new Point(16, 52);
-        pieChart1.Name = "pieChart1";
-        pieChart1.Size = new Size(507, 258);
-        pieChart1.TabIndex = 1;
+        graficoMasaSalarial.Legend = skDefaultLegend1;
+        graficoMasaSalarial.Location = new Point(16, 52);
+        graficoMasaSalarial.Name = "graficoMasaSalarial";
+        graficoMasaSalarial.Size = new Size(507, 258);
+        graficoMasaSalarial.TabIndex = 1;
         skDefaultTooltip1.AnimationsSpeed = TimeSpan.Parse("00:00:00.1500000");
         skDefaultTooltip1.Content = null;
         skDefaultTooltip1.IsValid = false;
@@ -201,36 +202,36 @@ partial class FrmInicio
         skDefaultTooltip1.Wedge = 10;
         skDefaultTooltip1.X = 0F;
         skDefaultTooltip1.Y = 0F;
-        pieChart1.Tooltip = skDefaultTooltip1;
-        pieChart1.UpdaterThrottler = TimeSpan.Parse("00:00:00.0500000");
+        graficoMasaSalarial.Tooltip = skDefaultTooltip1;
+        graficoMasaSalarial.UpdaterThrottler = TimeSpan.Parse("00:00:00.0500000");
         //
-        // kPanel5
+        // panelIncidencias
         //
-        kPanel5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        kPanel5.BackColor = Color.Transparent;
-        kPanel5.Controls.Add(cartesianChart1);
-        kPanel5.Controls.Add(kLabel4);
-        kPanel5.Location = new Point(555, 148);
-        kPanel5.Margin = new Padding(0);
-        kPanel5.FillColor = Color.White;
-        kPanel5.BorderColor = Color.FromArgb(218, 218, 218);
-        kPanel5.GradientColor = Color.Empty;
-        kPanel5.CornerRadius = 8;
-        kPanel5.Name = "kPanel5";
-        kPanel5.Padding = new Padding(12);
-        kPanel5.Shadow.Blur = 5;
-        kPanel5.Shadow.Enabled = false;
-        kPanel5.Shadow.Offset = new Point(0, 1);
-        kPanel5.Shadow.Opacity = 10;
-        kPanel5.Size = new Size(539, 326);
-        kPanel5.TabIndex = 4;
+        panelIncidencias.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        panelIncidencias.BackColor = Color.Transparent;
+        panelIncidencias.Controls.Add(graficoIncidencias);
+        panelIncidencias.Controls.Add(lblTituloIncidencias);
+        panelIncidencias.Location = new Point(555, 148);
+        panelIncidencias.Margin = new Padding(0);
+        panelIncidencias.FillColor = Color.White;
+        panelIncidencias.BorderColor = Color.FromArgb(218, 218, 218);
+        panelIncidencias.GradientColor = Color.Empty;
+        panelIncidencias.CornerRadius = 8;
+        panelIncidencias.Name = "panelIncidencias";
+        panelIncidencias.Padding = new Padding(12);
+        panelIncidencias.Shadow.Blur = 5;
+        panelIncidencias.Shadow.Enabled = false;
+        panelIncidencias.Shadow.Offset = new Point(0, 1);
+        panelIncidencias.Shadow.Opacity = 10;
+        panelIncidencias.Size = new Size(539, 326);
+        panelIncidencias.TabIndex = 4;
         //
-        // cartesianChart1
+        // graficoIncidencias
         //
-        cartesianChart1.AutoUpdateEnabled = true;
-        cartesianChart1.BackColor = Color.White;
-        cartesianChart1.ChartTheme = null;
-        cartesianChart1.Dock = DockStyle.Bottom;
+        graficoIncidencias.AutoUpdateEnabled = true;
+        graficoIncidencias.BackColor = Color.White;
+        graficoIncidencias.ChartTheme = null;
+        graficoIncidencias.Dock = DockStyle.Bottom;
         skDefaultLegend2.AnimationsSpeed = TimeSpan.Parse("00:00:00.1500000");
         skDefaultLegend2.Content = null;
         skDefaultLegend2.IsValid = false;
@@ -244,12 +245,13 @@ partial class FrmInicio
         skDefaultLegend2.RotateTransform = 0F;
         skDefaultLegend2.X = 0F;
         skDefaultLegend2.Y = 0F;
-        cartesianChart1.Legend = skDefaultLegend2;
-        cartesianChart1.Location = new Point(16, 52);
-        cartesianChart1.MatchAxesScreenDataRatio = false;
-        cartesianChart1.Name = "cartesianChart1";
-        cartesianChart1.Size = new Size(507, 258);
-        cartesianChart1.TabIndex = 1;
+        graficoIncidencias.Legend = skDefaultLegend2;
+        graficoIncidencias.Location = new Point(16, 52);
+        graficoIncidencias.MatchAxesScreenDataRatio = false;
+        graficoIncidencias.Name = "graficoIncidencias";
+        ayudaIndicadores.SetToolTip(graficoIncidencias, "Faltas o tardanzas / jornadas laborables registradas y resueltas × 100. Se excluyen días no laborables y jornadas pendientes.");
+        graficoIncidencias.Size = new Size(507, 258);
+        graficoIncidencias.TabIndex = 1;
         skDefaultTooltip2.AnimationsSpeed = TimeSpan.Parse("00:00:00.1500000");
         skDefaultTooltip2.Content = null;
         skDefaultTooltip2.IsValid = false;
@@ -264,60 +266,60 @@ partial class FrmInicio
         skDefaultTooltip2.Wedge = 10;
         skDefaultTooltip2.X = 0F;
         skDefaultTooltip2.Y = 0F;
-        cartesianChart1.Tooltip = skDefaultTooltip2;
-        cartesianChart1.TooltipFindingStrategy = LiveChartsCore.Measure.TooltipFindingStrategy.Automatic;
-        cartesianChart1.UpdaterThrottler = TimeSpan.Parse("00:00:00.0500000");
+        graficoIncidencias.Tooltip = skDefaultTooltip2;
+        graficoIncidencias.TooltipFindingStrategy = LiveChartsCore.Measure.TooltipFindingStrategy.Automatic;
+        graficoIncidencias.UpdaterThrottler = TimeSpan.Parse("00:00:00.0500000");
         //
-        // kLabel4
+        // lblTituloIncidencias
         //
-        kLabel4.AutoSize = false;
-        kLabel4.BackColor = Color.Transparent;
-        kLabel4.ForeColor = Color.FromArgb(64, 64, 64);
-        kLabel4.Location = new Point(16, 14);
-        kLabel4.Font = new Font("Inter", 9F);
-        kLabel4.TabStop = false;
-        kLabel4.Name = "kLabel4";
-        kLabel4.Size = new Size(507, 26);
-        kLabel4.TabIndex = 0;
-        kLabel4.Text = "Faltas y tardanzas";
-        kLabel4.TextAlign = ContentAlignment.MiddleLeft;
-        kLabel4.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        lblTituloIncidencias.AutoSize = false;
+        lblTituloIncidencias.BackColor = Color.Transparent;
+        lblTituloIncidencias.ForeColor = Color.FromArgb(64, 64, 64);
+        lblTituloIncidencias.Location = new Point(16, 14);
+        lblTituloIncidencias.Font = new Font("Inter", 9F);
+        lblTituloIncidencias.TabStop = false;
+        lblTituloIncidencias.Name = "lblTituloIncidencias";
+        lblTituloIncidencias.Size = new Size(507, 26);
+        lblTituloIncidencias.TabIndex = 0;
+        lblTituloIncidencias.Text = "Ausentismo y tardanzas (%)";
+        lblTituloIncidencias.TextAlign = ContentAlignment.MiddleLeft;
+        lblTituloIncidencias.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         //
-        // flowLayoutPanel1
+        // panelIndicadores
         //
-        flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        flowLayoutPanel1.Controls.Add(kPanel3);
-        flowLayoutPanel1.Controls.Add(kPanel2);
-        flowLayoutPanel1.Controls.Add(kPanel1);
-        flowLayoutPanel1.Controls.Add(kPanel4);
-        flowLayoutPanel1.Controls.Add(kPanel5);
-        flowLayoutPanel1.Location = new Point(16, 150);
-        flowLayoutPanel1.WrapContents = true;
-        flowLayoutPanel1.Padding = new Padding(0);
-        flowLayoutPanel1.Name = "flowLayoutPanel1";
-        flowLayoutPanel1.Size = new Size(1094, 484);
-        flowLayoutPanel1.TabIndex = 5;
+        panelIndicadores.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        panelIndicadores.Controls.Add(panelEmpleados);
+        panelIndicadores.Controls.Add(panelFaltas);
+        panelIndicadores.Controls.Add(panelTardanzas);
+        panelIndicadores.Controls.Add(panelSalarios);
+        panelIndicadores.Controls.Add(panelIncidencias);
+        panelIndicadores.Location = new Point(16, 150);
+        panelIndicadores.WrapContents = true;
+        panelIndicadores.Padding = new Padding(0);
+        panelIndicadores.Name = "panelIndicadores";
+        panelIndicadores.Size = new Size(1094, 484);
+        panelIndicadores.TabIndex = 5;
         //
-        // kPanel3
+        // panelEmpleados
         //
-        kPanel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        kPanel3.BackColor = Color.Transparent;
-        kPanel3.Controls.Add(lblEmpleadosActivos);
-        kPanel3.Controls.Add(kLabel5);
-        kPanel3.Location = new Point(0, 0);
-        kPanel3.Margin = new Padding(0, 0, 16, 16);
-        kPanel3.FillColor = Color.White;
-        kPanel3.BorderColor = Color.FromArgb(218, 218, 218);
-        kPanel3.GradientColor = Color.Empty;
-        kPanel3.CornerRadius = 8;
-        kPanel3.Name = "kPanel3";
-        kPanel3.Padding = new Padding(12);
-        kPanel3.Shadow.Blur = 5;
-        kPanel3.Shadow.Enabled = false;
-        kPanel3.Shadow.Offset = new Point(0, 1);
-        kPanel3.Shadow.Opacity = 10;
-        kPanel3.Size = new Size(354, 132);
-        kPanel3.TabIndex = 0;
+        panelEmpleados.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        panelEmpleados.BackColor = Color.Transparent;
+        panelEmpleados.Controls.Add(lblEmpleadosActivos);
+        panelEmpleados.Controls.Add(lblTituloEmpleados);
+        panelEmpleados.Location = new Point(0, 0);
+        panelEmpleados.Margin = new Padding(0, 0, 16, 16);
+        panelEmpleados.FillColor = Color.White;
+        panelEmpleados.BorderColor = Color.FromArgb(218, 218, 218);
+        panelEmpleados.GradientColor = Color.Empty;
+        panelEmpleados.CornerRadius = 8;
+        panelEmpleados.Name = "panelEmpleados";
+        panelEmpleados.Padding = new Padding(12);
+        panelEmpleados.Shadow.Blur = 5;
+        panelEmpleados.Shadow.Enabled = false;
+        panelEmpleados.Shadow.Offset = new Point(0, 1);
+        panelEmpleados.Shadow.Opacity = 10;
+        panelEmpleados.Size = new Size(354, 132);
+        panelEmpleados.TabIndex = 0;
         //
         // lblEmpleadosActivos
         //
@@ -335,42 +337,42 @@ partial class FrmInicio
         lblEmpleadosActivos.TextAlign = ContentAlignment.MiddleLeft;
         lblEmpleadosActivos.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         //
-        // kLabel5
+        // lblTituloEmpleados
         //
-        kLabel5.AutoSize = false;
-        kLabel5.BackColor = Color.Transparent;
-        kLabel5.Dock = DockStyle.Top;
-        kLabel5.ForeColor = Color.FromArgb(64, 64, 64);
-        kLabel5.Location = new Point(16, 14);
-        kLabel5.Font = new Font("Inter", 9F);
-        kLabel5.TabStop = false;
-        kLabel5.Name = "kLabel5";
-        kLabel5.Size = new Size(322, 24);
-        kLabel5.TabIndex = 0;
-        kLabel5.Text = "Empleados activos";
-        kLabel5.TextAlign = ContentAlignment.MiddleLeft;
-        kLabel5.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        lblTituloEmpleados.AutoSize = false;
+        lblTituloEmpleados.BackColor = Color.Transparent;
+        lblTituloEmpleados.Dock = DockStyle.Top;
+        lblTituloEmpleados.ForeColor = Color.FromArgb(64, 64, 64);
+        lblTituloEmpleados.Location = new Point(16, 14);
+        lblTituloEmpleados.Font = new Font("Inter", 9F);
+        lblTituloEmpleados.TabStop = false;
+        lblTituloEmpleados.Name = "lblTituloEmpleados";
+        lblTituloEmpleados.Size = new Size(322, 24);
+        lblTituloEmpleados.TabIndex = 0;
+        lblTituloEmpleados.Text = "Empleados activos";
+        lblTituloEmpleados.TextAlign = ContentAlignment.MiddleLeft;
+        lblTituloEmpleados.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         //
-        // kPanel2
+        // panelFaltas
         //
-        kPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        kPanel2.BackColor = Color.Transparent;
-        kPanel2.Controls.Add(lblFaltasMes);
-        kPanel2.Controls.Add(kLabel6);
-        kPanel2.Location = new Point(370, 0);
-        kPanel2.Margin = new Padding(0, 0, 16, 16);
-        kPanel2.FillColor = Color.White;
-        kPanel2.BorderColor = Color.FromArgb(218, 218, 218);
-        kPanel2.GradientColor = Color.Empty;
-        kPanel2.CornerRadius = 8;
-        kPanel2.Name = "kPanel2";
-        kPanel2.Padding = new Padding(12);
-        kPanel2.Shadow.Blur = 5;
-        kPanel2.Shadow.Enabled = false;
-        kPanel2.Shadow.Offset = new Point(0, 1);
-        kPanel2.Shadow.Opacity = 10;
-        kPanel2.Size = new Size(354, 132);
-        kPanel2.TabIndex = 1;
+        panelFaltas.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        panelFaltas.BackColor = Color.Transparent;
+        panelFaltas.Controls.Add(lblFaltasMes);
+        panelFaltas.Controls.Add(lblTituloFaltas);
+        panelFaltas.Location = new Point(370, 0);
+        panelFaltas.Margin = new Padding(0, 0, 16, 16);
+        panelFaltas.FillColor = Color.White;
+        panelFaltas.BorderColor = Color.FromArgb(218, 218, 218);
+        panelFaltas.GradientColor = Color.Empty;
+        panelFaltas.CornerRadius = 8;
+        panelFaltas.Name = "panelFaltas";
+        panelFaltas.Padding = new Padding(12);
+        panelFaltas.Shadow.Blur = 5;
+        panelFaltas.Shadow.Enabled = false;
+        panelFaltas.Shadow.Offset = new Point(0, 1);
+        panelFaltas.Shadow.Opacity = 10;
+        panelFaltas.Size = new Size(354, 132);
+        panelFaltas.TabIndex = 1;
         //
         // lblFaltasMes
         //
@@ -388,42 +390,42 @@ partial class FrmInicio
         lblFaltasMes.TextAlign = ContentAlignment.MiddleLeft;
         lblFaltasMes.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         //
-        // kLabel6
+        // lblTituloFaltas
         //
-        kLabel6.AutoSize = false;
-        kLabel6.BackColor = Color.Transparent;
-        kLabel6.Dock = DockStyle.Top;
-        kLabel6.ForeColor = Color.FromArgb(64, 64, 64);
-        kLabel6.Location = new Point(16, 14);
-        kLabel6.Font = new Font("Inter", 9F);
-        kLabel6.TabStop = false;
-        kLabel6.Name = "kLabel6";
-        kLabel6.Size = new Size(322, 24);
-        kLabel6.TabIndex = 0;
-        kLabel6.Text = "Faltas del mes";
-        kLabel6.TextAlign = ContentAlignment.MiddleLeft;
-        kLabel6.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        lblTituloFaltas.AutoSize = false;
+        lblTituloFaltas.BackColor = Color.Transparent;
+        lblTituloFaltas.Dock = DockStyle.Top;
+        lblTituloFaltas.ForeColor = Color.FromArgb(64, 64, 64);
+        lblTituloFaltas.Location = new Point(16, 14);
+        lblTituloFaltas.Font = new Font("Inter", 9F);
+        lblTituloFaltas.TabStop = false;
+        lblTituloFaltas.Name = "lblTituloFaltas";
+        lblTituloFaltas.Size = new Size(322, 24);
+        lblTituloFaltas.TabIndex = 0;
+        lblTituloFaltas.Text = "Faltas del mes";
+        lblTituloFaltas.TextAlign = ContentAlignment.MiddleLeft;
+        lblTituloFaltas.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         //
-        // kPanel1
+        // panelTardanzas
         //
-        kPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        kPanel1.BackColor = Color.Transparent;
-        kPanel1.Controls.Add(lblTardanzasMes);
-        kPanel1.Controls.Add(kLabel8);
-        kPanel1.Location = new Point(740, 0);
-        kPanel1.Margin = new Padding(0, 0, 0, 16);
-        kPanel1.FillColor = Color.White;
-        kPanel1.BorderColor = Color.FromArgb(218, 218, 218);
-        kPanel1.GradientColor = Color.Empty;
-        kPanel1.CornerRadius = 8;
-        kPanel1.Name = "kPanel1";
-        kPanel1.Padding = new Padding(12);
-        kPanel1.Shadow.Blur = 5;
-        kPanel1.Shadow.Enabled = false;
-        kPanel1.Shadow.Offset = new Point(0, 1);
-        kPanel1.Shadow.Opacity = 10;
-        kPanel1.Size = new Size(354, 132);
-        kPanel1.TabIndex = 2;
+        panelTardanzas.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        panelTardanzas.BackColor = Color.Transparent;
+        panelTardanzas.Controls.Add(lblTardanzasMes);
+        panelTardanzas.Controls.Add(lblTituloTardanzas);
+        panelTardanzas.Location = new Point(740, 0);
+        panelTardanzas.Margin = new Padding(0, 0, 0, 16);
+        panelTardanzas.FillColor = Color.White;
+        panelTardanzas.BorderColor = Color.FromArgb(218, 218, 218);
+        panelTardanzas.GradientColor = Color.Empty;
+        panelTardanzas.CornerRadius = 8;
+        panelTardanzas.Name = "panelTardanzas";
+        panelTardanzas.Padding = new Padding(12);
+        panelTardanzas.Shadow.Blur = 5;
+        panelTardanzas.Shadow.Enabled = false;
+        panelTardanzas.Shadow.Offset = new Point(0, 1);
+        panelTardanzas.Shadow.Opacity = 10;
+        panelTardanzas.Size = new Size(354, 132);
+        panelTardanzas.TabIndex = 2;
         //
         // lblTardanzasMes
         //
@@ -441,21 +443,21 @@ partial class FrmInicio
         lblTardanzasMes.TextAlign = ContentAlignment.MiddleLeft;
         lblTardanzasMes.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         //
-        // kLabel8
+        // lblTituloTardanzas
         //
-        kLabel8.AutoSize = false;
-        kLabel8.BackColor = Color.Transparent;
-        kLabel8.Dock = DockStyle.Top;
-        kLabel8.ForeColor = Color.FromArgb(64, 64, 64);
-        kLabel8.Location = new Point(16, 14);
-        kLabel8.Font = new Font("Inter", 9F);
-        kLabel8.TabStop = false;
-        kLabel8.Name = "kLabel8";
-        kLabel8.Size = new Size(322, 24);
-        kLabel8.TabIndex = 0;
-        kLabel8.Text = "Llegadas tarde";
-        kLabel8.TextAlign = ContentAlignment.MiddleLeft;
-        kLabel8.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        lblTituloTardanzas.AutoSize = false;
+        lblTituloTardanzas.BackColor = Color.Transparent;
+        lblTituloTardanzas.Dock = DockStyle.Top;
+        lblTituloTardanzas.ForeColor = Color.FromArgb(64, 64, 64);
+        lblTituloTardanzas.Location = new Point(16, 14);
+        lblTituloTardanzas.Font = new Font("Inter", 9F);
+        lblTituloTardanzas.TabStop = false;
+        lblTituloTardanzas.Name = "lblTituloTardanzas";
+        lblTituloTardanzas.Size = new Size(322, 24);
+        lblTituloTardanzas.TabIndex = 0;
+        lblTituloTardanzas.Text = "Llegadas tarde";
+        lblTituloTardanzas.TextAlign = ContentAlignment.MiddleLeft;
+        lblTituloTardanzas.TextRole = KovaqsUI.Controls.KTextRole.Caption;
         //
         // dtpPeriodo
         //
@@ -579,53 +581,55 @@ partial class FrmInicio
         Controls.Add(btnVerAsistencias);
         Controls.Add(btnVerNomina);
         Controls.Add(dtpPeriodo);
-        Controls.Add(flowLayoutPanel1);
-        Controls.Add(kLabel2);
+        Controls.Add(panelIndicadores);
+        Controls.Add(lblDepartamento);
         Controls.Add(cboDepartamento);
-        Controls.Add(kLabel1);
-        Controls.Add(kLabel7);
+        Controls.Add(lblPeriodo);
+        Controls.Add(lblTitulo);
         MinimumSize = new Size(1126, 744);
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(3);
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmInicio";
         Text = "Inicio";
         Load += FrmInicio_Load;
-        kPanel4.ResumeLayout(false);
-        kPanel5.ResumeLayout(false);
-        flowLayoutPanel1.ResumeLayout(false);
-        kPanel3.ResumeLayout(false);
-        kPanel2.ResumeLayout(false);
-        kPanel1.ResumeLayout(false);
+        panelSalarios.ResumeLayout(false);
+        panelIncidencias.ResumeLayout(false);
+        panelIndicadores.ResumeLayout(false);
+        panelEmpleados.ResumeLayout(false);
+        panelFaltas.ResumeLayout(false);
+        panelTardanzas.ResumeLayout(false);
         ResumeLayout(false);
     }
 
     #endregion
 
-    private KovaqsUI.Controls.KLabel kLabel7;
-    private KovaqsUI.Controls.KLabel kLabel1;
+    private KovaqsUI.Controls.KLabel lblTitulo;
+    private KovaqsUI.Controls.KLabel lblPeriodo;
     private KovaqsUI.Controls.KComboBox cboDepartamento;
-    private KovaqsUI.Controls.KLabel kLabel2;
-    private KovaqsUI.Controls.KPanel kPanel4;
-    private KovaqsUI.Controls.KPanel kPanel5;
-    private LiveChartsCore.SkiaSharpView.WinForms.PieChart pieChart1;
-    private KovaqsUI.Controls.KLabel kLabel3;
-    private LiveChartsCore.SkiaSharpView.WinForms.CartesianChart cartesianChart1;
-    private KovaqsUI.Controls.KLabel kLabel4;
-    private FlowLayoutPanel flowLayoutPanel1;
-    private KovaqsUI.Controls.KPanel kPanel3;
-    private KovaqsUI.Controls.KPanel kPanel2;
-    private KovaqsUI.Controls.KPanel kPanel1;
-    private KovaqsUI.Controls.KLabel kLabel5;
+    private KovaqsUI.Controls.KLabel lblDepartamento;
+    private KovaqsUI.Controls.KPanel panelSalarios;
+    private KovaqsUI.Controls.KPanel panelIncidencias;
+    private LiveChartsCore.SkiaSharpView.WinForms.PieChart graficoMasaSalarial;
+    private KovaqsUI.Controls.KLabel lblTituloSalarios;
+    private LiveChartsCore.SkiaSharpView.WinForms.CartesianChart graficoIncidencias;
+    private KovaqsUI.Controls.KLabel lblTituloIncidencias;
+    private FlowLayoutPanel panelIndicadores;
+    private KovaqsUI.Controls.KPanel panelEmpleados;
+    private KovaqsUI.Controls.KPanel panelFaltas;
+    private KovaqsUI.Controls.KPanel panelTardanzas;
+    private KovaqsUI.Controls.KLabel lblTituloEmpleados;
     private KovaqsUI.Controls.KLabel lblEmpleadosActivos;
     private KovaqsUI.Controls.KLabel lblFaltasMes;
-    private KovaqsUI.Controls.KLabel kLabel6;
+    private KovaqsUI.Controls.KLabel lblTituloFaltas;
     private KovaqsUI.Controls.KLabel lblTardanzasMes;
-    private KovaqsUI.Controls.KLabel kLabel8;
+    private KovaqsUI.Controls.KLabel lblTituloTardanzas;
     private DateTimePicker dtpPeriodo;
     private KovaqsUI.Controls.KButton btnConsultar;
     private KovaqsUI.Controls.KButton btnVerEmpleados;
     private KovaqsUI.Controls.KButton btnVerAsistencias;
     private KovaqsUI.Controls.KButton btnVerNomina;
     private KovaqsUI.Components.KToastNotifier notificador;
+    private ToolTip ayudaIndicadores;
 }

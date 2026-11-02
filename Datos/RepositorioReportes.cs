@@ -44,6 +44,19 @@ public class RepositorioReportes
                     AND (@estado='Todos' OR e.estado=@estado)
                 ORDER BY a.fecha,e.apellidos,e.nombres,a.id_asistencia;
                 """,
+            5 => """
+                SELECT d.nombre AS Departamento,COUNT(*) AS Empleados
+                FROM empleados e
+                JOIN historial_laboral h ON h.id_empleado=e.id_empleado
+                    AND h.fecha_inicio<=@hasta AND (h.fecha_fin IS NULL OR h.fecha_fin>@hasta)
+                JOIN puestos p ON p.id_puesto=h.id_puesto
+                JOIN departamentos d ON d.id_departamento=p.id_departamento
+                WHERE e.fecha_contratacion<=@hasta AND (@departamento=0 OR d.id_departamento=@departamento)
+                    AND (@estado='Todos' OR e.estado=@estado)
+                GROUP BY d.id_departamento,d.nombre
+                HAVING COUNT(*)>=5
+                ORDER BY Empleados DESC,Departamento;
+                """,
             _ => throw new ArgumentException("Selecciona un tipo de reporte.")
         };
         await using var conexion = await ConexionMySql.AbrirAsync();

@@ -20,9 +20,9 @@ partial class FrmUsuarios
         DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
         DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
         dgvUsuarios = new KovaqsUI.Controls.KDataGridView();
-        kLabel1 = new KovaqsUI.Controls.KLabel();
+        lblTitulo = new KovaqsUI.Controls.KLabel();
         btnAgregarUsuario = new KovaqsUI.Controls.KButton();
-        kComboBox1 = new KovaqsUI.Controls.KComboBox();
+        cboRol = new KovaqsUI.Controls.KComboBox();
         ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
         lblRol = new KovaqsUI.Controls.KLabel();
         lblRol.Text = "Rol del usuario";
@@ -103,22 +103,22 @@ partial class FrmUsuarios
         dgvUsuarios.Size = new Size(1094, 504);
         dgvUsuarios.TabIndex = 5;
         //
-        // kLabel1
+        // lblTitulo
         //
-        kLabel1.BackColor = Color.Transparent;
-        kLabel1.Location = new Point(16, 12);
-        kLabel1.Dock = DockStyle.None;
-        kLabel1.TextAlign = ContentAlignment.MiddleLeft;
-        kLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        kLabel1.Font = new Font("Inter", 16F, FontStyle.Bold);
-        kLabel1.ForeColor = Color.FromArgb(32, 38, 45);
-        kLabel1.AutoSize = false;
-        kLabel1.TabStop = false;
-        kLabel1.Name = "kLabel1";
-        kLabel1.Size = new Size(1094, 40);
-        kLabel1.TabIndex = 0;
-        kLabel1.Text = "Usuarios";
-        kLabel1.TextRole = KovaqsUI.Controls.KTextRole.Title;
+        lblTitulo.BackColor = Color.Transparent;
+        lblTitulo.Location = new Point(16, 12);
+        lblTitulo.Dock = DockStyle.None;
+        lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
+        lblTitulo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        lblTitulo.Font = new Font("Inter", 16F, FontStyle.Bold);
+        lblTitulo.ForeColor = Color.FromArgb(32, 38, 45);
+        lblTitulo.AutoSize = false;
+        lblTitulo.TabStop = false;
+        lblTitulo.Name = "lblTitulo";
+        lblTitulo.Size = new Size(1094, 40);
+        lblTitulo.TabIndex = 0;
+        lblTitulo.Text = "Usuarios";
+        lblTitulo.TextRole = KovaqsUI.Controls.KTextRole.Title;
         //
         // btnAgregarUsuario
         //
@@ -144,23 +144,23 @@ partial class FrmUsuarios
         btnAgregarUsuario.Text = "Agregar usuario";
         btnAgregarUsuario.UseVisualStyleBackColor = false;
         //
-        // kComboBox1
+        // cboRol
         //
-        kComboBox1.FormattingEnabled = true;
-        kComboBox1.ItemHeight = 28;
-        kComboBox1.Location = new Point(16, 96);
-        kComboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-        kComboBox1.Font = new Font("Inter", 9F);
-        kComboBox1.CornerRadius = 8;
-        kComboBox1.FillColor = Color.White;
-        kComboBox1.ForeColor = Color.FromArgb(32, 38, 45);
-        kComboBox1.BorderColor = Color.FromArgb(218, 218, 218);
-        kComboBox1.GradientColor = Color.Empty;
-        kComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+        cboRol.FormattingEnabled = true;
+        cboRol.ItemHeight = 28;
+        cboRol.Location = new Point(16, 96);
+        cboRol.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+        cboRol.Font = new Font("Inter", 9F);
+        cboRol.CornerRadius = 8;
+        cboRol.FillColor = Color.White;
+        cboRol.ForeColor = Color.FromArgb(32, 38, 45);
+        cboRol.BorderColor = Color.FromArgb(218, 218, 218);
+        cboRol.GradientColor = Color.Empty;
+        cboRol.DropDownStyle = ComboBoxStyle.DropDownList;
 
-        kComboBox1.Name = "kComboBox1";
-        kComboBox1.Size = new Size(354, 34);
-        kComboBox1.TabIndex = 2;
+        cboRol.Name = "cboRol";
+        cboRol.Size = new Size(354, 34);
+        cboRol.TabIndex = 2;
         //
         // FrmUsuarios
         //
@@ -168,9 +168,9 @@ partial class FrmUsuarios
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.White;
         ClientSize = new Size(1126, 744);
-        Controls.Add(kComboBox1);
+        Controls.Add(cboRol);
         Controls.Add(btnAgregarUsuario);
-        Controls.Add(kLabel1);
+        Controls.Add(lblTitulo);
         Controls.Add(dgvUsuarios);
         Controls.Add(lblRol);
         Controls.Add(lblUsuariosTitulo);
@@ -178,6 +178,7 @@ partial class FrmUsuarios
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(3);
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmUsuarios";
         Text = "Usuarios y Permisos";
         Load += FrmUsuarios_Load;
@@ -189,9 +190,9 @@ partial class FrmUsuarios
     #endregion
 
     private KovaqsUI.Controls.KDataGridView dgvUsuarios;
-    private KovaqsUI.Controls.KLabel kLabel1;
+    private KovaqsUI.Controls.KLabel lblTitulo;
     private KovaqsUI.Controls.KButton btnAgregarUsuario;
-    private KovaqsUI.Controls.KComboBox kComboBox1;
+    private KovaqsUI.Controls.KComboBox cboRol;
     private KovaqsUI.Controls.KLabel lblRol;
     private KovaqsUI.Controls.KLabel lblUsuariosTitulo;
     private KovaqsUI.Components.KToastNotifier notificador;

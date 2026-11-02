@@ -432,6 +432,7 @@ partial class FrmBitacora
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCerrar;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmBitacora";
         Text = "Bitácora de operaciones";
         ((System.ComponentModel.ISupportInitialize)dgvBitacora).EndInit();

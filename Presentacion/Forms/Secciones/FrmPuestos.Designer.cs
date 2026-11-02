@@ -460,6 +460,7 @@ partial class FrmPuestos
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(3);
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmPuestos";
         Text = "Puestos";
         Load += FrmPuestos_Load;

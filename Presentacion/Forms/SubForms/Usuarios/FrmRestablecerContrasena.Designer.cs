@@ -257,6 +257,7 @@ partial class FrmRestablecerContrasena
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCancelar;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmRestablecerContrasena";
         Text = "Restablecer contraseña de usuario";
         ResumeLayout(false);

@@ -99,5 +99,15 @@ namespace Presentacion.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon.
+        /// </summary>
+        internal static System.Drawing.Icon sgeicon {
+            get {
+                object obj = ResourceManager.GetObject("sgeicon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

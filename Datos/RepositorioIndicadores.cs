@@ -63,8 +63,10 @@ public class RepositorioIndicadores
             }
             await using var incidencias = new MySqlCommand("""
                 SELECT YEAR(a.fecha),MONTH(a.fecha),SUM(a.estado='Falta'),
-                    SUM(CASE WHEN a.entrada IS NOT NULL AND a.entrada_prevista IS NOT NULL
-                        AND TIMESTAMPDIFF(MINUTE,a.entrada_prevista,a.entrada)>a.tolerancia_minutos THEN 1 ELSE 0 END)
+                    SUM(CASE WHEN a.es_laborable=TRUE AND a.estado<>'Pendiente'
+                        AND a.entrada IS NOT NULL AND a.entrada_prevista IS NOT NULL
+                        AND TIMESTAMPDIFF(MINUTE,a.entrada_prevista,a.entrada)>a.tolerancia_minutos THEN 1 ELSE 0 END),
+                    SUM(a.es_laborable=TRUE AND a.estado<>'Pendiente')
                 FROM asistencias a JOIN empleados e ON e.id_empleado=a.id_empleado
                 LEFT JOIN historial_laboral h ON h.id_empleado=e.id_empleado
                     AND h.fecha_inicio<=a.fecha AND (h.fecha_fin IS NULL OR h.fecha_fin>a.fecha)
@@ -83,6 +85,7 @@ public class RepositorioIndicadores
                 {
                     resumen.Faltas[indice] = Convert.ToInt32(filas.GetValue(2));
                     resumen.Tardanzas[indice] = Convert.ToInt32(filas.GetValue(3));
+                    resumen.JornadasRegistradas[indice] = Convert.ToInt32(filas.GetValue(4));
                 }
             }
             return resumen;

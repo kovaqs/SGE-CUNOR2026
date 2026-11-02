@@ -343,6 +343,7 @@ partial class FrmHorarios
         Margin = new Padding(3, 4, 3, 4);
         MaximizeBox = false;
         MinimizeBox = false;
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmHorarios";
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;

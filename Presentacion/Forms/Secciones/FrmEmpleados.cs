@@ -30,9 +30,9 @@ namespace Presentacion.Forms.Secciones
             cboDepartamento.SelectedIndexChanged += Filtro_Changed;
             cboTipoContrato.SelectedIndexChanged += Filtro_Changed;
             cboEstado.SelectedIndexChanged += Filtro_Changed;
-            kComboBox3.SelectedIndexChanged += Filtro_Changed;
-            kButton6.Click += Anterior_Click;
-            kButton5.Click += Siguiente_Click;
+            cboTamanoPagina.SelectedIndexChanged += Filtro_Changed;
+            btnAnterior.Click += Anterior_Click;
+            btnSiguiente.Click += Siguiente_Click;
         }
 
         private async void FrmEmpleados_Load(object sender, EventArgs e)
@@ -48,7 +48,7 @@ namespace Presentacion.Forms.Secciones
                 cboEstado.Items.Clear();
                 cboEstado.Items.AddRange(new object[] { "Todos", "Activo", "Suspendido", "Inactivo" });
                 cboEstado.SelectedIndex = 0;
-                kComboBox3.SelectedIndex = 0;
+                cboTamanoPagina.SelectedIndex = 0;
             }
             catch (Exception ex) { if (!IsDisposed) AyudaFormulario.Error(notificador, ex); }
             finally { cargando = false; }
@@ -110,15 +110,15 @@ namespace Presentacion.Forms.Secciones
         private EmpleadoListado? Seleccionado => dgvEmpleados.CurrentRow?.Tag as EmpleadoListado;
         private async Task CargarAsync()
         {
-            if (cargando || IsDisposed || kComboBox3.SelectedIndex < 0)
+            if (cargando || IsDisposed || cboTamanoPagina.SelectedIndex < 0)
                 return;
             cargando = true;
             dgvEmpleados.Enabled = false;
-            cboDepartamento.Enabled = cboTipoContrato.Enabled = cboEstado.Enabled = kComboBox3.Enabled = false;
-            kButton5.Enabled = kButton6.Enabled = false;
+            cboDepartamento.Enabled = cboTipoContrato.Enabled = cboEstado.Enabled = cboTamanoPagina.Enabled = false;
+            btnSiguiente.Enabled = btnAnterior.Enabled = false;
             try
             {
-                int tamano = int.Parse(kComboBox3.Text);
+                int tamano = int.Parse(cboTamanoPagina.Text);
                 var empleados = await servicio.ListarAsync(txtBuscar.Text, AyudaFormulario.IdSeleccionado(cboDepartamento),
                     AyudaFormulario.IdSeleccionado(cboTipoContrato), cboEstado.Text, pagina, tamano);
                 if (IsDisposed)
@@ -132,9 +132,9 @@ namespace Presentacion.Forms.Secciones
                     int fila = dgvEmpleados.Rows.Add(empleado.Codigo, empleado.Dpi, empleado.Nombre, empleado.Departamento, empleado.Puesto, empleado.Estado);
                     dgvEmpleados.Rows[fila].Tag = empleado;
                 }
-                kLabel8.Text = "Página " + (pagina + 1);
-                kButton6.Enabled = pagina > 0;
-                kButton5.Enabled = siguiente;
+                lblPagina.Text = "Página " + (pagina + 1);
+                btnAnterior.Enabled = pagina > 0;
+                btnSiguiente.Enabled = siguiente;
             }
             catch (Exception ex) { if (!IsDisposed) AyudaFormulario.Error(notificador, ex); }
             finally
@@ -143,7 +143,7 @@ namespace Presentacion.Forms.Secciones
                 if (!IsDisposed)
                 {
                     dgvEmpleados.Enabled = true;
-                    cboDepartamento.Enabled = cboTipoContrato.Enabled = cboEstado.Enabled = kComboBox3.Enabled = true;
+                    cboDepartamento.Enabled = cboTipoContrato.Enabled = cboEstado.Enabled = cboTamanoPagina.Enabled = true;
                 }
             }
         }
@@ -246,7 +246,7 @@ namespace Presentacion.Forms.Secciones
 
         private async void Seccion_VisibleChanged(object? sender, EventArgs e)
         {
-            if (!Visible || !IsHandleCreated || cargando || kComboBox3.SelectedIndex < 0)
+            if (!Visible || !IsHandleCreated || cargando || cboTamanoPagina.SelectedIndex < 0)
                 return;
             cargando = true;
             try

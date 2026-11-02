@@ -492,6 +492,7 @@ partial class FrmConfiguracion
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(3);
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmConfiguracion";
         Text = "Configuración general y catálogos";
         ResumeLayout(false);

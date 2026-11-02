@@ -318,6 +318,7 @@ partial class FrmTiposContrato
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCerrar;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmTiposContrato";
         Text = "Catálogo de tipos de contrato";
         ((System.ComponentModel.ISupportInitialize)dgvTiposContrato).EndInit();

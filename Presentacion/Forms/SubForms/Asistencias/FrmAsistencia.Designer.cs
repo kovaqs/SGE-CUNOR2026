@@ -446,6 +446,7 @@ partial class FrmAsistencia
         MaximizeBox = false;
         MdiChildrenMinimizedAnchorBottom = false;
         MinimizeBox = false;
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmAsistencia";
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;

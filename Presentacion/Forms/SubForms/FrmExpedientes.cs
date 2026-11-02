@@ -20,7 +20,7 @@ public partial class FrmExpedientes : Form
     {
         InitializeComponent();
         Load += Expediente_Load;
-        kSegmentedControl1.SelectedIndexChanged += Seccion_SelectedIndexChanged;
+        segSecciones.SelectedIndexChanged += Seccion_SelectedIndexChanged;
         btnGuardar.Click += Guardar_Click;
         btnCerrar.Click += Cancelar_Click;
         btnCancelar.Click += Cancelar_Click;
@@ -51,7 +51,7 @@ public partial class FrmExpedientes : Form
             await laborales.CargarAsync(empleado);
             if (IsDisposed)
                 return;
-            kLabel3.Text = idEmpleado == 0 ? "Nuevo expediente" : "Editar expediente - " + empleado.Codigo;
+            lblTitulo.Text = idEmpleado == 0 ? "Nuevo expediente" : "Editar expediente - " + empleado.Codigo;
             Seccion_SelectedIndexChanged(this, EventArgs.Empty);
             btnGuardar.Enabled = true;
         }
@@ -61,7 +61,7 @@ public partial class FrmExpedientes : Form
     {
         if (gestor is null)
             return;
-        switch (kSegmentedControl1.SelectedIndex)
+        switch (segSecciones.SelectedIndex)
         {
             case 1:
                 gestor.Mostrar<FrmExpedientesDatosLaborales>();
@@ -99,10 +99,10 @@ public partial class FrmExpedientes : Form
         if (!guardando)
             Close();
     }
-    private void panel1_Paint(object sender, PaintEventArgs e)
+    private void panelContenido_Paint(object sender, PaintEventArgs e)
     {
     }
-    private void panel3_Paint(object sender, PaintEventArgs e)
+    private void panelAcciones_Paint(object sender, PaintEventArgs e)
     {
     }
 }

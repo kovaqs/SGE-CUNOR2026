@@ -265,6 +265,7 @@ partial class FrmMovimientoNomina
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCancelar;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmMovimientoNomina";
         Text = "Agregar o editar movimiento";
         ResumeLayout(false);

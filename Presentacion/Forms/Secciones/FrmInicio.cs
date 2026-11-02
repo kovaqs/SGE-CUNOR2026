@@ -48,8 +48,8 @@ public partial class FrmInicio : Form
         if (!sesion.Puede("reportes"))
         {
             lblEmpleadosActivos.Text = lblFaltasMes.Text = lblTardanzasMes.Text = "-";
-            pieChart1.Series = Array.Empty<ISeries>();
-            cartesianChart1.Series = Array.Empty<ISeries>();
+            graficoMasaSalarial.Series = Array.Empty<ISeries>();
+            graficoIncidencias.Series = Array.Empty<ISeries>();
             return;
         }
         cargando = true;
@@ -65,10 +65,14 @@ public partial class FrmInicio : Form
             var salarios = new List<ISeries>();
             foreach (var dato in datos.Salarios)
                 salarios.Add(new PieSeries<double> { Name = dato.Nombre, Values = new[] { (double)dato.Importe }, InnerRadius = 50 });
-            pieChart1.Series = salarios;
-            cartesianChart1.Series = new ISeries[] { new ColumnSeries<int> { Name = "Faltas", Values = datos.Faltas }, new ColumnSeries<int> { Name = "Tardanzas", Values = datos.Tardanzas } };
-            cartesianChart1.XAxes = new[] { new Axis { Labels = datos.Meses } };
-            cartesianChart1.YAxes = new[] { new Axis { MinLimit = 0, MinStep = 1 } };
+            graficoMasaSalarial.Series = salarios;
+            graficoIncidencias.Series = new ISeries[]
+            {
+                new ColumnSeries<double> { Name = "Ausentismo (%)", Values = datos.IndiceAusentismo },
+                new ColumnSeries<double> { Name = "Tardanzas (%)", Values = datos.IndiceTardanzas }
+            };
+            graficoIncidencias.XAxes = new[] { new Axis { Labels = datos.Meses } };
+            graficoIncidencias.YAxes = new[] { new Axis { MinLimit = 0, MaxLimit = 100, MinStep = 1, Labeler = FormatearPorcentaje } };
         }
         catch (Exception ex) { if (!IsDisposed) AyudaFormulario.Error(notificador, ex); }
         finally { cargando = false; if (!IsDisposed) btnConsultar.Enabled = sesion.Puede("reportes"); }
@@ -76,6 +80,10 @@ public partial class FrmInicio : Form
     private async void Consultar_Click(object? sender, EventArgs e)
     {
         await CargarAsync();
+    }
+    private static string FormatearPorcentaje(double valor)
+    {
+        return valor.ToString("0.##") + " %";
     }
     private void Empleados_Click(object? sender, EventArgs e)
     {

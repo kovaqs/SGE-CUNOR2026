@@ -278,6 +278,7 @@ partial class FrmEditarUsuario
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCancelar;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmEditarUsuario";
         Text = "Editar cuenta de usuario";
         ResumeLayout(false);

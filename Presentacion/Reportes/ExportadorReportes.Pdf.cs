@@ -27,7 +27,7 @@ public static partial class ExportadorReportes
         renderizador.Save(archivo);
         renderizador.PdfDocument.Dispose();
     }
-    public static void Pdf(DataTable datos, string titulo, string archivo)
+    public static void Pdf(DataTable datos, string titulo, string archivo, string filtros = "")
     {
         var documento = CrearDocumento(titulo);
         var seccion = documento.AddSection();
@@ -36,6 +36,20 @@ public static partial class ExportadorReportes
         seccion.PageSetup.LeftMargin = seccion.PageSetup.RightMargin = Unit.FromCentimeter(1.5);
         seccion.AddParagraph(titulo, StyleNames.Heading1);
         seccion.AddParagraph("Generado: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+        if (!string.IsNullOrWhiteSpace(filtros))
+            seccion.AddParagraph(filtros);
+        seccion.AddParagraph("Registros: " + datos.Rows.Count);
+        AgregarTabla(seccion, datos);
+        var resumen = ResumenNomina(datos);
+        if (resumen is not null)
+        {
+            seccion.AddParagraph("Totales por departamento").Format.Font.Bold = true;
+            AgregarTabla(seccion, resumen);
+        }
+        GuardarDocumento(documento, archivo);
+    }
+    private static void AgregarTabla(Section seccion, DataTable datos)
+    {
         var tabla = seccion.AddTable();
         tabla.Borders.Width = 0.3;
         tabla.Format.Font.Size = 8;
@@ -50,6 +64,11 @@ public static partial class ExportadorReportes
         foreach (DataRow registro in datos.Rows)
         {
             var fila = tabla.AddRow();
+            if (Convert.ToString(registro[0]) == "TOTAL GENERAL")
+            {
+                fila.Format.Font.Bold = true;
+                fila.Shading.Color = new MigraDoc.DocumentObjectModel.Color(231, 238, 245);
+            }
             for (int i = 0; i < datos.Columns.Count; i++)
             {
                 object valor = registro[i];
@@ -57,7 +76,6 @@ public static partial class ExportadorReportes
                 fila.Cells[i].AddParagraph(texto);
             }
         }
-        GuardarDocumento(documento, archivo);
     }
     public static void Boletas(Empresa empresa, List<PagoEmpleado> pagos, string archivo)
     {
@@ -70,6 +88,7 @@ public static partial class ExportadorReportes
             seccion.PageSetup.PageFormat = PageFormat.A4;
             seccion.AddParagraph(string.IsNullOrWhiteSpace(empresa.Nombre) ? "Sistema de Gestión de Empleados" : empresa.Nombre, StyleNames.Heading1);
             seccion.AddParagraph("BOLETA DE PAGO").Format.Font.Bold = true;
+            seccion.AddParagraph("Generado: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
             seccion.AddParagraph(pago.Periodo + " | Estado: " + pago.EstadoPeriodo);
             seccion.AddParagraph(pago.Codigo + " - " + pago.Empleado);
             seccion.AddParagraph("Departamento: " + pago.Departamento + " | Puesto: " + pago.Puesto);

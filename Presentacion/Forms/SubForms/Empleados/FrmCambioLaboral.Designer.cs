@@ -406,6 +406,7 @@ partial class FrmCambioLaboral
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCancelar;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmCambioLaboral";
         Text = "Cambio de condición laboral";
         ResumeLayout(false);

@@ -107,7 +107,7 @@ partial class FrmReportes
         cboTipoReporte.Font = new Font("Inter", 9F);
         cboTipoReporte.DropDownStyle = ComboBoxStyle.DropDownList;
         cboTipoReporte.FormattingEnabled = true;
-        cboTipoReporte.Items.AddRange(new object[] { "Listado general de empleados", "Listado filtrado de empleados", "Resumen estadístico", "Asistencias mensuales", "Resumen de nómina" });
+        cboTipoReporte.Items.AddRange(new object[] { "Listado general de empleados", "Listado filtrado de empleados", "Resumen estadístico", "Asistencias mensuales", "Resumen de nómina", "Departamentos con 5 o más empleados" });
         cboTipoReporte.Location = new Point(16, 96);
         cboTipoReporte.Anchor = AnchorStyles.Top | AnchorStyles.Left;
         cboTipoReporte.CornerRadius = 8;
@@ -588,6 +588,7 @@ partial class FrmReportes
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(3);
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmReportes";
         Text = "Consultas y reportes";
         ((System.ComponentModel.ISupportInitialize)dgvResultados).EndInit();

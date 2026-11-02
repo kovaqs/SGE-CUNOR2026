@@ -326,6 +326,7 @@ partial class FrmConstanciaLaboral
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCerrar;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmConstanciaLaboral";
         Text = "Emitir constancia laboral";
         ResumeLayout(false);
