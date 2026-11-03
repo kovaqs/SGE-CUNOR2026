@@ -414,6 +414,7 @@ partial class FrmDepartamentos
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(3);
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmDepartamentos";
         Text = "Departamentos";
         ((System.ComponentModel.ISupportInitialize)dgvDepartamentos).EndInit();

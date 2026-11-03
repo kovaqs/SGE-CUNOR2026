@@ -1,4 +1,4 @@
-﻿using Entidades;
+using Entidades;
 using MySqlConnector;
 
 namespace Datos;
@@ -31,15 +31,17 @@ public class RepositorioTiposContrato
         return lista;
     }
 
-    public async Task<uint> CrearAsync(string nombre, string? descripcion, SesionUsuario autor)
+    public async Task<uint> CrearAsync(string nombre, string? descripcion, SesionUsuario autor, bool activo = true)
     {
         await using var conexion = await ConexionMySql.AbrirAsync();
         await using var transaccion = await conexion.BeginTransactionAsync();
+        await SeguridadDatos.ValidarPermisoAsync(conexion, transaccion, autor, "catalogos");
         const string sql = """
             INSERT INTO tipos_contrato (nombre, descripcion, activo)
-            VALUES (@nombre, @descripcion, TRUE);
+            VALUES (@nombre, @descripcion, @activo);
             """;
         await using var comando = new MySqlCommand(sql, conexion, transaccion);
+        comando.Parameters.AddWithValue("@activo", activo);
         comando.Parameters.Add("@nombre", MySqlDbType.VarChar, 80).Value = nombre;
         comando.Parameters.Add("@descripcion", MySqlDbType.VarChar, 500).Value =
             (object?)descripcion ?? DBNull.Value;
@@ -60,17 +62,19 @@ public class RepositorioTiposContrato
     }
 
     public async Task ActualizarAsync(
-        uint id, string nombre, string? descripcion, SesionUsuario autor)
+        uint id, string nombre, string? descripcion, SesionUsuario autor, bool activo = true)
     {
         await using var conexion = await ConexionMySql.AbrirAsync();
         await using var transaccion = await conexion.BeginTransactionAsync();
+        await SeguridadDatos.ValidarPermisoAsync(conexion, transaccion, autor, "catalogos");
         const string sql = """
             UPDATE tipos_contrato
-            SET nombre = @nombre, descripcion = @descripcion
+            SET nombre = @nombre, descripcion = @descripcion, activo = @activo
             WHERE id_tipo_contrato = @id;
             """;
         await using var comando = new MySqlCommand(sql, conexion, transaccion);
         comando.Parameters.Add("@id", MySqlDbType.UInt32).Value = id;
+        comando.Parameters.AddWithValue("@activo", activo);
         comando.Parameters.Add("@nombre", MySqlDbType.VarChar, 80).Value = nombre;
         comando.Parameters.Add("@descripcion", MySqlDbType.VarChar, 500).Value =
             (object?)descripcion ?? DBNull.Value;
@@ -94,6 +98,7 @@ public class RepositorioTiposContrato
     {
         await using var conexion = await ConexionMySql.AbrirAsync();
         await using var transaccion = await conexion.BeginTransactionAsync();
+        await SeguridadDatos.ValidarPermisoAsync(conexion, transaccion, autor, "catalogos");
         const string sql = """
             UPDATE tipos_contrato SET activo = @activo
             WHERE id_tipo_contrato = @id;

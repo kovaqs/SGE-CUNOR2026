@@ -300,6 +300,7 @@ partial class FrmAutorizarCambio
         FormClosed += FrmAutorizarCambio_FormClosed;
         Disposed += FrmAutorizarCambio_Disposed;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmAutorizarCambio";
         Text = "Confirmar cambio salarial";
         ResumeLayout(false);

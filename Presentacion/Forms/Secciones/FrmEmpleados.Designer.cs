@@ -31,22 +31,22 @@ namespace Presentacion.Forms.Secciones
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            kLabel7 = new KovaqsUI.Controls.KLabel();
+            lblTitulo = new KovaqsUI.Controls.KLabel();
             cboDepartamento = new KovaqsUI.Controls.KComboBox();
-            kLabel2 = new KovaqsUI.Controls.KLabel();
-            kLabel3 = new KovaqsUI.Controls.KLabel();
+            lblDepartamento = new KovaqsUI.Controls.KLabel();
+            lblTipoContrato = new KovaqsUI.Controls.KLabel();
             cboTipoContrato = new KovaqsUI.Controls.KComboBox();
-            kLabel4 = new KovaqsUI.Controls.KLabel();
+            lblEstado = new KovaqsUI.Controls.KLabel();
             cboEstado = new KovaqsUI.Controls.KComboBox();
             btnAgregarEmpleado = new KovaqsUI.Controls.KButton();
             dgvEmpleados = new KovaqsUI.Controls.KDataGridView();
-            kButton6 = new KovaqsUI.Controls.KButton();
-            kLabel8 = new KovaqsUI.Controls.KLabel();
-            kButton5 = new KovaqsUI.Controls.KButton();
-            kComboBox3 = new KovaqsUI.Controls.KComboBox();
+            btnAnterior = new KovaqsUI.Controls.KButton();
+            lblPagina = new KovaqsUI.Controls.KLabel();
+            btnSiguiente = new KovaqsUI.Controls.KButton();
+            cboTamanoPagina = new KovaqsUI.Controls.KComboBox();
             txtBuscar = new KovaqsUI.Controls.KTextBox();
-            kLabel5 = new KovaqsUI.Controls.KLabel();
-            kLabel1 = new KovaqsUI.Controls.KLabel();
+            lblBuscar = new KovaqsUI.Controls.KLabel();
+            lblTituloTabla = new KovaqsUI.Controls.KLabel();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).BeginInit();
             lblTamanoPagina = new KovaqsUI.Controls.KLabel();
             lblTamanoPagina.Text = "Filas por página";
@@ -113,22 +113,22 @@ namespace Presentacion.Forms.Secciones
             dgvEmpleados.Columns.AddRange(new DataGridViewColumn[] { colCodigo, colDpi, colNombre, colDepartamento, colPuesto, colEstado });
             SuspendLayout();
             //
-            // kLabel7
+            // lblTitulo
             //
-            kLabel7.AutoSize = false;
-            kLabel7.BackColor = Color.Transparent;
-            kLabel7.Dock = DockStyle.None;
-            kLabel7.Location = new Point(16, 12);
-            kLabel7.TextAlign = ContentAlignment.MiddleLeft;
-            kLabel7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            kLabel7.Font = new Font("Inter", 16F, FontStyle.Bold);
-            kLabel7.ForeColor = Color.FromArgb(32, 38, 45);
-            kLabel7.TabStop = false;
-            kLabel7.Name = "kLabel7";
-            kLabel7.Size = new Size(1094, 40);
-            kLabel7.TabIndex = 0;
-            kLabel7.Text = "Listado de empleados";
-            kLabel7.TextRole = KovaqsUI.Controls.KTextRole.Title;
+            lblTitulo.AutoSize = false;
+            lblTitulo.BackColor = Color.Transparent;
+            lblTitulo.Dock = DockStyle.None;
+            lblTitulo.Location = new Point(16, 12);
+            lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
+            lblTitulo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblTitulo.Font = new Font("Inter", 16F, FontStyle.Bold);
+            lblTitulo.ForeColor = Color.FromArgb(32, 38, 45);
+            lblTitulo.TabStop = false;
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(1094, 40);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "Listado de empleados";
+            lblTitulo.TextRole = KovaqsUI.Controls.KTextRole.Title;
             //
             // cboDepartamento
             //
@@ -148,37 +148,37 @@ namespace Presentacion.Forms.Secciones
             cboDepartamento.Size = new Size(354, 34);
             cboDepartamento.TabIndex = 5;
             //
-            // kLabel2
+            // lblDepartamento
             //
-            kLabel2.AutoSize = false;
-            kLabel2.BackColor = Color.Transparent;
-            kLabel2.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel2.Location = new Point(386, 70);
-            kLabel2.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            kLabel2.Font = new Font("Inter", 9F);
-            kLabel2.TabStop = false;
-            kLabel2.Name = "kLabel2";
-            kLabel2.Size = new Size(354, 24);
-            kLabel2.TabIndex = 2;
-            kLabel2.Text = "Departamento";
-            kLabel2.TextAlign = ContentAlignment.MiddleLeft;
-            kLabel2.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblDepartamento.AutoSize = false;
+            lblDepartamento.BackColor = Color.Transparent;
+            lblDepartamento.ForeColor = Color.FromArgb(64, 64, 64);
+            lblDepartamento.Location = new Point(386, 70);
+            lblDepartamento.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            lblDepartamento.Font = new Font("Inter", 9F);
+            lblDepartamento.TabStop = false;
+            lblDepartamento.Name = "lblDepartamento";
+            lblDepartamento.Size = new Size(354, 24);
+            lblDepartamento.TabIndex = 2;
+            lblDepartamento.Text = "Departamento";
+            lblDepartamento.TextAlign = ContentAlignment.MiddleLeft;
+            lblDepartamento.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
-            // kLabel3
+            // lblTipoContrato
             //
-            kLabel3.AutoSize = false;
-            kLabel3.BackColor = Color.Transparent;
-            kLabel3.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel3.Location = new Point(756, 70);
-            kLabel3.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            kLabel3.Font = new Font("Inter", 9F);
-            kLabel3.TabStop = false;
-            kLabel3.Name = "kLabel3";
-            kLabel3.Size = new Size(354, 24);
-            kLabel3.TabIndex = 3;
-            kLabel3.Text = "Tipo de contrato";
-            kLabel3.TextAlign = ContentAlignment.MiddleLeft;
-            kLabel3.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblTipoContrato.AutoSize = false;
+            lblTipoContrato.BackColor = Color.Transparent;
+            lblTipoContrato.ForeColor = Color.FromArgb(64, 64, 64);
+            lblTipoContrato.Location = new Point(756, 70);
+            lblTipoContrato.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            lblTipoContrato.Font = new Font("Inter", 9F);
+            lblTipoContrato.TabStop = false;
+            lblTipoContrato.Name = "lblTipoContrato";
+            lblTipoContrato.Size = new Size(354, 24);
+            lblTipoContrato.TabIndex = 3;
+            lblTipoContrato.Text = "Tipo de contrato";
+            lblTipoContrato.TextAlign = ContentAlignment.MiddleLeft;
+            lblTipoContrato.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
             // cboTipoContrato
             //
@@ -198,21 +198,21 @@ namespace Presentacion.Forms.Secciones
             cboTipoContrato.Size = new Size(354, 34);
             cboTipoContrato.TabIndex = 6;
             //
-            // kLabel4
+            // lblEstado
             //
-            kLabel4.AutoSize = false;
-            kLabel4.BackColor = Color.Transparent;
-            kLabel4.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel4.Location = new Point(16, 140);
-            kLabel4.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            kLabel4.Font = new Font("Inter", 9F);
-            kLabel4.TabStop = false;
-            kLabel4.Name = "kLabel4";
-            kLabel4.Size = new Size(354, 24);
-            kLabel4.TabIndex = 7;
-            kLabel4.Text = "Estado";
-            kLabel4.TextAlign = ContentAlignment.MiddleLeft;
-            kLabel4.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblEstado.AutoSize = false;
+            lblEstado.BackColor = Color.Transparent;
+            lblEstado.ForeColor = Color.FromArgb(64, 64, 64);
+            lblEstado.Location = new Point(16, 140);
+            lblEstado.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            lblEstado.Font = new Font("Inter", 9F);
+            lblEstado.TabStop = false;
+            lblEstado.Name = "lblEstado";
+            lblEstado.Size = new Size(354, 24);
+            lblEstado.TabIndex = 7;
+            lblEstado.Text = "Estado";
+            lblEstado.TextAlign = ContentAlignment.MiddleLeft;
+            lblEstado.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
             // cboEstado
             //
@@ -304,88 +304,88 @@ namespace Presentacion.Forms.Secciones
             dgvEmpleados.Size = new Size(1094, 378);
             dgvEmpleados.TabIndex = 16;
             //
-            // kButton6
+            // btnAnterior
             //
-            kButton6.BackColor = Color.Transparent;
-            kButton6.CornerRadius = 8;
-            kButton6.FlatStyle = FlatStyle.Flat;
-            kButton6.Font = new Font("Inter", 9F);
-            kButton6.Location = new Point(16, 688);
-            kButton6.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            kButton6.BorderThickness = 1;
-            kButton6.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
-            kButton6.FillColor = Color.White;
-            kButton6.ForeColor = Color.FromArgb(32, 38, 45);
-            kButton6.BorderColor = Color.FromArgb(218, 218, 218);
-            kButton6.GradientColor = Color.Empty;
-            kButton6.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
-            kButton6.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
-            kButton6.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
-            kButton6.Name = "kButton6";
-            kButton6.Padding = new Padding(10, 4, 10, 4);
-            kButton6.Size = new Size(124, 40);
-            kButton6.TabIndex = 17;
-            kButton6.Text = "Anterior";
-            kButton6.UseVisualStyleBackColor = false;
+            btnAnterior.BackColor = Color.Transparent;
+            btnAnterior.CornerRadius = 8;
+            btnAnterior.FlatStyle = FlatStyle.Flat;
+            btnAnterior.Font = new Font("Inter", 9F);
+            btnAnterior.Location = new Point(16, 688);
+            btnAnterior.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnAnterior.BorderThickness = 1;
+            btnAnterior.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+            btnAnterior.FillColor = Color.White;
+            btnAnterior.ForeColor = Color.FromArgb(32, 38, 45);
+            btnAnterior.BorderColor = Color.FromArgb(218, 218, 218);
+            btnAnterior.GradientColor = Color.Empty;
+            btnAnterior.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+            btnAnterior.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+            btnAnterior.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
+            btnAnterior.Name = "btnAnterior";
+            btnAnterior.Padding = new Padding(10, 4, 10, 4);
+            btnAnterior.Size = new Size(124, 40);
+            btnAnterior.TabIndex = 17;
+            btnAnterior.Text = "Anterior";
+            btnAnterior.UseVisualStyleBackColor = false;
             //
-            // kLabel8
+            // lblPagina
             //
-            kLabel8.AutoSize = false;
-            kLabel8.BackColor = Color.Transparent;
-            kLabel8.Font = new Font("Inter", 9F);
-            kLabel8.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel8.Location = new Point(150, 688);
-            kLabel8.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            kLabel8.TabStop = false;
-            kLabel8.Name = "kLabel8";
-            kLabel8.Size = new Size(130, 40);
-            kLabel8.TabIndex = 18;
-            kLabel8.Text = "Página 1 de 1";
-            kLabel8.TextAlign = ContentAlignment.MiddleCenter;
-            kLabel8.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblPagina.AutoSize = false;
+            lblPagina.BackColor = Color.Transparent;
+            lblPagina.Font = new Font("Inter", 9F);
+            lblPagina.ForeColor = Color.FromArgb(64, 64, 64);
+            lblPagina.Location = new Point(150, 688);
+            lblPagina.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblPagina.TabStop = false;
+            lblPagina.Name = "lblPagina";
+            lblPagina.Size = new Size(130, 40);
+            lblPagina.TabIndex = 18;
+            lblPagina.Text = "Página 1 de 1";
+            lblPagina.TextAlign = ContentAlignment.MiddleCenter;
+            lblPagina.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
-            // kButton5
+            // btnSiguiente
             //
-            kButton5.BackColor = Color.Transparent;
-            kButton5.CornerRadius = 8;
-            kButton5.FlatStyle = FlatStyle.Flat;
-            kButton5.Font = new Font("Inter", 9F);
-            kButton5.Location = new Point(290, 688);
-            kButton5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            kButton5.BorderThickness = 1;
-            kButton5.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
-            kButton5.FillColor = Color.White;
-            kButton5.ForeColor = Color.FromArgb(32, 38, 45);
-            kButton5.BorderColor = Color.FromArgb(218, 218, 218);
-            kButton5.GradientColor = Color.Empty;
-            kButton5.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
-            kButton5.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
-            kButton5.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
-            kButton5.Name = "kButton5";
-            kButton5.Padding = new Padding(10, 4, 10, 4);
-            kButton5.Size = new Size(124, 40);
-            kButton5.TabIndex = 19;
-            kButton5.Text = "Siguiente";
-            kButton5.UseVisualStyleBackColor = false;
+            btnSiguiente.BackColor = Color.Transparent;
+            btnSiguiente.CornerRadius = 8;
+            btnSiguiente.FlatStyle = FlatStyle.Flat;
+            btnSiguiente.Font = new Font("Inter", 9F);
+            btnSiguiente.Location = new Point(290, 688);
+            btnSiguiente.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnSiguiente.BorderThickness = 1;
+            btnSiguiente.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+            btnSiguiente.FillColor = Color.White;
+            btnSiguiente.ForeColor = Color.FromArgb(32, 38, 45);
+            btnSiguiente.BorderColor = Color.FromArgb(218, 218, 218);
+            btnSiguiente.GradientColor = Color.Empty;
+            btnSiguiente.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+            btnSiguiente.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+            btnSiguiente.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
+            btnSiguiente.Name = "btnSiguiente";
+            btnSiguiente.Padding = new Padding(10, 4, 10, 4);
+            btnSiguiente.Size = new Size(124, 40);
+            btnSiguiente.TabIndex = 19;
+            btnSiguiente.Text = "Siguiente";
+            btnSiguiente.UseVisualStyleBackColor = false;
             //
-            // kComboBox3
+            // cboTamanoPagina
             //
-            kComboBox3.FormattingEnabled = true;
-            kComboBox3.ItemHeight = 28;
-            kComboBox3.Location = new Point(954, 691);
-            kComboBox3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            kComboBox3.Items.AddRange(new object[] { "10", "25", "50", "100" });
-            kComboBox3.Font = new Font("Inter", 9F);
-            kComboBox3.CornerRadius = 8;
-            kComboBox3.FillColor = Color.White;
-            kComboBox3.ForeColor = Color.FromArgb(32, 38, 45);
-            kComboBox3.BorderColor = Color.FromArgb(218, 218, 218);
-            kComboBox3.GradientColor = Color.Empty;
-            kComboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboTamanoPagina.FormattingEnabled = true;
+            cboTamanoPagina.ItemHeight = 28;
+            cboTamanoPagina.Location = new Point(954, 691);
+            cboTamanoPagina.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            cboTamanoPagina.Items.AddRange(new object[] { "10", "25", "50", "100" });
+            cboTamanoPagina.Font = new Font("Inter", 9F);
+            cboTamanoPagina.CornerRadius = 8;
+            cboTamanoPagina.FillColor = Color.White;
+            cboTamanoPagina.ForeColor = Color.FromArgb(32, 38, 45);
+            cboTamanoPagina.BorderColor = Color.FromArgb(218, 218, 218);
+            cboTamanoPagina.GradientColor = Color.Empty;
+            cboTamanoPagina.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            kComboBox3.Name = "kComboBox3";
-            kComboBox3.Size = new Size(156, 34);
-            kComboBox3.TabIndex = 21;
+            cboTamanoPagina.Name = "cboTamanoPagina";
+            cboTamanoPagina.Size = new Size(156, 34);
+            cboTamanoPagina.TabIndex = 21;
             //
             // txtBuscar
             //
@@ -406,37 +406,37 @@ namespace Presentacion.Forms.Secciones
             txtBuscar.Size = new Size(354, 34);
             txtBuscar.TabIndex = 4;
             //
-            // kLabel5
+            // lblBuscar
             //
-            kLabel5.AutoSize = false;
-            kLabel5.BackColor = Color.Transparent;
-            kLabel5.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel5.Location = new Point(16, 70);
-            kLabel5.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            kLabel5.Font = new Font("Inter", 9F);
-            kLabel5.TabStop = false;
-            kLabel5.Name = "kLabel5";
-            kLabel5.Size = new Size(354, 24);
-            kLabel5.TabIndex = 1;
-            kLabel5.Text = "Nombre, código o DPI";
-            kLabel5.TextAlign = ContentAlignment.MiddleLeft;
-            kLabel5.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblBuscar.AutoSize = false;
+            lblBuscar.BackColor = Color.Transparent;
+            lblBuscar.ForeColor = Color.FromArgb(64, 64, 64);
+            lblBuscar.Location = new Point(16, 70);
+            lblBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            lblBuscar.Font = new Font("Inter", 9F);
+            lblBuscar.TabStop = false;
+            lblBuscar.Name = "lblBuscar";
+            lblBuscar.Size = new Size(354, 24);
+            lblBuscar.TabIndex = 1;
+            lblBuscar.Text = "Nombre, código o DPI";
+            lblBuscar.TextAlign = ContentAlignment.MiddleLeft;
+            lblBuscar.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
-            // kLabel1
+            // lblTituloTabla
             //
-            kLabel1.AutoSize = false;
-            kLabel1.BackColor = Color.Transparent;
-            kLabel1.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel1.Location = new Point(16, 268);
-            kLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            kLabel1.Font = new Font("Inter", 9F);
-            kLabel1.TabStop = false;
-            kLabel1.Name = "kLabel1";
-            kLabel1.Size = new Size(1094, 24);
-            kLabel1.TabIndex = 15;
-            kLabel1.Text = "Plantilla del personal";
-            kLabel1.TextAlign = ContentAlignment.MiddleLeft;
-            kLabel1.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblTituloTabla.AutoSize = false;
+            lblTituloTabla.BackColor = Color.Transparent;
+            lblTituloTabla.ForeColor = Color.FromArgb(64, 64, 64);
+            lblTituloTabla.Location = new Point(16, 268);
+            lblTituloTabla.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblTituloTabla.Font = new Font("Inter", 9F);
+            lblTituloTabla.TabStop = false;
+            lblTituloTabla.Name = "lblTituloTabla";
+            lblTituloTabla.Size = new Size(1094, 24);
+            lblTituloTabla.TabIndex = 15;
+            lblTituloTabla.Text = "Plantilla del personal";
+            lblTituloTabla.TextAlign = ContentAlignment.MiddleLeft;
+            lblTituloTabla.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             btnAcciones.BackColor = Color.Transparent;
             btnAcciones.CornerRadius = 8;
             btnAcciones.FlatStyle = FlatStyle.Flat;
@@ -513,27 +513,28 @@ namespace Presentacion.Forms.Secciones
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1126, 744);
-            Controls.Add(kLabel1);
+            Controls.Add(lblTituloTabla);
             Controls.Add(dgvEmpleados);
-            Controls.Add(kLabel5);
+            Controls.Add(lblBuscar);
             Controls.Add(txtBuscar);
             Controls.Add(btnAgregarEmpleado);
-            Controls.Add(kLabel4);
+            Controls.Add(lblEstado);
             Controls.Add(cboEstado);
-            Controls.Add(kLabel3);
+            Controls.Add(lblTipoContrato);
             Controls.Add(cboTipoContrato);
-            Controls.Add(kLabel2);
+            Controls.Add(lblDepartamento);
             Controls.Add(cboDepartamento);
-            Controls.Add(kLabel7);
-            Controls.Add(kButton6);
-            Controls.Add(kLabel8);
-            Controls.Add(kButton5);
-            Controls.Add(kComboBox3);
+            Controls.Add(lblTitulo);
+            Controls.Add(btnAnterior);
+            Controls.Add(lblPagina);
+            Controls.Add(btnSiguiente);
+            Controls.Add(cboTamanoPagina);
             Controls.Add(lblTamanoPagina);
             MinimumSize = new Size(1126, 744);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3);
             Font = new Font("Segoe UI", 9F);
+            Icon = Properties.Resources.sgeicon;
             Name = "FrmEmpleados";
             Text = "Listado de empleados";
             Load += FrmEmpleados_Load;
@@ -552,22 +553,22 @@ namespace Presentacion.Forms.Secciones
         private ToolStripSeparator separadorAcciones;
         private ToolStripMenuItem mnuEliminarEmpleado;
 
-        private KovaqsUI.Controls.KLabel kLabel7;
+        private KovaqsUI.Controls.KLabel lblTitulo;
         private KovaqsUI.Controls.KComboBox cboDepartamento;
-        private KovaqsUI.Controls.KLabel kLabel2;
-        private KovaqsUI.Controls.KLabel kLabel3;
+        private KovaqsUI.Controls.KLabel lblDepartamento;
+        private KovaqsUI.Controls.KLabel lblTipoContrato;
         private KovaqsUI.Controls.KComboBox cboTipoContrato;
-        private KovaqsUI.Controls.KLabel kLabel4;
+        private KovaqsUI.Controls.KLabel lblEstado;
         private KovaqsUI.Controls.KComboBox cboEstado;
         private KovaqsUI.Controls.KButton btnAgregarEmpleado;
         private KovaqsUI.Controls.KDataGridView dgvEmpleados;
-        private KovaqsUI.Controls.KButton kButton6;
-        private KovaqsUI.Controls.KLabel kLabel8;
-        private KovaqsUI.Controls.KButton kButton5;
-        private KovaqsUI.Controls.KComboBox kComboBox3;
+        private KovaqsUI.Controls.KButton btnAnterior;
+        private KovaqsUI.Controls.KLabel lblPagina;
+        private KovaqsUI.Controls.KButton btnSiguiente;
+        private KovaqsUI.Controls.KComboBox cboTamanoPagina;
         private KovaqsUI.Controls.KTextBox txtBuscar;
-        private KovaqsUI.Controls.KLabel kLabel5;
-        private KovaqsUI.Controls.KLabel kLabel1;
+        private KovaqsUI.Controls.KLabel lblBuscar;
+        private KovaqsUI.Controls.KLabel lblTituloTabla;
             private KovaqsUI.Controls.KLabel lblTamanoPagina;
         private KovaqsUI.Components.KToastNotifier notificador;
         private DataGridViewTextBoxColumn colCodigo;

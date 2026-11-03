@@ -28,49 +28,50 @@ namespace Presentacion.Forms.SubForms
         /// </summary>
         private void InitializeComponent()
         {
-            panel2 = new Panel();
-            kLabel3 = new KovaqsUI.Controls.KLabel();
+            components = new System.ComponentModel.Container();
+            notificador = new KovaqsUI.Components.KToastNotifier(components);
+            notificador.OwnerForm = this;
+            panelCabecera = new Panel();
+            lblTitulo = new KovaqsUI.Controls.KLabel();
             btnCerrar = new KovaqsUI.Controls.KButton();
-            panel1 = new Panel();
-            kSegmentedControl1 = new KovaqsUI.Controls.KSegmentedControl();
-            kSegmentItem3 = new KovaqsUI.Controls.KSegmentItem();
-            kSegmentItem4 = new KovaqsUI.Controls.KSegmentItem();
-            kSegmentItem5 = new KovaqsUI.Controls.KSegmentItem();
-            kSegmentItem1 = new KovaqsUI.Controls.KSegmentItem();
-            kSegmentItem2 = new KovaqsUI.Controls.KSegmentItem();
-            panel3 = new Panel();
+            panelContenido = new Panel();
+            segSecciones = new KovaqsUI.Controls.KSegmentedControl();
+            itemDatosPersonales = new KovaqsUI.Controls.KSegmentItem();
+            itemDatosLaborales = new KovaqsUI.Controls.KSegmentItem();
+            itemDatosBancarios = new KovaqsUI.Controls.KSegmentItem();
+            panelAcciones = new Panel();
             btnCancelar = new KovaqsUI.Controls.KButton();
             btnGuardar = new KovaqsUI.Controls.KButton();
             panelDatos = new Panel();
-            panel2.SuspendLayout();
-            panel1.SuspendLayout();
-            panel3.SuspendLayout();
+            panelCabecera.SuspendLayout();
+            panelContenido.SuspendLayout();
+            panelAcciones.SuspendLayout();
             SuspendLayout();
             //
-            // panel2
+            // panelCabecera
             //
-            panel2.BackColor = Color.White;
-            panel2.Controls.Add(kLabel3);
-            panel2.Controls.Add(btnCerrar);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(1, 1);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(974, 64);
-            panel2.TabIndex = 0;
+            panelCabecera.BackColor = Color.White;
+            panelCabecera.Controls.Add(lblTitulo);
+            panelCabecera.Controls.Add(btnCerrar);
+            panelCabecera.Dock = DockStyle.Top;
+            panelCabecera.Location = new Point(1, 1);
+            panelCabecera.Name = "panelCabecera";
+            panelCabecera.Size = new Size(974, 64);
+            panelCabecera.TabIndex = 0;
             //
-            // kLabel3
+            // lblTitulo
             //
-            kLabel3.BackColor = Color.Transparent;
-            kLabel3.Font = new Font("Inter", 16F, FontStyle.Bold);
-            kLabel3.ForeColor = Color.FromArgb(32, 38, 45);
-            kLabel3.Location = new Point(16, 12);
-            kLabel3.AutoSize = false;
-            kLabel3.TabStop = false;
-            kLabel3.Name = "kLabel3";
-            kLabel3.Size = new Size(740, 40);
-            kLabel3.TabIndex = 0;
-            kLabel3.Text = "Expediente del empleado";
-            kLabel3.TextRole = KovaqsUI.Controls.KTextRole.Title;
+            lblTitulo.BackColor = Color.Transparent;
+            lblTitulo.Font = new Font("Inter", 16F, FontStyle.Bold);
+            lblTitulo.ForeColor = Color.FromArgb(32, 38, 45);
+            lblTitulo.Location = new Point(16, 12);
+            lblTitulo.AutoSize = false;
+            lblTitulo.TabStop = false;
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(740, 40);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "Expediente del empleado";
+            lblTitulo.TextRole = KovaqsUI.Controls.KTextRole.Title;
             //
             // btnCerrar
             //
@@ -97,63 +98,61 @@ namespace Presentacion.Forms.SubForms
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = false;
             //
-            // panel1
+            // panelContenido
             //
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(panelDatos);
-            panel1.Controls.Add(panel3);
-            panel1.Controls.Add(kSegmentedControl1);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(1, 38);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(974, 654);
-            panel1.TabIndex = 1;
+            panelContenido.BackColor = Color.White;
+            panelContenido.Controls.Add(panelDatos);
+            panelContenido.Controls.Add(panelAcciones);
+            panelContenido.Controls.Add(segSecciones);
+            panelContenido.Dock = DockStyle.Fill;
+            panelContenido.Location = new Point(1, 38);
+            panelContenido.Name = "panelContenido";
+            panelContenido.Size = new Size(974, 654);
+            panelContenido.TabIndex = 1;
             //
-            // kSegmentedControl1
+            // segSecciones
             //
-            kSegmentedControl1.BackColor = Color.White;
-            kSegmentedControl1.Dock = DockStyle.Top;
-            kSegmentedControl1.FillColor = Color.White;
-            kSegmentedControl1.Items.AddRange(new KovaqsUI.Controls.KSegmentItem[] { kSegmentItem3, kSegmentItem4, kSegmentItem5 });
-            kSegmentedControl1.Location = new Point(0, 0);
-            kSegmentedControl1.Font = new Font("Inter", 9F);
-            kSegmentedControl1.Name = "kSegmentedControl1";
-            kSegmentedControl1.SelectedAppearance.Normal.FillColor = Color.FromArgb(49, 81, 107);
-            kSegmentedControl1.SelectedAppearance.Normal.ForeColor = Color.WhiteSmoke;
-            kSegmentedControl1.SelectedFillColor = Color.FromArgb(49, 81, 107);
-            kSegmentedControl1.SelectedForeColor = Color.White;
-            kSegmentedControl1.SelectedIndex = 0;
-            kSegmentedControl1.Size = new Size(974, 48);
-            kSegmentedControl1.Surface.FillColor = Color.White;
-            kSegmentedControl1.TabIndex = 0;
-            kSegmentedControl1.Text = "kSegmentedControl1";
+            segSecciones.BackColor = Color.White;
+            segSecciones.Dock = DockStyle.Top;
+            segSecciones.FillColor = Color.White;
+            segSecciones.Items.AddRange(new KovaqsUI.Controls.KSegmentItem[] { itemDatosPersonales, itemDatosLaborales, itemDatosBancarios });
+            segSecciones.Location = new Point(0, 0);
+            segSecciones.Font = new Font("Inter", 9F);
+            segSecciones.Name = "segSecciones";
+            segSecciones.SelectedAppearance.Normal.FillColor = Color.FromArgb(49, 81, 107);
+            segSecciones.SelectedAppearance.Normal.ForeColor = Color.WhiteSmoke;
+            segSecciones.SelectedFillColor = Color.FromArgb(49, 81, 107);
+            segSecciones.SelectedForeColor = Color.White;
+            segSecciones.SelectedIndex = 0;
+            segSecciones.Size = new Size(974, 48);
+            segSecciones.Surface.FillColor = Color.White;
+            segSecciones.TabIndex = 0;
+            segSecciones.Text = "segSecciones";
             //
-            // kSegmentItem3
+            // itemDatosPersonales
             //
-            kSegmentItem3.Text = "Datos personales";
+            itemDatosPersonales.Text = "Datos personales";
             //
-            // kSegmentItem4
+            // itemDatosLaborales
             //
-            kSegmentItem4.Text = "Datos laborales";
+            itemDatosLaborales.Text = "Datos laborales";
             //
-            // kSegmentItem5
+            // itemDatosBancarios
             //
-            kSegmentItem5.Text = "Datos bancarios";
+            itemDatosBancarios.Text = "Datos bancarios";
             //
-            // kSegmentItem2
             //
-            kSegmentItem2.Value = "ss";
             //
-            // panel3
+            // panelAcciones
             //
-            panel3.Controls.Add(btnCancelar);
-            panel3.Controls.Add(btnGuardar);
-            panel3.Dock = DockStyle.Bottom;
-            panel3.Location = new Point(0, 581);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(974, 72);
-            panel3.TabIndex = 2;
-            panel3.Paint += panel3_Paint;
+            panelAcciones.Controls.Add(btnCancelar);
+            panelAcciones.Controls.Add(btnGuardar);
+            panelAcciones.Dock = DockStyle.Bottom;
+            panelAcciones.Location = new Point(0, 581);
+            panelAcciones.Name = "panelAcciones";
+            panelAcciones.Size = new Size(974, 72);
+            panelAcciones.TabIndex = 2;
+            panelAcciones.Paint += panelAcciones_Paint;
             //
             // btnCancelar
             //
@@ -217,35 +216,35 @@ namespace Presentacion.Forms.SubForms
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkGray;
             ClientSize = new Size(976, 693);
-            Controls.Add(panel1);
-            Controls.Add(panel2);
+            Controls.Add(panelContenido);
+            Controls.Add(panelCabecera);
             FormBorderStyle = FormBorderStyle.None;
             Font = new Font("Segoe UI", 9F);
+            Icon = Properties.Resources.sgeicon;
             Name = "FrmExpedientes";
             Padding = new Padding(1);
             Text = "FrmExpedientes";
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel3.ResumeLayout(false);
+            panelCabecera.ResumeLayout(false);
+            panelCabecera.PerformLayout();
+            panelContenido.ResumeLayout(false);
+            panelAcciones.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel2;
-        private KovaqsUI.Controls.KLabel kLabel3;
+        private Panel panelCabecera;
+        private KovaqsUI.Controls.KLabel lblTitulo;
         private KovaqsUI.Controls.KButton btnCerrar;
-        private Panel panel1;
-        private KovaqsUI.Controls.KSegmentItem kSegmentItem1;
-        private KovaqsUI.Controls.KSegmentedControl kSegmentedControl1;
-        private KovaqsUI.Controls.KSegmentItem kSegmentItem3;
-        private KovaqsUI.Controls.KSegmentItem kSegmentItem4;
-        private KovaqsUI.Controls.KSegmentItem kSegmentItem5;
-        private KovaqsUI.Controls.KSegmentItem kSegmentItem2;
-        private Panel panel3;
+        private Panel panelContenido;
+        private KovaqsUI.Controls.KSegmentedControl segSecciones;
+        private KovaqsUI.Controls.KSegmentItem itemDatosPersonales;
+        private KovaqsUI.Controls.KSegmentItem itemDatosLaborales;
+        private KovaqsUI.Controls.KSegmentItem itemDatosBancarios;
+        private Panel panelAcciones;
         private Panel panelDatos;
         private KovaqsUI.Controls.KButton btnCancelar;
         private KovaqsUI.Controls.KButton btnGuardar;
+        private KovaqsUI.Components.KToastNotifier notificador;
     }
 }

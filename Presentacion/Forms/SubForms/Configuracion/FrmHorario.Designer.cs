@@ -469,6 +469,7 @@ partial class FrmHorario
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCancelar;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmHorario";
         Text = "Horario y distribución semanal";
         ((System.ComponentModel.ISupportInitialize)dgvDiasHorario).EndInit();

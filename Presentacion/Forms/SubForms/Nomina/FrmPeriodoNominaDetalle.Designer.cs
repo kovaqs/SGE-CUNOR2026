@@ -588,6 +588,7 @@ partial class FrmPeriodoNominaDetalle
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCerrar;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmPeriodoNominaDetalle";
         Text = "Detalle de un período de pago";
         ((System.ComponentModel.ISupportInitialize)dgvDetalleNomina).EndInit();

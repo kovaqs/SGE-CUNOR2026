@@ -315,6 +315,7 @@ partial class FrmResolverPermiso
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCancelar;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmResolverPermiso";
         Text = "Resolver permiso laboral";
         ResumeLayout(false);

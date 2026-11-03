@@ -371,6 +371,7 @@ partial class FrmRoles
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCancelar;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmRoles";
         Text = "Roles y permisos del sistema";
         ((System.ComponentModel.ISupportInitialize)dgvRoles).EndInit();

@@ -1,3 +1,4 @@
+using Presentacion.Forms.SubForms.Usuarios;
 using System.ComponentModel;
 using Entidades;
 using Negocios;
@@ -16,6 +17,9 @@ public partial class FrmUsuarios : Form
     {
         InitializeComponent();
         btnAgregarUsuario.Click += AgregarUsuario_Click;
+        dgvUsuarios.CellDoubleClick += EditarUsuario_CellDoubleClick;
+        cboRol.SelectedIndexChanged += FiltroRol_Changed;
+        VisibleChanged += Usuarios_VisibleChanged;
         Disposed += (_, _) => { cancelacion.Cancel(); cancelacion.Dispose(); };
         if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             ConfigurarColumnas();
@@ -24,6 +28,7 @@ public partial class FrmUsuarios : Form
     public void EstablecerSesion(SesionUsuario sesionActual)
     {
         sesion = sesionActual;
+        btnAgregarUsuario.Enabled = !cargando && sesion.Puede("usuarios");
     }
 
     private async void AgregarUsuario_Click(object? sender, EventArgs e)
@@ -42,9 +47,8 @@ public partial class FrmUsuarios : Form
             await CargarUsuariosAsync();
     }
 
-    protected override async void OnVisibleChanged(EventArgs e)
+    private async void Usuarios_VisibleChanged(object? sender, EventArgs e)
     {
-        base.OnVisibleChanged(e);
         if (!Visible || !IsHandleCreated || IsDisposed || Disposing || cargando
             || DesignMode || LicenseManager.UsageMode == LicenseUsageMode.Designtime)
             return;
@@ -108,7 +112,7 @@ public partial class FrmUsuarios : Form
         {
             if (e.ColumnIndex == dgvUsuarios.Columns[nameof(UsuarioListado.UltimoAcceso)]!.Index
                 && e.Value is DateTime fecha)
-                e.Value = fecha.ToLocalTime();
+                e.Value = fecha.AddHours(-6);
         };
     }
 
@@ -124,7 +128,17 @@ public partial class FrmUsuarios : Form
         {
             var usuarios = await servicioUsuarios.ListarAsync(token);
             if (!IsDisposed && !Disposing && !token.IsCancellationRequested)
-                dgvUsuarios.DataSource = usuarios;
+            {
+                listaUsuarios = usuarios;
+                string filtro = cboRol.Text;
+                cboRol.Items.Clear();
+                cboRol.Items.Add("Todos");
+                foreach (var usuario in usuarios)
+                    if (!cboRol.Items.Contains(usuario.Rol))
+                        cboRol.Items.Add(usuario.Rol);
+                cboRol.SelectedItem = cboRol.Items.Contains(filtro) ? filtro : "Todos";
+                FiltroRol_Changed(this, EventArgs.Empty);
+            }
         }
         catch (OperationCanceledException) { }
         catch (Exception)
@@ -139,7 +153,7 @@ public partial class FrmUsuarios : Form
             if (!IsDisposed && !Disposing)
             {
                 dgvUsuarios.Enabled = true;
-                btnAgregarUsuario.Enabled = true;
+                btnAgregarUsuario.Enabled = sesion?.Puede("usuarios") == true;
                 UseWaitCursor = false;
             }
         }
@@ -148,5 +162,24 @@ public partial class FrmUsuarios : Form
     private void FrmUsuarios_Load(object sender, EventArgs e)
     {
 
+    }
+
+    private List<UsuarioListado> listaUsuarios = new();
+    private void FiltroRol_Changed(object? sender, EventArgs e)
+    {
+        var filtrados = new List<UsuarioListado>();
+        foreach (var usuario in listaUsuarios)
+            if (cboRol.Text == "Todos" || cboRol.Text == usuario.Rol)
+                filtrados.Add(usuario);
+        dgvUsuarios.DataSource = filtrados;
+    }
+    private async void EditarUsuario_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
+    {
+        if (sesion is null || cargando || e.RowIndex < 0 || dgvUsuarios.Rows[e.RowIndex].DataBoundItem is not UsuarioListado usuario)
+            return;
+        using var formulario = new FrmEditarUsuario();
+        formulario.Configurar(sesion, usuario.IdUsuario);
+        if (formulario.ShowDialog(TopLevelControl as Form ?? this) == DialogResult.OK)
+            await CargarUsuariosAsync();
     }
 }

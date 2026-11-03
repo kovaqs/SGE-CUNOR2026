@@ -224,6 +224,7 @@ namespace Presentacion.Forms.SubForms
             MinimizeBox = false;
             ShowInTaskbar = false;
             BackColor = Color.White;
+            Icon = Properties.Resources.sgeicon;
             Name = "FrmDepartamento";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Crear o editar departamento";

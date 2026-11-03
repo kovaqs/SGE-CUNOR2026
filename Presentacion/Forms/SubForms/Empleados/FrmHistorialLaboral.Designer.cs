@@ -296,6 +296,7 @@ partial class FrmHistorialLaboral
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCerrar;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmHistorialLaboral";
         Text = "Historial laboral del empleado";
         ((System.ComponentModel.ISupportInitialize)dgvHistorialLaboral).EndInit();

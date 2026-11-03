@@ -29,14 +29,14 @@ namespace Presentacion.Forms.SubForms
         private void InitializeComponent()
         {
             btnCerrar = new KovaqsUI.Controls.KButton();
-            kLabel3 = new KovaqsUI.Controls.KLabel();
-            kLabel1 = new KovaqsUI.Controls.KLabel();
-            kLabel2 = new KovaqsUI.Controls.KLabel();
-            kLabel4 = new KovaqsUI.Controls.KLabel();
+            lblTitulo = new KovaqsUI.Controls.KLabel();
+            lblUsuario = new KovaqsUI.Controls.KLabel();
+            lblContrasena = new KovaqsUI.Controls.KLabel();
+            lblConfirmarContrasena = new KovaqsUI.Controls.KLabel();
             cboRol = new KovaqsUI.Controls.KComboBox();
-            kLabel5 = new KovaqsUI.Controls.KLabel();
+            lblRol = new KovaqsUI.Controls.KLabel();
             cboEmpleado = new KovaqsUI.Controls.KComboBox();
-            kLabel6 = new KovaqsUI.Controls.KLabel();
+            lblEmpleado = new KovaqsUI.Controls.KLabel();
             chkActivo = new KovaqsUI.Controls.KCheckBox();
             chkMostrarContrasena = new KovaqsUI.Controls.KCheckBox();
             btnGuardar = new KovaqsUI.Controls.KButton();
@@ -74,61 +74,61 @@ namespace Presentacion.Forms.SubForms
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = false;
             //
-            // kLabel3
+            // lblTitulo
             //
-            kLabel3.BackColor = Color.Transparent;
-            kLabel3.Font = new Font("Inter", 16F, FontStyle.Bold);
-            kLabel3.ForeColor = Color.FromArgb(32, 38, 45);
-            kLabel3.Location = new Point(16, 12);
-            kLabel3.AutoSize = false;
-            kLabel3.TabStop = false;
-            kLabel3.Name = "kLabel3";
-            kLabel3.Size = new Size(516, 40);
-            kLabel3.TabIndex = 0;
-            kLabel3.Text = "Crear usuario";
-            kLabel3.TextRole = KovaqsUI.Controls.KTextRole.Title;
+            lblTitulo.BackColor = Color.Transparent;
+            lblTitulo.Font = new Font("Inter", 16F, FontStyle.Bold);
+            lblTitulo.ForeColor = Color.FromArgb(32, 38, 45);
+            lblTitulo.Location = new Point(16, 12);
+            lblTitulo.AutoSize = false;
+            lblTitulo.TabStop = false;
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(516, 40);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "Crear usuario";
+            lblTitulo.TextRole = KovaqsUI.Controls.KTextRole.Title;
             //
-            // kLabel1
+            // lblUsuario
             //
-            kLabel1.BackColor = Color.Transparent;
-            kLabel1.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel1.Location = new Point(16, 70);
-            kLabel1.Font = new Font("Inter", 9F);
-            kLabel1.AutoSize = false;
-            kLabel1.TabStop = false;
-            kLabel1.Name = "kLabel1";
-            kLabel1.Size = new Size(638, 24);
-            kLabel1.TabIndex = 2;
-            kLabel1.Text = "Nombre de usuario";
-            kLabel1.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblUsuario.BackColor = Color.Transparent;
+            lblUsuario.ForeColor = Color.FromArgb(64, 64, 64);
+            lblUsuario.Location = new Point(16, 70);
+            lblUsuario.Font = new Font("Inter", 9F);
+            lblUsuario.AutoSize = false;
+            lblUsuario.TabStop = false;
+            lblUsuario.Name = "lblUsuario";
+            lblUsuario.Size = new Size(638, 24);
+            lblUsuario.TabIndex = 2;
+            lblUsuario.Text = "Nombre de usuario";
+            lblUsuario.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
-            // kLabel2
+            // lblContrasena
             //
-            kLabel2.BackColor = Color.Transparent;
-            kLabel2.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel2.Location = new Point(16, 140);
-            kLabel2.Font = new Font("Inter", 9F);
-            kLabel2.AutoSize = false;
-            kLabel2.TabStop = false;
-            kLabel2.Name = "kLabel2";
-            kLabel2.Size = new Size(638, 24);
-            kLabel2.TabIndex = 4;
-            kLabel2.Text = "Contraseña";
-            kLabel2.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblContrasena.BackColor = Color.Transparent;
+            lblContrasena.ForeColor = Color.FromArgb(64, 64, 64);
+            lblContrasena.Location = new Point(16, 140);
+            lblContrasena.Font = new Font("Inter", 9F);
+            lblContrasena.AutoSize = false;
+            lblContrasena.TabStop = false;
+            lblContrasena.Name = "lblContrasena";
+            lblContrasena.Size = new Size(638, 24);
+            lblContrasena.TabIndex = 4;
+            lblContrasena.Text = "Contraseña";
+            lblContrasena.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
-            // kLabel4
+            // lblConfirmarContrasena
             //
-            kLabel4.BackColor = Color.Transparent;
-            kLabel4.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel4.Location = new Point(16, 210);
-            kLabel4.Font = new Font("Inter", 9F);
-            kLabel4.AutoSize = false;
-            kLabel4.TabStop = false;
-            kLabel4.Name = "kLabel4";
-            kLabel4.Size = new Size(638, 24);
-            kLabel4.TabIndex = 6;
-            kLabel4.Text = "Confirmar contraseña";
-            kLabel4.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblConfirmarContrasena.BackColor = Color.Transparent;
+            lblConfirmarContrasena.ForeColor = Color.FromArgb(64, 64, 64);
+            lblConfirmarContrasena.Location = new Point(16, 210);
+            lblConfirmarContrasena.Font = new Font("Inter", 9F);
+            lblConfirmarContrasena.AutoSize = false;
+            lblConfirmarContrasena.TabStop = false;
+            lblConfirmarContrasena.Name = "lblConfirmarContrasena";
+            lblConfirmarContrasena.Size = new Size(638, 24);
+            lblConfirmarContrasena.TabIndex = 6;
+            lblConfirmarContrasena.Text = "Confirmar contraseña";
+            lblConfirmarContrasena.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
             // cboRol
             //
@@ -147,19 +147,19 @@ namespace Presentacion.Forms.SubForms
             cboRol.Size = new Size(638, 34);
             cboRol.TabIndex = 9;
             //
-            // kLabel5
+            // lblRol
             //
-            kLabel5.BackColor = Color.Transparent;
-            kLabel5.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel5.Location = new Point(16, 280);
-            kLabel5.Font = new Font("Inter", 9F);
-            kLabel5.AutoSize = false;
-            kLabel5.TabStop = false;
-            kLabel5.Name = "kLabel5";
-            kLabel5.Size = new Size(638, 24);
-            kLabel5.TabIndex = 8;
-            kLabel5.Text = "Rol";
-            kLabel5.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblRol.BackColor = Color.Transparent;
+            lblRol.ForeColor = Color.FromArgb(64, 64, 64);
+            lblRol.Location = new Point(16, 280);
+            lblRol.Font = new Font("Inter", 9F);
+            lblRol.AutoSize = false;
+            lblRol.TabStop = false;
+            lblRol.Name = "lblRol";
+            lblRol.Size = new Size(638, 24);
+            lblRol.TabIndex = 8;
+            lblRol.Text = "Rol";
+            lblRol.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
             // cboEmpleado
             //
@@ -178,19 +178,19 @@ namespace Presentacion.Forms.SubForms
             cboEmpleado.Size = new Size(638, 34);
             cboEmpleado.TabIndex = 11;
             //
-            // kLabel6
+            // lblEmpleado
             //
-            kLabel6.BackColor = Color.Transparent;
-            kLabel6.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel6.Location = new Point(16, 350);
-            kLabel6.Font = new Font("Inter", 9F);
-            kLabel6.AutoSize = false;
-            kLabel6.TabStop = false;
-            kLabel6.Name = "kLabel6";
-            kLabel6.Size = new Size(638, 24);
-            kLabel6.TabIndex = 10;
-            kLabel6.Text = "Empleado asociado (opcional)";
-            kLabel6.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblEmpleado.BackColor = Color.Transparent;
+            lblEmpleado.ForeColor = Color.FromArgb(64, 64, 64);
+            lblEmpleado.Location = new Point(16, 350);
+            lblEmpleado.Font = new Font("Inter", 9F);
+            lblEmpleado.AutoSize = false;
+            lblEmpleado.TabStop = false;
+            lblEmpleado.Name = "lblEmpleado";
+            lblEmpleado.Size = new Size(638, 24);
+            lblEmpleado.TabIndex = 10;
+            lblEmpleado.Text = "Empleado asociado (opcional)";
+            lblEmpleado.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
             // chkActivo
             //
@@ -340,21 +340,22 @@ namespace Presentacion.Forms.SubForms
             MaximizeBox = false;
             MinimizeBox = false;
             Controls.Add(btnCerrar);
-            Controls.Add(kLabel3);
-            Controls.Add(kLabel1);
-            Controls.Add(kLabel2);
+            Controls.Add(lblTitulo);
+            Controls.Add(lblUsuario);
+            Controls.Add(lblContrasena);
             Controls.Add(txtContrasena);
-            Controls.Add(kLabel4);
+            Controls.Add(lblConfirmarContrasena);
             Controls.Add(txtConfirmarContrasena);
-            Controls.Add(kLabel5);
+            Controls.Add(lblRol);
             Controls.Add(cboRol);
-            Controls.Add(kLabel6);
+            Controls.Add(lblEmpleado);
             Controls.Add(cboEmpleado);
             Controls.Add(chkMostrarContrasena);
             Controls.Add(chkActivo);
             Controls.Add(btnGuardar);
             Controls.Add(btnCancelar);
             Font = new Font("Segoe UI", 9F);
+            Icon = Properties.Resources.sgeicon;
             Name = "FrmCrearUsuario";
             Padding = new Padding(0);
             StartPosition = FormStartPosition.CenterParent;
@@ -364,14 +365,14 @@ namespace Presentacion.Forms.SubForms
 
         #endregion
         private KovaqsUI.Controls.KButton btnCerrar;
-        private KovaqsUI.Controls.KLabel kLabel3;
-        private KovaqsUI.Controls.KLabel kLabel1;
-        private KovaqsUI.Controls.KLabel kLabel2;
-        private KovaqsUI.Controls.KLabel kLabel4;
+        private KovaqsUI.Controls.KLabel lblTitulo;
+        private KovaqsUI.Controls.KLabel lblUsuario;
+        private KovaqsUI.Controls.KLabel lblContrasena;
+        private KovaqsUI.Controls.KLabel lblConfirmarContrasena;
         private KovaqsUI.Controls.KComboBox cboRol;
-        private KovaqsUI.Controls.KLabel kLabel5;
+        private KovaqsUI.Controls.KLabel lblRol;
         private KovaqsUI.Controls.KComboBox cboEmpleado;
-        private KovaqsUI.Controls.KLabel kLabel6;
+        private KovaqsUI.Controls.KLabel lblEmpleado;
         private KovaqsUI.Controls.KCheckBox chkActivo;
         private KovaqsUI.Controls.KCheckBox chkMostrarContrasena;
         private KovaqsUI.Controls.KButton btnGuardar;

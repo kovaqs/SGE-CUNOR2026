@@ -553,6 +553,7 @@ partial class FrmDetalleNomina
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCerrar;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmDetalleNomina";
         Text = "Detalle individual y movimientos";
         ((System.ComponentModel.ISupportInitialize)dgvMovimientos).EndInit();

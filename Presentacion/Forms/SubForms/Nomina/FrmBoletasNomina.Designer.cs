@@ -240,6 +240,7 @@ partial class FrmBoletasNomina
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCerrar;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmBoletasNomina";
         Text = "Emitir boletas por departamento";
         ResumeLayout(false);

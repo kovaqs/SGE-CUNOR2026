@@ -28,6 +28,9 @@ namespace Presentacion.Forms.SubForms
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            notificador = new KovaqsUI.Components.KToastNotifier(components);
+            notificador.OwnerForm = this;
             txtCodigo = new KovaqsUI.Controls.KTextBox();
             txtDpi = new KovaqsUI.Controls.KTextBox();
             txtNombres = new KovaqsUI.Controls.KTextBox();
@@ -36,7 +39,7 @@ namespace Presentacion.Forms.SubForms
             txtCorreo = new KovaqsUI.Controls.KTextBox();
             txtDireccion = new KovaqsUI.Controls.KTextBox();
             dtpFechaNacimiento = new DateTimePicker();
-            kLabel5 = new KovaqsUI.Controls.KLabel();
+            lblFechaNacimiento = new KovaqsUI.Controls.KLabel();
             picFotografia = new PictureBox();
             btnSeleccionarFoto = new KovaqsUI.Controls.KButton();
             btnQuitarFoto = new KovaqsUI.Controls.KButton();
@@ -279,20 +282,20 @@ namespace Presentacion.Forms.SubForms
             dtpFechaNacimiento.Size = new Size(278, 34);
             dtpFechaNacimiento.TabIndex = 12;
             //
-            // kLabel5
+            // lblFechaNacimiento
             //
-            kLabel5.AutoSize = false;
-            kLabel5.BackColor = Color.Transparent;
-            kLabel5.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel5.Location = new Point(16, 156);
-            kLabel5.Font = new Font("Inter", 9F);
-            kLabel5.TabStop = false;
-            kLabel5.Name = "kLabel5";
-            kLabel5.Size = new Size(278, 24);
-            kLabel5.TabIndex = 10;
-            kLabel5.Text = "Fecha de nacimiento";
-            kLabel5.TextAlign = ContentAlignment.MiddleLeft;
-            kLabel5.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            lblFechaNacimiento.AutoSize = false;
+            lblFechaNacimiento.BackColor = Color.Transparent;
+            lblFechaNacimiento.ForeColor = Color.FromArgb(64, 64, 64);
+            lblFechaNacimiento.Location = new Point(16, 156);
+            lblFechaNacimiento.Font = new Font("Inter", 9F);
+            lblFechaNacimiento.TabStop = false;
+            lblFechaNacimiento.Name = "lblFechaNacimiento";
+            lblFechaNacimiento.Size = new Size(278, 24);
+            lblFechaNacimiento.TabIndex = 10;
+            lblFechaNacimiento.Text = "Fecha de nacimiento";
+            lblFechaNacimiento.TextAlign = ContentAlignment.MiddleLeft;
+            lblFechaNacimiento.TextRole = KovaqsUI.Controls.KTextRole.Caption;
             //
             // picFotografia
             //
@@ -359,7 +362,7 @@ namespace Presentacion.Forms.SubForms
             Controls.Add(btnQuitarFoto);
             Controls.Add(btnSeleccionarFoto);
             Controls.Add(picFotografia);
-            Controls.Add(kLabel5);
+            Controls.Add(lblFechaNacimiento);
             Controls.Add(dtpFechaNacimiento);
             Controls.Add(txtDireccion);
             Controls.Add(txtCorreo);
@@ -378,6 +381,7 @@ namespace Presentacion.Forms.SubForms
             Controls.Add(lblCorreo);
             Controls.Add(lblDireccion);
             Controls.Add(lblFotografia);
+            Icon = Properties.Resources.sgeicon;
             Name = "FrmExpedientesDatosPersonales";
             Text = "FrmExpedientesDatosPersonales";
             ((System.ComponentModel.ISupportInitialize)picFotografia).EndInit();
@@ -394,7 +398,7 @@ namespace Presentacion.Forms.SubForms
         private KovaqsUI.Controls.KTextBox txtCorreo;
         private KovaqsUI.Controls.KTextBox txtDireccion;
         private DateTimePicker dtpFechaNacimiento;
-        private KovaqsUI.Controls.KLabel kLabel5;
+        private KovaqsUI.Controls.KLabel lblFechaNacimiento;
         private PictureBox picFotografia;
         private KovaqsUI.Controls.KButton btnSeleccionarFoto;
         private KovaqsUI.Controls.KButton btnQuitarFoto;
@@ -406,5 +410,6 @@ namespace Presentacion.Forms.SubForms
         private KovaqsUI.Controls.KLabel lblCorreo;
         private KovaqsUI.Controls.KLabel lblDireccion;
         private KovaqsUI.Controls.KLabel lblFotografia;
+        private KovaqsUI.Components.KToastNotifier notificador;
 }
 }

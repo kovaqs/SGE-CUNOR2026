@@ -36,20 +36,20 @@ namespace Presentacion.Forms
             txtHuella = new KovaqsUI.Controls.KTextBox();
             numPuerto = new KovaqsUI.Controls.KTextBox();
             btnGuardar = new KovaqsUI.Controls.KButton();
-            kButton2 = new KovaqsUI.Controls.KButton();
-            kLabel1 = new KovaqsUI.Controls.KLabel();
-            kLabel2 = new KovaqsUI.Controls.KLabel();
-            kLabel3 = new KovaqsUI.Controls.KLabel();
-            kLabel4 = new KovaqsUI.Controls.KLabel();
-            kLabel5 = new KovaqsUI.Controls.KLabel();
-            kLabel6 = new KovaqsUI.Controls.KLabel();
-            kLabel7 = new KovaqsUI.Controls.KLabel();
+            btnCancelar = new KovaqsUI.Controls.KButton();
+            lblServidor = new KovaqsUI.Controls.KLabel();
+            lblPuerto = new KovaqsUI.Controls.KLabel();
+            lblBaseDatos = new KovaqsUI.Controls.KLabel();
+            lblUsuario = new KovaqsUI.Controls.KLabel();
+            lblContrasena = new KovaqsUI.Controls.KLabel();
+            lblHuellaCertificado = new KovaqsUI.Controls.KLabel();
+            lblTitulo = new KovaqsUI.Controls.KLabel();
             btnMostrar = new KovaqsUI.Controls.KButton();
             notificador = new KovaqsUI.Components.KToastNotifier(components);
             SuspendLayout();
-            // 
+            //
             // txtServidor
-            // 
+            //
             txtServidor.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
             txtServidor.Appearance.Normal.FillColor = Color.White;
             txtServidor.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
@@ -66,9 +66,9 @@ namespace Presentacion.Forms
             txtServidor.Size = new Size(538, 34);
             txtServidor.TabIndex = 3;
             txtServidor.UseSystemPasswordChar = true;
-            // 
+            //
             // txtBaseDatos
-            // 
+            //
             txtBaseDatos.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
             txtBaseDatos.Appearance.Normal.FillColor = Color.White;
             txtBaseDatos.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
@@ -85,9 +85,9 @@ namespace Presentacion.Forms
             txtBaseDatos.Size = new Size(538, 34);
             txtBaseDatos.TabIndex = 7;
             txtBaseDatos.UseSystemPasswordChar = true;
-            // 
+            //
             // txtUsuario
-            // 
+            //
             txtUsuario.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
             txtUsuario.Appearance.Normal.FillColor = Color.White;
             txtUsuario.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
@@ -104,9 +104,9 @@ namespace Presentacion.Forms
             txtUsuario.Size = new Size(538, 34);
             txtUsuario.TabIndex = 8;
             txtUsuario.UseSystemPasswordChar = true;
-            // 
+            //
             // txtContrasena
-            // 
+            //
             txtContrasena.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
             txtContrasena.Appearance.Normal.FillColor = Color.White;
             txtContrasena.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
@@ -123,9 +123,9 @@ namespace Presentacion.Forms
             txtContrasena.Size = new Size(538, 34);
             txtContrasena.TabIndex = 11;
             txtContrasena.UseSystemPasswordChar = true;
-            // 
+            //
             // txtHuella
-            // 
+            //
             txtHuella.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
             txtHuella.Appearance.Normal.FillColor = Color.White;
             txtHuella.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
@@ -142,9 +142,9 @@ namespace Presentacion.Forms
             txtHuella.Size = new Size(538, 34);
             txtHuella.TabIndex = 12;
             txtHuella.UseSystemPasswordChar = true;
-            // 
+            //
             // numPuerto
-            // 
+            //
             numPuerto.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
             numPuerto.Appearance.Normal.FillColor = Color.White;
             numPuerto.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
@@ -161,9 +161,9 @@ namespace Presentacion.Forms
             numPuerto.Size = new Size(538, 34);
             numPuerto.TabIndex = 4;
             numPuerto.UseSystemPasswordChar = true;
-            // 
+            //
             // btnGuardar
-            // 
+            //
             btnGuardar.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
             btnGuardar.Appearance.Normal.BorderColor = Color.FromArgb(49, 81, 107);
             btnGuardar.Appearance.Normal.FillColor = Color.FromArgb(49, 81, 107);
@@ -184,126 +184,126 @@ namespace Presentacion.Forms
             btnGuardar.TabIndex = 14;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
-            // 
-            // kButton2
-            // 
-            kButton2.Appearance.Hover.FillColor = Color.FromArgb(250, 235, 235);
-            kButton2.Appearance.Normal.BorderColor = Color.FromArgb(204, 148, 150);
-            kButton2.Appearance.Normal.FillColor = Color.FromArgb(255, 248, 248);
-            kButton2.Appearance.Normal.ForeColor = Color.FromArgb(166, 61, 64);
-            kButton2.Appearance.Pressed.FillColor = Color.FromArgb(244, 219, 220);
-            kButton2.BackColor = Color.Transparent;
-            kButton2.BorderColor = Color.FromArgb(204, 148, 150);
-            kButton2.CornerRadius = 8;
-            kButton2.FillColor = Color.FromArgb(255, 248, 248);
-            kButton2.FlatStyle = FlatStyle.Flat;
-            kButton2.FocusAppearance.Color = Color.FromArgb(166, 61, 64);
-            kButton2.Font = new Font("Inter", 9F);
-            kButton2.ForeColor = Color.FromArgb(166, 61, 64);
-            kButton2.Location = new Point(248, 350);
-            kButton2.Name = "kButton2";
-            kButton2.Padding = new Padding(10, 4, 10, 4);
-            kButton2.Size = new Size(220, 40);
-            kButton2.TabIndex = 15;
-            kButton2.Text = "Cancelar";
-            kButton2.UseVisualStyleBackColor = false;
-            kButton2.Variant = KovaqsUI.Styling.KButtonVariant.Danger;
-            // 
-            // kLabel1
-            // 
-            kLabel1.AutoSize = false;
-            kLabel1.BackColor = Color.Transparent;
-            kLabel1.Font = new Font("Inter", 9F);
-            kLabel1.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel1.Location = new Point(16, 70);
-            kLabel1.Name = "kLabel1";
-            kLabel1.Size = new Size(538, 24);
-            kLabel1.TabIndex = 1;
-            kLabel1.Text = "Servidor";
-            kLabel1.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-            // 
-            // kLabel2
-            // 
-            kLabel2.AutoSize = false;
-            kLabel2.BackColor = Color.Transparent;
-            kLabel2.Font = new Font("Inter", 9F);
-            kLabel2.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel2.Location = new Point(572, 70);
-            kLabel2.Name = "kLabel2";
-            kLabel2.Size = new Size(538, 24);
-            kLabel2.TabIndex = 2;
-            kLabel2.Text = "Puerto";
-            kLabel2.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-            // 
-            // kLabel3
-            // 
-            kLabel3.AutoSize = false;
-            kLabel3.BackColor = Color.Transparent;
-            kLabel3.Font = new Font("Inter", 9F);
-            kLabel3.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel3.Location = new Point(16, 140);
-            kLabel3.Name = "kLabel3";
-            kLabel3.Size = new Size(538, 24);
-            kLabel3.TabIndex = 5;
-            kLabel3.Text = "Base de datos";
-            kLabel3.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-            // 
-            // kLabel4
-            // 
-            kLabel4.AutoSize = false;
-            kLabel4.BackColor = Color.Transparent;
-            kLabel4.Font = new Font("Inter", 9F);
-            kLabel4.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel4.Location = new Point(572, 140);
-            kLabel4.Name = "kLabel4";
-            kLabel4.Size = new Size(538, 24);
-            kLabel4.TabIndex = 6;
-            kLabel4.Text = "Usuario MySQL";
-            kLabel4.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-            // 
-            // kLabel5
-            // 
-            kLabel5.AutoSize = false;
-            kLabel5.BackColor = Color.Transparent;
-            kLabel5.Font = new Font("Inter", 9F);
-            kLabel5.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel5.Location = new Point(16, 210);
-            kLabel5.Name = "kLabel5";
-            kLabel5.Size = new Size(538, 24);
-            kLabel5.TabIndex = 9;
-            kLabel5.Text = "Contraseña MySQL";
-            kLabel5.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-            // 
-            // kLabel6
-            // 
-            kLabel6.AutoSize = false;
-            kLabel6.BackColor = Color.Transparent;
-            kLabel6.Font = new Font("Inter", 9F);
-            kLabel6.ForeColor = Color.FromArgb(64, 64, 64);
-            kLabel6.Location = new Point(572, 210);
-            kLabel6.Name = "kLabel6";
-            kLabel6.Size = new Size(538, 24);
-            kLabel6.TabIndex = 10;
-            kLabel6.Text = "Huella SHA-256";
-            kLabel6.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-            // 
-            // kLabel7
-            // 
-            kLabel7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            kLabel7.AutoSize = false;
-            kLabel7.BackColor = Color.Transparent;
-            kLabel7.Font = new Font("Inter", 16F, FontStyle.Bold);
-            kLabel7.ForeColor = Color.FromArgb(32, 38, 45);
-            kLabel7.Location = new Point(16, 12);
-            kLabel7.Name = "kLabel7";
-            kLabel7.Size = new Size(1094, 40);
-            kLabel7.TabIndex = 0;
-            kLabel7.Text = "Conexión a la base de datos";
-            kLabel7.TextAlign = ContentAlignment.MiddleLeft;
-            kLabel7.TextRole = KovaqsUI.Controls.KTextRole.Title;
-            // 
+            //
+            // btnCancelar
+            //
+            btnCancelar.Appearance.Hover.FillColor = Color.FromArgb(250, 235, 235);
+            btnCancelar.Appearance.Normal.BorderColor = Color.FromArgb(204, 148, 150);
+            btnCancelar.Appearance.Normal.FillColor = Color.FromArgb(255, 248, 248);
+            btnCancelar.Appearance.Normal.ForeColor = Color.FromArgb(166, 61, 64);
+            btnCancelar.Appearance.Pressed.FillColor = Color.FromArgb(244, 219, 220);
+            btnCancelar.BackColor = Color.Transparent;
+            btnCancelar.BorderColor = Color.FromArgb(204, 148, 150);
+            btnCancelar.CornerRadius = 8;
+            btnCancelar.FillColor = Color.FromArgb(255, 248, 248);
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.FocusAppearance.Color = Color.FromArgb(166, 61, 64);
+            btnCancelar.Font = new Font("Inter", 9F);
+            btnCancelar.ForeColor = Color.FromArgb(166, 61, 64);
+            btnCancelar.Location = new Point(248, 350);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Padding = new Padding(10, 4, 10, 4);
+            btnCancelar.Size = new Size(220, 40);
+            btnCancelar.TabIndex = 15;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Variant = KovaqsUI.Styling.KButtonVariant.Danger;
+            //
+            // lblServidor
+            //
+            lblServidor.AutoSize = false;
+            lblServidor.BackColor = Color.Transparent;
+            lblServidor.Font = new Font("Inter", 9F);
+            lblServidor.ForeColor = Color.FromArgb(64, 64, 64);
+            lblServidor.Location = new Point(16, 70);
+            lblServidor.Name = "lblServidor";
+            lblServidor.Size = new Size(538, 24);
+            lblServidor.TabIndex = 1;
+            lblServidor.Text = "Servidor";
+            lblServidor.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            //
+            // lblPuerto
+            //
+            lblPuerto.AutoSize = false;
+            lblPuerto.BackColor = Color.Transparent;
+            lblPuerto.Font = new Font("Inter", 9F);
+            lblPuerto.ForeColor = Color.FromArgb(64, 64, 64);
+            lblPuerto.Location = new Point(572, 70);
+            lblPuerto.Name = "lblPuerto";
+            lblPuerto.Size = new Size(538, 24);
+            lblPuerto.TabIndex = 2;
+            lblPuerto.Text = "Puerto";
+            lblPuerto.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            //
+            // lblBaseDatos
+            //
+            lblBaseDatos.AutoSize = false;
+            lblBaseDatos.BackColor = Color.Transparent;
+            lblBaseDatos.Font = new Font("Inter", 9F);
+            lblBaseDatos.ForeColor = Color.FromArgb(64, 64, 64);
+            lblBaseDatos.Location = new Point(16, 140);
+            lblBaseDatos.Name = "lblBaseDatos";
+            lblBaseDatos.Size = new Size(538, 24);
+            lblBaseDatos.TabIndex = 5;
+            lblBaseDatos.Text = "Base de datos";
+            lblBaseDatos.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            //
+            // lblUsuario
+            //
+            lblUsuario.AutoSize = false;
+            lblUsuario.BackColor = Color.Transparent;
+            lblUsuario.Font = new Font("Inter", 9F);
+            lblUsuario.ForeColor = Color.FromArgb(64, 64, 64);
+            lblUsuario.Location = new Point(572, 140);
+            lblUsuario.Name = "lblUsuario";
+            lblUsuario.Size = new Size(538, 24);
+            lblUsuario.TabIndex = 6;
+            lblUsuario.Text = "Usuario MySQL";
+            lblUsuario.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            //
+            // lblContrasena
+            //
+            lblContrasena.AutoSize = false;
+            lblContrasena.BackColor = Color.Transparent;
+            lblContrasena.Font = new Font("Inter", 9F);
+            lblContrasena.ForeColor = Color.FromArgb(64, 64, 64);
+            lblContrasena.Location = new Point(16, 210);
+            lblContrasena.Name = "lblContrasena";
+            lblContrasena.Size = new Size(538, 24);
+            lblContrasena.TabIndex = 9;
+            lblContrasena.Text = "Contraseña MySQL";
+            lblContrasena.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            //
+            // lblHuellaCertificado
+            //
+            lblHuellaCertificado.AutoSize = false;
+            lblHuellaCertificado.BackColor = Color.Transparent;
+            lblHuellaCertificado.Font = new Font("Inter", 9F);
+            lblHuellaCertificado.ForeColor = Color.FromArgb(64, 64, 64);
+            lblHuellaCertificado.Location = new Point(572, 210);
+            lblHuellaCertificado.Name = "lblHuellaCertificado";
+            lblHuellaCertificado.Size = new Size(538, 24);
+            lblHuellaCertificado.TabIndex = 10;
+            lblHuellaCertificado.Text = "Huella SHA-256";
+            lblHuellaCertificado.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+            //
+            // lblTitulo
+            //
+            lblTitulo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblTitulo.AutoSize = false;
+            lblTitulo.BackColor = Color.Transparent;
+            lblTitulo.Font = new Font("Inter", 16F, FontStyle.Bold);
+            lblTitulo.ForeColor = Color.FromArgb(32, 38, 45);
+            lblTitulo.Location = new Point(16, 12);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(1094, 40);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "Conexión a la base de datos";
+            lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
+            lblTitulo.TextRole = KovaqsUI.Controls.KTextRole.Title;
+            //
             // btnMostrar
-            // 
+            //
             btnMostrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
             btnMostrar.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
             btnMostrar.Appearance.Normal.FillColor = Color.White;
@@ -325,26 +325,26 @@ namespace Presentacion.Forms
             btnMostrar.Text = "Mostrar";
             btnMostrar.UseVisualStyleBackColor = false;
             btnMostrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
-            // 
+            //
             // notificador
-            // 
+            //
             notificador.OwnerForm = this;
-            // 
+            //
             // FrmConfigurarConexion
-            // 
+            //
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1126, 440);
             Controls.Add(btnMostrar);
-            Controls.Add(kLabel7);
-            Controls.Add(kLabel6);
-            Controls.Add(kLabel5);
-            Controls.Add(kLabel4);
-            Controls.Add(kLabel3);
-            Controls.Add(kLabel2);
-            Controls.Add(kLabel1);
-            Controls.Add(kButton2);
+            Controls.Add(lblTitulo);
+            Controls.Add(lblHuellaCertificado);
+            Controls.Add(lblContrasena);
+            Controls.Add(lblUsuario);
+            Controls.Add(lblBaseDatos);
+            Controls.Add(lblPuerto);
+            Controls.Add(lblServidor);
+            Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(numPuerto);
             Controls.Add(txtHuella);
@@ -357,6 +357,7 @@ namespace Presentacion.Forms
             MaximizeBox = false;
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
+            Icon = Properties.Resources.sgeicon;
             Name = "FrmConfigurarConexion";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmConfigurarConexion";
@@ -372,14 +373,14 @@ namespace Presentacion.Forms
         private KovaqsUI.Controls.KTextBox txtHuella;
         private KovaqsUI.Controls.KTextBox numPuerto;
         private KovaqsUI.Controls.KButton btnGuardar;
-        private KovaqsUI.Controls.KButton kButton2;
-        private KovaqsUI.Controls.KLabel kLabel1;
-        private KovaqsUI.Controls.KLabel kLabel2;
-        private KovaqsUI.Controls.KLabel kLabel3;
-        private KovaqsUI.Controls.KLabel kLabel4;
-        private KovaqsUI.Controls.KLabel kLabel5;
-        private KovaqsUI.Controls.KLabel kLabel6;
-        private KovaqsUI.Controls.KLabel kLabel7;
+        private KovaqsUI.Controls.KButton btnCancelar;
+        private KovaqsUI.Controls.KLabel lblServidor;
+        private KovaqsUI.Controls.KLabel lblPuerto;
+        private KovaqsUI.Controls.KLabel lblBaseDatos;
+        private KovaqsUI.Controls.KLabel lblUsuario;
+        private KovaqsUI.Controls.KLabel lblContrasena;
+        private KovaqsUI.Controls.KLabel lblHuellaCertificado;
+        private KovaqsUI.Controls.KLabel lblTitulo;
         private KovaqsUI.Controls.KButton btnMostrar;
             private KovaqsUI.Components.KToastNotifier notificador;
 }

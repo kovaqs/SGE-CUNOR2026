@@ -1,4 +1,4 @@
-﻿using Datos;
+using Datos;
 using Entidades;
 using System.Data.Common;
 
@@ -10,30 +10,40 @@ public class ServicioTiposContrato
 
     public async Task<List<TipoContrato>> ListarAsync()
     {
-        try { return await repositorio.ListarAsync(); }
+        try
+        {
+            return await repositorio.ListarAsync();
+        }
         catch (DbException)
         {
             throw new InvalidOperationException("No se pudieron cargar los tipos de contrato.");
         }
     }
 
-    public async Task<uint> CrearAsync(string nombre, string? descripcion, SesionUsuario autor)
+    public async Task<uint> CrearAsync(string nombre, string? descripcion, SesionUsuario autor, bool activo = true)
     {
         ArgumentNullException.ThrowIfNull(autor);
         Validar(nombre, descripcion);
-        try { return await repositorio.CrearAsync(nombre.Trim(), descripcion?.Trim(), autor); }
+        try
+        {
+            return await repositorio.CrearAsync(nombre.Trim(), descripcion?.Trim(), autor, activo);
+        }
         catch (DbException)
         {
             throw new InvalidOperationException("No se pudo crear el tipo de contrato.");
         }
     }
 
-    public async Task ActualizarAsync(uint id, string nombre, string? descripcion, SesionUsuario autor)
+    public async Task ActualizarAsync(uint id, string nombre, string? descripcion, SesionUsuario autor, bool activo = true)
     {
         ArgumentNullException.ThrowIfNull(autor);
-        if (id == 0) throw new ArgumentException("El ID debe ser mayor que cero.");
+        if (id == 0)
+            throw new ArgumentException("El ID debe ser mayor que cero.");
         Validar(nombre, descripcion);
-        try { await repositorio.ActualizarAsync(id, nombre.Trim(), descripcion?.Trim(), autor); }
+        try
+        {
+            await repositorio.ActualizarAsync(id, nombre.Trim(), descripcion?.Trim(), autor, activo);
+        }
         catch (DbException)
         {
             throw new InvalidOperationException("No se pudo actualizar el tipo de contrato.");
@@ -43,8 +53,12 @@ public class ServicioTiposContrato
     public async Task CambiarEstadoAsync(uint id, bool activo, SesionUsuario autor)
     {
         ArgumentNullException.ThrowIfNull(autor);
-        if (id == 0) throw new ArgumentException("El ID debe ser mayor que cero.");
-        try { await repositorio.CambiarEstadoAsync(id, activo, autor); }
+        if (id == 0)
+            throw new ArgumentException("El ID debe ser mayor que cero.");
+        try
+        {
+            await repositorio.CambiarEstadoAsync(id, activo, autor);
+        }
         catch (DbException)
         {
             throw new InvalidOperationException("No se pudo cambiar el estado.");

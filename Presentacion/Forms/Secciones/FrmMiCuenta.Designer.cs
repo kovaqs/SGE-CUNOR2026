@@ -357,6 +357,7 @@ partial class FrmMiCuenta
         Font = new Font("Segoe UI", 9F);
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(3);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmMiCuenta";
         Text = "Mi cuenta";
         VisibleChanged += FrmMiCuenta_VisibleChanged;

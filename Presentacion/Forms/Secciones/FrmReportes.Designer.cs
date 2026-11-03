@@ -50,6 +50,7 @@ partial class FrmReportes
         colResultadosPuesto = new DataGridViewTextBoxColumn();
         colResultadosContrato = new DataGridViewTextBoxColumn();
         colResultadosEstado = new DataGridViewTextBoxColumn();
+        colResultadoExtra = new DataGridViewTextBoxColumn();
         dlgGuardarReporte = new SaveFileDialog();
         components.Add(dlgGuardarReporte);
         notificador = new KovaqsUI.Components.KToastNotifier(components);
@@ -106,7 +107,7 @@ partial class FrmReportes
         cboTipoReporte.Font = new Font("Inter", 9F);
         cboTipoReporte.DropDownStyle = ComboBoxStyle.DropDownList;
         cboTipoReporte.FormattingEnabled = true;
-        cboTipoReporte.Items.AddRange(new object[] { "Listado general de empleados", "Listado filtrado de empleados", "Resumen estadístico", "Asistencias mensuales", "Resumen de nómina" });
+        cboTipoReporte.Items.AddRange(new object[] { "Listado general de empleados", "Listado filtrado de empleados", "Resumen estadístico", "Asistencias mensuales", "Resumen de nómina", "Departamentos con 5 o más empleados" });
         cboTipoReporte.Location = new Point(16, 96);
         cboTipoReporte.Anchor = AnchorStyles.Top | AnchorStyles.Left;
         cboTipoReporte.CornerRadius = 8;
@@ -368,7 +369,7 @@ partial class FrmReportes
         dgvResultados.Name = "dgvResultados";
         dgvResultados.Size = new Size(1094, 378);
         dgvResultados.TabIndex = 18;
-        dgvResultados.Columns.AddRange(new DataGridViewColumn[] { colResultadosCodigo, colResultadosEmpleado, colResultadosDepartamento, colResultadosPuesto, colResultadosContrato, colResultadosEstado });
+        dgvResultados.Columns.AddRange(new DataGridViewColumn[] { colResultadosCodigo, colResultadosEmpleado, colResultadosDepartamento, colResultadosPuesto, colResultadosContrato, colResultadosEstado, colResultadoExtra });
         //
         // btnAnterior
         //
@@ -505,6 +506,9 @@ partial class FrmReportes
         dlgGuardarReporte.Filter = "Documentos PDF (*.pdf)|*.pdf|Libros de Excel (*.xlsx)|*.xlsx";
         dlgGuardarReporte.DefaultExt = "pdf";
         dlgGuardarReporte.AddExtension = true;
+        colResultadoExtra.Name = "colResultadoExtra";
+        colResultadoExtra.HeaderText = "Resultado";
+        colResultadoExtra.ReadOnly = true;
         notificador.OwnerForm = this;
         btnExportar.BackColor = Color.Transparent;
         btnExportar.CornerRadius = 8;
@@ -513,6 +517,7 @@ partial class FrmReportes
         btnExportar.Padding = new Padding(10, 4, 10, 4);
         btnExportar.UseVisualStyleBackColor = false;
         btnExportar.Text = "Exportar ▾";
+        btnExportar.Click += btnExportar_Click;
         btnExportar.Location = new Point(568, 214);
         btnExportar.Anchor = AnchorStyles.Top | AnchorStyles.Left;
         btnExportar.BorderThickness = 1;
@@ -583,6 +588,7 @@ partial class FrmReportes
         FormBorderStyle = FormBorderStyle.None;
         Margin = new Padding(3);
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmReportes";
         Text = "Consultas y reportes";
         ((System.ComponentModel.ISupportInitialize)dgvResultados).EndInit();
@@ -626,4 +632,5 @@ partial class FrmReportes
     private DataGridViewTextBoxColumn colResultadosEstado;
     private SaveFileDialog dlgGuardarReporte;
     private KovaqsUI.Components.KToastNotifier notificador;
+    private DataGridViewTextBoxColumn colResultadoExtra;
 }

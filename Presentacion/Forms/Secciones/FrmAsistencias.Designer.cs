@@ -26,10 +26,10 @@ partial class FrmAsistencias
         txtBuscarEmpleado = new KovaqsUI.Controls.KTextBox();
         cboEstado = new KovaqsUI.Controls.KComboBox();
         lblTitulo = new KovaqsUI.Controls.KLabel();
-        kLabel1 = new KovaqsUI.Controls.KLabel();
-        kLabel2 = new KovaqsUI.Controls.KLabel();
-        kLabel3 = new KovaqsUI.Controls.KLabel();
-        kLabel4 = new KovaqsUI.Controls.KLabel();
+        lblDesde = new KovaqsUI.Controls.KLabel();
+        lblHasta = new KovaqsUI.Controls.KLabel();
+        lblDepartamento = new KovaqsUI.Controls.KLabel();
+        lblBuscarEmpleado = new KovaqsUI.Controls.KLabel();
         lblEstado = new KovaqsUI.Controls.KLabel();
         btnRegistrarAsistencia = new KovaqsUI.Controls.KButton();
         btnConsultar = new KovaqsUI.Controls.KButton();
@@ -43,7 +43,7 @@ partial class FrmAsistencias
         colSalida = new DataGridViewTextBoxColumn();
         colEstado = new DataGridViewTextBoxColumn();
         colTardanza = new DataGridViewTextBoxColumn();
-        kLabel5 = new KovaqsUI.Controls.KLabel();
+        lblTituloTabla = new KovaqsUI.Controls.KLabel();
         btnAnterior = new KovaqsUI.Controls.KButton();
         lblPagina = new KovaqsUI.Controls.KLabel();
         btnSiguiente = new KovaqsUI.Controls.KButton();
@@ -52,9 +52,9 @@ partial class FrmAsistencias
         notificador = new KovaqsUI.Components.KToastNotifier(components);
         ((System.ComponentModel.ISupportInitialize)dgvAsistencias).BeginInit();
         SuspendLayout();
-        // 
+        //
         // dtpDesde
-        // 
+        //
         dtpDesde.CalendarFont = new Font("Microsoft Sans Serif", 9F);
         dtpDesde.CustomFormat = "dd/MM/yyyy";
         dtpDesde.Font = new Font("Microsoft Sans Serif", 10F);
@@ -65,9 +65,9 @@ partial class FrmAsistencias
         dtpDesde.Size = new Size(354, 34);
         dtpDesde.TabIndex = 4;
         dtpDesde.ValueChanged += dtpDesde_ValueChanged;
-        // 
+        //
         // dtpHasta
-        // 
+        //
         dtpHasta.CalendarFont = new Font("Microsoft Sans Serif", 9F);
         dtpHasta.CustomFormat = "dd/MM/yyyy";
         dtpHasta.Font = new Font("Microsoft Sans Serif", 10F);
@@ -77,9 +77,9 @@ partial class FrmAsistencias
         dtpHasta.Name = "dtpHasta";
         dtpHasta.Size = new Size(354, 34);
         dtpHasta.TabIndex = 5;
-        // 
+        //
         // cboDepartamento
-        // 
+        //
         cboDepartamento.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
         cboDepartamento.Appearance.Normal.FillColor = Color.White;
         cboDepartamento.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
@@ -95,9 +95,9 @@ partial class FrmAsistencias
         cboDepartamento.Name = "cboDepartamento";
         cboDepartamento.Size = new Size(354, 34);
         cboDepartamento.TabIndex = 6;
-        // 
+        //
         // txtBuscarEmpleado
-        // 
+        //
         txtBuscarEmpleado.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
         txtBuscarEmpleado.Appearance.Normal.FillColor = Color.White;
         txtBuscarEmpleado.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
@@ -112,9 +112,9 @@ partial class FrmAsistencias
         txtBuscarEmpleado.Padding = new Padding(12, 8, 12, 8);
         txtBuscarEmpleado.Size = new Size(354, 34);
         txtBuscarEmpleado.TabIndex = 9;
-        // 
+        //
         // cboEstado
-        // 
+        //
         cboEstado.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
         cboEstado.Appearance.Normal.FillColor = Color.White;
         cboEstado.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
@@ -130,9 +130,9 @@ partial class FrmAsistencias
         cboEstado.Name = "cboEstado";
         cboEstado.Size = new Size(354, 34);
         cboEstado.TabIndex = 10;
-        // 
+        //
         // lblTitulo
-        // 
+        //
         lblTitulo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
         lblTitulo.AutoSize = false;
         lblTitulo.BackColor = Color.Transparent;
@@ -145,66 +145,66 @@ partial class FrmAsistencias
         lblTitulo.Text = "Asistencias e incidencias";
         lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
         lblTitulo.TextRole = KovaqsUI.Controls.KTextRole.Title;
-        // 
-        // kLabel1
-        // 
-        kLabel1.AutoSize = false;
-        kLabel1.BackColor = Color.Transparent;
-        kLabel1.Font = new Font("Inter", 9F);
-        kLabel1.ForeColor = Color.FromArgb(64, 64, 64);
-        kLabel1.Location = new Point(16, 70);
-        kLabel1.Name = "kLabel1";
-        kLabel1.RightToLeft = RightToLeft.No;
-        kLabel1.Size = new Size(354, 24);
-        kLabel1.TabIndex = 1;
-        kLabel1.Text = "Desde";
-        kLabel1.TextAlign = ContentAlignment.MiddleLeft;
-        kLabel1.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        // 
-        // kLabel2
-        // 
-        kLabel2.AutoSize = false;
-        kLabel2.BackColor = Color.Transparent;
-        kLabel2.Font = new Font("Inter", 9F);
-        kLabel2.ForeColor = Color.FromArgb(64, 64, 64);
-        kLabel2.Location = new Point(386, 70);
-        kLabel2.Name = "kLabel2";
-        kLabel2.Size = new Size(354, 24);
-        kLabel2.TabIndex = 2;
-        kLabel2.Text = "Hasta";
-        kLabel2.TextAlign = ContentAlignment.MiddleLeft;
-        kLabel2.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        // 
-        // kLabel3
-        // 
-        kLabel3.AutoSize = false;
-        kLabel3.BackColor = Color.Transparent;
-        kLabel3.Font = new Font("Inter", 9F);
-        kLabel3.ForeColor = Color.FromArgb(64, 64, 64);
-        kLabel3.Location = new Point(756, 70);
-        kLabel3.Name = "kLabel3";
-        kLabel3.Size = new Size(354, 24);
-        kLabel3.TabIndex = 3;
-        kLabel3.Text = "Departamento";
-        kLabel3.TextAlign = ContentAlignment.MiddleLeft;
-        kLabel3.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        // 
-        // kLabel4
-        // 
-        kLabel4.AutoSize = false;
-        kLabel4.BackColor = Color.Transparent;
-        kLabel4.Font = new Font("Inter", 9F);
-        kLabel4.ForeColor = Color.FromArgb(64, 64, 64);
-        kLabel4.Location = new Point(16, 140);
-        kLabel4.Name = "kLabel4";
-        kLabel4.Size = new Size(354, 24);
-        kLabel4.TabIndex = 7;
-        kLabel4.Text = "Nombre o Código";
-        kLabel4.TextAlign = ContentAlignment.MiddleLeft;
-        kLabel4.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        // 
+        //
+        // lblDesde
+        //
+        lblDesde.AutoSize = false;
+        lblDesde.BackColor = Color.Transparent;
+        lblDesde.Font = new Font("Inter", 9F);
+        lblDesde.ForeColor = Color.FromArgb(64, 64, 64);
+        lblDesde.Location = new Point(16, 70);
+        lblDesde.Name = "lblDesde";
+        lblDesde.RightToLeft = RightToLeft.No;
+        lblDesde.Size = new Size(354, 24);
+        lblDesde.TabIndex = 1;
+        lblDesde.Text = "Desde";
+        lblDesde.TextAlign = ContentAlignment.MiddleLeft;
+        lblDesde.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        //
+        // lblHasta
+        //
+        lblHasta.AutoSize = false;
+        lblHasta.BackColor = Color.Transparent;
+        lblHasta.Font = new Font("Inter", 9F);
+        lblHasta.ForeColor = Color.FromArgb(64, 64, 64);
+        lblHasta.Location = new Point(386, 70);
+        lblHasta.Name = "lblHasta";
+        lblHasta.Size = new Size(354, 24);
+        lblHasta.TabIndex = 2;
+        lblHasta.Text = "Hasta";
+        lblHasta.TextAlign = ContentAlignment.MiddleLeft;
+        lblHasta.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        //
+        // lblDepartamento
+        //
+        lblDepartamento.AutoSize = false;
+        lblDepartamento.BackColor = Color.Transparent;
+        lblDepartamento.Font = new Font("Inter", 9F);
+        lblDepartamento.ForeColor = Color.FromArgb(64, 64, 64);
+        lblDepartamento.Location = new Point(756, 70);
+        lblDepartamento.Name = "lblDepartamento";
+        lblDepartamento.Size = new Size(354, 24);
+        lblDepartamento.TabIndex = 3;
+        lblDepartamento.Text = "Departamento";
+        lblDepartamento.TextAlign = ContentAlignment.MiddleLeft;
+        lblDepartamento.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        //
+        // lblBuscarEmpleado
+        //
+        lblBuscarEmpleado.AutoSize = false;
+        lblBuscarEmpleado.BackColor = Color.Transparent;
+        lblBuscarEmpleado.Font = new Font("Inter", 9F);
+        lblBuscarEmpleado.ForeColor = Color.FromArgb(64, 64, 64);
+        lblBuscarEmpleado.Location = new Point(16, 140);
+        lblBuscarEmpleado.Name = "lblBuscarEmpleado";
+        lblBuscarEmpleado.Size = new Size(354, 24);
+        lblBuscarEmpleado.TabIndex = 7;
+        lblBuscarEmpleado.Text = "Nombre o Código";
+        lblBuscarEmpleado.TextAlign = ContentAlignment.MiddleLeft;
+        lblBuscarEmpleado.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        //
         // lblEstado
-        // 
+        //
         lblEstado.AutoSize = false;
         lblEstado.BackColor = Color.Transparent;
         lblEstado.Font = new Font("Inter", 9F);
@@ -216,9 +216,9 @@ partial class FrmAsistencias
         lblEstado.Text = "Estado";
         lblEstado.TextAlign = ContentAlignment.MiddleLeft;
         lblEstado.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        // 
+        //
         // btnRegistrarAsistencia
-        // 
+        //
         btnRegistrarAsistencia.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
         btnRegistrarAsistencia.Appearance.Normal.BorderColor = Color.FromArgb(49, 81, 107);
         btnRegistrarAsistencia.Appearance.Normal.FillColor = Color.FromArgb(49, 81, 107);
@@ -239,9 +239,9 @@ partial class FrmAsistencias
         btnRegistrarAsistencia.TabIndex = 11;
         btnRegistrarAsistencia.Text = "Registrar o editar";
         btnRegistrarAsistencia.UseVisualStyleBackColor = false;
-        // 
+        //
         // btnConsultar
-        // 
+        //
         btnConsultar.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
         btnConsultar.Appearance.Normal.BorderColor = Color.FromArgb(49, 81, 107);
         btnConsultar.Appearance.Normal.FillColor = Color.FromArgb(49, 81, 107);
@@ -262,9 +262,9 @@ partial class FrmAsistencias
         btnConsultar.TabIndex = 12;
         btnConsultar.Text = "Consultar";
         btnConsultar.UseVisualStyleBackColor = false;
-        // 
+        //
         // btnPermisosLaborales
-        // 
+        //
         btnPermisosLaborales.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
         btnPermisosLaborales.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
         btnPermisosLaborales.Appearance.Normal.FillColor = Color.White;
@@ -286,9 +286,9 @@ partial class FrmAsistencias
         btnPermisosLaborales.Text = "Permisos laborales";
         btnPermisosLaborales.UseVisualStyleBackColor = false;
         btnPermisosLaborales.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
-        // 
+        //
         // btnExportarExcel
-        // 
+        //
         btnExportarExcel.Appearance.Hover.FillColor = Color.FromArgb(27, 99, 60);
         btnExportarExcel.Appearance.Normal.BorderColor = Color.FromArgb(33, 115, 70);
         btnExportarExcel.Appearance.Normal.FillColor = Color.FromArgb(33, 115, 70);
@@ -309,9 +309,9 @@ partial class FrmAsistencias
         btnExportarExcel.TabIndex = 14;
         btnExportarExcel.Text = "Exportar Excel";
         btnExportarExcel.UseVisualStyleBackColor = false;
-        // 
+        //
         // dgvAsistencias
-        // 
+        //
         dgvAsistencias.AllowUserToAddRows = false;
         dgvAsistencias.AllowUserToDeleteRows = false;
         dgvAsistencias.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -360,66 +360,66 @@ partial class FrmAsistencias
         dgvAsistencias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         dgvAsistencias.Size = new Size(1094, 378);
         dgvAsistencias.TabIndex = 16;
-        // 
+        //
         // colFecha
-        // 
+        //
         colFecha.HeaderText = "Fecha";
         colFecha.Name = "colFecha";
         colFecha.ReadOnly = true;
-        // 
+        //
         // colEmpleado
-        // 
+        //
         colEmpleado.HeaderText = "Empleado";
         colEmpleado.Name = "colEmpleado";
         colEmpleado.ReadOnly = true;
-        // 
+        //
         // colDepartamento
-        // 
+        //
         colDepartamento.FillWeight = 150F;
         colDepartamento.HeaderText = "Departamento";
         colDepartamento.Name = "colDepartamento";
         colDepartamento.ReadOnly = true;
-        // 
+        //
         // colEntrada
-        // 
+        //
         colEntrada.HeaderText = "Entrada";
         colEntrada.Name = "colEntrada";
         colEntrada.ReadOnly = true;
-        // 
+        //
         // colSalida
-        // 
+        //
         colSalida.HeaderText = "Salida";
         colSalida.Name = "colSalida";
         colSalida.ReadOnly = true;
-        // 
+        //
         // colEstado
-        // 
+        //
         colEstado.HeaderText = "Estado";
         colEstado.Name = "colEstado";
         colEstado.ReadOnly = true;
-        // 
+        //
         // colTardanza
-        // 
+        //
         colTardanza.HeaderText = "Tardanza (min)";
         colTardanza.Name = "colTardanza";
         colTardanza.ReadOnly = true;
-        // 
-        // kLabel5
-        // 
-        kLabel5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        kLabel5.AutoSize = false;
-        kLabel5.BackColor = Color.Transparent;
-        kLabel5.Font = new Font("Inter", 9F);
-        kLabel5.ForeColor = Color.FromArgb(64, 64, 64);
-        kLabel5.Location = new Point(16, 268);
-        kLabel5.Name = "kLabel5";
-        kLabel5.Size = new Size(1094, 24);
-        kLabel5.TabIndex = 15;
-        kLabel5.Text = "Marcas e incidencias";
-        kLabel5.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        // 
+        //
+        // lblTituloTabla
+        //
+        lblTituloTabla.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        lblTituloTabla.AutoSize = false;
+        lblTituloTabla.BackColor = Color.Transparent;
+        lblTituloTabla.Font = new Font("Inter", 9F);
+        lblTituloTabla.ForeColor = Color.FromArgb(64, 64, 64);
+        lblTituloTabla.Location = new Point(16, 268);
+        lblTituloTabla.Name = "lblTituloTabla";
+        lblTituloTabla.Size = new Size(1094, 24);
+        lblTituloTabla.TabIndex = 15;
+        lblTituloTabla.Text = "Marcas e incidencias";
+        lblTituloTabla.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        //
         // btnAnterior
-        // 
+        //
         btnAnterior.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
         btnAnterior.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
         btnAnterior.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
@@ -442,9 +442,9 @@ partial class FrmAsistencias
         btnAnterior.Text = "Anterior";
         btnAnterior.UseVisualStyleBackColor = false;
         btnAnterior.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
-        // 
+        //
         // lblPagina
-        // 
+        //
         lblPagina.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
         lblPagina.AutoSize = false;
         lblPagina.BackColor = Color.Transparent;
@@ -457,9 +457,9 @@ partial class FrmAsistencias
         lblPagina.Text = "Página 1 de 1";
         lblPagina.TextAlign = ContentAlignment.MiddleCenter;
         lblPagina.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        // 
+        //
         // btnSiguiente
-        // 
+        //
         btnSiguiente.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
         btnSiguiente.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
         btnSiguiente.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
@@ -482,9 +482,9 @@ partial class FrmAsistencias
         btnSiguiente.Text = "Siguiente";
         btnSiguiente.UseVisualStyleBackColor = false;
         btnSiguiente.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
-        // 
+        //
         // cboTamanoPagina
-        // 
+        //
         cboTamanoPagina.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         cboTamanoPagina.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
         cboTamanoPagina.Appearance.Normal.FillColor = Color.White;
@@ -501,9 +501,9 @@ partial class FrmAsistencias
         cboTamanoPagina.Name = "cboTamanoPagina";
         cboTamanoPagina.Size = new Size(156, 34);
         cboTamanoPagina.TabIndex = 21;
-        // 
+        //
         // lblTamanoPagina
-        // 
+        //
         lblTamanoPagina.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         lblTamanoPagina.AutoSize = false;
         lblTamanoPagina.BackColor = Color.Transparent;
@@ -516,13 +516,13 @@ partial class FrmAsistencias
         lblTamanoPagina.Text = "Filas por página";
         lblTamanoPagina.TextAlign = ContentAlignment.MiddleLeft;
         lblTamanoPagina.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        // 
+        //
         // notificador
-        // 
+        //
         notificador.OwnerForm = this;
-        // 
+        //
         // FrmAsistencias
-        // 
+        //
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.White;
@@ -531,17 +531,17 @@ partial class FrmAsistencias
         Controls.Add(btnSiguiente);
         Controls.Add(lblPagina);
         Controls.Add(btnAnterior);
-        Controls.Add(kLabel5);
+        Controls.Add(lblTituloTabla);
         Controls.Add(dgvAsistencias);
         Controls.Add(btnExportarExcel);
         Controls.Add(btnPermisosLaborales);
         Controls.Add(btnConsultar);
         Controls.Add(btnRegistrarAsistencia);
         Controls.Add(lblEstado);
-        Controls.Add(kLabel4);
-        Controls.Add(kLabel3);
-        Controls.Add(kLabel2);
-        Controls.Add(kLabel1);
+        Controls.Add(lblBuscarEmpleado);
+        Controls.Add(lblDepartamento);
+        Controls.Add(lblHasta);
+        Controls.Add(lblDesde);
         Controls.Add(lblTitulo);
         Controls.Add(cboEstado);
         Controls.Add(txtBuscarEmpleado);
@@ -552,6 +552,7 @@ partial class FrmAsistencias
         Font = new Font("Segoe UI", 9F);
         FormBorderStyle = FormBorderStyle.None;
         MinimumSize = new Size(1126, 744);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmAsistencias";
         Text = "Control de Asistencias";
         Load += FrmAsistencias_Load;
@@ -567,17 +568,17 @@ partial class FrmAsistencias
     private KovaqsUI.Controls.KTextBox txtBuscarEmpleado;
     private KovaqsUI.Controls.KComboBox cboEstado;
     private KovaqsUI.Controls.KLabel lblTitulo;
-    private KovaqsUI.Controls.KLabel kLabel1;
-    private KovaqsUI.Controls.KLabel kLabel2;
-    private KovaqsUI.Controls.KLabel kLabel3;
-    private KovaqsUI.Controls.KLabel kLabel4;
+    private KovaqsUI.Controls.KLabel lblDesde;
+    private KovaqsUI.Controls.KLabel lblHasta;
+    private KovaqsUI.Controls.KLabel lblDepartamento;
+    private KovaqsUI.Controls.KLabel lblBuscarEmpleado;
     private KovaqsUI.Controls.KLabel lblEstado;
     private KovaqsUI.Controls.KButton btnRegistrarAsistencia;
     private KovaqsUI.Controls.KButton btnConsultar;
     private KovaqsUI.Controls.KButton btnPermisosLaborales;
     private KovaqsUI.Controls.KButton btnExportarExcel;
     private KovaqsUI.Controls.KDataGridView dgvAsistencias;
-    private KovaqsUI.Controls.KLabel kLabel5;
+    private KovaqsUI.Controls.KLabel lblTituloTabla;
     private KovaqsUI.Controls.KButton btnAnterior;
     private KovaqsUI.Controls.KLabel lblPagina;
     private KovaqsUI.Controls.KButton btnSiguiente;

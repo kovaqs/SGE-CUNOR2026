@@ -27,11 +27,11 @@ namespace Presentacion.Forms
             numPuerto.Text = "3306";
 
             AcceptButton = btnGuardar;
-            CancelButton = kButton2;
-            kButton2.DialogResult = DialogResult.Cancel;
+            CancelButton = btnCancelar;
+            btnCancelar.DialogResult = DialogResult.Cancel;
             btnGuardar.Click += Guardar_Click;
             btnMostrar.Click += (_, _) => MostrarCredenciales(!credencialesVisibles);
-            kButton2.Click += (_, _) => Close();
+            btnCancelar.Click += (_, _) => Close();
             Shown += (_, _) => CargarConfiguracionLocal();
             FormClosing += (_, e) =>
             {
@@ -145,7 +145,7 @@ namespace Presentacion.Forms
         {
             guardando = trabajando;
             UseWaitCursor = trabajando;
-            btnGuardar.Enabled = kButton2.Enabled = btnMostrar.Enabled = !trabajando;
+            btnGuardar.Enabled = btnCancelar.Enabled = btnMostrar.Enabled = !trabajando;
             foreach (var campo in campos)
                 campo.Enabled = !trabajando;
         }

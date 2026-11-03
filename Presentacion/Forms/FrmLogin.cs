@@ -18,14 +18,14 @@ namespace Presentacion.Forms
         public FrmLogin()
         {
             InitializeComponent();
-            AcceptButton = kButton1;
-            CancelButton = kButton2;
-            kButton1.Click += Ingresar_Click;
-            kButton2.Click += (_, _) => Close();
-            kCheckBox1.CheckedChanged += (_, _) =>
+            AcceptButton = btnIngresar;
+            CancelButton = btnSalir;
+            btnIngresar.Click += Ingresar_Click;
+            btnSalir.Click += (_, _) => Close();
+            chkMostrarContrasena.CheckedChanged += (_, _) =>
             {
-                kTextBox2.PasswordChar = kCheckBox1.Checked ? '\0' : '●';
-                kTextBox2.UseSystemPasswordChar = !kCheckBox1.Checked;
+                txtContrasena.PasswordChar = chkMostrarContrasena.Checked ? '\0' : '●';
+                txtContrasena.UseSystemPasswordChar = !chkMostrarContrasena.Checked;
             };
             FormClosed += (_, _) =>
             {
@@ -55,7 +55,7 @@ namespace Presentacion.Forms
                 if (versionConexion is null)
                 {
                     btnConfigurarConexion.Visible = true;
-                    kLabel2.Text = "Configura la conexión a MySQL para empezar.";
+                    lblIndicaciones.Text = "Configura la conexión a MySQL para empezar.";
                     return;
                 }
                 preparado = await autenticacion.HayUsuariosAsync(cancelacion.Token);
@@ -65,11 +65,11 @@ namespace Presentacion.Forms
                     return;
                 }
                 btnConfigurarConexion.Visible = false;
-                kLabel2.Text = preparado
+                lblIndicaciones.Text = preparado
                     ? "Introduce tus credenciales para empezar"
                     : "No hay usuarios registrados. Contacta al administrador.";
                 if (preparado)
-                    kTextBox2.Focus();
+                    txtContrasena.Focus();
             }
             catch (OperationCanceledException) { }
             catch (Exception ex) when (ex is ArgumentException or InvalidOperationException)
@@ -86,7 +86,7 @@ namespace Presentacion.Forms
             {
                 if (!IsDisposed)
                 {
-                    kButton1.Text = preparado ? "Iniciar sesión" : "Reintentar";
+                    btnIngresar.Text = preparado ? "Iniciar sesión" : "Reintentar";
                     CambiarEstado(false);
                 }
             }
@@ -102,8 +102,8 @@ namespace Presentacion.Forms
             {
                 using var conexion = new FrmConfigurarConexion();
                 conexion.ShowDialog(this);
-                kTextBox2.Text = "";
-                kCheckBox1.Checked = false;
+                txtContrasena.Text = "";
+                chkMostrarContrasena.Checked = false;
             }
             finally
             {
@@ -133,8 +133,8 @@ namespace Presentacion.Forms
         {
             preparado = false;
             btnConfigurarConexion.Visible = true;
-            kButton1.Text = "Reintentar";
-            kLabel2.Text = "No se pudo comprobar la conexión. Puedes revisarla o reintentar.";
+            btnIngresar.Text = "Reintentar";
+            lblIndicaciones.Text = "No se pudo comprobar la conexión. Puedes revisarla o reintentar.";
             notificador.Show("Conexión", mensaje, KToastKind.Warning);
         }
 
@@ -157,12 +157,12 @@ namespace Presentacion.Forms
                     revisarConexion = true;
                     return;
                 }
-                var sesion = await autenticacion.IniciarSesionAsync(kTextBox1.Text, kTextBox2.Text, cancelacion.Token);
-                kTextBox2.Text = "";
-                kCheckBox1.Checked = false;
+                var sesion = await autenticacion.IniciarSesionAsync(txtUsuario.Text, txtContrasena.Text, cancelacion.Token);
+                txtContrasena.Text = "";
+                chkMostrarContrasena.Checked = false;
                 if (sesion is null)
                 {
-                    kLabel2.Text = "Usuario o contraseña incorrectos, o cuenta inactiva.";
+                    lblIndicaciones.Text = "Usuario o contraseña incorrectos, o cuenta inactiva.";
                     await Task.Delay(1500, cancelacion.Token);
                     return;
                 }
@@ -178,7 +178,7 @@ namespace Presentacion.Forms
                     ventana.ShowDialog();
                     principal = null;
                     var sesionActual = ventana.SesionActual ?? sesion;
-                    kTextBox1.Text = sesionActual.NombreUsuario;
+                    txtUsuario.Text = sesionActual.NombreUsuario;
                     conexionModificada = ConexionHaCambiado();
                     if (!conexionModificada)
                         await autenticacion.CerrarSesionAsync(sesionActual, cancelacion.Token);
@@ -215,7 +215,7 @@ namespace Presentacion.Forms
             {
                 if (!IsDisposed)
                 {
-                    kTextBox2.Text = "";
+                    txtContrasena.Text = "";
                     if (revisarConexion)
                         await PrepararAsync();
                     else
@@ -225,7 +225,7 @@ namespace Presentacion.Forms
                     {
                         if (conexionModificada)
                             notificador.Show("Sesión cerrada", "Cambió la conexión a MySQL. Inicia sesión nuevamente.", KToastKind.Warning);
-                        kTextBox2.Focus();
+                        txtContrasena.Focus();
                     }
                 }
             }
@@ -235,17 +235,17 @@ namespace Presentacion.Forms
         {
             ocupado = trabajando;
             UseWaitCursor = trabajando;
-            kButton1.Enabled = kButton2.Enabled = !trabajando;
+            btnIngresar.Enabled = btnSalir.Enabled = !trabajando;
             btnConfigurarConexion.Enabled = !trabajando;
-            kTextBox1.Enabled = kTextBox2.Enabled = kCheckBox1.Enabled = !trabajando;
+            txtUsuario.Enabled = txtContrasena.Enabled = chkMostrarContrasena.Enabled = !trabajando;
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void panelCabecera_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void panelAcceso_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -127,6 +127,7 @@ namespace Presentacion.Forms.SubForms
             Font = new Font("Segoe UI", 9F);
             Controls.Add(lblBanco);
             Controls.Add(lblCuentaBancaria);
+            Icon = Properties.Resources.sgeicon;
             Name = "FrmExpedientesDatosBancarios";
             Text = "FrmExpedientesDatosBancarios";
             ResumeLayout(false);

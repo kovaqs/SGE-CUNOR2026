@@ -16,13 +16,14 @@ partial class FrmHorarios
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
+        DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
         btnAcciones = new KovaqsUI.Controls.KButton();
         cmsHorarios = new ContextMenuStrip(components);
         mnuEditarHorario = new ToolStripMenuItem();
         separadorAcciones = new ToolStripSeparator();
         mnuEliminarHorario = new ToolStripMenuItem();
-        DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-        DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
         lblTitulo = new KovaqsUI.Controls.KLabel();
         btnCerrar = new KovaqsUI.Controls.KButton();
         lblBuscar = new KovaqsUI.Controls.KLabel();
@@ -36,266 +37,298 @@ partial class FrmHorarios
         colHorariosDescripcion = new DataGridViewTextBoxColumn();
         colHorariosActivo = new DataGridViewCheckBoxColumn();
         notificador = new KovaqsUI.Components.KToastNotifier(components);
+        cmsHorarios.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dgvHorarios).BeginInit();
         SuspendLayout();
+        // 
+        // btnAcciones
+        // 
+        btnAcciones.Appearance.Hover.FillColor = Color.FromArgb(239, 244, 248);
+        btnAcciones.Appearance.Normal.BorderColor = Color.FromArgb(173, 190, 204);
+        btnAcciones.Appearance.Normal.FillColor = Color.White;
+        btnAcciones.Appearance.Normal.ForeColor = Color.FromArgb(49, 81, 107);
+        btnAcciones.Appearance.Pressed.FillColor = Color.FromArgb(225, 235, 243);
+        btnAcciones.BackColor = Color.Transparent;
+        btnAcciones.BorderColor = Color.FromArgb(173, 190, 204);
+        btnAcciones.CornerRadius = 8;
+        btnAcciones.Enabled = false;
+        btnAcciones.FillColor = Color.White;
+        btnAcciones.FlatStyle = FlatStyle.Flat;
+        btnAcciones.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
+        btnAcciones.Font = new Font("Inter", 9F);
+        btnAcciones.ForeColor = Color.FromArgb(49, 81, 107);
+        btnAcciones.Location = new Point(283, 192);
+        btnAcciones.Margin = new Padding(3, 4, 3, 4);
+        btnAcciones.Name = "btnAcciones";
+        btnAcciones.Padding = new Padding(11, 5, 11, 5);
+        btnAcciones.Size = new Size(251, 53);
+        btnAcciones.TabIndex = 7;
+        btnAcciones.Text = "Acciones ▾";
+        btnAcciones.UseVisualStyleBackColor = false;
+        btnAcciones.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        btnAcciones.Click += btnAcciones_Click;
+        // 
+        // cmsHorarios
+        // 
+        cmsHorarios.Font = new Font("Microsoft Sans Serif", 9F);
+        cmsHorarios.ImageScalingSize = new Size(20, 20);
+        cmsHorarios.Items.AddRange(new ToolStripItem[] { mnuEditarHorario, separadorAcciones, mnuEliminarHorario });
+        cmsHorarios.Name = "cmsHorarios";
+        cmsHorarios.ShowImageMargin = false;
+        cmsHorarios.Size = new Size(105, 54);
+        cmsHorarios.Opening += cmsHorarios_Opening;
+        // 
+        // mnuEditarHorario
+        // 
+        mnuEditarHorario.ForeColor = Color.FromArgb(32, 38, 45);
+        mnuEditarHorario.Name = "mnuEditarHorario";
+        mnuEditarHorario.Size = new Size(104, 22);
+        mnuEditarHorario.Text = "Editar";
+        // 
+        // separadorAcciones
+        // 
+        separadorAcciones.Name = "separadorAcciones";
+        separadorAcciones.Size = new Size(101, 6);
+        // 
+        // mnuEliminarHorario
+        // 
+        mnuEliminarHorario.ForeColor = Color.FromArgb(166, 61, 64);
+        mnuEliminarHorario.Name = "mnuEliminarHorario";
+        mnuEliminarHorario.Size = new Size(104, 22);
+        mnuEliminarHorario.Text = "Eliminar";
+        // 
+        // lblTitulo
+        // 
+        lblTitulo.AutoSize = false;
+        lblTitulo.BackColor = Color.Transparent;
+        lblTitulo.Font = new Font("Inter", 16F, FontStyle.Bold);
+        lblTitulo.ForeColor = Color.FromArgb(32, 38, 45);
+        lblTitulo.Location = new Point(18, 16);
+        lblTitulo.Name = "lblTitulo";
+        lblTitulo.Size = new Size(846, 53);
+        lblTitulo.TabIndex = 0;
+        lblTitulo.Text = "Horarios de trabajo";
+        lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
+        lblTitulo.TextRole = KovaqsUI.Controls.KTextRole.Title;
+        // 
+        // btnCerrar
+        // 
+        btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnCerrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
+        btnCerrar.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.Appearance.Normal.FillColor = Color.White;
+        btnCerrar.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
+        btnCerrar.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
+        btnCerrar.BackColor = Color.Transparent;
+        btnCerrar.BorderColor = Color.FromArgb(218, 218, 218);
+        btnCerrar.CornerRadius = 8;
+        btnCerrar.DialogResult = DialogResult.Cancel;
+        btnCerrar.FillColor = Color.White;
+        btnCerrar.FlatStyle = FlatStyle.Flat;
+        btnCerrar.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
+        btnCerrar.Font = new Font("Inter", 9F);
+        btnCerrar.ForeColor = Color.FromArgb(32, 38, 45);
+        btnCerrar.Location = new Point(903, 16);
+        btnCerrar.Margin = new Padding(3, 4, 3, 4);
+        btnCerrar.Name = "btnCerrar";
+        btnCerrar.Padding = new Padding(11, 5, 11, 5);
+        btnCerrar.Size = new Size(110, 53);
+        btnCerrar.TabIndex = 1;
+        btnCerrar.Text = "Cerrar";
+        btnCerrar.UseVisualStyleBackColor = false;
+        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
+        // 
+        // lblBuscar
+        // 
+        lblBuscar.AutoSize = false;
+        lblBuscar.BackColor = Color.Transparent;
+        lblBuscar.Font = new Font("Inter", 9F);
+        lblBuscar.ForeColor = Color.FromArgb(64, 64, 64);
+        lblBuscar.Location = new Point(18, 93);
+        lblBuscar.Name = "lblBuscar";
+        lblBuscar.Size = new Size(487, 32);
+        lblBuscar.TabIndex = 2;
+        lblBuscar.Text = "Nombre del horario";
+        lblBuscar.TextAlign = ContentAlignment.MiddleLeft;
+        lblBuscar.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        // 
+        // txtBuscar
+        // 
+        txtBuscar.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
+        txtBuscar.Appearance.Normal.FillColor = Color.White;
+        txtBuscar.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
+        txtBuscar.BackColor = Color.Transparent;
+        txtBuscar.BorderColor = Color.FromArgb(218, 218, 218);
+        txtBuscar.CornerRadius = 8;
+        txtBuscar.FillColor = Color.White;
+        txtBuscar.Font = new Font("Inter", 9F);
+        txtBuscar.ForeColor = Color.FromArgb(32, 38, 45);
+        txtBuscar.Location = new Point(18, 128);
+        txtBuscar.Margin = new Padding(3, 4, 3, 4);
+        txtBuscar.MaxLength = 100;
+        txtBuscar.Name = "txtBuscar";
+        txtBuscar.Padding = new Padding(11, 8, 11, 8);
+        txtBuscar.Size = new Size(487, 45);
+        txtBuscar.TabIndex = 4;
+        // 
+        // lblEstadoFiltro
+        // 
+        lblEstadoFiltro.AutoSize = false;
+        lblEstadoFiltro.BackColor = Color.Transparent;
+        lblEstadoFiltro.Font = new Font("Inter", 9F);
+        lblEstadoFiltro.ForeColor = Color.FromArgb(64, 64, 64);
+        lblEstadoFiltro.Location = new Point(526, 93);
+        lblEstadoFiltro.Name = "lblEstadoFiltro";
+        lblEstadoFiltro.Size = new Size(487, 32);
+        lblEstadoFiltro.TabIndex = 3;
+        lblEstadoFiltro.Text = "Estado";
+        lblEstadoFiltro.TextAlign = ContentAlignment.MiddleLeft;
+        lblEstadoFiltro.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        // 
+        // cboEstado
+        // 
+        cboEstado.Appearance.Normal.BorderColor = Color.FromArgb(218, 218, 218);
+        cboEstado.Appearance.Normal.FillColor = Color.White;
+        cboEstado.Appearance.Normal.ForeColor = Color.FromArgb(32, 38, 45);
+        cboEstado.BackColor = Color.White;
+        cboEstado.BorderColor = Color.FromArgb(218, 218, 218);
+        cboEstado.FillColor = Color.White;
+        cboEstado.Font = new Font("Inter", 9F);
+        cboEstado.ForeColor = Color.FromArgb(32, 38, 45);
+        cboEstado.FormattingEnabled = true;
+        cboEstado.ItemHeight = 28;
+        cboEstado.Items.AddRange(new object[] { "Todos", "Activos", "Inactivos" });
+        cboEstado.Location = new Point(526, 128);
+        cboEstado.Margin = new Padding(3, 4, 3, 4);
+        cboEstado.Name = "cboEstado";
+        cboEstado.Size = new Size(486, 34);
+        cboEstado.TabIndex = 5;
+        // 
+        // btnNuevoHorario
+        // 
+        btnNuevoHorario.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
+        btnNuevoHorario.Appearance.Normal.BorderColor = Color.FromArgb(49, 81, 107);
+        btnNuevoHorario.Appearance.Normal.FillColor = Color.FromArgb(49, 81, 107);
+        btnNuevoHorario.Appearance.Normal.ForeColor = Color.White;
+        btnNuevoHorario.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
+        btnNuevoHorario.BackColor = Color.Transparent;
+        btnNuevoHorario.BorderColor = Color.FromArgb(49, 81, 107);
+        btnNuevoHorario.CornerRadius = 8;
+        btnNuevoHorario.FillColor = Color.FromArgb(49, 81, 107);
+        btnNuevoHorario.FlatStyle = FlatStyle.Flat;
+        btnNuevoHorario.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
+        btnNuevoHorario.Font = new Font("Inter", 9F);
+        btnNuevoHorario.ForeColor = Color.White;
+        btnNuevoHorario.Location = new Point(18, 192);
+        btnNuevoHorario.Margin = new Padding(3, 4, 3, 4);
+        btnNuevoHorario.Name = "btnNuevoHorario";
+        btnNuevoHorario.Padding = new Padding(11, 5, 11, 5);
+        btnNuevoHorario.Size = new Size(251, 53);
+        btnNuevoHorario.TabIndex = 6;
+        btnNuevoHorario.Text = "Nuevo horario";
+        btnNuevoHorario.UseVisualStyleBackColor = false;
+        // 
+        // lblHorariosTitulo
+        // 
+        lblHorariosTitulo.AutoSize = false;
+        lblHorariosTitulo.BackColor = Color.Transparent;
+        lblHorariosTitulo.Font = new Font("Inter", 9F);
+        lblHorariosTitulo.ForeColor = Color.FromArgb(64, 64, 64);
+        lblHorariosTitulo.Location = new Point(18, 264);
+        lblHorariosTitulo.Name = "lblHorariosTitulo";
+        lblHorariosTitulo.Size = new Size(994, 32);
+        lblHorariosTitulo.TabIndex = 9;
+        lblHorariosTitulo.Text = "Horarios disponibles";
+        lblHorariosTitulo.TextAlign = ContentAlignment.MiddleLeft;
+        lblHorariosTitulo.TextRole = KovaqsUI.Controls.KTextRole.Caption;
+        // 
+        // dgvHorarios
+        // 
+        dgvHorarios.AllowUserToAddRows = false;
+        dgvHorarios.AllowUserToDeleteRows = false;
+        dgvHorarios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        dgvHorarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        dgvHorarios.BackgroundColor = Color.White;
+        dgvHorarios.BorderStyle = BorderStyle.None;
+        dgvHorarios.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
         dataGridViewCellStyle1.BackColor = Color.FromArgb(244, 244, 244);
+        dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
         dataGridViewCellStyle1.ForeColor = Color.FromArgb(71, 85, 99);
         dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(244, 244, 244);
         dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(71, 85, 99);
-        dataGridViewCellStyle1.Font = new Font("Inter", 9F, FontStyle.Bold);
         dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+        dgvHorarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+        dgvHorarios.ColumnHeadersHeight = 42;
+        dgvHorarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+        dgvHorarios.Columns.AddRange(new DataGridViewColumn[] { colHorariosNombre, colHorariosDescripcion, colHorariosActivo });
+        dgvHorarios.ContextMenuStrip = cmsHorarios;
+        dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
         dataGridViewCellStyle2.BackColor = Color.White;
+        dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 9F);
         dataGridViewCellStyle2.ForeColor = Color.FromArgb(13, 21, 23);
+        dataGridViewCellStyle2.Padding = new Padding(8, 4, 8, 4);
         dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(231, 238, 245);
         dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(13, 21, 23);
-        dataGridViewCellStyle2.Font = new Font("Inter", 9F);
-        dataGridViewCellStyle2.Padding = new Padding(8, 4, 8, 4);
-        //
-        // lblTitulo
-        //
-        lblTitulo.AutoSize = false;
-        lblTitulo.BackColor = Color.Transparent;
-        lblTitulo.ForeColor = Color.FromArgb(32, 38, 45);
-        lblTitulo.TextRole = KovaqsUI.Controls.KTextRole.Title;
-        lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
-        lblTitulo.Text = "Horarios de trabajo";
-        lblTitulo.Font = new Font("Inter", 16F, FontStyle.Bold);
-        lblTitulo.Location = new Point(16, 12);
-        lblTitulo.Name = "lblTitulo";
-        lblTitulo.Size = new Size(740, 40);
-        lblTitulo.TabIndex = 0;
-        lblTitulo.TabStop = false;
-        //
-        // btnCerrar
-        //
-        btnCerrar.BackColor = Color.Transparent;
-        btnCerrar.CornerRadius = 8;
-        btnCerrar.FlatStyle = FlatStyle.Flat;
-        btnCerrar.Font = new Font("Inter", 9F);
-        btnCerrar.Padding = new Padding(10, 4, 10, 4);
-        btnCerrar.UseVisualStyleBackColor = false;
-        btnCerrar.Text = "Cerrar";
-        btnCerrar.DialogResult = DialogResult.Cancel;
-        btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        btnCerrar.Location = new Point(790, 12);
-        btnCerrar.BorderThickness = 1;
-        btnCerrar.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
-        btnCerrar.FillColor = Color.White;
-        btnCerrar.ForeColor = Color.FromArgb(32, 38, 45);
-        btnCerrar.BorderColor = Color.FromArgb(218, 218, 218);
-        btnCerrar.GradientColor = Color.Empty;
-        btnCerrar.Appearance.Hover.FillColor = Color.FromArgb(244, 246, 248);
-        btnCerrar.Appearance.Pressed.FillColor = Color.FromArgb(233, 237, 241);
-        btnCerrar.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
-        btnCerrar.Name = "btnCerrar";
-        btnCerrar.Size = new Size(96, 40);
-        btnCerrar.TabIndex = 1;
-        //
-        // lblBuscar
-        //
-        lblBuscar.AutoSize = false;
-        lblBuscar.BackColor = Color.Transparent;
-        lblBuscar.ForeColor = Color.FromArgb(64, 64, 64);
-        lblBuscar.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        lblBuscar.TextAlign = ContentAlignment.MiddleLeft;
-        lblBuscar.Text = "Nombre del horario";
-        lblBuscar.Location = new Point(16, 70);
-        lblBuscar.Font = new Font("Inter", 9F);
-        lblBuscar.Name = "lblBuscar";
-        lblBuscar.Size = new Size(426, 24);
-        lblBuscar.TabIndex = 2;
-        lblBuscar.TabStop = false;
-        //
-        // txtBuscar
-        //
-        txtBuscar.BackColor = Color.Transparent;
-        txtBuscar.CornerRadius = 8;
-        txtBuscar.Font = new Font("Inter", 9F);
-        txtBuscar.Padding = new Padding(10, 6, 10, 6);
-        txtBuscar.MaxLength = 100;
-        txtBuscar.Location = new Point(16, 96);
-        txtBuscar.FillColor = Color.White;
-        txtBuscar.ForeColor = Color.FromArgb(32, 38, 45);
-        txtBuscar.BorderColor = Color.FromArgb(218, 218, 218);
-        txtBuscar.GradientColor = Color.Empty;
-        txtBuscar.BorderThickness = 1;
-        txtBuscar.Name = "txtBuscar";
-        txtBuscar.Size = new Size(426, 34);
-        txtBuscar.TabIndex = 4;
-        //
-        // lblEstadoFiltro
-        //
-        lblEstadoFiltro.AutoSize = false;
-        lblEstadoFiltro.BackColor = Color.Transparent;
-        lblEstadoFiltro.ForeColor = Color.FromArgb(64, 64, 64);
-        lblEstadoFiltro.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        lblEstadoFiltro.TextAlign = ContentAlignment.MiddleLeft;
-        lblEstadoFiltro.Text = "Estado";
-        lblEstadoFiltro.Location = new Point(460, 70);
-        lblEstadoFiltro.Font = new Font("Inter", 9F);
-        lblEstadoFiltro.Name = "lblEstadoFiltro";
-        lblEstadoFiltro.Size = new Size(426, 24);
-        lblEstadoFiltro.TabIndex = 3;
-        lblEstadoFiltro.TabStop = false;
-        //
-        // cboEstado
-        //
-        cboEstado.Font = new Font("Inter", 9F);
-        cboEstado.DropDownStyle = ComboBoxStyle.DropDownList;
-        cboEstado.FormattingEnabled = true;
-        cboEstado.Items.AddRange(new object[] { "Todos", "Activos", "Inactivos" });
-        cboEstado.Location = new Point(460, 96);
-        cboEstado.CornerRadius = 8;
-        cboEstado.FillColor = Color.White;
-        cboEstado.ForeColor = Color.FromArgb(32, 38, 45);
-        cboEstado.BorderColor = Color.FromArgb(218, 218, 218);
-        cboEstado.GradientColor = Color.Empty;
-
-        cboEstado.Name = "cboEstado";
-        cboEstado.Size = new Size(426, 34);
-        cboEstado.TabIndex = 5;
-        //
-        // btnNuevoHorario
-        //
-        btnNuevoHorario.BackColor = Color.Transparent;
-        btnNuevoHorario.CornerRadius = 8;
-        btnNuevoHorario.FlatStyle = FlatStyle.Flat;
-        btnNuevoHorario.Font = new Font("Inter", 9F);
-        btnNuevoHorario.Padding = new Padding(10, 4, 10, 4);
-        btnNuevoHorario.UseVisualStyleBackColor = false;
-        btnNuevoHorario.Text = "Nuevo horario";
-        btnNuevoHorario.Location = new Point(16, 144);
-        btnNuevoHorario.BorderThickness = 1;
-        btnNuevoHorario.Variant = KovaqsUI.Styling.KButtonVariant.Primary;
-        btnNuevoHorario.FillColor = Color.FromArgb(49, 81, 107);
-        btnNuevoHorario.ForeColor = Color.White;
-        btnNuevoHorario.BorderColor = Color.FromArgb(49, 81, 107);
-        btnNuevoHorario.GradientColor = Color.Empty;
-        btnNuevoHorario.Appearance.Hover.FillColor = Color.FromArgb(41, 69, 93);
-        btnNuevoHorario.Appearance.Pressed.FillColor = Color.FromArgb(33, 56, 77);
-        btnNuevoHorario.FocusAppearance.Color = Color.FromArgb(221, 234, 244);
-        btnNuevoHorario.Name = "btnNuevoHorario";
-        btnNuevoHorario.Size = new Size(220, 40);
-        btnNuevoHorario.TabIndex = 6;
-        //
-        // lblHorariosTitulo
-        //
-        lblHorariosTitulo.AutoSize = false;
-        lblHorariosTitulo.BackColor = Color.Transparent;
-        lblHorariosTitulo.ForeColor = Color.FromArgb(64, 64, 64);
-        lblHorariosTitulo.TextRole = KovaqsUI.Controls.KTextRole.Caption;
-        lblHorariosTitulo.TextAlign = ContentAlignment.MiddleLeft;
-        lblHorariosTitulo.Text = "Horarios disponibles";
-        lblHorariosTitulo.Location = new Point(16, 198);
-        lblHorariosTitulo.Font = new Font("Inter", 9F);
-        lblHorariosTitulo.Name = "lblHorariosTitulo";
-        lblHorariosTitulo.Size = new Size(870, 24);
-        lblHorariosTitulo.TabIndex = 9;
-        lblHorariosTitulo.TabStop = false;
-        //
-        // dgvHorarios
-        //
-        dgvHorarios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        dgvHorarios.AllowUserToAddRows = false;
-        dgvHorarios.AllowUserToDeleteRows = false;
-        dgvHorarios.AutoGenerateColumns = false;
-        dgvHorarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        dgvHorarios.ReadOnly = true;
-        dgvHorarios.RowHeadersVisible = false;
-        dgvHorarios.MultiSelect = false;
-        dgvHorarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvHorarios.BackgroundColor = Color.White;
-        dgvHorarios.BorderStyle = BorderStyle.None;
-        dgvHorarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-        dgvHorarios.ColumnHeadersHeight = 42;
-        dgvHorarios.EnableHeadersVisualStyles = false;
-        dgvHorarios.GridColor = Color.FromArgb(218, 218, 218);
-        dgvHorarios.RowTemplate.Height = 42;
-        dgvHorarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+        dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
         dgvHorarios.DefaultCellStyle = dataGridViewCellStyle2;
-        dgvHorarios.Location = new Point(16, 224);
+        dgvHorarios.EnableHeadersVisualStyles = false;
         dgvHorarios.Font = new Font("Inter", 9F);
-        dgvHorarios.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+        dgvHorarios.GridColor = Color.FromArgb(218, 218, 218);
+        dgvHorarios.Location = new Point(18, 299);
+        dgvHorarios.Margin = new Padding(3, 4, 3, 4);
+        dgvHorarios.MultiSelect = false;
         dgvHorarios.Name = "dgvHorarios";
-        dgvHorarios.Size = new Size(870, 362);
+        dgvHorarios.ReadOnly = true;
+        dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+        dataGridViewCellStyle3.BackColor = Color.FromArgb(244, 244, 244);
+        dataGridViewCellStyle3.ForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(244, 244, 244);
+        dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(119, 119, 119);
+        dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+        dgvHorarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+        dgvHorarios.RowHeadersVisible = false;
+        dgvHorarios.RowHeadersWidth = 51;
+        dgvHorarios.RowTemplate.Height = 42;
+        dgvHorarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        dgvHorarios.Size = new Size(994, 483);
         dgvHorarios.TabIndex = 10;
-        dgvHorarios.Columns.AddRange(new DataGridViewColumn[] { colHorariosNombre, colHorariosDescripcion, colHorariosActivo });
-        //
+        dgvHorarios.CellDoubleClick += dgvHorarios_CellDoubleClick;
+        dgvHorarios.SelectionChanged += dgvHorarios_SelectionChanged;
+        dgvHorarios.MouseDown += dgvHorarios_MouseDown;
+        // 
         // colHorariosNombre
-        //
+        // 
         colHorariosNombre.HeaderText = "Nombre";
+        colHorariosNombre.MinimumWidth = 6;
         colHorariosNombre.Name = "colHorariosNombre";
         colHorariosNombre.ReadOnly = true;
-        //
+        // 
         // colHorariosDescripcion
-        //
+        // 
         colHorariosDescripcion.HeaderText = "Descripción";
+        colHorariosDescripcion.MinimumWidth = 6;
         colHorariosDescripcion.Name = "colHorariosDescripcion";
         colHorariosDescripcion.ReadOnly = true;
-        //
+        // 
         // colHorariosActivo
-        //
+        // 
         colHorariosActivo.HeaderText = "Activo";
+        colHorariosActivo.MinimumWidth = 6;
         colHorariosActivo.Name = "colHorariosActivo";
         colHorariosActivo.ReadOnly = true;
+        // 
+        // notificador
+        // 
         notificador.OwnerForm = this;
-        btnAcciones.BackColor = Color.Transparent;
-        btnAcciones.CornerRadius = 8;
-        btnAcciones.FlatStyle = FlatStyle.Flat;
-        btnAcciones.Font = new Font("Inter", 9F);
-        btnAcciones.Padding = new Padding(10, 4, 10, 4);
-        btnAcciones.UseVisualStyleBackColor = false;
-        btnAcciones.Text = "Acciones ▾";
-        btnAcciones.Location = new Point(248, 144);
-        btnAcciones.BorderThickness = 1;
-        btnAcciones.Variant = KovaqsUI.Styling.KButtonVariant.Outline;
-        btnAcciones.FillColor = Color.White;
-        btnAcciones.ForeColor = Color.FromArgb(49, 81, 107);
-        btnAcciones.BorderColor = Color.FromArgb(173, 190, 204);
-        btnAcciones.GradientColor = Color.Empty;
-        btnAcciones.Appearance.Hover.FillColor = Color.FromArgb(239, 244, 248);
-        btnAcciones.Appearance.Pressed.FillColor = Color.FromArgb(225, 235, 243);
-        btnAcciones.FocusAppearance.Color = Color.FromArgb(49, 81, 107);
-        btnAcciones.Name = "btnAcciones";
-        btnAcciones.Size = new Size(220, 40);
-        btnAcciones.TabIndex = 7;
-        btnAcciones.Click += btnAcciones_Click;
-        btnAcciones.Enabled = false;
-        //
-        // cmsHorarios
-        //
-        cmsHorarios.SuspendLayout();
-        cmsHorarios.Items.AddRange(new ToolStripItem[] { mnuEditarHorario, separadorAcciones, mnuEliminarHorario });
-        cmsHorarios.Name = "cmsHorarios";
-        cmsHorarios.Font = new Font("Inter", 9F);
-        cmsHorarios.ShowImageMargin = false;
-        cmsHorarios.Opening += cmsHorarios_Opening;
-        //
-        // mnuEditarHorario
-        //
-        mnuEditarHorario.Name = "mnuEditarHorario";
-        mnuEditarHorario.Text = "Editar";
-        mnuEditarHorario.ForeColor = Color.FromArgb(32, 38, 45);
-        //
-        // mnuEliminarHorario
-        //
-        mnuEliminarHorario.Name = "mnuEliminarHorario";
-        mnuEliminarHorario.Text = "Eliminar";
-        mnuEliminarHorario.ForeColor = Color.FromArgb(166, 61, 64);
-        separadorAcciones.Name = "separadorAcciones";
-        dgvHorarios.ContextMenuStrip = cmsHorarios;
-        dgvHorarios.MouseDown += dgvHorarios_MouseDown;
-        dgvHorarios.SelectionChanged += dgvHorarios_SelectionChanged;
-        dgvHorarios.CellDoubleClick += dgvHorarios_CellDoubleClick;
-        Controls.Add(btnAcciones);
-        cmsHorarios.ResumeLayout(false);
-        //
+        // 
         // FrmHorarios
-        //
-        AutoScaleDimensions = new SizeF(7F, 15F);
+        // 
+        AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.White;
-        ClientSize = new Size(902, 669);
+        CancelButton = btnCerrar;
+        ClientSize = new Size(1031, 892);
+        Controls.Add(btnAcciones);
         Controls.Add(lblTitulo);
         Controls.Add(btnCerrar);
         Controls.Add(lblBuscar);
@@ -305,15 +338,18 @@ partial class FrmHorarios
         Controls.Add(btnNuevoHorario);
         Controls.Add(lblHorariosTitulo);
         Controls.Add(dgvHorarios);
+        Font = new Font("Segoe UI", 9F);
         FormBorderStyle = FormBorderStyle.FixedDialog;
+        Margin = new Padding(3, 4, 3, 4);
         MaximizeBox = false;
         MinimizeBox = false;
+        Icon = Properties.Resources.sgeicon;
+        Name = "FrmHorarios";
         ShowInTaskbar = false;
         StartPosition = FormStartPosition.CenterParent;
-        CancelButton = btnCerrar;
-        Font = new Font("Segoe UI", 9F);
-        Name = "FrmHorarios";
         Text = "Horarios de trabajo";
+        Load += FrmHorarios_Load;
+        cmsHorarios.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)dgvHorarios).EndInit();
         ResumeLayout(false);
     }

@@ -255,6 +255,7 @@ partial class FrmPuesto
         StartPosition = FormStartPosition.CenterParent;
         CancelButton = btnCancelar;
         Font = new Font("Segoe UI", 9F);
+        Icon = Properties.Resources.sgeicon;
         Name = "FrmPuesto";
         Text = "Crear o editar puesto";
         ResumeLayout(false);
