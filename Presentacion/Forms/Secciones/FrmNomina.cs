@@ -5,6 +5,7 @@ public partial class FrmNomina : Form
     public FrmNomina()
     {
         InitializeComponent();
+        PrepararConsulta();
     }
 
     private void btnAcciones_Click(object sender, EventArgs e)
@@ -47,4 +48,8 @@ public partial class FrmNomina : Form
             mnuVerPeriodo.PerformClick();
     }
 
+    private void lblTitulo_Click(object sender, EventArgs e)
+    {
+
+    }
 }
