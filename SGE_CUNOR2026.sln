@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{9F4E6D3E-B22A-4F0C-B793-21DB673E133B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KovaqsUI", "KovaqsUI\src\KovaqsUI\KovaqsUI.csproj", "{82B4826F-5493-DFC7-BADA-B3D73E2789A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bibliotecas", "KovaqsUI\src\KovaqsUI\Bibliotecas.csproj", "{82B4826F-5493-DFC7-BADA-B3D73E2789A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

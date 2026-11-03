@@ -6,7 +6,7 @@ El problema estaba en la aplicación consumidora, no en la declaración WinForms
 
 | Inspección previa | Resultado |
 | --- | --- |
-| KovaqsUI.csproj, evaluación de MSBuild | TargetFramework=net8.0-windows, UseWindowsForms=true, OutputType=Library, plataforma Windows, AssemblyName/RootNamespace=KovaqsUI. |
+| Bibliotecas.csproj, evaluación de MSBuild | TargetFramework=net8.0-windows, UseWindowsForms=true, OutputType=Library, plataforma Windows, AssemblyName/RootNamespace=KovaqsUI. |
 | Directory.Build.props | Define correctamente TargetFramework y UseWindowsForms para biblioteca, Demo y SmokeTests. No tienen que repetirse en cada csproj. |
 | Demo | net8.0-windows, WinExe y ProjectReference real a KovaqsUI. |
 | Demon1.csproj original | Proyecto clásico con TargetFrameworkVersion=v4.7.2; consumidor .NET Framework, incompatible con esta biblioteca net8.0-windows. |
@@ -56,7 +56,7 @@ El asistente clásico **Elegir elementos → Componentes de .NET Framework** no 
 ## Pasos exactos para otra solución durante desarrollo
 
 1. Crear **Aplicación de Windows Forms**, C#, con **.NET 8**; evitar la plantilla **Aplicación de Windows Forms (.NET Framework)**. Usar Visual Studio compatible con .NET 8 y la carga de trabajo de escritorio .NET (en la máquina inspeccionada: VS 2022 17.14.39).
-2. Conservar el repositorio completo, incluido Directory.Build.props. Agregar a la solución consumidora el proyecto existente `src/KovaqsUI/KovaqsUI.csproj`. Puede permanecer en otra carpeta; no copiar sólo el csproj o sólo src.
+2. Conservar el repositorio completo, incluido Directory.Build.props. Agregar a la solución consumidora el proyecto existente `src/KovaqsUI/Bibliotecas.csproj`. Puede permanecer en otra carpeta; no copiar sólo el csproj o sólo src.
 3. En el proyecto consumidor: **Dependencias → Agregar referencia de proyecto → Proyectos → KovaqsUI**. Confirmar ProjectReference dentro del csproj. Agregar el proyecto a la solución y configurar ProjectDependencies no sustituye este paso.
 4. El consumidor debe definir su propio destino WinForms; no hereda Directory.Build.props de la biblioteca. Un csproj mínimo nuevo es:
 
@@ -69,7 +69,7 @@ El asistente clásico **Elegir elementos → Componentes de .NET Framework** no 
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\KovaqsUI\src\KovaqsUI\KovaqsUI.csproj" />
+    <ProjectReference Include="..\..\KovaqsUI\src\KovaqsUI\Bibliotecas.csproj" />
   </ItemGroup>
 </Project>
 ```
@@ -77,8 +77,8 @@ El asistente clásico **Elegir elementos → Componentes de .NET Framework** no 
 La ruta de ProjectReference es relativa al csproj consumidor, no a la solución. Adáptela a sus carpetas. En CLI, desde la solución consumidora:
 
 ```powershell
-dotnet sln .\MiAplicacion.sln add C:\dev\KovaqsUI\src\KovaqsUI\KovaqsUI.csproj
-dotnet add .\MiAplicacion\MiAplicacion.csproj reference C:\dev\KovaqsUI\src\KovaqsUI\KovaqsUI.csproj
+dotnet sln .\MiAplicacion.sln add C:\dev\KovaqsUI\src\KovaqsUI\Bibliotecas.csproj
+dotnet add .\MiAplicacion\MiAplicacion.csproj reference C:\dev\KovaqsUI\src\KovaqsUI\Bibliotecas.csproj
 dotnet build .\MiAplicacion.sln -c Debug
 ```
 

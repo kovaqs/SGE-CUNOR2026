@@ -177,6 +177,6 @@ La galería ofrece orientación, rangos, tamaños, radios, colores, disabled, an
 | tests/KovaqsUI.SmokeTests/DpiRegressionTests.cs | Mensajes DPI sintéticos y límites de ventanas. |
 | tests/KovaqsUI.SmokeTests/InteractionPolishTests.cs | Clics, presión/captura, segmentos y texto nativo. |
 | src/KovaqsUI/Controls/KComboBox.cs | Previsualización DropDownList sin borde nativo residual. |
-| src/KovaqsUI/KovaqsUI.csproj, README.md, CHANGELOG.md, guías | Versión, API, uso y alcance. |
+| src/KovaqsUI/Bibliotecas.csproj, README.md, CHANGELOG.md, guías | Versión, API, uso y alcance. |
 
 Se prueba DesignSurface/PropertyGrid y CodeDOM con root y componente de bandeja existentes como contexto de restauración de propiedades/referencias. DesignerSandbox compila usando IContainer. Esto no equivale a arrastrar, guardar y reabrir los tres componentes en Visual Studio; esa comprobación, lector de pantalla y migración entre monitores físicos siguen pendientes. Mensajes DPI sintéticos no cambian el DPI físico.

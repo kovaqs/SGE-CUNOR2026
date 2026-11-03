@@ -32,7 +32,7 @@ dotnet run --project tests/KovaqsUI.SmokeTests -c Release --no-build
 Las pruebas abren ventanas temporales. No necesitan automatizar Visual Studio. Para generar el paquete local:
 
 ```powershell
-dotnet pack src/KovaqsUI/KovaqsUI.csproj -c Release -p:IsPackable=true -o artifacts/packages
+dotnet pack src/KovaqsUI/Bibliotecas.csproj -c Release -p:IsPackable=true -o artifacts/packages
 ```
 
 ## Usar los controles en tu aplicación
@@ -40,14 +40,14 @@ dotnet pack src/KovaqsUI/KovaqsUI.csproj -c Release -p:IsPackable=true -o artifa
 Para generar sólo la biblioteca reutilizable:
 
 ```powershell
-dotnet build .\src\KovaqsUI\KovaqsUI.csproj -c Release
+dotnet build .\src\KovaqsUI\Bibliotecas.csproj -c Release
 ```
 
 Salida: `src/KovaqsUI/bin/Release/net8.0-windows/KovaqsUI.dll`. Puede copiar `KovaqsUI.xml` junto a ella para IntelliSense; el PDB es opcional para depurar. Las fuentes están incrustadas, no requieren instalación. No referencie DLL de Demo o SmokeTests.
 
 El consumidor debe ser WinForms con `TargetFramework=net8.0-windows` y `UseWindowsForms=true`; no es compatible con .NET Framework 4.x. Configure PerMonitorV2 antes de crear controles. La referencia binaria puede agregarse mediante **Agregar referencia → Examinar**, pero no garantiza descubrimiento automático en Toolbox. Durante desarrollo use **Agregar proyecto existente** y una **referencia de proyecto real** en la solución consumidora. Siga [los pasos de Toolbox y consumo externo](TOOLBOX.md); el selector clásico de componentes .NET Framework no valida una DLL .NET 8.
 
-En un proyecto WinForms .NET 8, agrega una referencia al proyecto `src/KovaqsUI/KovaqsUI.csproj`, o a la DLL compilada en `src/KovaqsUI/bin/Release/net8.0-windows/KovaqsUI.dll`. También puedes instalar el paquete generado desde una fuente NuGet local.
+En un proyecto WinForms .NET 8, agrega una referencia al proyecto `src/KovaqsUI/Bibliotecas.csproj`, o a la DLL compilada en `src/KovaqsUI/bin/Release/net8.0-windows/KovaqsUI.dll`. También puedes instalar el paquete generado desde una fuente NuGet local.
 
 ```csharp
 using KovaqsUI.Controls;

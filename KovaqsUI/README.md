@@ -29,7 +29,7 @@ En la Demo, **Personalizar…** abre un inspector sobre los controles reales. Se
 
 La DLL queda en `src/KovaqsUI/bin/Release/net8.0-windows/KovaqsUI.dll`. El paquete NuGet no se publica automáticamente.
 
-Para generar sólo la biblioteca: `dotnet build .\src\KovaqsUI\KovaqsUI.csproj -c Release`. Agregue esa DLL como referencia a otro proyecto WinForms con `net8.0-windows` y `UseWindowsForms=true`. Copie también `KovaqsUI.xml` junto a ella para IntelliSense; las fuentes están incrustadas. No es una DLL para .NET Framework 4.x. Consulte [uso de la DLL](docs/GETTING-STARTED.md).
+Para generar sólo la biblioteca: `dotnet build .\src\KovaqsUI\Bibliotecas.csproj -c Release`. Agregue esa DLL como referencia a otro proyecto WinForms con `net8.0-windows` y `UseWindowsForms=true`. Copie también `KovaqsUI.xml` junto a ella para IntelliSense; las fuentes están incrustadas. No es una DLL para .NET Framework 4.x. Consulte [uso de la DLL](docs/GETTING-STARTED.md).
 
 ## Migración desde KovaUI
 

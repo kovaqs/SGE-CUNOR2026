@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Negocios\Negocios.csproj" />
-    <ProjectReference Include="..\KovaqsUI\src\KovaqsUI\KovaqsUI.csproj" />
+    <ProjectReference Include="..\KovaqsUI\src\KovaqsUI\Bibliotecas.csproj" />
   </ItemGroup>
 
   <ItemGroup>

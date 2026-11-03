@@ -105,7 +105,7 @@ La búsqueda filtra nombre/correo/cargo y trata apóstrofos, corchetes, asterisc
 - `tests/KovaqsUI.SmokeTests/GridVisualRegressionTests.cs`: regresión de píxeles, estilos, interacción nativa, virtualización y CodeDOM.
 - `tests/KovaqsUI.SmokeTests/GridDemoRegressionTests.cs`: ejecución real de la demo, tamaños, filtros, acciones y validación.
 - Proyecto de pruebas y Program: referencia a la demo para pruebas de integración y ejecución focalizada `--grid`.
-- `src/KovaqsUI/KovaqsUI.csproj`, CHANGELOG y documentación: versión 0.7.1 y contratos actualizados.
+- `src/KovaqsUI/Bibliotecas.csproj`, CHANGELOG y documentación: versión 0.7.1 y contratos actualizados.
 
 ## Verificación
 

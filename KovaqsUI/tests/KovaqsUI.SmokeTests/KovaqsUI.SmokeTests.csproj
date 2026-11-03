@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup><OutputType>Exe</OutputType><ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode></PropertyGroup>
-  <ItemGroup><ProjectReference Include="../../src/KovaqsUI/KovaqsUI.csproj" /></ItemGroup>
+  <ItemGroup><ProjectReference Include="../../src/KovaqsUI/Bibliotecas.csproj" /></ItemGroup>
   <ItemGroup><ProjectReference Include="../../demo/KovaqsUI.Demo/KovaqsUI.Demo.csproj" /></ItemGroup>
 </Project>

@@ -97,7 +97,7 @@ Compile la solución, abra DesignerSandbox en Visual Studio y seleccione Items �
 
 - `src/KovaqsUI/Controls/KSegmentedControl.cs`: control, layout, pintura, interacción, accesibilidad y enum KSegmentSizeMode.
 - `src/KovaqsUI/Controls/KSegmentItem.cs`: modelo notificable y colección con propiedad exclusiva.
-- `src/KovaqsUI/KovaqsUI.csproj`: versión 0.6.0.
+- `src/KovaqsUI/Bibliotecas.csproj`: versión 0.6.0.
 - `demo/KovaqsUI.Demo/SegmentedDemoForm.cs`: referencia horizontal/vertical, colores, contenido, disabled, colección dinámica e inspector.
 - `demo/KovaqsUI.Demo/Program.cs` y `SuiteForm.cs`: accesos a demo; argumento `--segments` y ruta opcional para captura.
 - `demo/KovaqsUI.Demo/DesignerSandbox.Designer.cs`: ejemplos persistidos horizontal/vertical.

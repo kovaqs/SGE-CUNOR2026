@@ -1,5 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <AssemblyName>KovaqsUI</AssemblyName>
+    <RootNamespace>KovaqsUI</RootNamespace>
     <PackageId>KovaqsUI</PackageId>
     <Version>0.8.0</Version>
     <Description>Configurable, native Windows Forms controls.</Description>
