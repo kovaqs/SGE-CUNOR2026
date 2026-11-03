@@ -2,6 +2,9 @@
 
 Proyecto académico de Introducción a la Programación 2 para administrar la información del personal de una empresa.
 
+## Integrantes
+-202240932, Denilson Yat Latz
+
 ## Funciones principales
 
 - Expedientes e historial laboral.
